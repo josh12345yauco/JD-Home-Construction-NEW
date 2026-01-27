@@ -117,9 +117,12 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40 z-10" />
           <motion.div style={{ y: heroParallax }} className="w-full h-full">
-             <Image 
-              src="https://static.wixstatic.com/media/dc69ab_b8eed9f747cd4acba74b37f5922e42bf~mv2.png?originWidth=1152&originHeight=576"
-              alt="Construction Site Background"
+             <video 
+              src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
               className="w-full h-full object-cover opacity-20"
             />
           </motion.div>
