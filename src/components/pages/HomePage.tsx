@@ -113,10 +113,10 @@ export default function HomePage() {
       <Header />
       
       {/* --- SECTION 1: HERO (Havix Style Split) --- */}
-      <section className="relative w-full min-h-[95vh] flex items-center pt-32 pb-20 overflow-hidden">
+      <section className="relative w-full min-h-[95vh] flex items-center pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-background/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/40 z-10" />
           <motion.div style={{ y: heroParallax }} className="w-full h-full">
              <video 
               src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
@@ -124,7 +124,7 @@ export default function HomePage() {
               muted
               loop
               playsInline
-              className="w-full h-full object-cover opacity-20"
+              className="w-full h-full object-cover opacity-10"
             />
           </motion.div>
         </div>
@@ -139,24 +139,24 @@ export default function HomePage() {
               className="max-w-3xl"
             >
               <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
-                <span className="h-[2px] w-12 bg-primary"></span>
-                <span className="font-heading text-sm tracking-widest uppercase text-primary font-bold">Premium Contracting Services</span>
+                <span className="h-[2px] w-12 bg-accent-orange"></span>
+                <span className="font-heading text-sm tracking-widest uppercase text-accent-orange font-bold">Premium Contracting Services</span>
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="font-heading text-6xl lg:text-8xl font-bold text-secondary leading-[0.95] mb-8">
+              <motion.h1 variants={fadeInUp} className="font-heading text-6xl lg:text-8xl font-bold text-white leading-[0.95] mb-8">
                 Build It Right.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-secondary/70">Build It Once.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Build It Once.</span>
               </motion.h1>
               
-              <motion.p variants={fadeInUp} className="font-paragraph text-xl text-foreground/80 mb-10 max-w-xl leading-relaxed">
+              <motion.p variants={fadeInUp} className="font-paragraph text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
                 Remodels, additions, and exterior upgrades done with craftsmanship, clear communication, and a clean jobsite—start to finish.
               </motion.p>
               
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-heading text-lg px-10 h-16 rounded-full shadow-lg shadow-primary/20 transition-all hover:scale-105">
+                <Button asChild size="lg" className="bg-accent-orange hover:bg-accent-orange/90 text-secondary font-heading text-lg px-10 h-16 rounded-full shadow-lg shadow-accent-orange/20 transition-all hover:scale-105">
                   <Link to="/contact">Request a Quote</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-heading text-lg px-10 h-16 rounded-full transition-all">
+                <Button asChild variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-secondary font-heading text-lg px-10 h-16 rounded-full transition-all">
                   <Link to="/projects">View Our Work</Link>
                 </Button>
               </motion.div>
@@ -170,34 +170,34 @@ export default function HomePage() {
               className="relative hidden lg:block h-full min-h-[600px]"
             >
               {/* Decorative Grid Behind */}
-              <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-medium-grey/20 rounded-tr-[4rem]" />
+              <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem]" />
 
               {/* Card 1 */}
               <motion.div 
                 whileHover={{ y: -10 }}
-                className="absolute top-12 right-12 w-80 bg-white p-8 rounded-2xl shadow-2xl border border-medium-grey/10 z-20"
+                className="absolute top-12 right-12 w-80 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20 z-20"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
+                <div className="w-14 h-14 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-6 text-accent-orange">
                   <Clock className="w-8 h-8" />
                 </div>
-                <h3 className="font-heading text-2xl text-secondary mb-2">Fast Estimates</h3>
-                <p className="font-paragraph text-foreground/70">Hear back within 1 business day. No chasing required.</p>
+                <h3 className="font-heading text-2xl text-white mb-2">Fast Estimates</h3>
+                <p className="font-paragraph text-white/70">Hear back within 1 business day. No chasing required.</p>
               </motion.div>
 
               {/* Card 2 */}
               <motion.div 
                 whileHover={{ y: -10 }}
-                className="absolute top-64 right-48 w-80 bg-secondary p-8 rounded-2xl shadow-2xl z-30"
+                className="absolute top-64 right-48 w-80 bg-accent-orange p-8 rounded-2xl shadow-2xl z-30"
               >
-                <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-6 text-primary">
+                <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
                   <Shield className="w-8 h-8" />
                 </div>
-                <h3 className="font-heading text-2xl text-white mb-2">Licensed & Insured</h3>
-                <p className="font-paragraph text-white/70">Professional, warranty-backed work you can trust.</p>
+                <h3 className="font-heading text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                <p className="font-paragraph text-secondary/80">Professional, warranty-backed work you can trust.</p>
               </motion.div>
 
               {/* Abstract Shape */}
-              <div className="absolute bottom-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10" />
+              <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
             </motion.div>
           </div>
 
@@ -206,7 +206,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-24 pt-12 border-t border-medium-grey/20 grid grid-cols-2 md:grid-cols-4 gap-8"
+            className="mt-24 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
               { label: "Projects Completed", value: "300+" },
@@ -215,8 +215,8 @@ export default function HomePage() {
               { label: "On-Time Rate", value: "98%" },
             ].map((stat, i) => (
               <div key={i} className="flex flex-col items-start">
-                <span className="font-heading text-4xl lg:text-5xl font-bold text-secondary mb-1">{stat.value}</span>
-                <span className="font-paragraph text-sm font-semibold text-primary uppercase tracking-wider">{stat.label}</span>
+                <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">{stat.value}</span>
+                <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">{stat.label}</span>
               </div>
             ))}
           </motion.div>
