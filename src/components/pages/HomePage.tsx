@@ -111,7 +111,6 @@ export default function HomePage() {
   return (
     <div ref={containerRef} className="min-h-screen bg-background font-paragraph selection:bg-primary selection:text-white overflow-clip">
       <Header />
-      
       {/* --- SECTION 1: HERO (Havix Style Split) --- */}
       <section className="relative w-full min-h-[95vh] flex items-center pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Elements */}
@@ -222,7 +221,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
       {/* --- SECTION 2: ABOUT PREVIEW --- */}
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -244,9 +242,7 @@ export default function HomePage() {
                 />
               </div>
               {/* Floating Badge */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-white p-6 rounded-full shadow-xl z-10">
-                <Award className="w-12 h-12" />
-              </div>
+
             </div>
 
             {/* Content */}
@@ -295,7 +291,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 3: SCROLLING HIGHLIGHT BAND --- */}
       <div className="w-full bg-secondary py-8 overflow-hidden border-y border-white/10">
         <div className="relative flex overflow-x-hidden group">
@@ -317,7 +312,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </div>
-
       {/* --- SECTION 4: SERVICES GRID --- */}
       <section id="services" className="w-full py-32 bg-background">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -336,9 +330,9 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {isLoadingServices ? (
               // Loading Skeletons
-              [...Array(6)].map((_, i) => (
+              ([...Array(6)].map((_, i) => (
                 <div key={i} className="h-[400px] bg-light-grey animate-pulse rounded-2xl" />
-              ))
+              )))
             ) : (
               services.map((service, index) => (
                 <motion.div
@@ -357,9 +351,7 @@ export default function HomePage() {
                           alt={service.serviceName || 'Service'}
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                         />
-                        <div className="absolute top-4 right-4 z-20 bg-white p-3 rounded-xl shadow-lg">
-                          <Hammer className="w-6 h-6 text-primary" />
-                        </div>
+
                       </div>
                       <CardContent className="p-8">
                         <h3 className="font-heading text-2xl text-secondary mb-3 group-hover:text-primary transition-colors">
@@ -380,7 +372,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 5: MID-PAGE CTA --- */}
       <section className="w-full py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
@@ -408,7 +399,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-
       {/* --- SECTION 6: TESTIMONIALS --- */}
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -458,7 +448,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 7: 3D CAROUSEL GALLERY --- */}
       <section className="w-full py-32 bg-background overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -596,7 +585,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 8: WHY CHOOSE JD --- */}
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -638,7 +626,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 9: COUNTERS STRIP --- */}
       <section className="w-full py-20 bg-secondary text-white">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -657,7 +644,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 10: TEAM PREVIEW --- */}
       <section className="w-full py-32 bg-background">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -702,7 +688,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 11: ESTIMATE OPTIONS --- */}
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -771,7 +756,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       {/* --- SECTION 12: REQUEST ESTIMATE FORM --- */}
       <section id="quote-form" className="w-full py-32 bg-background">
         <div className="max-w-4xl mx-auto px-6">
@@ -860,7 +844,6 @@ export default function HomePage() {
           </Card>
         </div>
       </section>
-
       {/* --- SECTION 13: BLOG PREVIEW --- */}
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -917,7 +900,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
