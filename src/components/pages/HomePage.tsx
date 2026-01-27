@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-mo
 import { 
   ArrowRight, Clock, Shield, Star, CheckCircle, TrendingUp, Users, Award, 
   Home, Bath, Plus, Hammer, Layers, Phone, Mail, MapPin, Calendar, 
-  DollarSign, Camera, ChevronRight, Ruler, HardHat
+  DollarSign, Camera, ChevronRight, Ruler, HardHat, ChevronLeft
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -55,6 +55,7 @@ export default function HomePage() {
   const [services, setServices] = useState<Services[]>([]);
   const [blogPosts, setBlogPosts] = useState<BlogPosts[]>([]);
   const [teamMembers, setTeamMembers] = useState<TeamMembers[]>([]);
+  const [carouselIndex, setCarouselIndex] = useState(0);
   
   // Loading states
   const [isLoadingProjects, setIsLoadingProjects] = useState(true);
@@ -458,83 +459,141 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* --- SECTION 7: FEATURED PROJECTS --- */}
-      <section id="projects" className="w-full py-32 bg-background">
+      {/* --- SECTION 7: 3D CAROUSEL GALLERY --- */}
+      <section className="w-full py-32 bg-background overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="flex flex-col items-center mb-16">
-            <h2 className="font-heading text-5xl lg:text-6xl text-secondary mb-6 text-center">Featured Projects</h2>
-            
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap justify-center gap-2 bg-light-grey p-2 rounded-full">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveFilter(category)}
-                  className={`px-6 py-3 rounded-full font-heading text-sm tracking-wide transition-all duration-300 ${
-                    activeFilter === category
-                      ? 'bg-secondary text-white shadow-lg'
-                      : 'text-foreground/70 hover:bg-white hover:text-secondary'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
+          <div className="text-center mb-20">
+            <h2 className="font-heading text-5xl lg:text-6xl text-secondary mb-4">Gallery of Work</h2>
+            <p className="font-paragraph text-lg text-foreground/70">Explore our portfolio of completed projects</p>
           </div>
 
-          <motion.div 
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[600px]"
-          >
-            {isLoadingProjects ? (
-              [...Array(3)].map((_, i) => <div key={i} className="h-96 bg-light-grey animate-pulse rounded-2xl" />)
-            ) : filteredProjects.length > 0 ? (
-              filteredProjects.map((project) => (
-                <motion.div
-                  layout
-                  key={project._id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <Link to={`/projects/${project._id}`} className="group block h-full">
-                    <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-lg">
-                      <Image 
-                        src={project.beforeImage || "https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448"}
-                        alt={project.projectTitle || 'Project'}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                      
-                      {/* Content Overlay */}
-                      <div className="absolute bottom-0 left-0 w-full p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="px-3 py-1 bg-primary text-white text-xs font-heading uppercase tracking-wider rounded-md">
-                            {project.category || 'Project'}
-                          </span>
-                          {project.beforeImage && project.afterImage && (
-                            <span className="px-3 py-1 bg-white/20 backdrop-blur-md text-white text-xs font-heading uppercase tracking-wider rounded-md">
-                              Before / After
-                            </span>
-                          )}
+          {isLoadingProjects ? (
+            <div className="h-[600px] bg-light-grey animate-pulse rounded-3xl" />
+          ) : projects.length > 0 ? (
+            <div className="relative h-[600px] flex items-center justify-center perspective">
+              {/* Carousel Container */}
+              <div className="relative w-full h-full flex items-center justify-center">
+                {/* Background carousel items */}
+                {projects.map((project, idx) => {
+                  const position = (idx - carouselIndex + projects.length) % projects.length;
+                  const isCenter = position === 0;
+                  const isLeft = position === projects.length - 1;
+                  const isRight = position === 1;
+                  
+                  let translateX = 0;
+                  let translateZ = 0;
+                  let rotateY = 0;
+                  let opacity = 0;
+                  let scale = 0.7;
+
+                  if (isCenter) {
+                    translateX = 0;
+                    translateZ = 0;
+                    rotateY = 0;
+                    opacity = 1;
+                    scale = 1;
+                  } else if (isRight) {
+                    translateX = 280;
+                    translateZ = -200;
+                    rotateY = -35;
+                    opacity = 0.6;
+                    scale = 0.8;
+                  } else if (isLeft) {
+                    translateX = -280;
+                    translateZ = -200;
+                    rotateY = 35;
+                    opacity = 0.6;
+                    scale = 0.8;
+                  } else {
+                    opacity = 0;
+                    scale = 0.6;
+                  }
+
+                  return (
+                    <motion.div
+                      key={project._id}
+                      initial={false}
+                      animate={{
+                        x: translateX,
+                        z: translateZ,
+                        rotateY: rotateY,
+                        opacity: opacity,
+                        scale: scale,
+                      }}
+                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                      className="absolute w-full max-w-md h-96 rounded-3xl overflow-hidden shadow-2xl cursor-pointer"
+                      style={{
+                        perspective: '1000px',
+                      }}
+                    >
+                      <Link to={`/projects/${project._id}`} className="block w-full h-full group">
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={project.beforeImage || "https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448"}
+                            alt={project.projectTitle || 'Project'}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                          
+                          {/* Content Overlay */}
+                          <div className="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                            <div className="flex items-center gap-2 mb-3">
+                              <span className="px-3 py-1 bg-primary text-white text-xs font-heading uppercase tracking-wider rounded-md">
+                                {project.category || 'Project'}
+                              </span>
+                            </div>
+                            <h3 className="font-heading text-2xl text-white mb-2">{project.projectTitle}</h3>
+                            <p className="font-paragraph text-white/80 text-sm line-clamp-1">{project.scopeOfWork}</p>
+                          </div>
                         </div>
-                        <h3 className="font-heading text-3xl text-white mb-2">{project.projectTitle}</h3>
-                        <p className="font-paragraph text-white/80 mb-4 line-clamp-2">{project.scopeOfWork}</p>
-                        <div className="flex items-center text-primary font-heading uppercase tracking-wider text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                          View Project <ArrowRight className="ml-2 w-4 h-4" />
-                        </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-20">
-                <p className="font-paragraph text-xl text-foreground/60">No projects found in this category.</p>
+                      </Link>
+                    </motion.div>
+                  );
+                })}
               </div>
-            )}
-          </motion.div>
+
+              {/* Navigation Buttons */}
+              <button
+                onClick={() => setCarouselIndex((prev) => (prev - 1 + projects.length) % projects.length)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-4 rounded-full shadow-lg transition-all duration-300 -ml-8 lg:-ml-16"
+                aria-label="Previous project"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button
+                onClick={() => setCarouselIndex((prev) => (prev + 1) % projects.length)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-4 rounded-full shadow-lg transition-all duration-300 -mr-8 lg:-mr-16"
+                aria-label="Next project"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+
+              {/* Indicators */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {projects.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCarouselIndex(idx)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      idx === carouselIndex ? 'bg-primary w-8' : 'bg-medium-grey w-2 hover:bg-primary/60'
+                    }`}
+                    aria-label={`Go to project ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="text-center py-20">
+              <p className="font-paragraph text-xl text-foreground/60">No projects available.</p>
+            </div>
+          )}
+
+          {/* View All Link */}
+          <div className="text-center mt-16">
+            <Button asChild variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-heading px-8 h-12 rounded-lg">
+              <Link to="/projects">View All Projects</Link>
+            </Button>
+          </div>
         </div>
       </section>
 
