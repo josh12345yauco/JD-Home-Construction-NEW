@@ -53,8 +53,8 @@ export default function Header() {
             <Image 
               src="https://static.wixstatic.com/media/dc69ab_6ada6d37d3ee4ef4bb71f94ef44d9021~mv2.png?originWidth=192&originHeight=192"
               alt="Vibe Logo"
-              width={40}
-              height={40}
+              width={48}
+              height={48}
               className="rounded-lg"
             />
 
