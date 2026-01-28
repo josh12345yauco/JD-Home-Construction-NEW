@@ -156,7 +156,7 @@ export default function HomePage() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="relative hidden lg:block h-full min-h-[600px]"
+              className="relative hidden lg:block aspect-video"
             >
               {/* Video Container with rounded corners behind cards */}
               <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
