@@ -180,7 +180,7 @@ export default function HomePage() {
                 {/* Card 1 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
-                  className="w-80 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20"
+                  className="w-64 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20"
                 >
                   <div className="w-14 h-14 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-6 text-accent-orange">
                     <Clock className="w-8 h-8" />
