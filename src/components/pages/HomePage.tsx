@@ -115,17 +115,7 @@ export default function HomePage() {
       <section className="relative w-full min-h-[95vh] flex items-center pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/95 to-secondary/40 z-10" />
-          <motion.div style={{ y: heroParallax }} className="w-full h-full">
-             <video 
-              src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover opacity-10"
-            />
-          </motion.div>
+          <div className="absolute inset-0 bg-secondary z-10" />
         </div>
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -168,8 +158,22 @@ export default function HomePage() {
               transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
               className="relative hidden lg:block h-full min-h-[600px]"
             >
+              {/* Video Container with rounded corners behind cards */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
+                <motion.div style={{ y: heroParallax }} className="w-full h-full">
+                  <video 
+                    src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </div>
+
               {/* Decorative Grid Behind */}
-              <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem]" />
+              <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
 
               {/* Card 1 */}
               <motion.div 
