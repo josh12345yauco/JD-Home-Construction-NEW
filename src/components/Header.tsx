@@ -48,8 +48,21 @@ export default function Header() {
       <div className="max-w-[120rem] mx-auto px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-
+          <Link to="/" className="flex items-center gap-2">
+            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-heading font-bold text-lg transition-colors ${
+              isDarkMode
+                ? 'bg-accent-orange text-secondary'
+                : 'bg-primary text-primary-foreground'
+            }`}>
+              V
+            </div>
+            <span className={`font-heading font-bold text-lg hidden sm:inline transition-colors ${
+              isDarkMode
+                ? 'text-white'
+                : 'text-foreground'
+            }`}>
+              Vibe
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
