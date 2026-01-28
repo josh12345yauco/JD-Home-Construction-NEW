@@ -334,7 +334,7 @@ export default function HomePage() {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 w-full overflow-hidden">
             {isLoadingServices ? (
               // Loading Skeletons
               ([...Array(6)].map((_, i) => (
@@ -348,11 +348,11 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="sticky top-0 z-10"
+                  className="sticky top-0 z-10 w-full"
                   style={{ top: `${index * 20}px` }}
                 >
-                  <Link to={`/services/${service._id}`} className="group block h-full">
-                    <Card className="h-48 bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-row">
+                  <Link to={`/services/${service._id}`} className="group block h-full w-full">
+                    <Card className="h-48 bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-row w-full">
                       <div className="relative w-64 flex-shrink-0 overflow-hidden">
                         <div className="absolute inset-0 bg-secondary/20 group-hover:bg-secondary/0 transition-colors z-10" />
                         <Image 
@@ -361,15 +361,15 @@ export default function HomePage() {
                           className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                         />
                       </div>
-                      <CardContent className="p-8 flex-1 flex flex-col justify-center">
-                        <h3 className="font-heading text-2xl text-secondary mb-3 group-hover:text-primary transition-colors">
+                      <CardContent className="p-8 flex-1 flex flex-col justify-center min-w-0">
+                        <h3 className="font-heading text-2xl text-secondary mb-3 group-hover:text-primary transition-colors truncate">
                           {service.serviceName}
                         </h3>
                         <p className="font-paragraph text-foreground/70 mb-6 line-clamp-2">
                           {service.shortDescription}
                         </p>
                         <div className="flex items-center text-primary font-heading font-bold text-sm uppercase tracking-wider">
-                          Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                          Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                         </div>
                       </CardContent>
                     </Card>
