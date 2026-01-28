@@ -190,7 +190,7 @@ export default function HomePage() {
               {/* Card 2 */}
               <motion.div 
                 whileHover={{ y: -10 }}
-                className="absolute top-64 right-48 w-80 bg-accent-orange p-8 rounded-2xl shadow-2xl z-30"
+                className="absolute top-64 right-48 w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl z-30"
               >
                 <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
                   <Shield className="w-8 h-8" />
