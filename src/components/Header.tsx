@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Image } from '@/components/ui/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,13 +50,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-heading font-bold text-lg transition-colors ${
-              isDarkMode
-                ? 'bg-accent-orange text-secondary'
-                : 'bg-primary text-primary-foreground'
-            }`}>
-              V
-            </div>
+            <Image 
+              src="https://static.wixstatic.com/media/dc69ab_6ada6d37d3ee4ef4bb71f94ef44d9021~mv2.png?originWidth=192&originHeight=192"
+              alt="Vibe Logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+            />
             <span className={`font-heading font-bold text-lg hidden sm:inline transition-colors ${
               isDarkMode
                 ? 'text-white'
