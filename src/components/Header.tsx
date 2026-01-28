@@ -50,13 +50,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <Image 
-              src="https://static.wixstatic.com/media/dc69ab_21844db13f144d55b78196fb41a7cc1d~mv2.png?originWidth=128&originHeight=128" 
-              alt="JD Construction Logo"
+            <Image
+              src="https://static.wixstatic.com/media/dc69ab_874a936ca44143f19caa931b8ac0d999~mv2.png"
               width={120}
               height={40}
               className="h-10 w-auto"
-            />
+              originWidth={1536}
+              originHeight={1024} />
           </Link>
 
           {/* Desktop Navigation */}
