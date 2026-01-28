@@ -52,8 +52,8 @@ export default function Header() {
           <Link to="/" className="flex items-center gap-2">
             <Image
               src="https://static.wixstatic.com/media/dc69ab_874a936ca44143f19caa931b8ac0d999~mv2.png"
-              width={48}
-              height={48}
+              width={50}
+              height={50}
               className="rounded-lg"
               originWidth={1536}
               originHeight={1024} />
