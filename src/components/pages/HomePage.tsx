@@ -175,29 +175,32 @@ export default function HomePage() {
               {/* Decorative Grid Behind */}
               <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
 
-              {/* Card 1 */}
-              <motion.div 
-                whileHover={{ y: -10 }}
-                className="absolute -top-20 right-8 w-80 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20 z-20"
-              >
-                <div className="w-14 h-14 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-6 text-accent-orange">
-                  <Clock className="w-8 h-8" />
-                </div>
-                <h3 className="font-heading text-2xl text-white mb-2">Fast Estimates</h3>
-                <p className="font-paragraph text-white/70">Hear back within 1 business day. No chasing required.</p>
-              </motion.div>
+              {/* Stacked Cards Container - Aligned Right */}
+              <div className="absolute inset-0 flex flex-col items-end justify-start pt-0 pr-8 z-20">
+                {/* Card 1 */}
+                <motion.div 
+                  whileHover={{ y: -10 }}
+                  className="w-80 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-6 text-accent-orange">
+                    <Clock className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-heading text-2xl text-white mb-2">Fast Estimates</h3>
+                  <p className="font-paragraph text-white/70">Hear back within 1 business day. No chasing required.</p>
+                </motion.div>
 
-              {/* Card 2 */}
-              <motion.div 
-                whileHover={{ y: -10 }}
-                className="absolute bottom-0 left-0 w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl z-30"
-              >
-                <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
-                  <Shield className="w-8 h-8" />
-                </div>
-                <h3 className="font-heading text-2xl text-secondary mb-2">Licensed & Insured</h3>
-                <p className="font-paragraph text-secondary/80">Professional, warranty-backed work you can trust.</p>
-              </motion.div>
+                {/* Card 2 - 20px gap */}
+                <motion.div 
+                  whileHover={{ y: -10 }}
+                  className="w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl mt-5"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
+                    <Shield className="w-8 h-8" />
+                  </div>
+                  <h3 className="font-heading text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                  <p className="font-paragraph text-secondary/80">Professional, warranty-backed work you can trust.</p>
+                </motion.div>
+              </div>
 
               {/* Abstract Shape */}
               <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
