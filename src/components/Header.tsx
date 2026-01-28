@@ -50,13 +50,13 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <Image 
-              src="https://static.wixstatic.com/media/dc69ab_6ada6d37d3ee4ef4bb71f94ef44d9021~mv2.png?originWidth=192&originHeight=192"
-              alt="Vibe Logo"
+            <Image
+              src="https://static.wixstatic.com/media/dc69ab_874a936ca44143f19caa931b8ac0d999~mv2.png"
               width={48}
               height={48}
               className="rounded-lg"
-            />
+              originWidth={1536}
+              originHeight={1024} />
 
           </Link>
 
