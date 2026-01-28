@@ -49,11 +49,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span className={`font-heading text-2xl transition-colors ${
-              isDarkMode ? 'text-white' : 'text-secondary'
-            }`}>
-              JD <span className={isDarkMode ? 'text-accent-orange' : 'text-primary'}>Construction</span>
-            </span>
+
           </Link>
 
           {/* Desktop Navigation */}
