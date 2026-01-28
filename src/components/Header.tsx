@@ -57,13 +57,7 @@ export default function Header() {
               height={40}
               className="rounded-lg"
             />
-            <span className={`font-heading font-bold text-lg hidden sm:inline transition-colors ${
-              isDarkMode
-                ? 'text-white'
-                : 'text-foreground'
-            }`}>
-              Vibe
-            </span>
+
           </Link>
 
           {/* Desktop Navigation */}
