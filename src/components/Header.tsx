@@ -50,13 +50,6 @@ export default function Header() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <Image
-              src="https://static.wixstatic.com/media/dc69ab_874a936ca44143f19caa931b8ac0d999~mv2.png"
-              width={50}
-              height={50}
-              className="rounded-lg"
-              originWidth={1536}
-              originHeight={1024} />
 
           </Link>
 
