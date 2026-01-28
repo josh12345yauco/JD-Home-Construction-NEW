@@ -178,7 +178,7 @@ export default function HomePage() {
               {/* Card 1 */}
               <motion.div 
                 whileHover={{ y: -10 }}
-                className="absolute top-12 right-12 w-80 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20 z-20"
+                className="absolute -top-20 right-8 w-80 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20 z-20"
               >
                 <div className="w-14 h-14 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-6 text-accent-orange">
                   <Clock className="w-8 h-8" />
@@ -190,7 +190,7 @@ export default function HomePage() {
               {/* Card 2 */}
               <motion.div 
                 whileHover={{ y: -10 }}
-                className="absolute top-64 right-48 w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl z-30"
+                className="absolute bottom-0 left-0 w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl z-30"
               >
                 <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
                   <Shield className="w-8 h-8" />

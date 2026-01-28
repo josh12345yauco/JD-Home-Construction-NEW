@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Image } from '@/components/ui/image';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,8 +48,12 @@ export default function Header() {
       <div className="max-w-[120rem] mx-auto px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-
+          <Link to="/" className="flex items-center">
+            <span className={`font-heading text-2xl transition-colors ${
+              isDarkMode ? 'text-white' : 'text-secondary'
+            }`}>
+              JD <span className={isDarkMode ? 'text-accent-orange' : 'text-primary'}>Construction</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
