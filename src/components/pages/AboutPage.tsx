@@ -37,7 +37,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="w-full max-w-[120rem] mx-auto px-8 pt-32 pb-24">
         <motion.div className="text-center max-w-4xl mx-auto" {...fadeInUp}>
@@ -49,7 +48,6 @@ export default function AboutPage() {
           </p>
         </motion.div>
       </section>
-
       {/* Our Story */}
       <section className="w-full bg-light-grey py-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -77,16 +75,17 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="https://static.wixstatic.com/media/dc69ab_cd6275936d2b41b4b7da0d2c2c132c54~mv2.png?originWidth=576&originHeight=448"
-                alt="JD Construction team"
+                src="https://static.wixstatic.com/media/dc69ab_baa3a4e8ed5d4fe79f2a58bfea9f0f4f~mv2.png"
                 width={600}
                 className="w-full h-full object-cover rounded-xl"
-              />
+                originWidth={1632}
+                originHeight={2592}
+                focalPointX={48.086463501063164}
+                focalPointY={34.93975903614458} />
             </motion.div>
           </div>
         </div>
       </section>
-
       {/* Our Values */}
       <section className="w-full py-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -139,7 +138,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Certifications & Credentials */}
       <section className="w-full bg-light-grey py-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -201,7 +199,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Our Process */}
       <section className="w-full py-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -257,7 +254,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       {/* Meet the Team */}
       <section id="team" className="w-full bg-light-grey py-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -308,7 +304,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
