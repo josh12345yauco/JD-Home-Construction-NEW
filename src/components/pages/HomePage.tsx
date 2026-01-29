@@ -376,7 +376,7 @@ export default function HomePage() {
 
         {/* Services cards - full width */}
         <div className="w-full bg-white py-24">
-          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+          <div className="w-full">
             {/* Header with label, headline, and link */}
             <div className="mb-16">
               <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8">
@@ -424,7 +424,7 @@ export default function HomePage() {
                 >
                   <div className="group block h-full w-full">
                     <div 
-                      className="h-full relative rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center"
+                      className="h-full relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center text-center items-center justify-center"
                       style={{
                         backgroundImage: `url('${service.serviceImage}')`,
                         backgroundSize: 'cover',
@@ -434,7 +434,7 @@ export default function HomePage() {
                       {/* Dark overlay for text readability */}
                       <div className="absolute inset-0 bg-black/40 z-0" />
                       
-                      <div className="relative z-10 flex-1 flex flex-col">
+                      <div className="relative z-10 flex-1 flex flex-col items-center justify-center">
                         <h3 className="font-heading text-lg text-white mb-3 group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
@@ -443,7 +443,7 @@ export default function HomePage() {
                         </p>
                       </div>
                       <motion.div 
-                        className="relative z-10 flex items-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300"
+                        className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300"
                         whileHover={{ x: 4 }}
                         transition={{ duration: 0.2 }}
                       >
