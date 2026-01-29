@@ -412,7 +412,6 @@ export default function HomePage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
                 >
-
                 </motion.div>
               </div>
               <motion.div
@@ -461,52 +460,109 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
-      {/* --- SECTION 6: TESTIMONIALS --- */}
-      <section className="w-full py-32 bg-light-grey">
+      {/* --- SECTION 6: ULTRA-PREMIUM TESTIMONIALS --- */}
+      <section className="w-full py-32 bg-[#F7F7F7] overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <span className="text-primary font-heading font-bold tracking-widest uppercase mb-4 block">Testimonials</span>
-            <h2 className="font-heading text-5xl text-secondary">What Our Clients Say</h2>
-          </div>
+          <div className="grid lg:grid-cols-3 gap-16 items-center min-h-[600px]">
+            {/* Left Column: Authority Block */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col justify-center"
+            >
+              {/* Rating Number */}
+              <div className="mb-6">
+                <span className="font-heading text-7xl lg:text-8xl font-bold text-secondary leading-none">4.9</span>
+              </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: 'Sarah M.', location: 'Westfield', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.' },
-              { name: 'Mike R.', location: 'Summit', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.' },
-              { name: 'Jennifer L.', location: 'Cranford', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.' },
-              { name: 'Tom B.', location: 'Scotch Plains', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.' },
-              { name: 'Lisa K.', location: 'Mountainside', text: 'Transparent pricing, no hidden fees, and they finished on time. JD Construction made our home addition project stress-free.' },
-              { name: 'David H.', location: 'Fanwood', text: 'Best contractor we\'ve worked with. They handled our roofing and siding project with professionalism.' }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="h-full bg-white border-none shadow-lg p-8 rounded-2xl relative">
-                  <div className="absolute top-8 right-8 text-primary/20">
-                    <Star className="w-12 h-12 fill-current" />
-                  </div>
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                    ))}
-                  </div>
-                  <p className="font-paragraph text-lg text-foreground/80 mb-8 italic">"{testimonial.text}"</p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-secondary text-white flex items-center justify-center font-heading font-bold text-xl">
-                      {testimonial.name.charAt(0)}
+              {/* Gold Stars */}
+              <div className="flex gap-2 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 fill-[#C9A14A] text-[#C9A14A]" />
+                ))}
+              </div>
+
+              {/* Review Count */}
+              <p className="font-paragraph text-sm text-foreground/60 mb-8 tracking-wide">95+ Reviews</p>
+
+              {/* Trust Paragraph */}
+              <p className="font-paragraph text-lg leading-relaxed text-foreground/80 max-w-sm">
+                Trusted by hundreds of happy clients — our 4.9-star rating reflects top-quality service and customer satisfaction every time.
+              </p>
+            </motion.div>
+
+            {/* Right Area: Testimonial Carousel */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="lg:col-span-2 relative"
+            >
+              {/* Carousel Container */}
+              <div className="relative overflow-hidden">
+                <motion.div
+                  className="flex gap-6 pb-4"
+                  animate={{ x: [0, -100 * 4] }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: 'linear'
+                  }}
+                >
+                  {[
+                    { name: 'Sarah M.', title: 'Homeowner', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    { name: 'Mike R.', title: 'Business Owner', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    // Duplicate for seamless loop
+                    { name: 'Sarah M.', title: 'Homeowner', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    { name: 'Mike R.', title: 'Business Owner', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
+                    { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' }
+                  ].map((testimonial, index) => (
+                    <div key={index} className="flex-shrink-0 w-full sm:w-96">
+                      {/* Premium Dark Card */}
+                      <div className="bg-[#1C1C1C] rounded-2xl p-8 h-full flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        {/* Stars */}
+                        <div className="flex gap-1 mb-6">
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-[#C9A14A] text-[#C9A14A]" />
+                          ))}
+                        </div>
+
+                        {/* Testimonial Text */}
+                        <p className="font-paragraph text-base text-white/90 mb-8 leading-relaxed flex-grow">
+                          "{testimonial.text}"
+                        </p>
+
+                        {/* Author Info */}
+                        <div className="flex items-center gap-4 pt-6 border-t border-white/10">
+                          {/* Headshot */}
+                          <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
+                            <Image
+                              src={testimonial.photo}
+                              alt={testimonial.name}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          {/* Name & Title */}
+                          <div>
+                            <div className="font-heading text-base font-bold text-white">{testimonial.name}</div>
+                            <div className="font-paragraph text-xs text-white/60">{testimonial.title}</div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <div className="font-heading text-lg text-secondary font-bold">{testimonial.name}</div>
-                      <div className="font-paragraph text-sm text-primary">{testimonial.location}</div>
-                    </div>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+                  ))}
+                </motion.div>
+              </div>
+
+              {/* Fade Gradient Overlay (Right) */}
+              <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#F7F7F7] to-transparent pointer-events-none z-10" />
+            </motion.div>
           </div>
         </div>
       </section>
