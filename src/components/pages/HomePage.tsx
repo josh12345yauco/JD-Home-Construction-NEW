@@ -157,12 +157,12 @@ export default function HomePage() {
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center">
-            {/* Cards Container - Now First (Above on Mobile) */}
+            {/* Cards Container */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="relative w-full order-first lg:order-last"
+              className="relative w-full order-last lg:order-last"
             >
               {/* Video Container - Hidden on Mobile */}
               <div className="hidden lg:block absolute inset-0 rounded-3xl overflow-hidden z-0 aspect-video">
