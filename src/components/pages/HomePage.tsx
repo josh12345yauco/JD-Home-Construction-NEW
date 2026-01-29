@@ -257,26 +257,54 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
-            {[
-              { label: "Projects Completed", value: "300+" },
-              { label: "Years Experience", value: "15+" },
-              { label: "Client Reviews", value: "4.9★" },
-              { label: "On-Time Rate", value: "98%" },
-            ].map((stat, i) => (
-              <motion.div 
-                key={i} 
-                className="flex flex-col items-start"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: i * 0.1, duration: 0.6 }}
-                viewport={{ once: true, margin: "-100px" }}
-              >
-                <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
-                  {stat.value}
-                </span>
-                <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">{stat.label}</span>
-              </motion.div>
-            ))}
+            <motion.div 
+              className="flex flex-col items-start"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0 * 0.1, duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+                300+
+              </span>
+              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Projects Completed</span>
+            </motion.div>
+            <motion.div 
+              className="flex flex-col items-start"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1 * 0.1, duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+                15+
+              </span>
+              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Years Experience</span>
+            </motion.div>
+            <motion.div 
+              className="flex flex-col items-start"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 2 * 0.1, duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+                4.9★
+              </span>
+              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Client Reviews</span>
+            </motion.div>
+            <motion.div 
+              className="flex flex-col items-start"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 3 * 0.1, duration: 0.6 }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+                98%
+              </span>
+              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">On-Time Rate</span>
+            </motion.div>
           </motion.div>
         </div>
       </section>
