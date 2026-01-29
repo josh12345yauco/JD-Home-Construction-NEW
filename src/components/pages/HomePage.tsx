@@ -681,45 +681,7 @@ export default function HomePage() {
         </div>
       </section>
       {/* --- SECTION 10: TEAM PREVIEW --- */}
-      <section className="w-full py-32 bg-background">
-        <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="font-heading text-5xl text-secondary mb-4">Meet the Team</h2>
-            <p className="font-paragraph text-lg text-foreground/70">Experienced professionals dedicated to your project</p>
-          </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {staticTeamMembers.map((member, i) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Card className="overflow-hidden border-none shadow-lg rounded-2xl group">
-                  <div className="relative h-96 overflow-hidden">
-                    <Image 
-                      src={member.photo}
-                      alt={member.name}
-                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                      <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                        <p className="font-paragraph text-sm mb-2">{member.bio?.substring(0, 100)}...</p>
-                      </div>
-                    </div>
-                  </div>
-                  <CardContent className="p-6 bg-white text-center relative z-10">
-                    <h3 className="font-heading text-2xl text-secondary font-bold">{member.name}</h3>
-                    <p className="font-paragraph text-primary font-medium">{member.role}</p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
       {/* --- SECTION 11: ESTIMATE OPTIONS --- */}
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
