@@ -15,6 +15,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CurvedCarousel from '@/components/CurvedCarousel';
 import { BaseCrudService } from '@/integrations';
 import { Services } from '@/entities';
 
@@ -82,7 +83,6 @@ function AnimatedCounterRating({ targetValue, label, delay }: { targetValue: num
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [carouselIndex, setCarouselIndex] = useState(0);
   const [services, setServices] = useState<Services[]>([]);
   const [isLoadingServices, setIsLoadingServices] = useState(true);
 
@@ -585,127 +585,28 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* --- SECTION 7: 3D CAROUSEL GALLERY --- */}
-      <section className="w-full py-32 bg-background overflow-hidden">
+      {/* --- SECTION 7: CURVED CAROUSEL GALLERY --- */}
+      <section className="w-full py-40 bg-white overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="font-heading text-5xl lg:text-6xl text-secondary mb-4">Gallery of Work</h2>
-            <p className="font-paragraph text-lg text-foreground/70">Explore our portfolio of completed projects</p>
+          <div className="text-center mb-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="text-primary font-heading font-bold tracking-widest uppercase mb-4 block text-sm">Portfolio</span>
+              <h2 className="font-heading text-5xl lg:text-6xl text-secondary mb-4">
+                Gallery of Work
+              </h2>
+              <p className="font-paragraph text-lg text-foreground/70 max-w-2xl mx-auto">
+                Explore our portfolio of completed projects
+              </p>
+            </motion.div>
           </div>
 
           {staticProjects.length > 0 ? (
-            <div className="relative h-[600px] flex items-center justify-center perspective">
-              {/* Carousel Container */}
-              <div className="relative w-full h-full flex items-center justify-center">
-                {/* Background carousel items */}
-                {staticProjects.map((project, idx) => {
-                  const position = (idx - carouselIndex + staticProjects.length) % staticProjects.length;
-                  const isCenter = position === 0;
-                  const isLeft = position === staticProjects.length - 1;
-                  const isRight = position === 1;
-                  
-                  let translateX = 0;
-                  let translateZ = 0;
-                  let rotateY = 0;
-                  let opacity = 0;
-                  let scale = 0.7;
-
-                  if (isCenter) {
-                    translateX = 0;
-                    translateZ = 0;
-                    rotateY = 0;
-                    opacity = 1;
-                    scale = 1;
-                  } else if (isRight) {
-                    translateX = 280;
-                    translateZ = -200;
-                    rotateY = -35;
-                    opacity = 0.6;
-                    scale = 0.8;
-                  } else if (isLeft) {
-                    translateX = -280;
-                    translateZ = -200;
-                    rotateY = 35;
-                    opacity = 0.6;
-                    scale = 0.8;
-                  } else {
-                    opacity = 0;
-                    scale = 0.6;
-                  }
-
-                  return (
-                    <motion.div
-                      key={project.id}
-                      initial={false}
-                      animate={{
-                        x: translateX,
-                        z: translateZ,
-                        rotateY: rotateY,
-                        opacity: opacity,
-                        scale: scale,
-                      }}
-                      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                      className="absolute w-full max-w-md h-96 rounded-3xl overflow-hidden shadow-2xl cursor-pointer"
-                      style={{
-                        perspective: '1000px',
-                      }}
-                    >
-                      <div className="block w-full h-full group">
-                        <div className="relative w-full h-full">
-                          <Image
-                            src={project.beforeImage}
-                            alt={project.projectTitle}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-                          
-                          {/* Content Overlay */}
-                          <div className="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                            <div className="flex items-center gap-2 mb-3">
-                              <span className="px-3 py-1 bg-primary text-white text-xs font-heading uppercase tracking-wider rounded-md">
-                                {project.category}
-                              </span>
-                            </div>
-                            <h3 className="font-heading text-2xl text-white mb-2">{project.projectTitle}</h3>
-                            <p className="font-paragraph text-white/80 text-sm line-clamp-1">{project.scopeOfWork}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-
-              {/* Navigation Buttons */}
-              <button
-                onClick={() => setCarouselIndex((prev) => (prev - 1 + staticProjects.length) % staticProjects.length)}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-4 rounded-full shadow-lg transition-all duration-300 -ml-8 lg:-ml-16"
-                aria-label="Previous project"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              <button
-                onClick={() => setCarouselIndex((prev) => (prev + 1) % staticProjects.length)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-4 rounded-full shadow-lg transition-all duration-300 -mr-8 lg:-mr-16"
-                aria-label="Next project"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
-              {/* Indicators */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                {staticProjects.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCarouselIndex(idx)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      idx === carouselIndex ? 'bg-primary w-8' : 'bg-medium-grey w-2 hover:bg-primary/60'
-                    }`}
-                    aria-label={`Go to project ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
+            <CurvedCarousel projects={staticProjects} />
           ) : (
             <div className="text-center py-20">
               <p className="font-paragraph text-xl text-foreground/60">No projects available.</p>
@@ -713,7 +614,7 @@ export default function HomePage() {
           )}
 
           {/* View All Link */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-20">
             <Button asChild variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-heading px-8 h-12 rounded-lg">
               <Link to="/projects">View All Projects</Link>
             </Button>
