@@ -231,7 +231,7 @@ export default function HomePage() {
                 {/* Card 2 - 20px gap */}
                 <motion.div 
                   whileHover={{ y: -10 }}
-                  className="w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl mt-5"
+                  className="w-64 bg-accent-orange/80 backdrop-blur-md p-6 rounded-2xl shadow-2xl mt-5 border border-accent-orange/40"
                 >
                   <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-secondary bg-[transparent]">
                     <Shield className="w-8 h-8 fill-transparent" />
