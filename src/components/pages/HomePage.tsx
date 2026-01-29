@@ -331,47 +331,88 @@ export default function HomePage() {
         </div>
       </div>
       {/* --- SECTION 4: SERVICES GRID --- */}
-      <section id="services" className="w-full py-32 bg-background">
-        <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
-            <div className="max-w-2xl">
-              <span className="text-primary font-heading font-bold tracking-widest uppercase mb-4 block">Our Expertise</span>
-              <h2 className="font-heading text-5xl lg:text-6xl text-secondary">Comprehensive<br />Construction Services</h2>
-            </div>
-            <Button asChild variant="ghost" className="text-primary hover:text-primary/80 font-heading text-lg group">
-              <Link to="/services">
-                View All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+      <section id="services" className="w-full relative overflow-hidden">
+        <motion.div
+          className="relative w-full h-96 group"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Full-width background image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_58bdb24921814572b337c062c0871b10~mv2.png?originWidth=896&originHeight=576')`
+            }}
+          />
+          
+          {/* Dark overlay that disappears on hover */}
+          <motion.div 
+            className="absolute inset-0 bg-black/60"
+            initial={{ opacity: 0.6 }}
+            whileHover={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+          />
+          
+          {/* Centered content */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <span className="text-primary font-heading font-bold tracking-widest uppercase mb-4 block text-sm">Our Expertise</span>
+              <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-white mb-4">
+                Comprehensive<br />Construction Services
+              </h2>
+              <p className="font-paragraph text-lg text-white/90 max-w-2xl mx-auto">
+                Expert solutions tailored to your project needs
+              </p>
+            </motion.div>
           </div>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
-            {staticServices.map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="h-full"
-              >
-                <div className="group block h-full w-full">
-                  <Card className="h-full bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col p-8">
-                    <div className="flex-1 flex flex-col">
-                      <h3 className="font-heading text-xl lg:text-2xl text-secondary mb-4 group-hover:text-primary transition-colors">
-                        {service.serviceName}
-                      </h3>
-                      <p className="font-paragraph text-sm lg:text-base text-foreground/70 mb-6 flex-1">
-                        {service.shortDescription}
-                      </p>
-                    </div>
-                    <div className="flex items-center text-primary font-heading font-bold text-xs uppercase tracking-wider">
-                      Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                    </div>
-                  </Card>
-                </div>
-              </motion.div>
-            ))}
+        {/* Services cards - full width */}
+        <div className="w-full bg-background py-20">
+          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+            <div className="flex justify-end mb-12">
+              <Button asChild variant="ghost" className="text-primary hover:text-primary/80 font-heading text-lg group">
+                <Link to="/services">
+                  View All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
+              {staticServices.map((service, index) => (
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="h-full"
+                >
+                  <div className="group block h-full w-full">
+                    <Card className="h-full bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col p-8">
+                      <div className="flex-1 flex flex-col">
+                        <h3 className="font-heading text-xl lg:text-2xl text-secondary mb-4 group-hover:text-primary transition-colors">
+                          {service.serviceName}
+                        </h3>
+                        <p className="font-paragraph text-sm lg:text-base text-foreground/70 mb-6 flex-1">
+                          {service.shortDescription}
+                        </p>
+                      </div>
+                      <div className="flex items-center text-primary font-heading font-bold text-xs uppercase tracking-wider">
+                        Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                      </div>
+                    </Card>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
