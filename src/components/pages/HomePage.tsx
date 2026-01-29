@@ -652,11 +652,11 @@ export default function HomePage() {
             <div className="order-1 lg:order-2 relative h-[600px]">
               <div className="absolute inset-0 bg-secondary rounded-3xl transform rotate-3" />
               <div className="absolute inset-0 bg-white rounded-3xl transform -rotate-3 overflow-hidden border-4 border-white shadow-2xl">
-                <Image 
-                  src="https://static.wixstatic.com/media/dc69ab_330eb5297f624b7a850fc6b54fec634f~mv2.png?originWidth=896&originHeight=576"
-                  alt="Craftsman at work"
+                <Image
+                  src="https://static.wixstatic.com/media/nsplsh_e81a935e66e644939ee50fe3e2e9b96c~mv2.jpg"
                   className="w-full h-full object-cover"
-                />
+                  originWidth={4240}
+                  originHeight={2832} />
               </div>
             </div>
           </div>
@@ -681,7 +681,6 @@ export default function HomePage() {
         </div>
       </section>
       {/* --- SECTION 10: TEAM PREVIEW --- */}
-
       {/* --- SECTION 11: ESTIMATE OPTIONS --- */}
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
