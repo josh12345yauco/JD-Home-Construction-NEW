@@ -1,7 +1,7 @@
 // HPI 1.7-V
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, useMotionTemplate } from 'framer-motion';
 import { 
   ArrowRight, Clock, Shield, Star, CheckCircle, TrendingUp, Users, Award, 
   Home, Bath, Plus, Hammer, Layers, Phone, Mail, MapPin, Calendar, 
@@ -17,6 +17,45 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Projects, Services, BlogPosts, TeamMembers } from '@/entities';
+
+// --- Animated Counter Component ---
+const AnimatedCounter = ({ value, duration = 2.5 }) => {
+  const motionValue = useMotionValue(0);
+  const displayValue = useTransform(motionValue, (latest) => {
+    // Extract numeric part
+    const numericValue = parseInt(value.toString().replace(/\D/g, ''));
+    const suffix = value.toString().replace(/\d/g, '');
+    return Math.floor(latest) + suffix;
+  });
+
+  useEffect(() => {
+    const numericValue = parseInt(value.toString().replace(/\D/g, ''));
+    const controls = motionValue;
+    
+    let animationFrameId;
+    let startTime;
+    
+    const animate = (currentTime) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / (duration * 1000), 1);
+      
+      // Easing function for smooth animation
+      const easeOutQuad = 1 - Math.pow(1 - progress, 2);
+      controls.set(numericValue * easeOutQuad);
+      
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    };
+    
+    animationFrameId = requestAnimationFrame(animate);
+    
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [value, duration, motionValue]);
+
+  return <motion.span>{displayValue}</motion.span>;
+};
 
 // --- Animation Variants ---
 const fadeInUp = {
@@ -220,10 +259,19 @@ export default function HomePage() {
               { label: "Client Reviews", value: "4.9★" },
               { label: "On-Time Rate", value: "98%" },
             ].map((stat, i) => (
-              <div key={i} className="flex flex-col items-start">
-                <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">{stat.value}</span>
+              <motion.div 
+                key={i} 
+                className="flex flex-col items-start"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+                  <AnimatedCounter value={stat.value} duration={2.5} />
+                </span>
                 <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">{stat.label}</span>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
