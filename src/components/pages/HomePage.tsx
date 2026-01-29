@@ -384,7 +384,7 @@ export default function HomePage() {
                       {/* Dark overlay for text readability */}
                       <div className="absolute inset-0 bg-black/40 z-0" />
                       
-                      <div className="relative z-10 flex-1 flex flex-col items-center justify-center">
+                      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center">
                         <h3 className="font-heading text-lg text-white mb-3 group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
