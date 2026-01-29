@@ -103,7 +103,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
   }, [isDragging, dragStart, dragOffset]);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-[600px]">
       {/* Carousel Container */}
       <div
         ref={containerRef}
