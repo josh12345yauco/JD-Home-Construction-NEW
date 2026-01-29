@@ -395,7 +395,7 @@ export default function HomePage() {
                         </p>
                       </div>
                       <motion.div 
-                        className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300"
+                        className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300 mt-8"
                         whileHover={{ x: 4 }}
                         transition={{ duration: 0.2 }}
                       >
