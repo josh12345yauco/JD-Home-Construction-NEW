@@ -361,33 +361,30 @@ export default function HomePage() {
         {/* Services cards - full width */}
         <div className="w-full bg-white py-24">
           <div className="w-full">
-            {/* Header with label, headline, and link */}
-            <div className="mb-16">
-              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8">
-                <div className="flex-1">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                  >
-
-                  </motion.div>
-                </div>
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8">
+              <div className="flex-1">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="flex-shrink-0"
+                  transition={{ duration: 0.6 }}
                 >
-                  <Button asChild variant="ghost" className="text-secondary hover:text-primary font-heading text-base group whitespace-nowrap">
-                    <Link to="/services">
-                      View All Services <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+
                 </motion.div>
               </div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex-shrink-0"
+              >
+                <Button asChild variant="ghost" className="text-secondary hover:text-primary font-heading text-base group whitespace-nowrap">
+                  <Link to="/services">
+                    View All Services <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
+              </motion.div>
             </div>
 
             {/* Services grid */}
