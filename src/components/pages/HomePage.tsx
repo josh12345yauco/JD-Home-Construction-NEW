@@ -51,11 +51,11 @@ export default function HomePage() {
 
   // Static data for services
   const staticServices = [
-    { id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs' },
-    { id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs' },
-    { id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work' },
-    { id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete' },
-    { id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing' }
+    { id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' }
   ];
 
   // Static data for projects
@@ -412,7 +412,7 @@ export default function HomePage() {
             </div>
 
             {/* Services grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px w-full">
               {staticServices.map((service, index) => (
                 <motion.div
                   key={service.id}
@@ -423,23 +423,33 @@ export default function HomePage() {
                   className="h-full"
                 >
                   <div className="group block h-full w-full">
-                    <Card className="h-full bg-white border border-medium-grey/30 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6">
-                      <div className="flex-1 flex flex-col">
-                        <h3 className="font-heading text-lg text-secondary mb-3 group-hover:text-primary transition-colors duration-300">
+                    <div 
+                      className="h-full relative rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center"
+                      style={{
+                        backgroundImage: `url('${service.serviceImage}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                    >
+                      {/* Dark overlay for text readability */}
+                      <div className="absolute inset-0 bg-black/40 z-0" />
+                      
+                      <div className="relative z-10 flex-1 flex flex-col">
+                        <h3 className="font-heading text-lg text-white mb-3 group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
-                        <p className="font-paragraph text-sm text-foreground/60 mb-6 flex-1 leading-relaxed">
+                        <p className="font-paragraph text-sm text-white/90 mb-6 flex-1 leading-relaxed">
                           {service.shortDescription}
                         </p>
                       </div>
                       <motion.div 
-                        className="flex items-center text-primary font-heading font-bold text-xs uppercase tracking-wider"
+                        className="relative z-10 flex items-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300"
                         whileHover={{ x: 4 }}
                         transition={{ duration: 0.2 }}
                       >
                         Learn More <ArrowRight className="w-3.5 h-3.5 ml-2 flex-shrink-0" />
                       </motion.div>
-                    </Card>
+                    </div>
                   </div>
                 </motion.div>
               ))}
