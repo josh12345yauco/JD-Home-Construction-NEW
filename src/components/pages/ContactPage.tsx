@@ -19,7 +19,6 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="w-full max-w-[120rem] mx-auto px-8 pt-32 pb-24">
         <motion.div className="text-center max-w-4xl mx-auto" {...fadeInUp}>
@@ -31,7 +30,6 @@ export default function ContactPage() {
           </p>
         </motion.div>
       </section>
-
       {/* Contact Info Cards */}
       <section className="w-full pb-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -86,7 +84,7 @@ export default function ContactPage() {
                     <MapPin className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl text-secondary mb-2">Service Area</h3>
-                  <p className="font-paragraph text-foreground">Central New Jersey</p>
+                  <p className="font-paragraph text-foreground">Philadelphi</p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -111,7 +109,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
       {/* Contact Form */}
       <section className="w-full bg-light-grey py-24">
         <div className="max-w-[56rem] mx-auto px-8">
@@ -253,46 +250,10 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-
       {/* Service Areas */}
       <section className="w-full py-24">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <motion.div className="text-center mb-16" {...fadeInUp}>
-            <h2 className="font-heading text-5xl text-secondary mb-4">Service Areas</h2>
-            <p className="font-paragraph text-lg text-foreground">Proudly serving Central New Jersey communities</p>
-          </motion.div>
 
-          <motion.div
-            className="max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="grid md:grid-cols-3 gap-6 font-paragraph text-foreground text-center">
-              <div>
-                <p>Westfield</p>
-                <p>Scotch Plains</p>
-                <p>Fanwood</p>
-                <p>Cranford</p>
-              </div>
-              <div>
-                <p>Summit</p>
-                <p>Mountainside</p>
-                <p>Berkeley Heights</p>
-                <p>New Providence</p>
-              </div>
-              <div>
-                <p>Clark</p>
-                <p>Garwood</p>
-                <p>Rahway</p>
-                <p>And surrounding areas</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
       </section>
-
       <Footer />
     </div>
   );
