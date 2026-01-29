@@ -194,8 +194,8 @@ export default function HomePage() {
                   whileHover={{ y: -10 }}
                   className="w-64 bg-accent-orange p-6 rounded-2xl shadow-2xl mt-5"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-secondary/20 flex items-center justify-center mb-6 text-secondary">
-                    <Shield className="w-8 h-8" />
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-secondary bg-[transparent]">
+                    <Shield className="w-8 h-8 fill-transparent" />
                   </div>
                   <h3 className="font-heading text-2xl text-secondary mb-2">Licensed & Insured</h3>
                   <p className="font-paragraph text-secondary/80">Professional, warranty-backed work you can trust.</p>
