@@ -2,6 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useCounterAnimation } from '@/hooks/use-counter-animation';
 import { 
   ArrowRight, Clock, Shield, Star, CheckCircle,
   Users, Award, Ruler, ChevronRight, ChevronLeft
@@ -35,6 +36,47 @@ const staggerContainer = {
     }
   }
 };
+
+// Animated Counter Component
+function AnimatedCounter({ targetValue, label, delay, suffix = "+" }: { targetValue: number; label: string; delay: number; suffix?: string }) {
+  const count = useCounterAnimation(targetValue, 2000);
+
+  return (
+    <motion.div 
+      className="flex flex-col items-start"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.6 }}
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+        {count}{suffix}
+      </span>
+      <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">{label}</span>
+    </motion.div>
+  );
+}
+
+// Animated Counter Component for Rating
+function AnimatedCounterRating({ targetValue, label, delay }: { targetValue: number; label: string; delay: number }) {
+  const count = useCounterAnimation(Math.floor(targetValue * 10), 2000);
+  const displayValue = (count / 10).toFixed(1);
+
+  return (
+    <motion.div 
+      className="flex flex-col items-start"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.6 }}
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
+        {displayValue}★
+      </span>
+      <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">{label}</span>
+    </motion.div>
+  );
+}
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -194,50 +236,10 @@ export default function HomePage() {
             viewport={{ once: true, margin: "-100px" }}
             className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
-            <motion.div 
-              className="flex flex-col items-start"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0 * 0.1, duration: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">100+</span>
-              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Projects Completed</span>
-            </motion.div>
-            <motion.div 
-              className="flex flex-col items-start"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 * 0.1, duration: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
-                15+
-              </span>
-              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Years Experience</span>
-            </motion.div>
-            <motion.div 
-              className="flex flex-col items-start"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2 * 0.1, duration: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
-                4.9★
-              </span>
-              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Client Reviews</span>
-            </motion.div>
-            <motion.div 
-              className="flex flex-col items-start"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 3 * 0.1, duration: 0.6 }}
-              viewport={{ once: true, margin: "-100px" }}
-            >
-              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">90%</span>
-              <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">On-Time Rate</span>
-            </motion.div>
+            <AnimatedCounter targetValue={100} label="Projects Completed" delay={0} />
+            <AnimatedCounter targetValue={15} label="Years Experience" delay={0.1} />
+            <AnimatedCounterRating targetValue={4.9} label="Client Reviews" delay={0.2} />
+            <AnimatedCounter targetValue={90} label="On-Time Rate" delay={0.3} suffix="%" />
           </motion.div>
         </div>
       </section>
