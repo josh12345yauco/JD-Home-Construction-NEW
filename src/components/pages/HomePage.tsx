@@ -409,9 +409,7 @@ export default function HomePage() {
                         <h3 className="font-heading text-lg text-white group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
-                        <p className="font-paragraph text-sm text-white/90 leading-relaxed">
-                          {service.shortDescription}
-                        </p>
+
                       </div>
                       <motion.div 
                         className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300 mt-8"
@@ -501,7 +499,7 @@ export default function HomePage() {
               {/* Gold Stars */}
               <div className="flex gap-2 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-6 h-6 fill-[#C9A14A] text-[#C9A14A]" />
+                  <Star key={i} className="w-6 h-6 text-[#C9A14A] fill-primary" />
                 ))}
               </div>
 
@@ -550,7 +548,7 @@ export default function HomePage() {
                         {/* Stars */}
                         <div className="flex gap-1 mb-6">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="w-4 h-4 fill-[#C9A14A] text-[#C9A14A]" />
+                            <Star key={i} className="w-4 h-4 text-[#C9A14A] fill-primary" />
                           ))}
                         </div>
 
