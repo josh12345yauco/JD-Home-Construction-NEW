@@ -56,13 +56,24 @@ export default function AboutPage() {
               <h2 className="font-heading text-5xl text-secondary mb-6">Our Story</h2>
               <div className="space-y-4 font-paragraph text-lg text-foreground">
                 <p>
-                  JD Construction was founded in 2008 by John Davis, a third-generation contractor who grew up learning the trade from his father and grandfather. What started as a one-man operation has grown into a trusted team of skilled craftsmen serving Central New Jersey.
+                  Welcome to JD Home Construction, based in the Port Richmond section of Philadelphia. We offer top-quality building services tailored to meet the needs of homeowners, investors, and businesses.
                 </p>
                 <p>
-                  Our philosophy is simple: treat every project like it's our own home. We believe in transparent pricing, clear communication, and workmanship that stands the test of time. No shortcuts, no surprises—just quality construction done right.
+                  While we excel in carpentry and related services, please note that we do not provide plumbing, electrical, roofing, or HVAC services. However, we have established partnerships with trusted professionals in these fields and are happy to give referrals to ensure your project is seamless from start to finish.
                 </p>
+                <p className="font-heading text-xl text-secondary mt-6 mb-3">Areas We Service</p>
                 <p>
-                  Over the years, we've completed more than 300 projects, from small kitchen updates to full home renovations. Our reputation is built on referrals and repeat clients who trust us to deliver exceptional results, on time and on budget.
+                  JD Home Construction proudly serves the following Philadelphia neighborhoods:
+                </p>
+                <ul className="list-disc list-inside space-y-2 ml-2">
+                  <li>Port Richmond</li>
+                  <li>Fishtown</li>
+                  <li>Fairmount</li>
+                  <li>Northern Liberties</li>
+                  <li>Center City</li>
+                </ul>
+                <p className="mt-4">
+                  Our local expertise and commitment to excellence make us the preferred choice for carpentry services in these neighborhoods.
                 </p>
               </div>
             </motion.div>
