@@ -118,6 +118,45 @@ export default function Footer() {
             </ul>
           </div>
           {/* Contact & Newsletter */}
+          <div>
+            <h3 className="font-heading text-xl mb-6">Get in Touch</h3>
+            <div className="space-y-4 mb-6">
+              <div className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-paragraph text-sm text-secondary-foreground/70">Phone</p>
+                  <a href="tel:+1234567890" className="font-paragraph text-secondary-foreground hover:text-primary transition-colors">
+                    (123) 456-7890
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-paragraph text-sm text-secondary-foreground/70">Email</p>
+                  <a href="mailto:info@jdconstruction.com" className="font-paragraph text-secondary-foreground hover:text-primary transition-colors">
+                    info@jdconstruction.com
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-paragraph text-sm text-secondary-foreground/70">Address</p>
+                  <p className="font-paragraph text-secondary-foreground">
+                    123 Main Street<br />
+                    Your City, ST 12345
+                  </p>
+                </div>
+              </div>
+            </div>
+            <Button 
+              asChild 
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              <Link to="/contact">Send Message</Link>
+            </Button>
+          </div>
 
         </div>
 
