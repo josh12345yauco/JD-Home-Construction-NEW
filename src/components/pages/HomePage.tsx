@@ -359,7 +359,7 @@ export default function HomePage() {
         </motion.div>
 
         {/* Services cards - full width */}
-        <div className="w-full bg-white py-24">
+        <div className="w-full bg-white pb-24">
           <div className="w-full">
             {/* Services grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px w-full">
