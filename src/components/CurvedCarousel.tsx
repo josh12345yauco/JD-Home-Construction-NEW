@@ -147,15 +147,15 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
                   whileHover={isCenter ? { y: -12 } : {}}
                   transition={{ duration: 0.3 }}
                 >
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+
                   {/* Image */}
                   <Image
                     src={project.beforeImage}
                     alt={project.projectTitle}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
-
-                  {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
 
                   {/* Content - Bottom Left */}
                   <motion.div
