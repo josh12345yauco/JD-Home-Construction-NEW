@@ -384,7 +384,7 @@ export default function HomePage() {
           <div className="w-full">
             {/* Services grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px w-full">
-              {(services.length > 0 ? services : staticServices).map((service, index) => (
+              {(services.length > 0 ? services : staticServices).slice(0, 5).map((service, index) => (
                 <motion.div
                   key={service.id}
                   initial={{ opacity: 0, y: 30 }}
