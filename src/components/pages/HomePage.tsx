@@ -264,9 +264,7 @@ export default function HomePage() {
               transition={{ delay: 0 * 0.1, duration: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
-                300+
-              </span>
+              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">100+</span>
               <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">Projects Completed</span>
             </motion.div>
             <motion.div 
@@ -300,9 +298,7 @@ export default function HomePage() {
               transition={{ delay: 3 * 0.1, duration: 0.6 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
-                98%
-              </span>
+              <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">90%</span>
               <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">On-Time Rate</span>
             </motion.div>
           </motion.div>
