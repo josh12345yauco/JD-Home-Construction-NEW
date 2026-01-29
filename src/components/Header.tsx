@@ -52,9 +52,9 @@ export default function Header() {
           <Link to="/" className="flex items-center">
             <Image
               src="https://static.wixstatic.com/media/dc69ab_874a936ca44143f19caa931b8ac0d999~mv2.png"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
+              width={240}
+              height={80}
+              className="h-20 w-auto"
               originWidth={1536}
               originHeight={1024} />
           </Link>
