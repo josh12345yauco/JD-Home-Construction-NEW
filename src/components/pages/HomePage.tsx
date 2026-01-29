@@ -215,7 +215,7 @@ export default function HomePage() {
               <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
 
               {/* Stacked Cards Container - Aligned Right */}
-              <div className="absolute inset-0 flex flex-col items-end justify-start pt-0 pr-8 z-20" style={{ top: '-80px' }}>
+              <div className="absolute inset-0 flex flex-col items-end justify-start pt-0 pr-12 z-20" style={{ top: '-80px' }}>
                 {/* Card 1 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
