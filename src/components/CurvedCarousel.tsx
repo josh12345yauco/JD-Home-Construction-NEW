@@ -107,7 +107,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative h-[550px] flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing"
+        className="relative h-[480px] flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-8"
         onMouseDown={handleMouseDown}
         style={{ perspective: '1200px' }}
       >
@@ -120,7 +120,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
             return (
               <motion.div
                 key={project.id}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                className="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2"
                 animate={{
                   x: x + (isDragging ? dragOffset * 0.3 : 0),
                   y: 0,
