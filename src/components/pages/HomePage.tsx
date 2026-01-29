@@ -374,7 +374,7 @@ export default function HomePage() {
                 >
                   <div className="group block h-full w-full">
                     <div 
-                      className="h-full relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center text-center items-center justify-center"
+                      className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center text-center items-center justify-center"
                       style={{
                         backgroundImage: `url('${service.serviceImage}')`,
                         backgroundSize: 'cover',
