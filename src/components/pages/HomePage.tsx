@@ -149,54 +149,23 @@ export default function HomePage() {
     <div ref={containerRef} className="min-h-screen bg-background font-paragraph selection:bg-primary selection:text-white overflow-clip">
       <Header />
       {/* --- SECTION 1: HERO (Havix Style Split) --- */}
-      <section className="relative w-full min-h-[95vh] flex items-center pt-32 pb-20 overflow-hidden bg-secondary">
+      <section className="relative w-full min-h-auto lg:min-h-[95vh] flex items-center pt-20 lg:pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-secondary z-10" />
         </div>
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Content */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center">
+            {/* Cards Container - Now First (Above on Mobile) */}
             <motion.div 
-              initial="hidden"
-              animate="visible"
-              variants={staggerContainer}
-              className="max-w-3xl"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="relative w-full order-first lg:order-last"
             >
-              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
-                <span className="h-[2px] w-12 bg-accent-orange"></span>
-                <span className="font-heading text-sm tracking-widest uppercase text-accent-orange font-bold">GENERAL Contracting Services</span>
-              </motion.div>
-              
-              <motion.h1 variants={fadeInUp} className="font-heading text-6xl lg:text-8xl font-bold text-white leading-[0.95] mb-8">
-                Build It Right.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Build It Once.</span>
-              </motion.h1>
-              
-              <motion.p variants={fadeInUp} className="font-paragraph text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-                Remodels, additions, and exterior upgrades done with craftsmanship, clear communication, and a clean jobsite—start to finish.
-              </motion.p>
-              
-              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-accent-orange hover:bg-accent-orange/90 text-secondary font-heading text-lg px-10 h-16 rounded-full shadow-lg shadow-accent-orange/20 transition-all hover:scale-105">
-                  <Link to="/contact">Request a Quote</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-secondary font-heading text-lg px-10 h-16 rounded-full transition-all">
-                  <Link to="/projects">View Our Work</Link>
-                </Button>
-              </motion.div>
-            </motion.div>
-
-            {/* Right: Stacked Cards (Havix Style) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-              className="relative aspect-video"
-            >
-              {/* Video Container with rounded corners behind cards */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
+              {/* Video Container - Hidden on Mobile */}
+              <div className="hidden lg:block absolute inset-0 rounded-3xl overflow-hidden z-0 aspect-video">
                 <motion.div style={{ y: heroParallax }} className="w-full h-full">
                   <video 
                     src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
@@ -209,38 +178,69 @@ export default function HomePage() {
                 </motion.div>
               </div>
 
-              {/* Decorative Grid Behind */}
-              <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
+              {/* Decorative Grid Behind - Hidden on Mobile */}
+              <div className="hidden lg:block absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
 
-              {/* Stacked Cards Container - Aligned Right */}
-              <div className="absolute inset-0 flex flex-col items-end justify-start pt-0 pr-12 z-20" style={{ top: '-80px' }}>
+              {/* Stacked Cards Container - Responsive */}
+              <div className="flex flex-col lg:absolute lg:inset-0 lg:flex-col lg:items-end lg:justify-start lg:pt-0 lg:pr-12 lg:z-20 gap-4 lg:gap-5" style={{ top: 'auto', bottom: 'auto' }}>
                 {/* Card 1 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
-                  className="w-64 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20"
+                  className="w-full sm:w-80 lg:w-64 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/20"
                 >
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-accent-orange opacity-[1] bg-[transparent]">
-                    <Clock className="w-8 h-8" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-accent-orange opacity-[1] bg-[transparent]">
+                    <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <h3 className="font-heading text-2xl mb-2 text-secondary">Fast Estimates</h3>
-                  <p className="font-paragraph text-secondary">Hear back within 1 business day. No chasing required.</p>
+                  <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
+                  <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
                 </motion.div>
 
-                {/* Card 2 - 20px gap */}
+                {/* Card 2 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
-                  className="w-64 bg-accent-orange/80 backdrop-blur-md p-6 rounded-2xl shadow-2xl mt-5 border border-accent-orange/40"
+                  className="w-full sm:w-80 lg:w-64 bg-accent-orange/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-accent-orange/40"
                 >
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-secondary bg-[transparent]">
-                    <Shield className="w-8 h-8 fill-transparent" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
+                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
                   </div>
-                  <h3 className="font-heading text-2xl text-secondary mb-2">Licensed & Insured</h3>
-                  <p className="font-paragraph text-secondary/80">Professional, warranty-backed work you can trust.</p>
+                  <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                  <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
                 </motion.div>
               </div>
 
-              {/* Abstract Shape */}
-              <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
+              {/* Abstract Shape - Hidden on Mobile */}
+              <div className="hidden lg:block absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
+            </motion.div>
+
+            {/* Left: Content - Now Second (Below on Mobile) */}
+            <motion.div 
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+              className="max-w-3xl order-last lg:order-first"
+            >
+              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
+                <span className="h-[2px] w-12 bg-accent-orange"></span>
+                <span className="font-heading text-sm tracking-widest uppercase text-accent-orange font-bold">GENERAL Contracting Services</span>
+              </motion.div>
+              
+              <motion.h1 variants={fadeInUp} className="font-heading text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[0.95] mb-8">
+                Build It Right.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Build It Once.</span>
+              </motion.h1>
+              
+              <motion.p variants={fadeInUp} className="font-paragraph text-base sm:text-lg lg:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
+                Remodels, additions, and exterior upgrades done with craftsmanship, clear communication, and a clean jobsite—start to finish.
+              </motion.p>
+              
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row flex-wrap gap-4">
+                <Button asChild size="lg" className="bg-accent-orange hover:bg-accent-orange/90 text-secondary font-heading text-base sm:text-lg px-8 sm:px-10 h-14 sm:h-16 rounded-full shadow-lg shadow-accent-orange/20 transition-all hover:scale-105">
+                  <Link to="/contact">Request a Quote</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-secondary font-heading text-base sm:text-lg px-8 sm:px-10 h-14 sm:h-16 rounded-full transition-all">
+                  <Link to="/projects">View Our Work</Link>
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
         </div>
