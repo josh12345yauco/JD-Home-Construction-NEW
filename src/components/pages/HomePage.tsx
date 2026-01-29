@@ -1,11 +1,10 @@
 // HPI 1.7-V
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useSpring, useInView, useMotionValue, useMotionTemplate } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
-  ArrowRight, Clock, Shield, Star, CheckCircle, TrendingUp, Users, Award, 
-  Home, Bath, Plus, Hammer, Layers, Phone, Mail, MapPin, Calendar, 
-  DollarSign, Camera, ChevronRight, Ruler, HardHat, ChevronLeft
+  ArrowRight, Clock, Shield, Star, CheckCircle,
+  Users, Award, Ruler, ChevronRight, ChevronLeft
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -15,47 +14,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BaseCrudService } from '@/integrations';
-import { Projects, Services, BlogPosts, TeamMembers } from '@/entities';
-
-// --- Animated Counter Component ---
-const AnimatedCounter = ({ value, duration = 2.5 }) => {
-  const motionValue = useMotionValue(0);
-  const displayValue = useTransform(motionValue, (latest) => {
-    // Extract numeric part
-    const numericValue = parseInt(value.toString().replace(/\D/g, ''));
-    const suffix = value.toString().replace(/\d/g, '');
-    return Math.floor(latest) + suffix;
-  });
-
-  useEffect(() => {
-    const numericValue = parseInt(value.toString().replace(/\D/g, ''));
-    const controls = motionValue;
-    
-    let animationFrameId;
-    let startTime;
-    
-    const animate = (currentTime) => {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / (duration * 1000), 1);
-      
-      // Easing function for smooth animation
-      const easeOutQuad = 1 - Math.pow(1 - progress, 2);
-      controls.set(numericValue * easeOutQuad);
-      
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(animate);
-      }
-    };
-    
-    animationFrameId = requestAnimationFrame(animate);
-    
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [value, duration, motionValue]);
-
-  return <motion.span>{displayValue}</motion.span>;
-};
 
 // --- Animation Variants ---
 const fadeInUp = {
@@ -78,29 +36,9 @@ const staggerContainer = {
   }
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
-};
-
 export default function HomePage() {
-  // --- 1. Data Fidelity Protocol: State Management ---
   const [activeFilter, setActiveFilter] = useState('All');
-  const [projects, setProjects] = useState<Projects[]>([]);
-  const [services, setServices] = useState<Services[]>([]);
-  const [blogPosts, setBlogPosts] = useState<BlogPosts[]>([]);
-  const [teamMembers, setTeamMembers] = useState<TeamMembers[]>([]);
   const [carouselIndex, setCarouselIndex] = useState(0);
-  
-  // Loading states
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
-  const [isLoadingServices, setIsLoadingServices] = useState(true);
-  const [isLoadingBlog, setIsLoadingBlog] = useState(true);
-  const [isLoadingTeam, setIsLoadingTeam] = useState(true);
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -110,40 +48,40 @@ export default function HomePage() {
   });
   
   const heroParallax = useTransform(scrollYProgress, [0, 0.2], [0, 100]);
-  const opacityFade = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
-  // --- Data Fetching (Preserved Logic) ---
-  useEffect(() => {
-    loadData();
-  }, []);
+  // Static data for services
+  const staticServices = [
+    { id: '1', serviceName: 'Kitchen Remodeling', shortDescription: 'Transform your kitchen with modern designs and quality craftsmanship.' },
+    { id: '2', serviceName: 'Bathroom Renovations', shortDescription: 'Create your dream bathroom with expert design and installation.' },
+    { id: '3', serviceName: 'Home Additions', shortDescription: 'Expand your living space with professional construction services.' },
+    { id: '4', serviceName: 'Deck Building', shortDescription: 'Build beautiful outdoor spaces for entertaining and relaxation.' },
+    { id: '5', serviceName: 'Roofing Services', shortDescription: 'Professional roofing solutions for protection and durability.' },
+    { id: '6', serviceName: 'Siding Installation', shortDescription: 'Enhance your home\'s exterior with quality siding materials.' }
+  ];
 
-  const loadData = async () => {
-    try {
-      const [projectsData, servicesData, blogData, teamData] = await Promise.all([
-        BaseCrudService.getAll<Projects>('projects', {}, { limit: 6 }),
-        BaseCrudService.getAll<Services>('services', {}, { limit: 6 }),
-        BaseCrudService.getAll<BlogPosts>('blogposts', {}, { limit: 3 }),
-        BaseCrudService.getAll<TeamMembers>('teammembers', {}, { limit: 3 })
-      ]);
-      
-      setProjects(projectsData.items);
-      setServices(servicesData.items);
-      setBlogPosts(blogData.items);
-      setTeamMembers(teamData.items);
-    } catch (error) {
-      console.error('Error loading data:', error);
-    } finally {
-      setIsLoadingProjects(false);
-      setIsLoadingServices(false);
-      setIsLoadingBlog(false);
-      setIsLoadingTeam(false);
-    }
-  };
+  // Static data for projects
+  const staticProjects = [
+    { id: '1', projectTitle: 'Modern Kitchen Remodel', category: 'Kitchens', scopeOfWork: 'Complete kitchen renovation with new cabinets and appliances', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { id: '2', projectTitle: 'Luxury Bathroom Suite', category: 'Baths', scopeOfWork: 'Spa-like bathroom with heated floors and custom tile', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { id: '3', projectTitle: 'Home Addition', category: 'Additions', scopeOfWork: 'New master suite addition with custom finishes', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { id: '4', projectTitle: 'Outdoor Deck', category: 'Decks', scopeOfWork: 'Large composite deck with built-in seating', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { id: '5', projectTitle: 'Exterior Renovation', category: 'Exteriors', scopeOfWork: 'New siding and roofing for complete exterior refresh', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { id: '6', projectTitle: 'Full Home Remodel', category: 'Additions', scopeOfWork: 'Multi-room renovation with structural updates', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' }
+  ];
 
-  // --- Derived State ---
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(p => p.category === activeFilter);
+  // Static data for team members
+  const staticTeamMembers = [
+    { id: '1', name: 'John Davis', role: 'Owner & Lead Contractor', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384', bio: 'With 20+ years of experience, John leads every project with precision and care.' },
+    { id: '2', name: 'Sarah Mitchell', role: 'Project Manager', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384', bio: 'Sarah ensures every project stays on schedule and exceeds expectations.' },
+    { id: '3', name: 'Mike Thompson', role: 'Master Carpenter', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384', bio: 'Mike brings 15 years of carpentry expertise to every detail.' }
+  ];
+
+  // Static data for blog posts
+  const staticBlogPosts = [
+    { id: '1', title: 'Kitchen Design Trends for 2024', category: 'Design', excerpt: 'Discover the latest kitchen design trends that will transform your space.', mainImage: 'https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320' },
+    { id: '2', title: 'How to Plan Your Bathroom Remodel', category: 'Guide', excerpt: 'A comprehensive guide to planning your perfect bathroom renovation.', mainImage: 'https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320' },
+    { id: '3', title: 'Maximizing Your Home Addition Budget', category: 'Tips', excerpt: 'Smart strategies to get the most value from your home addition project.', mainImage: 'https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320' }
+  ];
 
   const categories = ['All', 'Kitchens', 'Baths', 'Exteriors', 'Additions', 'Decks'];
 
@@ -324,8 +262,6 @@ export default function HomePage() {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              {/* Floating Badge */}
-
             </div>
 
             {/* Content */}
@@ -411,48 +347,41 @@ export default function HomePage() {
           </div>
 
           <div className="flex flex-col gap-6 w-full overflow-hidden">
-            {isLoadingServices ? (
-              // Loading Skeletons
-              ([...Array(6)].map((_, i) => (
-                <div key={i} className="h-48 bg-light-grey animate-pulse rounded-2xl w-full" />
-              )))
-            ) : (
-              services.map((service, index) => (
-                <motion.div
-                  key={service._id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="sticky top-0 z-10 w-full"
-                  style={{ top: `${index * 20}px` }}
-                >
-                  <Link to={`/services/${service._id}`} className="group block h-full w-full">
-                    <Card className="h-48 bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-row w-full">
-                      <div className="relative w-64 flex-shrink-0 overflow-hidden">
-                        <div className="absolute inset-0 bg-secondary/20 group-hover:bg-secondary/0 transition-colors z-10" />
-                        <Image 
-                          src={service.serviceImage || "https://static.wixstatic.com/media/dc69ab_d1abd802dd084db28944539825cfd13e~mv2.png?originWidth=640&originHeight=384"}
-                          alt={service.serviceName || 'Service'}
-                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                        />
+            {staticServices.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="sticky top-0 z-10 w-full"
+                style={{ top: `${index * 20}px` }}
+              >
+                <div className="group block h-full w-full">
+                  <Card className="h-48 bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-row w-full">
+                    <div className="relative w-64 flex-shrink-0 overflow-hidden">
+                      <div className="absolute inset-0 bg-secondary/20 group-hover:bg-secondary/0 transition-colors z-10" />
+                      <Image 
+                        src="https://static.wixstatic.com/media/dc69ab_d1abd802dd084db28944539825cfd13e~mv2.png?originWidth=640&originHeight=384"
+                        alt={service.serviceName}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      />
+                    </div>
+                    <CardContent className="p-8 flex-1 flex flex-col justify-center min-w-0">
+                      <h3 className="font-heading text-2xl text-secondary mb-3 group-hover:text-primary transition-colors truncate">
+                        {service.serviceName}
+                      </h3>
+                      <p className="font-paragraph text-foreground/70 mb-6 line-clamp-2">
+                        {service.shortDescription}
+                      </p>
+                      <div className="flex items-center text-primary font-heading font-bold text-sm uppercase tracking-wider">
+                        Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                       </div>
-                      <CardContent className="p-8 flex-1 flex flex-col justify-center min-w-0">
-                        <h3 className="font-heading text-2xl text-secondary mb-3 group-hover:text-primary transition-colors truncate">
-                          {service.serviceName}
-                        </h3>
-                        <p className="font-paragraph text-foreground/70 mb-6 line-clamp-2">
-                          {service.shortDescription}
-                        </p>
-                        <div className="flex items-center text-primary font-heading font-bold text-sm uppercase tracking-wider">
-                          Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </motion.div>
-              ))
-            )}
+                    </CardContent>
+                  </Card>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -541,17 +470,15 @@ export default function HomePage() {
             <p className="font-paragraph text-lg text-foreground/70">Explore our portfolio of completed projects</p>
           </div>
 
-          {isLoadingProjects ? (
-            <div className="h-[600px] bg-light-grey animate-pulse rounded-3xl" />
-          ) : projects.length > 0 ? (
+          {staticProjects.length > 0 ? (
             <div className="relative h-[600px] flex items-center justify-center perspective">
               {/* Carousel Container */}
               <div className="relative w-full h-full flex items-center justify-center">
                 {/* Background carousel items */}
-                {projects.map((project, idx) => {
-                  const position = (idx - carouselIndex + projects.length) % projects.length;
+                {staticProjects.map((project, idx) => {
+                  const position = (idx - carouselIndex + staticProjects.length) % staticProjects.length;
                   const isCenter = position === 0;
-                  const isLeft = position === projects.length - 1;
+                  const isLeft = position === staticProjects.length - 1;
                   const isRight = position === 1;
                   
                   let translateX = 0;
@@ -585,7 +512,7 @@ export default function HomePage() {
 
                   return (
                     <motion.div
-                      key={project._id}
+                      key={project.id}
                       initial={false}
                       animate={{
                         x: translateX,
@@ -600,11 +527,11 @@ export default function HomePage() {
                         perspective: '1000px',
                       }}
                     >
-                      <Link to={`/projects/${project._id}`} className="block w-full h-full group">
+                      <div className="block w-full h-full group">
                         <div className="relative w-full h-full">
                           <Image
-                            src={project.beforeImage || "https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448"}
-                            alt={project.projectTitle || 'Project'}
+                            src={project.beforeImage}
+                            alt={project.projectTitle}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -613,14 +540,14 @@ export default function HomePage() {
                           <div className="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                             <div className="flex items-center gap-2 mb-3">
                               <span className="px-3 py-1 bg-primary text-white text-xs font-heading uppercase tracking-wider rounded-md">
-                                {project.category || 'Project'}
+                                {project.category}
                               </span>
                             </div>
                             <h3 className="font-heading text-2xl text-white mb-2">{project.projectTitle}</h3>
                             <p className="font-paragraph text-white/80 text-sm line-clamp-1">{project.scopeOfWork}</p>
                           </div>
                         </div>
-                      </Link>
+                      </div>
                     </motion.div>
                   );
                 })}
@@ -628,14 +555,14 @@ export default function HomePage() {
 
               {/* Navigation Buttons */}
               <button
-                onClick={() => setCarouselIndex((prev) => (prev - 1 + projects.length) % projects.length)}
+                onClick={() => setCarouselIndex((prev) => (prev - 1 + staticProjects.length) % staticProjects.length)}
                 className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-4 rounded-full shadow-lg transition-all duration-300 -ml-8 lg:-ml-16"
                 aria-label="Previous project"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
-                onClick={() => setCarouselIndex((prev) => (prev + 1) % projects.length)}
+                onClick={() => setCarouselIndex((prev) => (prev + 1) % staticProjects.length)}
                 className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-4 rounded-full shadow-lg transition-all duration-300 -mr-8 lg:-mr-16"
                 aria-label="Next project"
               >
@@ -644,7 +571,7 @@ export default function HomePage() {
 
               {/* Indicators */}
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                {projects.map((_, idx) => (
+                {staticProjects.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCarouselIndex(idx)}
@@ -738,38 +665,34 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {isLoadingTeam ? (
-              [...Array(3)].map((_, i) => <div key={i} className="h-96 bg-light-grey animate-pulse rounded-2xl" />)
-            ) : (
-              teamMembers.map((member, i) => (
-                <motion.div
-                  key={member._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Card className="overflow-hidden border-none shadow-lg rounded-2xl group">
-                    <div className="relative h-96 overflow-hidden">
-                      <Image 
-                        src={member.photo || "https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384"}
-                        alt={member.name || 'Team Member'}
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                        <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                          <p className="font-paragraph text-sm mb-2">{member.bio?.substring(0, 100)}...</p>
-                        </div>
+            {staticTeamMembers.map((member, i) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <Card className="overflow-hidden border-none shadow-lg rounded-2xl group">
+                  <div className="relative h-96 overflow-hidden">
+                    <Image 
+                      src={member.photo}
+                      alt={member.name}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                      <div className="text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <p className="font-paragraph text-sm mb-2">{member.bio?.substring(0, 100)}...</p>
                       </div>
                     </div>
-                    <CardContent className="p-6 bg-white text-center relative z-10">
-                      <h3 className="font-heading text-2xl text-secondary font-bold">{member.name}</h3>
-                      <p className="font-paragraph text-primary font-medium">{member.role}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))
-            )}
+                  </div>
+                  <CardContent className="p-6 bg-white text-center relative z-10">
+                    <h3 className="font-heading text-2xl text-secondary font-bold">{member.name}</h3>
+                    <p className="font-paragraph text-primary font-medium">{member.role}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -943,39 +866,35 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {isLoadingBlog ? (
-              [...Array(3)].map((_, i) => <div key={i} className="h-80 bg-white animate-pulse rounded-2xl" />)
-            ) : (
-              blogPosts.map((post, i) => (
-                <motion.div
-                  key={post._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link to={`/blog/${post._id}`} className="group block h-full">
-                    <Card className="h-full border-none shadow-md hover:shadow-xl transition-all duration-300 bg-white rounded-2xl overflow-hidden">
-                      <div className="h-56 overflow-hidden">
-                        <Image 
-                          src={post.mainImage || "https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320"}
-                          alt={post.title || 'Blog Post'}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+            {staticBlogPosts.map((post, i) => (
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="group block h-full">
+                  <Card className="h-full border-none shadow-md hover:shadow-xl transition-all duration-300 bg-white rounded-2xl overflow-hidden">
+                    <div className="h-56 overflow-hidden">
+                      <Image 
+                        src={post.mainImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <CardContent className="p-8">
+                      <div className="text-primary text-xs font-heading uppercase tracking-wider mb-3">{post.category}</div>
+                      <h3 className="font-heading text-xl text-secondary font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                      <p className="font-paragraph text-sm text-foreground/70 line-clamp-3 mb-6">{post.excerpt}</p>
+                      <div className="flex items-center text-secondary font-heading text-sm font-bold group-hover:translate-x-2 transition-transform">
+                        Read Article <ArrowRight className="ml-2 w-4 h-4 text-primary" />
                       </div>
-                      <CardContent className="p-8">
-                        <div className="text-primary text-xs font-heading uppercase tracking-wider mb-3">{post.category || 'Guide'}</div>
-                        <h3 className="font-heading text-xl text-secondary font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h3>
-                        <p className="font-paragraph text-sm text-foreground/70 line-clamp-3 mb-6">{post.excerpt}</p>
-                        <div className="flex items-center text-secondary font-heading text-sm font-bold group-hover:translate-x-2 transition-transform">
-                          Read Article <ArrowRight className="ml-2 w-4 h-4 text-primary" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </motion.div>
-              ))
-            )}
+                    </CardContent>
+                  </Card>
+                </div>
+              </motion.div>
+            ))}
           </div>
           
           <div className="mt-12 text-center md:hidden">
