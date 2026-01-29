@@ -251,17 +251,17 @@ export default function HomePage() {
             <div className="relative h-[510px] w-full hidden lg:block">
               <div className="absolute top-0 left-0 w-4/5 h-4/5 overflow-hidden shadow-2xl rounded-[10px]">
                 <Image
-                  src="https://static.wixstatic.com/media/nsplsh_e81a935e66e644939ee50fe3e2e9b96c~mv2.jpg"
+                  src="https://static.wixstatic.com/media/nsplsh_7ebce823ee1a4dc6bfc46d6c65e0bcef~mv2.jpg"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  originWidth={4240}
-                  originHeight={2832} />
+                  originWidth={4256}
+                  originHeight={2394} />
               </div>
-              <div className="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl border-8 border-light-grey">
-                <Image 
-                  src="https://static.wixstatic.com/media/dc69ab_155bbc77273d448282916cc9bcd36f39~mv2.png?originWidth=896&originHeight=576"
-                  alt="Detail Work"
+              <div className="absolute bottom-0 right-0 w-3/5 h-3/5 overflow-hidden shadow-2xl rounded-[10px] border-0 border-solid border-[#f5f5f5]">
+                <Image
+                  src="https://static.wixstatic.com/media/nsplsh_f9b54a0a0f144be18ae932d224e16001~mv2.jpg"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
+                  originWidth={6336}
+                  originHeight={8448} />
               </div>
             </div>
 
