@@ -249,12 +249,12 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Image Collage */}
             <div className="relative h-[510px] w-full hidden lg:block">
-              <div className="absolute top-0 left-0 w-4/5 h-4/5 rounded-3xl overflow-hidden shadow-2xl">
-                <Image 
-                  src="https://static.wixstatic.com/media/dc69ab_4d13225c8d4840838b4b2aebefea4bde~mv2.png?originWidth=896&originHeight=576"
-                  alt="JD Construction Team"
+              <div className="absolute top-0 left-0 w-4/5 h-4/5 overflow-hidden shadow-2xl rounded-[10px]">
+                <Image
+                  src="https://static.wixstatic.com/media/nsplsh_e81a935e66e644939ee50fe3e2e9b96c~mv2.jpg"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                />
+                  originWidth={4240}
+                  originHeight={2832} />
               </div>
               <div className="absolute bottom-0 right-0 w-3/5 h-3/5 rounded-3xl overflow-hidden shadow-2xl border-8 border-light-grey">
                 <Image 
