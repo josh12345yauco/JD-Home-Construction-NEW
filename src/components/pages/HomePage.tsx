@@ -387,12 +387,7 @@ export default function HomePage() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
                   >
-                    <p className="font-heading text-xs uppercase tracking-widest text-primary mb-4 font-bold">
-                      OUR SERVICES
-                    </p>
-                    <h2 className="font-heading text-4xl lg:text-5xl text-secondary leading-tight">
-                      Built to Handle Every Part of Your Project
-                    </h2>
+
                   </motion.div>
                 </div>
                 <motion.div
