@@ -48,12 +48,13 @@ export default function Header() {
       <div className="max-w-[120rem] mx-auto px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center justify-center">
             <Image
               src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
-              width={240}
-              height={80}
-              className="h-20 w-auto"
+              width={204}
+              height={68}
+              className="h-17 w-auto"
+              style={{ transform: 'scale(0.85)' }}
               originWidth={875}
               originHeight={602} />
           </Link>
