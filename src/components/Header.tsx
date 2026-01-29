@@ -53,10 +53,10 @@ export default function Header() {
               src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
               width={204}
               height={68}
-              className="h-17 w-auto"
-              style={{ transform: 'scale(0.85)' }}
+              className="h-16 w-auto"
               originWidth={875}
-              originHeight={602} />
+              originHeight={602}
+              alt="JD Construction Logo" />
           </Link>
 
           {/* Desktop Navigation */}
