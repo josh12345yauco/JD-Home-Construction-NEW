@@ -9,8 +9,6 @@ import ServiceDetailPage from '@/components/pages/ServiceDetailPage';
 import ProjectsPage from '@/components/pages/ProjectsPage';
 import ProjectDetailPage from '@/components/pages/ProjectDetailPage';
 import FAQPage from '@/components/pages/FAQPage';
-import BlogPage from '@/components/pages/BlogPage';
-import BlogPostPage from '@/components/pages/BlogPostPage';
 import ContactPage from '@/components/pages/ContactPage';
 import NotFoundPage from '@/components/pages/NotFoundPage';
 
@@ -77,20 +75,6 @@ const router = createBrowserRouter([
         element: <FAQPage />,
         routeMetadata: {
           pageIdentifier: 'faq',
-        },
-      },
-      {
-        path: "blog",
-        element: <BlogPage />,
-        routeMetadata: {
-          pageIdentifier: 'blog',
-        },
-      },
-      {
-        path: "blog/:id",
-        element: <BlogPostPage />,
-        routeMetadata: {
-          pageIdentifier: 'blog-post',
         },
       },
       {

@@ -52,9 +52,6 @@ export default function NotFoundPage() {
               <Link to="/faq" className="font-paragraph text-foreground hover:text-primary transition-colors">
                 FAQ
               </Link>
-              <Link to="/blog" className="font-paragraph text-foreground hover:text-primary transition-colors">
-                Blog
-              </Link>
               <Link to="/contact" className="font-paragraph text-foreground hover:text-primary transition-colors">
                 Contact
               </Link>

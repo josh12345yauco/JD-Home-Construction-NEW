@@ -838,58 +838,6 @@ export default function HomePage() {
           </Card>
         </div>
       </section>
-      {/* --- SECTION 13: BLOG PREVIEW --- */}
-      <section className="w-full py-32 bg-light-grey">
-        <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-end mb-16">
-            <div>
-              <h2 className="font-heading text-5xl text-secondary mb-4">Latest Insights</h2>
-              <p className="font-paragraph text-lg text-foreground/70">Tips and guides for homeowners</p>
-            </div>
-            <Button asChild variant="outline" className="hidden md:flex border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-heading px-8 h-12 rounded-lg">
-              <Link to="/blog">View All Articles</Link>
-            </Button>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {staticBlogPosts.map((post, i) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="group block h-full">
-                  <Card className="h-full border-none shadow-md hover:shadow-xl transition-all duration-300 bg-white rounded-2xl overflow-hidden">
-                    <div className="h-56 overflow-hidden">
-                      <Image 
-                        src={post.mainImage}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <CardContent className="p-8">
-                      <div className="text-primary text-xs font-heading uppercase tracking-wider mb-3">{post.category}</div>
-                      <h3 className="font-heading text-xl text-secondary font-bold mb-3 line-clamp-2 group-hover:text-primary transition-colors">{post.title}</h3>
-                      <p className="font-paragraph text-sm text-foreground/70 line-clamp-3 mb-6">{post.excerpt}</p>
-                      <div className="flex items-center text-secondary font-heading text-sm font-bold group-hover:translate-x-2 transition-transform">
-                        Read Article <ArrowRight className="ml-2 w-4 h-4 text-primary" />
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center md:hidden">
-            <Button asChild variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-heading px-8 h-12 rounded-lg">
-              <Link to="/blog">View All Articles</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
       <Footer />
     </div>
   );
