@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Image } from '@/components/ui/image';
 
 export default function Footer() {
   return (
@@ -10,9 +11,17 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company Info */}
           <div>
-            <div className="font-heading text-2xl mb-6">
-              JD <span className="text-primary">Construction</span>
-            </div>
+            <Link to="/" className="inline-block mb-6">
+              <Image
+                src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
+                width={240}
+                height={80}
+                className="h-16 w-auto"
+                originWidth={875}
+                originHeight={602}
+                alt="JD Construction Logo"
+              />
+            </Link>
             <p className="font-paragraph text-secondary-foreground/80 mb-6">
               Building quality homes and lasting relationships since 2008. Licensed, insured, and committed to excellence.
             </p>
