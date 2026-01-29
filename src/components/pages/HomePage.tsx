@@ -272,7 +272,7 @@ export default function HomePage() {
                 viewport={{ once: true, margin: "-100px" }}
               >
                 <span className="font-heading text-4xl lg:text-5xl font-bold text-white mb-1">
-                  <AnimatedCounter value={stat.value} duration={2.5} />
+                  {stat.value}
                 </span>
                 <span className="font-paragraph text-sm font-semibold text-accent-orange uppercase tracking-wider">{stat.label}</span>
               </motion.div>
