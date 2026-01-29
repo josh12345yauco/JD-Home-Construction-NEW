@@ -51,12 +51,11 @@ export default function HomePage() {
 
   // Static data for services
   const staticServices = [
-    { id: '1', serviceName: 'Kitchen Remodeling', shortDescription: 'Transform your kitchen with modern designs and quality craftsmanship.' },
-    { id: '2', serviceName: 'Bathroom Renovations', shortDescription: 'Create your dream bathroom with expert design and installation.' },
-    { id: '3', serviceName: 'Home Additions', shortDescription: 'Expand your living space with professional construction services.' },
-    { id: '4', serviceName: 'Deck Building', shortDescription: 'Build beautiful outdoor spaces for entertaining and relaxation.' },
-    { id: '5', serviceName: 'Roofing Services', shortDescription: 'Professional roofing solutions for protection and durability.' },
-    { id: '6', serviceName: 'Siding Installation', shortDescription: 'Enhance your home\'s exterior with quality siding materials.' }
+    { id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs' },
+    { id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs' },
+    { id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work' },
+    { id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete' },
+    { id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing' }
   ];
 
   // Static data for projects
@@ -346,7 +345,7 @@ export default function HomePage() {
             </Button>
           </div>
 
-          <div className="flex flex-col gap-6 w-full overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
             {staticServices.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -354,30 +353,21 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="sticky top-0 z-10 w-full"
-                style={{ top: `${index * 20}px` }}
+                className="h-full"
               >
                 <div className="group block h-full w-full">
-                  <Card className="h-48 bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-row w-full">
-                    <div className="relative w-64 flex-shrink-0 overflow-hidden">
-                      <div className="absolute inset-0 bg-secondary/20 group-hover:bg-secondary/0 transition-colors z-10" />
-                      <Image 
-                        src="https://static.wixstatic.com/media/dc69ab_d1abd802dd084db28944539825cfd13e~mv2.png?originWidth=640&originHeight=384"
-                        alt={service.serviceName}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                      />
-                    </div>
-                    <CardContent className="p-8 flex-1 flex flex-col justify-center min-w-0">
-                      <h3 className="font-heading text-2xl text-secondary mb-3 group-hover:text-primary transition-colors truncate">
+                  <Card className="h-full bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col p-8">
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="font-heading text-xl lg:text-2xl text-secondary mb-4 group-hover:text-primary transition-colors">
                         {service.serviceName}
                       </h3>
-                      <p className="font-paragraph text-foreground/70 mb-6 line-clamp-2">
+                      <p className="font-paragraph text-sm lg:text-base text-foreground/70 mb-6 flex-1">
                         {service.shortDescription}
                       </p>
-                      <div className="flex items-center text-primary font-heading font-bold text-sm uppercase tracking-wider">
-                        Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                      </div>
-                    </CardContent>
+                    </div>
+                    <div className="flex items-center text-primary font-heading font-bold text-xs uppercase tracking-wider">
+                      Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
+                    </div>
                   </Card>
                 </div>
               </motion.div>
