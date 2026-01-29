@@ -2,15 +2,23 @@ import { MemberProvider } from '@/integrations';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
-import HomePage from '@/components/pages/HomePage';
-import AboutPage from '@/components/pages/AboutPage';
-import ServicesPage from '@/components/pages/ServicesPage';
-import ServiceDetailPage from '@/components/pages/ServiceDetailPage';
-import ProjectsPage from '@/components/pages/ProjectsPage';
-import ProjectDetailPage from '@/components/pages/ProjectDetailPage';
-import FAQPage from '@/components/pages/FAQPage';
-import ContactPage from '@/components/pages/ContactPage';
-import NotFoundPage from '@/components/pages/NotFoundPage';
+import { lazy, Suspense } from 'react';
+
+// Lazy load page components to avoid circular dependencies
+const HomePage = lazy(() => import('@/components/pages/HomePage'));
+const AboutPage = lazy(() => import('@/components/pages/AboutPage'));
+const ServicesPage = lazy(() => import('@/components/pages/ServicesPage'));
+const ServiceDetailPage = lazy(() => import('@/components/pages/ServiceDetailPage'));
+const ProjectsPage = lazy(() => import('@/components/pages/ProjectsPage'));
+const ProjectDetailPage = lazy(() => import('@/components/pages/ProjectDetailPage'));
+const FAQPage = lazy(() => import('@/components/pages/FAQPage'));
+const ContactPage = lazy(() => import('@/components/pages/ContactPage'));
+const NotFoundPage = lazy(() => import('@/components/pages/NotFoundPage'));
+
+// Loading fallback component
+function PageLoader() {
+  return <div className="min-h-screen flex items-center justify-center bg-background" />;
+}
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -30,70 +38,70 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <HomePage />,
+        element: <Suspense fallback={<PageLoader />}><HomePage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'home',
         },
       },
       {
         path: "about",
-        element: <AboutPage />,
+        element: <Suspense fallback={<PageLoader />}><AboutPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'about',
         },
       },
       {
         path: "services",
-        element: <ServicesPage />,
+        element: <Suspense fallback={<PageLoader />}><ServicesPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'services',
         },
       },
       {
         path: "services/:id",
-        element: <ServiceDetailPage />,
+        element: <Suspense fallback={<PageLoader />}><ServiceDetailPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'service-detail',
         },
       },
       {
         path: "projects",
-        element: <ProjectsPage />,
+        element: <Suspense fallback={<PageLoader />}><ProjectsPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'projects',
         },
       },
       {
         path: "projects/:id",
-        element: <ProjectDetailPage />,
+        element: <Suspense fallback={<PageLoader />}><ProjectDetailPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'project-detail',
         },
       },
       {
         path: "faq",
-        element: <FAQPage />,
+        element: <Suspense fallback={<PageLoader />}><FAQPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'faq',
         },
       },
       {
         path: "contact",
-        element: <ContactPage />,
+        element: <Suspense fallback={<PageLoader />}><ContactPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: 'contact',
         },
       },
       {
         path: "404",
-        element: <NotFoundPage />,
+        element: <Suspense fallback={<PageLoader />}><NotFoundPage /></Suspense>,
         routeMetadata: {
           pageIdentifier: '404',
         },
       },
       {
         path: "*",
-        element: <NotFoundPage />,
+        element: <Suspense fallback={<PageLoader />}><NotFoundPage /></Suspense>,
       },
     ],
   },
