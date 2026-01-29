@@ -267,53 +267,7 @@ export default function AboutPage() {
       </section>
       {/* Meet the Team */}
       <section id="team" className="w-full bg-light-grey py-24">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <motion.div className="text-center mb-16" {...fadeInUp}>
-            <h2 className="font-heading text-5xl text-secondary mb-4">Meet Our Team</h2>
-            <p className="font-paragraph text-lg text-foreground">Experienced professionals dedicated to your project</p>
-          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
-            {isLoading ? null : teamMembers.length > 0 ? (
-              teamMembers.map((member, index) => (
-                <motion.div
-                  key={member._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="h-full bg-background border border-medium-grey/30 rounded-xl overflow-hidden hover:shadow-xl transition-shadow">
-                    {member.photo && (
-                      <Image
-                        src={member.photo}
-                        alt={member.name || 'Team member'}
-                        width={400}
-                        className="w-full h-80 object-cover"
-                      />
-                    )}
-                    <CardContent className="p-6">
-                      <h3 className="font-heading text-2xl text-secondary mb-2">{member.name}</h3>
-                      <p className="font-paragraph text-primary mb-3">{member.role}</p>
-                      {member.yearsOfExperience && (
-                        <p className="font-paragraph text-sm text-foreground/70 mb-4">
-                          {member.yearsOfExperience} years experience
-                        </p>
-                      )}
-                      {member.bio && (
-                        <p className="font-paragraph text-foreground">{member.bio}</p>
-                      )}
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12">
-                <p className="font-paragraph text-foreground">Team information coming soon.</p>
-              </div>
-            )}
-          </div>
-        </div>
       </section>
       <Footer />
     </div>
