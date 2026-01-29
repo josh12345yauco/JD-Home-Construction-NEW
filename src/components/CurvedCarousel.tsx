@@ -103,16 +103,16 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
   }, [isDragging, dragStart, dragOffset]);
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full h-full">
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative h-[480px] flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-8"
+        className="relative h-full flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-8"
         onMouseDown={handleMouseDown}
         style={{ perspective: '1200px' }}
       >
         {/* Cards */}
-        <div className="relative w-full h-full top-0">
+        <div className="relative w-full h-full">
           {projects.map((project, index) => {
             const { x, z, rotateY, scale, opacity } = getCardPosition(index);
             const isCenter = (index - currentIndex + totalCards) % totalCards === Math.floor((totalCards - 1) / 2);
