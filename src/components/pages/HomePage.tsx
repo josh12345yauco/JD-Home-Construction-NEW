@@ -182,11 +182,11 @@ export default function HomePage() {
                   whileHover={{ y: -10 }}
                   className="w-64 bg-white/10 backdrop-blur-md p-8 rounded-2xl shadow-2xl border border-white/20"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-accent-orange/20 flex items-center justify-center mb-6 text-accent-orange">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 text-accent-orange opacity-[1] bg-[transparent]">
                     <Clock className="w-8 h-8" />
                   </div>
-                  <h3 className="font-heading text-2xl text-white mb-2">Fast Estimates</h3>
-                  <p className="font-paragraph text-white/70">Hear back within 1 business day. No chasing required.</p>
+                  <h3 className="font-heading text-2xl mb-2 text-secondary">Fast Estimates</h3>
+                  <p className="font-paragraph text-secondary">Hear back within 1 business day. No chasing required.</p>
                 </motion.div>
 
                 {/* Card 2 - 20px gap */}
