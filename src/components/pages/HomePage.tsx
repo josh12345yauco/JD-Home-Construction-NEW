@@ -233,7 +233,7 @@ export default function HomePage() {
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             {/* Image Collage */}
-            <div className="relative h-[600px] w-full hidden lg:block">
+            <div className="relative h-[510px] w-full hidden lg:block">
               <div className="absolute top-0 left-0 w-4/5 h-4/5 rounded-3xl overflow-hidden shadow-2xl">
                 <Image 
                   src="https://static.wixstatic.com/media/dc69ab_4d13225c8d4840838b4b2aebefea4bde~mv2.png?originWidth=896&originHeight=576"
