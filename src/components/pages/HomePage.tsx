@@ -245,13 +245,17 @@ export default function HomePage() {
               <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
             </motion.div>
           </div>
-
-          {/* Stats Strip (Integrated at bottom of Hero) */}
+        </div>
+      </section>
+      {/* --- SECTION 1.5: ANIMATED COUNTERS --- */}
+      <section className="w-full py-20 bg-secondary text-white border-b border-white/10">
+        <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.8 }}
-            className="mt-24 pt-12 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-8"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
           >
             {[
               { label: "Projects Completed", value: "300+" },
