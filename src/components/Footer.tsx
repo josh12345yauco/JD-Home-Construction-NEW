@@ -55,7 +55,6 @@ export default function Footer() {
               </a>
             </div>
           </div>
-
           {/* Services */}
           <div>
             <h3 className="font-heading text-xl mb-6">Our Services</h3>
@@ -92,7 +91,6 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
           {/* Quick Links */}
           <div>
             <h3 className="font-heading text-xl mb-6">Quick Links</h3>
@@ -119,45 +117,8 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
           {/* Contact & Newsletter */}
-          <div>
-            <h3 className="font-heading text-xl mb-6">Get In Touch</h3>
-            <ul className="space-y-4 mb-6">
-              <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <a href="tel:+19085551234" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  (908) 555-1234
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <a href="mailto:info@jdconstruction.com" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  info@jdconstruction.com
-                </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="font-paragraph text-secondary-foreground/80">
-                  Serving Central NJ
-                </span>
-              </li>
-            </ul>
 
-            <div>
-              <h4 className="font-heading text-base mb-3">Newsletter</h4>
-              <div className="flex gap-2">
-                <Input 
-                  type="email" 
-                  placeholder="Your email" 
-                  className="bg-secondary-foreground/10 border-secondary-foreground/20 text-secondary-foreground placeholder:text-secondary-foreground/50 h-11 rounded-lg"
-                />
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 h-11 rounded-lg flex-shrink-0">
-                  Subscribe
-                </Button>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Bottom Bar */}
