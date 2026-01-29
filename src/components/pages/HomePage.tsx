@@ -374,7 +374,7 @@ export default function HomePage() {
                 >
                   <div className="group block h-full w-full">
                     <div 
-                      className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center text-center items-center justify-between"
+                      className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6 bg-cover bg-center text-center items-center justify-center"
                       style={{
                         backgroundImage: `url('${service.serviceImage}')`,
                         backgroundSize: 'cover',
@@ -384,8 +384,8 @@ export default function HomePage() {
                       {/* Dark overlay for text readability */}
                       <div className="absolute inset-0 bg-black/40 z-0" />
                       
-                      <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                        <h3 className="font-heading text-lg text-white mb-3 group-hover:text-primary transition-colors duration-300">
+                      <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-4">
+                        <h3 className="font-heading text-lg text-white group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
                         <p className="font-paragraph text-sm text-white/90 leading-relaxed">
@@ -393,7 +393,7 @@ export default function HomePage() {
                         </p>
                       </div>
                       <motion.div 
-                        className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300 mt-6"
+                        className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300"
                         whileHover={{ x: 4 }}
                         transition={{ duration: 0.2 }}
                       >
