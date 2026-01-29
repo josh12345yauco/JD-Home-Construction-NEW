@@ -375,39 +375,70 @@ export default function HomePage() {
         </motion.div>
 
         {/* Services cards - full width */}
-        <div className="w-full bg-background py-20">
+        <div className="w-full bg-white py-24">
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-            <div className="flex justify-end mb-12">
-              <Button asChild variant="ghost" className="text-primary hover:text-primary/80 font-heading text-lg group">
-                <Link to="/services">
-                  View All Services <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
+            {/* Header with label, headline, and link */}
+            <div className="mb-16">
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-8">
+                <div className="flex-1">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    <p className="font-heading text-xs uppercase tracking-widest text-primary mb-4 font-bold">
+                      OUR SERVICES
+                    </p>
+                    <h2 className="font-heading text-4xl lg:text-5xl text-secondary leading-tight">
+                      Built to Handle Every Part of Your Project
+                    </h2>
+                  </motion.div>
+                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="flex-shrink-0"
+                >
+                  <Button asChild variant="ghost" className="text-secondary hover:text-primary font-heading text-base group whitespace-nowrap">
+                    <Link to="/services">
+                      View All Services <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                </motion.div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
+            {/* Services grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 w-full">
               {staticServices.map((service, index) => (
                 <motion.div
                   key={service.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
                   className="h-full"
                 >
                   <div className="group block h-full w-full">
-                    <Card className="h-full bg-white border border-medium-grey/20 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col p-8">
+                    <Card className="h-full bg-white border border-medium-grey/30 rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col p-6">
                       <div className="flex-1 flex flex-col">
-                        <h3 className="font-heading text-xl lg:text-2xl text-secondary mb-4 group-hover:text-primary transition-colors">
+                        <h3 className="font-heading text-lg text-secondary mb-3 group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
-                        <p className="font-paragraph text-sm lg:text-base text-foreground/70 mb-6 flex-1">
+                        <p className="font-paragraph text-sm text-foreground/60 mb-6 flex-1 leading-relaxed">
                           {service.shortDescription}
                         </p>
                       </div>
-                      <div className="flex items-center text-primary font-heading font-bold text-xs uppercase tracking-wider">
-                        Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform flex-shrink-0" />
-                      </div>
+                      <motion.div 
+                        className="flex items-center text-primary font-heading font-bold text-xs uppercase tracking-wider"
+                        whileHover={{ x: 4 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        Learn More <ArrowRight className="w-3.5 h-3.5 ml-2 flex-shrink-0" />
+                      </motion.div>
                     </Card>
                   </div>
                 </motion.div>
