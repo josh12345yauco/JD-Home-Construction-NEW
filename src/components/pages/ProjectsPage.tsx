@@ -45,7 +45,6 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="w-full max-w-[120rem] mx-auto px-8 pt-32 pb-24">
         <motion.div className="text-center max-w-4xl mx-auto" {...fadeInUp}>
@@ -57,7 +56,6 @@ export default function ProjectsPage() {
           </p>
         </motion.div>
       </section>
-
       {/* Filter Tabs */}
       <section className="w-full pb-12">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -78,7 +76,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-
       {/* Projects Grid */}
       <section className="w-full pb-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -93,14 +90,14 @@ export default function ProjectsPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <Link to={`/projects/${project._id}`}>
-                    <Card className="h-full bg-background border border-medium-grey/30 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden">
+                    <Card className="h-full bg-background rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden border-0 border-solid border-[#e0e0e04d]">
                       <div className="relative overflow-hidden">
                         {project.beforeImage && (
                           <Image
                             src={project.beforeImage}
                             alt={project.projectTitle || 'Project'}
                             width={400}
-                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 border-0 border-solid border-[#e0e0e04d]"
                           />
                         )}
                         {project.beforeImage && project.afterImage && (
@@ -130,7 +127,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
