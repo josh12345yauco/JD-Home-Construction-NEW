@@ -51,12 +51,12 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <Image
-              src="https://static.wixstatic.com/media/dc69ab_874a936ca44143f19caa931b8ac0d999~mv2.png"
+              src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
               width={240}
               height={80}
               className="h-20 w-auto"
-              originWidth={1536}
-              originHeight={1024} />
+              originWidth={875}
+              originHeight={602} />
           </Link>
 
           {/* Desktop Navigation */}
