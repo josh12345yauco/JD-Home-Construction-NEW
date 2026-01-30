@@ -40,6 +40,32 @@ const staggerContainer = {
   }
 };
 
+// Parallax Image Component
+function ParallaxImage() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  
+  return (
+    <motion.div 
+      ref={ref}
+      style={{ y }}
+      className="absolute inset-0 z-0"
+    >
+      <Image 
+        src="https://static.wixstatic.com/media/dc69ab_3e61d8556a024fb9940ac26d95a1b880~mv2.png?originWidth=1600&originHeight=896"
+        alt="Home being built construction site"
+        className="w-full h-full object-cover"
+        width={1600}
+      />
+    </motion.div>
+  );
+}
+
 // Animated Counter Component
 function AnimatedCounter({ targetValue, label, delay, suffix = "+" }: { targetValue: number; label: string; delay: number; suffix?: string }) {
   const count = useCounterAnimation(targetValue, 2000);
@@ -151,15 +177,8 @@ export default function HomePage() {
       {/* --- SECTION 1: HERO (Havix Style Split) --- */}
       <section className="relative w-full min-h-auto lg:min-h-[95vh] flex items-center pt-20 lg:pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <Image 
-            src="https://static.wixstatic.com/media/dc69ab_3e61d8556a024fb9940ac26d95a1b880~mv2.png?originWidth=1600&originHeight=896"
-            alt="Home being built construction site"
-            className="w-full h-full object-cover"
-            width={1600}
-          />
-          <div className="absolute inset-0 bg-black/90 z-10" />
-        </div>
+        <ParallaxImage />
+        <div className="absolute inset-0 bg-black/90 z-10" />
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
