@@ -219,7 +219,7 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-accent-orange opacity-[1] bg-[transparent]">
                     <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
+                  <h3 className="font-heading text-xl mb-2 text-secondary sm:text-lg">Fast Estimates</h3>
                   <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
                 </motion.div>
 
@@ -231,7 +231,7 @@ export default function HomePage() {
                   <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
                     <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                  <h3 className="font-heading text-xl text-secondary mb-2 sm:text-lg">Licensed & Insured</h3>
                   <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
                 </motion.div>
               </div>
