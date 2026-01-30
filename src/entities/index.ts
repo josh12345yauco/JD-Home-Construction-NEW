@@ -4,31 +4,6 @@
  */
 
 /**
- * Collection ID: blogposts
- * Interface for BlogPosts
- */
-export interface BlogPosts {
-  _id: string;
-  _createdDate?: Date;
-  _updatedDate?: Date;
-  /** @wixFieldType text */
-  title?: string;
-  /** @wixFieldType text */
-  excerpt?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
-  mainImage?: string;
-  /** @wixFieldType text */
-  bodyContent?: string;
-  /** @wixFieldType datetime */
-  publishDate?: Date | string;
-  /** @wixFieldType text */
-  author?: string;
-  /** @wixFieldType text */
-  category?: string;
-}
-
-
-/**
  * Collection ID: faqs
  * Interface for FAQs
  */

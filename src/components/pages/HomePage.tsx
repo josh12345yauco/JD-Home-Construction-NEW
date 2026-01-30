@@ -182,7 +182,7 @@ export default function HomePage() {
               <div className="hidden lg:block absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
 
               {/* Stacked Cards Container - Responsive */}
-              <div className="flex flex-col lg:absolute lg:inset-0 lg:flex-col lg:items-end lg:justify-start lg:pt-0 lg:pr-12 lg:z-20 gap-4 lg:gap-5" style={{ top: 'auto', bottom: 'auto' }}>
+              <div className="flex flex-col lg:absolute lg:top-0 lg:right-0 lg:bottom-auto lg:flex-col lg:items-end lg:justify-start lg:pt-12 lg:pr-12 lg:z-20 gap-4 lg:gap-5">
                 {/* Card 1 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
