@@ -34,6 +34,8 @@ export default function Header() {
   // Determine if we're on the home page (for dark header on hero)
   const isHomePage = location.pathname === '/';
   const isDarkMode = isHomePage && !isScrolled;
+  // When scrolled, always show white text (dark background)
+  const isScrolledMode = isScrolled;
 
   return (
     <header 
@@ -66,7 +68,7 @@ export default function Header() {
                 key={link.path}
                 to={link.path}
                 className={`font-heading text-base transition-colors ${
-                  isDarkMode
+                  isDarkMode || isScrolledMode
                     ? location.pathname === link.path
                       ? 'text-accent-orange'
                       : 'text-white/80 hover:text-accent-orange'
@@ -97,7 +99,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 transition-colors ${isDarkMode ? 'text-white' : 'text-secondary'}`}
+            className={`lg:hidden p-2 transition-colors ${isDarkMode || isScrolledMode ? 'text-white' : 'text-secondary'}`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -111,7 +113,7 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className={`lg:hidden py-6 border-t ${
-            isDarkMode ? 'border-white/10 bg-secondary/50' : 'border-medium-grey/30'
+            isDarkMode || isScrolledMode ? 'border-white/10 bg-secondary/50' : 'border-medium-grey/30'
           }`}>
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -119,7 +121,7 @@ export default function Header() {
                   key={link.path}
                   to={link.path}
                   className={`font-heading text-lg transition-colors ${
-                    isDarkMode
+                    isDarkMode || isScrolledMode
                       ? location.pathname === link.path
                         ? 'text-accent-orange'
                         : 'text-white/80 hover:text-accent-orange'
@@ -134,7 +136,7 @@ export default function Header() {
               <Button 
                 asChild 
                 className={`font-heading h-11 rounded-lg mt-4 transition-all ${
-                  isDarkMode
+                  isDarkMode || isScrolledMode
                     ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
                     : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                 }`}
