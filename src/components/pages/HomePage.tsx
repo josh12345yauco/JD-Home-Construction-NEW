@@ -152,7 +152,13 @@ export default function HomePage() {
       <section className="relative w-full min-h-auto lg:min-h-[95vh] flex items-center pt-20 lg:pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Elements */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-secondary z-10" />
+          <Image 
+            src="https://static.wixstatic.com/media/dc69ab_3e61d8556a024fb9940ac26d95a1b880~mv2.png?originWidth=1600&originHeight=896"
+            alt="Home being built construction site"
+            className="w-full h-full object-cover"
+            width={1600}
+          />
+          <div className="absolute inset-0 bg-black/90 z-10" />
         </div>
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
