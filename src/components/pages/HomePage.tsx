@@ -156,7 +156,7 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* Left: Content */}
             <motion.div 
               initial="hidden"
