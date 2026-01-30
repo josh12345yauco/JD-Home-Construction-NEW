@@ -67,19 +67,19 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
     setCurrentIndex((prev) => (prev + 1) % totalCards);
   };
 
-  const handleMouseDown = (e: React.MouseEvent) => {
+  const handleDragStart = (clientX: number) => {
     setIsDragging(true);
-    setDragStart(e.clientX);
+    setDragStart(clientX);
     setDragOffset(0);
   };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleDragMove = (clientX: number) => {
     if (!isDragging) return;
-    const offset = e.clientX - dragStart;
+    const offset = clientX - dragStart;
     setDragOffset(offset);
   };
 
-  const handleMouseUp = () => {
+  const handleDragEnd = () => {
     setIsDragging(false);
     if (Math.abs(dragOffset) > 50) {
       if (dragOffset > 0) {
@@ -91,13 +91,41 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
     setDragOffset(0);
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    handleDragStart(e.clientX);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    handleDragStart(e.touches[0].clientX);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    handleDragMove(e.clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    handleDragMove(e.touches[0].clientX);
+  };
+
+  const handleMouseUp = () => {
+    handleDragEnd();
+  };
+
+  const handleTouchEnd = () => {
+    handleDragEnd();
+  };
+
   useEffect(() => {
     if (isDragging) {
       window.addEventListener('mousemove', handleMouseMove as any);
       window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('touchmove', handleTouchMove as any);
+      window.addEventListener('touchend', handleTouchEnd);
       return () => {
         window.removeEventListener('mousemove', handleMouseMove as any);
         window.removeEventListener('mouseup', handleMouseUp);
+        window.removeEventListener('touchmove', handleTouchMove as any);
+        window.removeEventListener('touchend', handleTouchEnd);
       };
     }
   }, [isDragging, dragStart, dragOffset]);
@@ -107,9 +135,10 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative h-full flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-8"
+        className="relative h-full flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-8 select-none"
         onMouseDown={handleMouseDown}
-        style={{ perspective: '1200px' }}
+        onTouchStart={handleTouchStart}
+        style={{ perspective: '1200px', touchAction: 'none' }}
       >
         {/* Cards */}
         <div className="relative w-full h-full">
