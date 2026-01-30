@@ -282,7 +282,9 @@ export default function HomePage() {
                   src="https://static.wixstatic.com/media/nsplsh_f9b54a0a0f144be18ae932d224e16001~mv2.jpg"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   originWidth={6336}
-                  originHeight={8448} />
+                  originHeight={8448}
+                  focalPointX={50}
+                  focalPointY={93.97590361445783} />
               </div>
             </div>
 
