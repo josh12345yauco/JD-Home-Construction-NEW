@@ -135,13 +135,13 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
       {/* Carousel Container */}
       <div
         ref={containerRef}
-        className="relative h-full flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-8 select-none"
+        className="relative h-full flex items-start justify-center overflow-hidden cursor-grab active:cursor-grabbing pt-0 select-none"
         onMouseDown={handleMouseDown}
         onTouchStart={handleTouchStart}
         style={{ perspective: '1200px', touchAction: 'none' }}
       >
         {/* Cards */}
-        <div className="relative w-full h-full mx-auto">
+        <div className="relative w-full h-full mx-auto pt-4">
           {projects.map((project, index) => {
             const { x, z, rotateY, scale, opacity } = getCardPosition(index);
             const isCenter = (index - currentIndex + totalCards) % totalCards === Math.floor((totalCards - 1) / 2);
