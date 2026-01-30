@@ -157,26 +157,12 @@ export default function HomePage() {
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-            {/* Mobile Video - shown only on mobile, positioned after heading */}
-            <div className="lg:hidden rounded-3xl overflow-hidden w-full aspect-video order-2">
-              <motion.div style={{ y: heroParallax }} className="w-full h-full">
-                <video 
-                  src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </motion.div>
-            </div>
-
             {/* Left: Content */}
             <motion.div 
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="max-w-3xl order-1"
+              className="max-w-3xl w-full"
             >
               <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
                 <span className="h-[2px] w-12 bg-accent-orange"></span>
@@ -187,6 +173,20 @@ export default function HomePage() {
                 Build It Right.<br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Build It Once.</span>
               </motion.h1>
+              
+              {/* Mobile Video - shown only on mobile, positioned under heading */}
+              <div className="lg:hidden rounded-3xl overflow-hidden w-full aspect-video mb-8">
+                <motion.div style={{ y: heroParallax }} className="w-full h-full">
+                  <video 
+                    src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </div>
               
               <motion.p variants={fadeInUp} className="font-paragraph text-base sm:text-lg lg:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
                 Remodels, additions, and exterior upgrades done with craftsmanship, clear communication, and a clean jobsite—start to finish.
@@ -207,7 +207,7 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="flex flex-col gap-6 order-2 lg:order-3"
+              className="flex flex-col gap-6"
             >
               {/* Video Container - Hidden on mobile, shown on lg */}
               <div className="hidden lg:block rounded-3xl overflow-hidden w-full aspect-video">
