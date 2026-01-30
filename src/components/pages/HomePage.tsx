@@ -209,18 +209,6 @@ export default function HomePage() {
                 </motion.div>
               </div>
 
-              {/* Card 1 */}
-              <motion.div 
-                whileHover={{ y: -10 }}
-                className="bg-accent-orange/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-accent-orange/40 -mt-24 sm:-mt-32 lg:-mt-40 relative z-10"
-              >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
-                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
-                </div>
-                <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
-                <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
-              </motion.div>
-
               {/* Card 2 */}
               <motion.div 
                 whileHover={{ y: -10 }}
@@ -231,6 +219,18 @@ export default function HomePage() {
                 </div>
                 <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
                 <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
+              </motion.div>
+
+              {/* Card 1 */}
+              <motion.div 
+                whileHover={{ y: -10 }}
+                className="bg-accent-orange/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-accent-orange/40 -mt-24 sm:-mt-32 lg:-mt-40 relative z-10"
+              >
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
+                </div>
+                <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
               </motion.div>
             </motion.div>
           </div>
