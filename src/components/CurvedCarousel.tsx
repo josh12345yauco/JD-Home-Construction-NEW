@@ -16,199 +16,123 @@ interface CurvedCarouselProps {
 }
 
 export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState(0);
-  const [dragOffset, setDragOffset] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const totalCards = projects.length;
-  const radius = 800; // Radius of the arc
-  const angleSlice = (Math.PI * 0.6) / (totalCards - 1); // Spread cards across 108 degrees
+  const cardWidth = 320;
+  const cardGap = 24;
+  const cardTotalWidth = cardWidth + cardGap;
 
-  // Calculate position for each card on the arc
-  const getCardPosition = (index: number) => {
-    const position = (index - currentIndex + totalCards) % totalCards;
-    const angle = (position - (totalCards - 1) / 2) * angleSlice;
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (!scrollContainerRef.current) return;
     
-    const x = Math.sin(angle) * radius;
-    const z = (Math.cos(angle) - 1) * radius * 0.5;
-    const rotateY = -angle * (180 / Math.PI);
+    const scrollAmount = cardTotalWidth;
+    const newPosition = direction === 'left' 
+      ? Math.max(0, scrollPosition - scrollAmount)
+      : scrollPosition + scrollAmount;
     
-    // Scale and opacity based on position
-    let scale = 1;
-    let opacity = 1;
+    setScrollPosition(newPosition);
+    scrollContainerRef.current.scrollTo({
+      left: newPosition,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    if (!scrollContainerRef.current) return;
+    e.preventDefault();
     
-    if (position === Math.floor((totalCards - 1) / 2)) {
-      // Center card
-      scale = 1;
-      opacity = 1;
-    } else if (position === Math.floor((totalCards - 1) / 2) - 1 || position === Math.ceil((totalCards - 1) / 2) + 1) {
-      // Adjacent cards
-      scale = 0.92;
-      opacity = 0.95;
-    } else if (position === 0 || position === totalCards - 1) {
-      // Outer cards
-      scale = 0.85;
-      opacity = 0.8;
-    } else {
-      scale = 0.8;
-      opacity = 0.7;
+    const newPosition = scrollPosition + (e.deltaY > 0 ? cardTotalWidth : -cardTotalWidth);
+    const maxScroll = scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
+    
+    setScrollPosition(Math.max(0, Math.min(newPosition, maxScroll)));
+    scrollContainerRef.current.scrollTo({
+      left: Math.max(0, Math.min(newPosition, maxScroll)),
+      behavior: 'smooth',
+    });
+  };
+
+  const handleScrollEvent = () => {
+    if (scrollContainerRef.current) {
+      setScrollPosition(scrollContainerRef.current.scrollLeft);
     }
-
-    return { x, z, rotateY, scale, opacity };
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalCards) % totalCards);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalCards);
-  };
-
-  const handleDragStart = (clientX: number) => {
-    setIsDragging(true);
-    setDragStart(clientX);
-    setDragOffset(0);
-  };
-
-  const handleDragMove = (clientX: number) => {
-    if (!isDragging) return;
-    const offset = clientX - dragStart;
-    setDragOffset(offset);
-  };
-
-  const handleDragEnd = () => {
-    setIsDragging(false);
-    if (Math.abs(dragOffset) > 50) {
-      if (dragOffset > 0) {
-        handlePrevious();
-      } else {
-        handleNext();
-      }
-    }
-    setDragOffset(0);
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    handleDragStart(e.clientX);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    handleDragStart(e.touches[0].clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    handleDragMove(e.clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    handleDragMove(e.touches[0].clientX);
-  };
-
-  const handleMouseUp = () => {
-    handleDragEnd();
-  };
-
-  const handleTouchEnd = () => {
-    handleDragEnd();
   };
 
   useEffect(() => {
-    if (isDragging) {
-      window.addEventListener('mousemove', handleMouseMove as any);
-      window.addEventListener('mouseup', handleMouseUp);
-      window.addEventListener('touchmove', handleTouchMove as any);
-      window.addEventListener('touchend', handleTouchEnd);
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove as any);
-        window.removeEventListener('mouseup', handleMouseUp);
-        window.removeEventListener('touchmove', handleTouchMove as any);
-        window.removeEventListener('touchend', handleTouchEnd);
-      };
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', handleScrollEvent);
+      return () => container.removeEventListener('scroll', handleScrollEvent);
     }
-  }, [isDragging, dragStart, dragOffset]);
+  }, []);
+
+  const canScrollLeft = scrollPosition > 0;
+  const canScrollRight = scrollContainerRef.current 
+    ? scrollPosition < scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth - 10
+    : false;
 
   return (
-    <div className="relative w-full h-[700px]">
-      {/* Carousel Container */}
+    <div className="relative w-full" ref={containerRef}>
+      {/* Gallery Container */}
       <div
-        ref={containerRef}
-        className="relative h-full flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing select-none"
-        onMouseDown={handleMouseDown}
-        onTouchStart={handleTouchStart}
-        style={{ perspective: '1200px', touchAction: 'none' }}
+        ref={scrollContainerRef}
+        className="w-full overflow-x-auto overflow-y-hidden scroll-smooth"
+        style={{ scrollBehavior: 'smooth' }}
+        onWheel={handleWheel}
       >
-        {/* Cards */}
-        <div className="relative w-full h-full mx-auto">
-          {projects.map((project, index) => {
-            const { x, z, rotateY, scale, opacity } = getCardPosition(index);
-            const isCenter = (index - currentIndex + totalCards) % totalCards === Math.floor((totalCards - 1) / 2);
-
-            return (
+        {/* Cards Container */}
+        <div className="relative w-full h-[420px] mx-auto">
+          <div className="flex gap-6 px-8 py-0 h-full items-center">
+            {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                animate={{
-                  x: x + (isDragging ? dragOffset * 0.3 : 0),
-                  y: 0,
-                  rotateY: rotateY,
-                  scale: scale,
-                  opacity: opacity,
-                  zIndex: isCenter ? 50 : Math.floor((totalCards - 1) / 2) - Math.abs((index - currentIndex + totalCards) % totalCards - Math.floor((totalCards - 1) / 2)),
-                }}
-                transition={{
-                  type: 'spring',
-                  stiffness: 300,
-                  damping: 30,
-                  duration: 0.6,
-                }}
-                style={{
-                  width: '320px',
-                  height: '420px',
-                  transformStyle: 'preserve-3d',
-                }}
+                className="flex-shrink-0"
+                style={{ width: `${cardWidth}px` }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: '0px 100px' }}
               >
                 {/* Card */}
                 <motion.div
-                  className="relative w-full h-full rounded-[14px] overflow-hidden shadow-lg group flex flex-col"
-                  whileHover={isCenter ? { y: -12 } : {}}
+                  className="relative w-full h-full rounded-[14px] overflow-hidden shadow-lg group flex flex-col cursor-pointer"
+                  whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Image - Top */}
-                  <div className="flex-shrink-0 h-1/2 overflow-hidden">
+                  {/* Image */}
+                  <div className="relative w-full h-full overflow-hidden">
                     <Image
                       src={project.beforeImage}
                       alt={project.projectTitle}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
 
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-300" />
 
-                  {/* Content - Bottom Left */}
+                  {/* Content - Bottom */}
                   <motion.div
-                    className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300"
+                    className="absolute bottom-0 left-0 right-0 p-5 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 0.1 }}
+                    transition={{ delay: 0.2 }}
                   >
                     {/* Category Badge */}
-                    <div className="mb-3 inline-block">
-                      <span className="px-3 py-1 bg-primary text-white text-xs font-heading uppercase tracking-wider rounded-md shadow-md">
+                    <div className="mb-2 inline-block">
+                      <span className="px-2.5 py-1 bg-primary text-white text-xs font-heading uppercase tracking-wider rounded-md shadow-md">
                         {project.category}
                       </span>
                     </div>
 
                     {/* Project Title */}
-                    <h3 className="font-heading text-lg text-white mb-2 font-bold leading-tight">
+                    <h3 className="font-heading text-base text-white mb-1 font-bold leading-tight line-clamp-2">
                       {project.projectTitle}
                     </h3>
 
                     {/* Project Description */}
-                    <p className="font-paragraph text-white/85 text-sm line-clamp-2">
+                    <p className="font-paragraph text-white/80 text-xs line-clamp-2">
                       {project.scopeOfWork}
                     </p>
                   </motion.div>
@@ -217,41 +141,37 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
                   <div className="absolute inset-0 rounded-[14px] shadow-[inset_0_0_30px_rgba(0,0,0,0.2)] pointer-events-none" />
                 </motion.div>
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Navigation Buttons */}
-      <button
-        onClick={handlePrevious}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-3 rounded-full shadow-lg transition-all duration-300 -ml-6 lg:-ml-12"
-        aria-label="Previous project"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
+      {canScrollLeft && (
+        <motion.button
+          onClick={() => handleScroll('left')}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-3 rounded-full shadow-lg transition-all duration-300 ml-2"
+          aria-label="Scroll left"
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </motion.button>
+      )}
 
-      <button
-        onClick={handleNext}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-3 rounded-full shadow-lg transition-all duration-300 -mr-6 lg:-mr-12"
-        aria-label="Next project"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
-
-      {/* Indicators */}
-      <div className="flex gap-2 justify-center mt-8">
-        {projects.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              idx === currentIndex ? 'bg-primary w-8' : 'bg-medium-grey w-2 hover:bg-primary/60'
-            }`}
-            aria-label={`Go to project ${idx + 1}`}
-          />
-        ))}
-      </div>
+      {canScrollRight && (
+        <motion.button
+          onClick={() => handleScroll('right')}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white hover:bg-primary hover:text-white text-secondary p-3 rounded-full shadow-lg transition-all duration-300 mr-2"
+          aria-label="Scroll right"
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </motion.button>
+      )}
     </div>
   );
 }
