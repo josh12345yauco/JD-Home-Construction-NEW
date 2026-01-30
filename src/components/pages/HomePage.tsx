@@ -209,8 +209,8 @@ export default function HomePage() {
                 </motion.div>
               </div>
 
-              {/* Cards Container - Horizontal Layout */}
-              <div className="flex flex-col sm:flex-row gap-6">
+              {/* Cards Container - Vertical Layout */}
+              <div className="flex flex-col gap-6">
                 {/* Card 2 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
