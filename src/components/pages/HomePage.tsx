@@ -557,7 +557,7 @@ export default function HomePage() {
                         </div>
 
                         {/* Testimonial Text */}
-                        <p className="font-paragraph text-base text-white/90 mb-8 leading-relaxed flex-grow">
+                        <p className="font-paragraph text-base text-white/90 mb-8 leading-relaxed flex-grow no-underline font-normal normal-case">
                           "{testimonial.text}"
                         </p>
 
