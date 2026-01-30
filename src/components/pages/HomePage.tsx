@@ -216,11 +216,15 @@ export default function HomePage() {
                   whileHover={{ y: -10 }}
                   className="flex-1 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/20"
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-accent-orange opacity-[1] bg-[transparent]">
-                    <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0 text-accent-orange opacity-[1] bg-[transparent]">
+                      <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
+                      <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
+                    </div>
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
-                  <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
                 </motion.div>
 
                 {/* Card 1 */}
@@ -228,11 +232,15 @@ export default function HomePage() {
                   whileHover={{ y: -10 }}
                   className="flex-1 bg-accent-orange/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-accent-orange/40 relative z-10"
                 >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
-                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
+                  <div className="flex items-start gap-4 sm:gap-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center flex-shrink-0 text-secondary bg-[transparent]">
+                      <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                      <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
+                    </div>
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
-                  <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
                 </motion.div>
               </div>
             </motion.div>
