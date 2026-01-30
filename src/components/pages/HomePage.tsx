@@ -175,7 +175,7 @@ export default function HomePage() {
               </motion.h1>
               
               {/* Mobile Video - shown only on mobile, positioned under heading */}
-              <div className="lg:hidden rounded-3xl overflow-hidden w-full aspect-video mb-8">
+              <div className="lg:hidden rounded-3xl overflow-hidden w-full h-full aspect-video mb-8">
                 <motion.div style={{ y: heroParallax }} className="w-full h-full">
                   <video 
                     src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
