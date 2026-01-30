@@ -141,7 +141,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
         style={{ perspective: '1200px', touchAction: 'none' }}
       >
         {/* Cards */}
-        <div className="relative w-full h-full">
+        <div className="relative w-full h-full mx-auto">
           {projects.map((project, index) => {
             const { x, z, rotateY, scale, opacity } = getCardPosition(index);
             const isCenter = (index - currentIndex + totalCards) % totalCards === Math.floor((totalCards - 1) / 2);
