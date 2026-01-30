@@ -157,62 +157,7 @@ export default function HomePage() {
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start lg:items-center">
-            {/* Cards Container */}
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-              className="relative w-full order-last lg:order-last"
-            >
-              {/* Video Container - Hidden on Mobile */}
-              <div className="hidden lg:block absolute inset-0 rounded-3xl overflow-hidden z-0 aspect-video">
-                <motion.div style={{ y: heroParallax }} className="w-full h-full">
-                  <video 
-                    src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </div>
-
-              {/* Decorative Grid Behind - Hidden on Mobile */}
-              <div className="hidden lg:block absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
-
-              {/* Stacked Cards Container - Responsive */}
-              <div className="flex flex-col lg:absolute lg:top-0 lg:right-0 lg:bottom-auto lg:flex-col lg:items-end lg:justify-start lg:pt-12 lg:pr-12 lg:z-20 gap-4 lg:gap-5">
-                {/* Card 1 */}
-                <motion.div 
-                  whileHover={{ y: -10 }}
-                  className="w-full sm:w-80 lg:w-64 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/20"
-                >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-accent-orange opacity-[1] bg-[transparent]">
-                    <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
-                  </div>
-                  <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
-                  <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
-                </motion.div>
-
-                {/* Card 2 */}
-                <motion.div 
-                  whileHover={{ y: -10 }}
-                  className="w-full sm:w-80 lg:w-64 bg-accent-orange/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-accent-orange/40"
-                >
-                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
-                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
-                  </div>
-                  <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
-                  <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
-                </motion.div>
-              </div>
-
-              {/* Abstract Shape - Hidden on Mobile */}
-              <div className="hidden lg:block absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
-            </motion.div>
-
-            {/* Left: Content - Now Second (Below on Mobile) */}
+            {/* Left: Content */}
             <motion.div 
               initial="hidden"
               animate="visible"
@@ -241,6 +186,61 @@ export default function HomePage() {
                   <Link to="/projects">View Our Work</Link>
                 </Button>
               </motion.div>
+
+              {/* Video Container - Moved to bottom with 15% top padding */}
+              <div className="hidden lg:block mt-[15%] rounded-3xl overflow-hidden z-0 aspect-video">
+                <motion.div style={{ y: heroParallax }} className="w-full h-full">
+                  <video 
+                    src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
+              </div>
+
+              {/* Stacked Cards Container - Moved to bottom */}
+              <div className="flex flex-col lg:flex-col lg:items-start lg:justify-start lg:mt-[15%] gap-4 lg:gap-5">
+                {/* Card 1 */}
+                <motion.div 
+                  whileHover={{ y: -10 }}
+                  className="w-full sm:w-80 lg:w-64 bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/20"
+                >
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-accent-orange opacity-[1] bg-[transparent]">
+                    <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
+                  </div>
+                  <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
+                  <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
+                </motion.div>
+
+                {/* Card 2 */}
+                <motion.div 
+                  whileHover={{ y: -10 }}
+                  className="w-full sm:w-80 lg:w-64 bg-accent-orange/80 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl border border-accent-orange/40"
+                >
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 text-secondary bg-[transparent]">
+                    <Shield className="w-6 h-6 sm:w-8 sm:h-8 fill-transparent" />
+                  </div>
+                  <h3 className="font-heading text-xl sm:text-2xl text-secondary mb-2">Licensed & Insured</h3>
+                  <p className="font-paragraph text-sm sm:text-base text-secondary/80">Professional, warranty-backed work you can trust.</p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Right: Placeholder for balance */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+              className="relative w-full order-last lg:order-last hidden lg:block"
+            >
+              {/* Decorative Grid Behind - Hidden on Mobile */}
+              <div className="absolute top-0 right-0 w-3/4 h-full border-r border-t border-white/10 rounded-tr-[4rem] z-5" />
+
+              {/* Abstract Shape - Hidden on Mobile */}
+              <div className="absolute bottom-20 right-20 w-64 h-64 bg-accent-orange/10 rounded-full blur-3xl -z-10" />
             </motion.div>
           </div>
         </div>
