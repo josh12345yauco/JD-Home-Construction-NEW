@@ -39,33 +39,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
     });
   };
 
-  const handleWheel = (e: React.WheelEvent) => {
-    if (!scrollContainerRef.current) return;
-    e.preventDefault();
-    
-    const newPosition = scrollPosition + (e.deltaY > 0 ? cardTotalWidth : -cardTotalWidth);
-    const maxScroll = scrollContainerRef.current.scrollWidth - scrollContainerRef.current.clientWidth;
-    
-    setScrollPosition(Math.max(0, Math.min(newPosition, maxScroll)));
-    scrollContainerRef.current.scrollTo({
-      left: Math.max(0, Math.min(newPosition, maxScroll)),
-      behavior: 'smooth',
-    });
-  };
-
-  const handleScrollEvent = () => {
-    if (scrollContainerRef.current) {
-      setScrollPosition(scrollContainerRef.current.scrollLeft);
-    }
-  };
-
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScrollEvent);
-      return () => container.removeEventListener('scroll', handleScrollEvent);
-    }
-  }, []);
+  // ... keep existing code (removed wheel and scroll event handlers) ...
 
   const canScrollLeft = scrollPosition > 0;
   const canScrollRight = scrollContainerRef.current 
@@ -77,9 +51,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
       {/* Gallery Container */}
       <div
         ref={scrollContainerRef}
-        className="w-full overflow-x-auto overflow-y-hidden scroll-smooth"
-        style={{ scrollBehavior: 'smooth' }}
-        onWheel={handleWheel}
+        className="w-full overflow-x-hidden overflow-y-hidden"
       >
         {/* Cards Container */}
         <div className="relative w-full h-[420px] mx-auto">
