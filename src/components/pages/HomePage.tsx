@@ -210,7 +210,7 @@ export default function HomePage() {
               </div>
 
               {/* Cards Container - 2 Cards Below Video */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 -mt-24 sm:-mt-32 lg:-mt-40 relative z-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5 mt-8 sm:mt-12 lg:mt-16 relative z-10">
                 {/* Card 1 */}
                 <motion.div 
                   whileHover={{ y: -10 }}
