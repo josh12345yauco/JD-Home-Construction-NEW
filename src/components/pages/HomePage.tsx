@@ -180,10 +180,10 @@ export default function HomePage() {
               
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row flex-wrap gap-4">
                 <Button asChild size="lg" className="bg-accent-orange hover:bg-accent-orange/90 text-secondary font-heading text-base sm:text-lg px-8 sm:px-10 h-14 sm:h-16 rounded-full shadow-lg shadow-accent-orange/20 transition-all hover:scale-105">
-                  <Link to="/contact">Request a Quote</Link>
+                  <Link to="/contact" className="rounded-[5px]">Request a Quote</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-secondary font-heading text-base sm:text-lg px-8 sm:px-10 h-14 sm:h-16 rounded-full transition-all">
-                  <Link to="/projects">View Our Work</Link>
+                  <Link to="/projects" className="rounded-[5px]">View Our Work</Link>
                 </Button>
               </motion.div>
             </motion.div>
@@ -221,8 +221,8 @@ export default function HomePage() {
                       <Clock className="w-6 h-6 sm:w-8 sm:h-8" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary">Fast Estimates</h3>
-                      <p className="font-paragraph text-sm sm:text-base text-secondary">Hear back within 1 business day. No chasing required.</p>
+                      <h3 className="font-heading text-xl sm:text-2xl mb-2 text-secondary-foreground">Fast Estimates</h3>
+                      <p className="font-paragraph text-sm sm:text-base text-secondary-foreground">Hear back within 1 business day. No chasing required.</p>
                     </div>
                   </div>
                 </motion.div>
