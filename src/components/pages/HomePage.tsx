@@ -111,6 +111,7 @@ export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [services, setServices] = useState<Services[]>([]);
   const [isLoadingServices, setIsLoadingServices] = useState(true);
+  const [backgroundImageUrl, setBackgroundImageUrl] = useState('https://static.wixstatic.com/media/dc69ab_11ce17a665e04401ae0ddf39b3d036eb~mv2.png?originWidth=1920&originHeight=576');
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -500,9 +501,18 @@ export default function HomePage() {
       </section>
       {/* --- SECTION 5: MID-PAGE CTA --- */}
       <section className="w-full py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_11ce17a665e04401ae0ddf39b3d036eb~mv2.png?originWidth=1920&originHeight=576')`}} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('${backgroundImageUrl}')`}} />
         <div className="absolute inset-0 bg-black/70" />
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 text-center relative z-10">
+          <div className="absolute top-4 right-4 z-20 flex gap-2">
+            <Input 
+              type="text" 
+              placeholder="Paste image URL..." 
+              value={backgroundImageUrl}
+              onChange={(e) => setBackgroundImageUrl(e.target.value)}
+              className="h-10 rounded-lg bg-white/90 border-transparent focus:border-primary text-sm max-w-xs"
+            />
+          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
