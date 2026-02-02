@@ -46,6 +46,8 @@ export interface Projects {
   afterImage?: string;
   /** @wixFieldType text */
   projectDescription?: string;
+  /** @wixFieldType media_gallery */
+  mediagallery?: any;
 }
 
 
@@ -71,27 +73,4 @@ export interface Services {
   benefits?: string;
   /** @wixFieldType text */
   timelineEstimate?: string;
-}
-
-
-/**
- * Collection ID: teammembers
- * Interface for TeamMembers
- */
-export interface TeamMembers {
-  _id: string;
-  _createdDate?: Date;
-  _updatedDate?: Date;
-  /** @wixFieldType text */
-  name?: string;
-  /** @wixFieldType text */
-  role?: string;
-  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
-  photo?: string;
-  /** @wixFieldType text */
-  bio?: string;
-  /** @wixFieldType url */
-  socialMediaLink?: string;
-  /** @wixFieldType number */
-  yearsOfExperience?: number;
 }
