@@ -732,17 +732,22 @@ export default function HomePage() {
       <section className="w-full py-20 bg-secondary text-white">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center divide-x divide-white/10">
-            {[
-              { val: "2,500+", label: "5-Star Reviews" },
-              { val: "85%", label: "Repeat Clients" },
-              { val: "92%", label: "Referral Rate" },
-              { val: "47", label: "Projects This Year" }
-            ].map((stat, i) => (
-              <div key={i} className="px-4">
-                <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">{stat.val}</div>
-                <div className="font-paragraph text-lg text-white/70">{stat.label}</div>
-              </div>
-            ))}
+            <div className="px-4">
+              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">2,500+</div>
+              <div className="font-paragraph text-lg text-white/70">5-Star Reviews</div>
+            </div>
+            <div className="px-4">
+              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">85%</div>
+              <div className="font-paragraph text-lg text-white/70">Repeat Clients</div>
+            </div>
+            <div className="px-4">
+              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">92%</div>
+              <div className="font-paragraph text-lg text-white/70">Referral Rate</div>
+            </div>
+            <div className="px-4">
+              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">47</div>
+              <div className="font-paragraph text-lg text-white/70">Projects This Year</div>
+            </div>
           </div>
         </div>
       </section>
