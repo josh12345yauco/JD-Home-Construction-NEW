@@ -92,9 +92,6 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
                     transition={{ delay: 0.2 }}
                   >
                     {/* Project Description */}
-                    <p className="font-paragraph text-white text-xs line-clamp-2 bg-black/90 px-3 py-2 rounded-md mb-3">
-                      {project.scopeOfWork}
-                    </p>
 
                     {/* Category Badge */}
                     <div className="mb-2 inline-block">
@@ -102,7 +99,6 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
                         {project.category}
                       </span>
                     </div>
-
                     {/* Project Title */}
                     <h3 className="font-heading text-base text-white mb-1 font-bold leading-tight line-clamp-2">
                       {project.projectTitle}
@@ -117,7 +113,6 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
           </div>
         </div>
       </div>
-
       {/* Navigation Buttons */}
       {canScrollLeft && (
         <motion.button
@@ -131,7 +126,6 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
           <ChevronLeft className="w-5 h-5" />
         </motion.button>
       )}
-
       {canScrollRight && (
         <motion.button
           onClick={() => handleScroll('right')}
