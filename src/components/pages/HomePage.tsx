@@ -509,7 +509,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-5xl lg:text-7xl text-white mb-6">
+            <h2 className="font-heading text-5xl lg:text-7xl text-white m-0">
               Want a contractor who<br />actually communicates?
             </h2>
             <p className="font-paragraph text-xl lg:text-2xl text-white/90 mb-10 max-w-3xl mx-auto">
