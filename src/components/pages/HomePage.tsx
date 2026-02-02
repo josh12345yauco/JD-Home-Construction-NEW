@@ -437,20 +437,15 @@ export default function HomePage() {
                   className="h-full"
                 >
                   <div className="group block h-full w-full">
-                    <div 
+                    <motion.div 
                       className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col p-6 bg-cover bg-center text-center items-center justify-center"
                       style={{
                         backgroundImage: `url('${service.serviceImage}')`,
                         backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        transition: 'background-size 0.3s ease-in-out'
+                        backgroundPosition: 'center'
                       }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundSize = '110%';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundSize = 'cover';
-                      }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.3 }}
                     >
                       {/* Dark overlay for text readability */}
                       <div className="absolute inset-0 bg-black/40 z-0" />
@@ -468,7 +463,7 @@ export default function HomePage() {
                       >
                         Learn More <ArrowRight className="w-3.5 h-3.5 ml-2 flex-shrink-0" />
                       </motion.div>
-                    </div>
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
