@@ -733,7 +733,7 @@ export default function HomePage() {
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center divide-x divide-white/10">
             <div className="px-4">
-              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">2,500+</div>
+              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">100+</div>
               <div className="font-paragraph text-lg text-white/70">5-Star Reviews</div>
             </div>
             <div className="px-4">
@@ -745,7 +745,7 @@ export default function HomePage() {
               <div className="font-paragraph text-lg text-white/70">Referral Rate</div>
             </div>
             <div className="px-4">
-              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">47</div>
+              <div className="font-heading text-5xl lg:text-6xl text-primary mb-2 font-bold">26</div>
               <div className="font-paragraph text-lg text-white/70">Projects This Year</div>
             </div>
           </div>
