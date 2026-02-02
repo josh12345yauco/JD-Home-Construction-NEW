@@ -3,8 +3,25 @@ import { Facebook, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Image } from '@/components/ui/image';
+import { useEffect, useState } from 'react';
+import { BaseCrudService } from '@/integrations';
+import { Services } from '@/entities';
 
 export default function Footer() {
+  const [services, setServices] = useState<Services[]>([]);
+
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        const result = await BaseCrudService.getAll<Services>('services');
+        setServices(result.items);
+      } catch (error) {
+        console.error('Failed to load services:', error);
+      }
+    };
+    loadServices();
+  }, []);
+
   return (
     <footer className="w-full bg-secondary text-secondary-foreground">
       <div className="max-w-[100rem] mx-auto px-8 py-16">
@@ -59,36 +76,13 @@ export default function Footer() {
           <div>
             <h3 className="font-heading text-xl mb-6">Our Services</h3>
             <ul className="space-y-3">
-              <li>
-                <Link to="/services" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Kitchen Remodeling
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Bathroom Remodeling
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Home Additions
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Decks & Outdoor Living
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Roofing & Siding
-                </Link>
-              </li>
-              <li>
-                <Link to="/services" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
-                  Flooring & Carpentry
-                </Link>
-              </li>
+              {services.map((service) => (
+                <li key={service._id}>
+                  <Link to={`/services/${service._id}`} className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
+                    {service.serviceName}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           {/* Quick Links */}
