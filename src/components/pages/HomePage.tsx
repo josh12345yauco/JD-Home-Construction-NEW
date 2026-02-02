@@ -311,19 +311,21 @@ export default function HomePage() {
             <div className="relative h-[510px] w-full hidden lg:block">
               <div className="absolute top-0 left-0 w-4/5 h-4/5 overflow-hidden shadow-2xl rounded-[10px]">
                 <Image
-                  src="https://static.wixstatic.com/media/nsplsh_7ebce823ee1a4dc6bfc46d6c65e0bcef~mv2.jpg"
+                  src="https://static.wixstatic.com/media/nsplsh_af4b129555f14c7aaf6283c0cef33dbe~mv2.jpg"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   originWidth={4256}
-                  originHeight={2394} />
+                  originHeight={2832}
+                  focalPointX={27.966101694915253}
+                  focalPointY={58.27827252705158} />
               </div>
               <div className="absolute bottom-0 right-0 w-3/5 h-3/5 overflow-hidden shadow-2xl rounded-[10px] border-0 border-solid border-[#f5f5f5]">
                 <Image
-                  src="https://static.wixstatic.com/media/nsplsh_f9b54a0a0f144be18ae932d224e16001~mv2.jpg"
+                  src="https://static.wixstatic.com/media/nsplsh_0dbb56d3e66d483e8c459f49ad2957e2~mv2.jpg"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  originWidth={6336}
-                  originHeight={8448}
-                  focalPointX={50}
-                  focalPointY={93.97590361445783} />
+                  originWidth={6240}
+                  originHeight={4160}
+                  focalPointX={82.20338983050848}
+                  focalPointY={83.05084745762709} />
               </div>
             </div>
 
