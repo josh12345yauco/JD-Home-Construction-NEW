@@ -17,7 +17,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CurvedCarousel from '@/components/CurvedCarousel';
 import { BaseCrudService } from '@/integrations';
-import { Services } from '@/entities';
+import { Services, Projects } from '@/entities';
 
 // --- Animation Variants ---
 const fadeInUp = {
@@ -111,6 +111,8 @@ export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [services, setServices] = useState<Services[]>([]);
   const [isLoadingServices, setIsLoadingServices] = useState(true);
+  const [projects, setProjects] = useState<Projects[]>([]);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -136,6 +138,21 @@ export default function HomePage() {
     loadServices();
   }, []);
 
+  // Fetch projects from CMS
+  useEffect(() => {
+    const loadProjects = async () => {
+      try {
+        const result = await BaseCrudService.getAll<Projects>('projects');
+        setProjects(result.items);
+      } catch (error) {
+        console.error('Error loading projects:', error);
+      } finally {
+        setIsLoadingProjects(false);
+      }
+    };
+    loadProjects();
+  }, []);
+
   // Static data for services (fallback)
   const staticServices = [
     { id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
@@ -145,14 +162,14 @@ export default function HomePage() {
     { id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' }
   ];
 
-  // Static data for projects
+  // Static data for projects (fallback)
   const staticProjects = [
-    { id: '1', projectTitle: 'Modern Kitchen Remodel', category: 'Kitchens', scopeOfWork: 'Complete kitchen renovation with new cabinets and appliances', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { id: '2', projectTitle: 'Luxury Bathroom Suite', category: 'Baths', scopeOfWork: 'Spa-like bathroom with heated floors and custom tile', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { id: '3', projectTitle: 'Home Addition', category: 'Additions', scopeOfWork: 'New master suite addition with custom finishes', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { id: '4', projectTitle: 'Outdoor Deck', category: 'Decks', scopeOfWork: 'Large composite deck with built-in seating', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { id: '5', projectTitle: 'Exterior Renovation', category: 'Exteriors', scopeOfWork: 'New siding and roofing for complete exterior refresh', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { id: '6', projectTitle: 'Full Home Remodel', category: 'Additions', scopeOfWork: 'Multi-room renovation with structural updates', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' }
+    { _id: '1', projectTitle: 'Modern Kitchen Remodel', category: 'Kitchens', scopeOfWork: 'Complete kitchen renovation with new cabinets and appliances', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { _id: '2', projectTitle: 'Luxury Bathroom Suite', category: 'Baths', scopeOfWork: 'Spa-like bathroom with heated floors and custom tile', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { _id: '3', projectTitle: 'Home Addition', category: 'Additions', scopeOfWork: 'New master suite addition with custom finishes', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { _id: '4', projectTitle: 'Outdoor Deck', category: 'Decks', scopeOfWork: 'Large composite deck with built-in seating', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { _id: '5', projectTitle: 'Exterior Renovation', category: 'Exteriors', scopeOfWork: 'New siding and roofing for complete exterior refresh', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
+    { _id: '6', projectTitle: 'Full Home Remodel', category: 'Additions', scopeOfWork: 'Multi-room renovation with structural updates', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' }
   ];
 
   // Static data for team members
@@ -652,13 +669,19 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {staticProjects.length > 0 ? (
-            <CurvedCarousel projects={staticProjects} />
+          {!isLoadingProjects && (projects.length > 0 ? (
+            <CurvedCarousel projects={projects.map(p => ({
+              id: p._id,
+              projectTitle: p.projectTitle || '',
+              category: p.category || '',
+              scopeOfWork: p.scopeOfWork || '',
+              beforeImage: p.beforeImage || ''
+            }))} />
           ) : (
             <div className="text-center py-20">
               <p className="font-paragraph text-xl text-foreground/60">No projects available.</p>
             </div>
-          )}
+          ))}
 
           {/* View All Link */}
           <div className="text-center mt-20">
