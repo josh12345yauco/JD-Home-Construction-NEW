@@ -508,7 +508,15 @@ export default function HomePage() {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-black/70" />
+        <div 
+          className="absolute inset-0 bg-black/70"
+          style={{
+            backgroundImage: 'url(https://static.wixstatic.com/media/dc69ab_5010fad45c2a4e18965251f844446b07~mv2.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundAttachment: 'fixed'
+          }}
+        />
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="absolute top-4 right-4 z-20 flex gap-2">
             <Input 
