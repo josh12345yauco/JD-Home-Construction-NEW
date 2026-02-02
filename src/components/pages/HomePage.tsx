@@ -111,7 +111,6 @@ export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [services, setServices] = useState<Services[]>([]);
   const [isLoadingServices, setIsLoadingServices] = useState(true);
-  const [backgroundImageUrl, setBackgroundImageUrl] = useState('https://static.wixstatic.com/media/dc69ab_11ce17a665e04401ae0ddf39b3d036eb~mv2.png?originWidth=1920&originHeight=576');
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -325,8 +324,8 @@ export default function HomePage() {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                   originWidth={6240}
                   originHeight={4160}
-                  focalPointX={82.20338983050848}
-                  focalPointY={83.05084745762709} />
+                  focalPointX={36.86440677966102}
+                  focalPointY={54.44915254237286} />
               </div>
             </div>
 
@@ -338,7 +337,7 @@ export default function HomePage() {
               variants={staggerContainer}
             >
               <motion.h2 variants={fadeInUp} className="font-heading text-5xl lg:text-6xl text-secondary mb-8">
-                {(services.length > 0 ? services : staticServices).map(s => s.serviceName).join(", ")}
+                Built on Trust,<br />Delivered with Pride.
               </motion.h2>
               <motion.p variants={fadeInUp} className="font-paragraph text-lg text-foreground/80 mb-10 leading-relaxed">
                 For over 15 years, JD Construction has been the go-to contractor for homeowners who want quality work without the runaround. We believe in doing things right—clear quotes, honest timelines, and craftsmanship that lasts.
@@ -501,32 +500,9 @@ export default function HomePage() {
       </section>
       {/* --- SECTION 5: MID-PAGE CTA --- */}
       <section className="w-full py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0">
-          <Image 
-            src={backgroundImageUrl || 'https://static.wixstatic.com/media/dc69ab_0898c98a5bff4e41b431a97c3f10d70a~mv2.png?originWidth=1920&originHeight=576'}
-            alt="Background image for CTA section"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div 
-          className="absolute inset-0 bg-black/70"
-          style={{
-            backgroundImage: 'url(https://static.wixstatic.com/media/dc69ab_5010fad45c2a4e18965251f844446b07~mv2.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
-          }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_11ce17a665e04401ae0ddf39b3d036eb~mv2.png?originWidth=1920&originHeight=576')`}} />
+        <div className="absolute inset-0 bg-black/70" />
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 text-center relative z-10">
-          <div className="absolute top-4 right-4 z-20 flex gap-2">
-            <Input 
-              type="text" 
-              placeholder="Paste image URL..." 
-              value={backgroundImageUrl}
-              onChange={(e) => setBackgroundImageUrl(e.target.value)}
-              className="h-10 rounded-lg bg-white/90 border-transparent focus:border-primary text-sm max-w-xs"
-            />
-          </div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
