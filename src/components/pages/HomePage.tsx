@@ -501,7 +501,13 @@ export default function HomePage() {
       </section>
       {/* --- SECTION 5: MID-PAGE CTA --- */}
       <section className="w-full py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('${backgroundImageUrl}')`}} />
+        <div className="absolute inset-0">
+          <Image 
+            src={backgroundImageUrl || 'https://static.wixstatic.com/media/dc69ab_0898c98a5bff4e41b431a97c3f10d70a~mv2.png?originWidth=1920&originHeight=576'}
+            alt="Background image for CTA section"
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-black/70" />
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 text-center relative z-10">
           <div className="absolute top-4 right-4 z-20 flex gap-2">
