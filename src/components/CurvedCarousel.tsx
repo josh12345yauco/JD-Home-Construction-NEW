@@ -2,17 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Image } from '@/components/ui/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-interface Project {
-  id: string;
-  projectTitle: string;
-  category: string;
-  scopeOfWork: string;
-  beforeImage: string;
-}
+import { Projects } from '@/entities';
 
 interface CurvedCarouselProps {
-  projects: Project[];
+  projects: Projects[];
 }
 
 export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
@@ -58,7 +51,7 @@ export default function CurvedCarousel({ projects }: CurvedCarouselProps) {
           <div className="flex gap-6 px-8 py-0 h-full items-center">
             {projects.map((project, index) => (
               <motion.div
-                key={project.id}
+                key={project._id}
                 className="flex-shrink-0"
                 style={{ width: `${cardWidth}px` }}
                 initial={{ opacity: 0, y: 20 }}
