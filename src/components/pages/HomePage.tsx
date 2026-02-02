@@ -337,7 +337,7 @@ export default function HomePage() {
               variants={staggerContainer}
             >
               <motion.h2 variants={fadeInUp} className="font-heading text-5xl lg:text-6xl text-secondary mb-8">
-                Built on Trust,<br />Delivered with Pride.
+                {(services.length > 0 ? services : staticServices).map(s => s.serviceName).join(", ")}
               </motion.h2>
               <motion.p variants={fadeInUp} className="font-paragraph text-lg text-foreground/80 mb-10 leading-relaxed">
                 For over 15 years, JD Construction has been the go-to contractor for homeowners who want quality work without the runaround. We believe in doing things right—clear quotes, honest timelines, and craftsmanship that lasts.
