@@ -500,7 +500,7 @@ export default function HomePage() {
       </section>
       {/* --- SECTION 5: MID-PAGE CTA --- */}
       <section className="w-full py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_11ce17a665e04401ae0ddf39b3d036eb~mv2.png?originWidth=1920&originHeight=576')`}} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_5010fad45c2a4e18965251f844446b07~mv2.jpg')`}} />
         <div className="absolute inset-0 bg-black/70" />
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 text-center relative z-10">
           <motion.div
