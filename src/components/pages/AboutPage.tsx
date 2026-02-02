@@ -91,8 +91,8 @@ export default function AboutPage() {
                 className="w-full h-full object-cover rounded-xl"
                 originWidth={1632}
                 originHeight={2592}
-                focalPointX={48.086463501063164}
-                focalPointY={34.93975903614458} />
+                focalPointX={49.99999999999998}
+                focalPointY={61.44578313253012} />
             </motion.div>
           </div>
         </div>
