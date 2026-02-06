@@ -208,7 +208,7 @@ export default function HomePage() {
             >
               <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
                 <span className="h-[2px] w-12 bg-accent-orange"></span>
-                <span className="font-heading text-sm tracking-widest uppercase text-accent-orange font-bold">GENERAL Contracting Services</span>
+                <span className="font-heading text-sm tracking-widest uppercase text-accent-orange font-bold">PHILADELPHIA GENERAL Contracting Services</span>
               </motion.div>
               
               <motion.h1 variants={fadeInUp} className="font-heading text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[0.95] mb-8">
