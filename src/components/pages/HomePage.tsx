@@ -376,11 +376,15 @@ export default function HomePage() {
               </motion.ul>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-4 mb-10">
-                {["Licensed & Insured", "5-Year Warranty", "Clean Jobsite Standards"].map((badge, i) => (
-                  <span key={i} className="px-4 py-2 bg-white border border-medium-grey/30 rounded-lg font-heading text-sm text-secondary shadow-sm">
-                    {badge}
-                  </span>
-                ))}
+                <span className="px-4 py-2 bg-white border border-medium-grey/30 rounded-lg font-heading text-sm text-secondary shadow-sm">
+                  Licensed & Insured
+                </span>
+                <span className="px-4 py-2 bg-white border border-medium-grey/30 rounded-lg font-heading text-sm text-secondary shadow-sm">
+                  5-Year Warranty
+                </span>
+                <span className="px-4 py-2 bg-white border border-medium-grey/30 rounded-lg font-heading text-sm text-secondary shadow-sm">
+                  Clean Jobsite Standards
+                </span>
               </motion.div>
 
               <motion.div variants={fadeInUp}>
