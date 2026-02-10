@@ -855,75 +855,137 @@ export default function HomePage() {
           <Card className="border border-medium-grey/20 shadow-2xl rounded-3xl overflow-hidden">
             <div className="h-2 bg-primary w-full" />
             <CardContent className="p-10 lg:p-16">
-              <form className="space-y-8">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label className="font-heading text-secondary font-bold">Name</label>
-                    <Input placeholder="Full Name" className="h-14 rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all" />
+              <form className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Name *</label>
+                    <Input
+                      placeholder="Your full name"
+                      className="h-12 rounded-lg border-medium-grey/30"
+                      required
+                    />
                   </div>
-                  <div className="space-y-2">
-                    <label className="font-heading text-secondary font-bold">Email</label>
-                    <Input type="email" placeholder="email@address.com" className="h-14 rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all" />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label className="font-heading text-secondary font-bold">Phone</label>
-                    <Input type="tel" placeholder="(555) 123-4567" className="h-14 rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="font-heading text-secondary font-bold">Zip Code</label>
-                    <Input placeholder="07090" className="h-14 rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all" />
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Email *</label>
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      className="h-12 rounded-lg border-medium-grey/30"
+                      required
+                    />
                   </div>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="space-y-2">
-                    <label className="font-heading text-secondary font-bold">Project Type</label>
-                    <Select>
-                      <SelectTrigger className="h-14 rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all">
-                        <SelectValue placeholder="Select Type" />
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Phone *</label>
+                    <Input
+                      type="tel"
+                      placeholder="(555) 123-4567"
+                      className="h-12 rounded-lg border-medium-grey/30"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Zip Code *</label>
+                    <Input
+                      placeholder="07090"
+                      className="h-12 rounded-lg border-medium-grey/30"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Project Type *</label>
+                    <Select required>
+                      <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
+                        <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="kitchen">Kitchen Remodel</SelectItem>
                         <SelectItem value="bathroom">Bathroom Remodel</SelectItem>
                         <SelectItem value="addition">Home Addition</SelectItem>
-                        <SelectItem value="deck">Deck/Outdoor</SelectItem>
+                        <SelectItem value="deck">Deck/Outdoor Living</SelectItem>
+                        <SelectItem value="roofing">Roofing & Siding</SelectItem>
+                        <SelectItem value="flooring">Flooring & Carpentry</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
-                  <div className="space-y-2">
-                    <label className="font-heading text-secondary font-bold">Budget Range</label>
-                    <Select>
-                      <SelectTrigger className="h-14 rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all">
-                        <SelectValue placeholder="Select Budget" />
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Timeline *</label>
+                    <Select required>
+                      <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
+                        <SelectValue placeholder="When to start?" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="10-25k">$10k - $25k</SelectItem>
-                        <SelectItem value="25-50k">$25k - $50k</SelectItem>
-                        <SelectItem value="50-100k">$50k - $100k</SelectItem>
-                        <SelectItem value="100k+">$100k+</SelectItem>
+                        <SelectItem value="asap">As soon as possible</SelectItem>
+                        <SelectItem value="1-3">1-3 months</SelectItem>
+                        <SelectItem value="3-6">3-6 months</SelectItem>
+                        <SelectItem value="6+">6+ months</SelectItem>
+                        <SelectItem value="planning">Just planning</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="font-heading text-secondary font-bold">Project Details</label>
-                  <Textarea 
-                    placeholder="Describe your vision, specific requirements, or any questions you have..." 
-                    className="min-h-[150px] rounded-xl bg-light-grey border-transparent focus:border-primary focus:bg-white transition-all p-6"
+                <div>
+                  <label className="block font-heading text-secondary mb-2">Budget Range *</label>
+                  <Select required>
+                    <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
+                      <SelectValue placeholder="Select budget range" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="under-10k">Under $10,000</SelectItem>
+                      <SelectItem value="10-25k">$10,000 - $25,000</SelectItem>
+                      <SelectItem value="25-50k">$25,000 - $50,000</SelectItem>
+                      <SelectItem value="50-100k">$50,000 - $100,000</SelectItem>
+                      <SelectItem value="100k+">$100,000+</SelectItem>
+                      <SelectItem value="not-sure">Not sure yet</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div>
+                  <label className="block font-heading text-secondary mb-2">Project Details *</label>
+                  <Textarea
+                    placeholder="Tell us about your project, what you're looking to accomplish, any specific requirements..."
+                    rows={6}
+                    className="rounded-lg border-medium-grey/30"
+                    required
                   />
                 </div>
 
-                <Button size="lg" className="w-full h-16 bg-primary hover:bg-primary/90 text-white font-heading text-xl rounded-xl shadow-lg transition-all hover:scale-[1.01]">
+                <div>
+                  <label className="block font-heading text-secondary mb-2">Photos (Optional)</label>
+                  <div className="border-2 border-dashed border-medium-grey/30 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
+                    <p className="font-paragraph text-foreground mb-2">Drop photos here or click to upload</p>
+                    <p className="font-paragraph text-sm text-foreground/70">JPG, PNG up to 10MB each</p>
+                  </div>
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading text-base h-14 rounded-lg"
+                >
                   Request My Quote
                 </Button>
-                
-                <p className="text-center text-sm text-foreground/50 flex items-center justify-center gap-2">
-                  <Shield className="w-4 h-4" /> Your information is secure and never shared.
+
+                <a href="tel:267-804-4120" className="md:hidden block">
+                  <Button
+                    type="button"
+                    size="lg"
+                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading text-base h-14 rounded-lg"
+                  >
+                    Call Now
+                  </Button>
+                </a>
+
+                <p className="text-center font-paragraph text-sm text-foreground/70">
+                  * Required fields. We reply within 1 business day.
                 </p>
               </form>
             </CardContent>
