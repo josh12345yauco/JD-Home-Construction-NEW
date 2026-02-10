@@ -138,7 +138,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                title: 'NJ Home Improvement Contractor License',
+                title: 'P.A home improvement Contractor License',
                 number: '#13VH12345600',
                 description: 'Fully licensed by the State of New Jersey'
               },
