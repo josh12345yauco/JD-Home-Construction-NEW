@@ -27,19 +27,19 @@ export default function AboutPage() {
         </motion.div>
       </section>
       {/* Our Story */}
-      <section className="w-full bg-light-grey py-24">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="w-full bg-light-grey py-16 md:py-24">
+        <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
             <motion.div {...fadeInUp}>
-              <h2 className="font-heading text-5xl text-secondary mb-6">Our Story</h2>
-              <div className="space-y-4 font-paragraph text-lg text-foreground">
+              <h2 className="font-heading text-4xl md:text-5xl text-secondary mb-6">Our Story</h2>
+              <div className="space-y-4 font-paragraph text-base md:text-lg text-foreground">
                 <p>
                   Welcome to JD Home Construction, based in the Port Richmond section of Philadelphia. We offer top-quality building services tailored to meet the needs of homeowners, investors, and businesses.
                 </p>
                 <p>
                   While we excel in carpentry and related services, please note that we do not provide plumbing, electrical, roofing, or HVAC services. However, we have established partnerships with trusted professionals in these fields and are happy to give referrals to ensure your project is seamless from start to finish.
                 </p>
-                <p className="font-heading text-xl text-secondary mt-6 mb-3">Areas We Service</p>
+                <p className="font-heading text-lg md:text-xl text-secondary mt-6 mb-3">Areas We Service</p>
                 <p>
                   JD Home Construction proudly serves the following Philadelphia neighborhoods:
                 </p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div
-              className="relative h-[500px]"
+              className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -65,7 +65,7 @@ export default function AboutPage() {
             >
               <Image
                 src="https://static.wixstatic.com/media/nsplsh_99d07237c1974eeb8d9cb550339e7271~mv2.jpg"
-                width={600}
+                width={500}
                 className="w-full h-full object-cover rounded-xl"
                 originWidth={3649}
                 originHeight={2433} />
