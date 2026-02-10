@@ -129,7 +129,7 @@ export default function Footer() {
                   <p className="font-paragraph text-sm text-secondary-foreground/70">Address</p>
                   <p className="font-paragraph text-secondary-foreground">
                     3338 Salmon St.<br />
-                    Philadelphia, PA
+                    PA120312
                   </p>
                 </div>
               </div>
