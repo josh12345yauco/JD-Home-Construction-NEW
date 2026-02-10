@@ -698,25 +698,50 @@ export default function HomePage() {
             <div className="order-2 lg:order-1">
               <h2 className="font-heading text-5xl text-secondary mb-12">Why Choose JD Construction</h2>
               <div className="grid sm:grid-cols-2 gap-8">
-                {[
-                  { icon: Ruler, title: 'Detailed Scope', text: 'No surprises. Comprehensive plans and transparent pricing.' },
-                  { icon: Users, title: 'Respectful Crews', text: 'Professional teams who treat your home with care.' },
-                  { icon: Award, title: 'Quality Materials', text: 'Premium materials and proven techniques for lasting results.' },
-                  { icon: Shield, title: 'Warranty-Backed', text: '5-year warranty on all workmanship for your peace of mind.' }
-                ].map((feature, i) => (
-                  <motion.div 
-                    key={i}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="bg-white p-8 rounded-2xl shadow-sm border border-medium-grey/10"
-                  >
-                    <feature.icon className="w-10 h-10 text-primary mb-6" />
-                    <h3 className="font-heading text-xl text-secondary mb-3 font-bold">{feature.title}</h3>
-                    <p className="font-paragraph text-sm text-foreground/70">{feature.text}</p>
-                  </motion.div>
-                ))}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0 }}
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-medium-grey/10"
+                >
+                  <Ruler className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="font-heading text-xl text-secondary mb-3 font-bold">Detailed Scope</h3>
+                  <p className="font-paragraph text-sm text-foreground/70">No surprises. Comprehensive plans and transparent pricing.</p>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-medium-grey/10"
+                >
+                  <Users className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="font-heading text-xl text-secondary mb-3 font-bold">Respectful Crews</h3>
+                  <p className="font-paragraph text-sm text-foreground/70">Professional teams who treat your home with care.</p>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-medium-grey/10"
+                >
+                  <Award className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="font-heading text-xl text-secondary mb-3 font-bold">Quality Materials</h3>
+                  <p className="font-paragraph text-sm text-foreground/70">Premium materials and proven techniques for lasting results.</p>
+                </motion.div>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 }}
+                  className="bg-white p-8 rounded-2xl shadow-sm border border-medium-grey/10"
+                >
+                  <Shield className="w-10 h-10 text-primary mb-6" />
+                  <h3 className="font-heading text-xl text-secondary mb-3 font-bold">Warranty-Backed</h3>
+                  <p className="font-paragraph text-sm text-foreground/70">5-year warranty on all workmanship for your peace of mind.</p>
+                </motion.div>
               </div>
             </div>
             <div className="order-1 lg:order-2 relative h-[600px]">
