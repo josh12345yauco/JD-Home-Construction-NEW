@@ -1,12 +1,9 @@
-import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Award, Shield, Users, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BaseCrudService } from '@/integrations';
-import { TeamMembers } from '@/entities';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -16,23 +13,6 @@ const fadeInUp = {
 };
 
 export default function AboutPage() {
-  const [teamMembers, setTeamMembers] = useState<TeamMembers[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    loadTeam();
-  }, []);
-
-  const loadTeam = async () => {
-    try {
-      const result = await BaseCrudService.getAll<TeamMembers>('teammembers');
-      setTeamMembers(result.items);
-    } catch (error) {
-      console.error('Error loading team:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -265,7 +245,12 @@ export default function AboutPage() {
       </section>
       {/* Meet the Team */}
       <section id="team" className="w-full bg-light-grey py-24">
-
+        <div className="max-w-[100rem] mx-auto px-8">
+          <motion.div className="text-center mb-16" {...fadeInUp}>
+            <h2 className="font-heading text-5xl text-secondary mb-4">Meet Our Team</h2>
+            <p className="font-paragraph text-lg text-foreground">Experienced professionals dedicated to your project</p>
+          </motion.div>
+        </div>
       </section>
       <Footer />
     </div>
