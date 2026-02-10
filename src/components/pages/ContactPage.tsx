@@ -239,6 +239,16 @@ export default function ContactPage() {
                     Request My Quote
                   </Button>
 
+                  <a href="tel:267-804-4120" className="md:hidden block">
+                    <Button
+                      type="button"
+                      size="lg"
+                      className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading text-base h-14 rounded-lg"
+                    >
+                      Call Now
+                    </Button>
+                  </a>
+
                   <p className="text-center font-paragraph text-sm text-foreground/70">
                     * Required fields. We reply within 1 business day.
                   </p>
