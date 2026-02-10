@@ -28,36 +28,36 @@ export default function AboutPage() {
       </section>
       {/* Our Story */}
       <section className="w-full bg-light-grey py-16 md:py-24">
-        <div className="max-w-[100rem] mx-auto px-4 md:px-8">
+        <div className="max-w-[100rem] mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
-            <motion.div {...fadeInUp}>
-              <h2 className="font-heading text-4xl md:text-5xl text-secondary mb-6">Our Story</h2>
-              <div className="space-y-4 font-paragraph text-base md:text-lg text-foreground">
-                <p>
+            <motion.div {...fadeInUp} className="min-w-0">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-secondary mb-6 break-words">Our Story</h2>
+              <div className="space-y-4 font-paragraph text-sm sm:text-base md:text-lg text-foreground overflow-hidden">
+                <p className="break-words">
                   Welcome to JD Home Construction, based in the Port Richmond section of Philadelphia. We offer top-quality building services tailored to meet the needs of homeowners, investors, and businesses.
                 </p>
-                <p>
+                <p className="break-words">
                   While we excel in carpentry and related services, please note that we do not provide plumbing, electrical, roofing, or HVAC services. However, we have established partnerships with trusted professionals in these fields and are happy to give referrals to ensure your project is seamless from start to finish.
                 </p>
-                <p className="font-heading text-lg md:text-xl text-secondary mt-6 mb-3">Areas We Service</p>
-                <p>
+                <p className="font-heading text-base sm:text-lg md:text-xl text-secondary mt-6 mb-3 break-words">Areas We Service</p>
+                <p className="break-words">
                   JD Home Construction proudly serves the following Philadelphia neighborhoods:
                 </p>
-                <ul className="list-disc list-inside space-y-2 ml-2">
-                  <li>Port Richmond</li>
-                  <li>Fishtown</li>
-                  <li>Fairmount</li>
-                  <li>Northern Liberties</li>
-                  <li>Center City</li>
+                <ul className="list-disc list-inside space-y-2 ml-2 overflow-hidden">
+                  <li className="break-words">Port Richmond</li>
+                  <li className="break-words">Fishtown</li>
+                  <li className="break-words">Fairmount</li>
+                  <li className="break-words">Northern Liberties</li>
+                  <li className="break-words">Center City</li>
                 </ul>
-                <p className="mt-4">
+                <p className="mt-4 break-words">
                   Our local expertise and commitment to excellence make us the preferred choice for carpentry services in these neighborhoods.
                 </p>
               </div>
             </motion.div>
 
             <motion.div
-              className="relative w-full h-[300px] md:h-[400px] lg:h-[500px]"
+              className="relative w-full h-[250px] sm:h-[300px] md:h-[400px] lg:h-[500px] flex-shrink-0"
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -66,9 +66,10 @@ export default function AboutPage() {
               <Image
                 src="https://static.wixstatic.com/media/nsplsh_99d07237c1974eeb8d9cb550339e7271~mv2.jpg"
                 width={500}
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full h-full object-cover rounded-lg sm:rounded-xl"
                 originWidth={3649}
-                originHeight={2433} />
+                originHeight={2433}
+                alt="JD Home Construction project" />
             </motion.div>
           </div>
         </div>
