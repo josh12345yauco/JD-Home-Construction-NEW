@@ -82,8 +82,18 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:block">
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button 
+              asChild 
+              className={`font-heading px-6 h-11 rounded-lg transition-all ${
+                isDarkMode
+                  ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
+                  : 'bg-primary hover:bg-primary/90 text-primary-foreground'
+              }`}
+            >
+              <a href="tel:+1234567890">Call Now</a>
+            </Button>
             <Button 
               asChild 
               className={`font-heading px-6 h-11 rounded-lg transition-all ${
@@ -133,16 +143,28 @@ export default function Header() {
                   {link.name}
                 </Link>
               ))}
-              <Button 
-                asChild 
-                className={`font-heading h-11 rounded-lg mt-4 transition-all ${
-                  isDarkMode || isScrolledMode
-                    ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
-                    : 'bg-primary hover:bg-primary/90 text-primary-foreground'
-                }`}
-              >
-                <Link to="/contact">Request a Quote</Link>
-              </Button>
+              <div className="flex flex-col gap-3 mt-4">
+                <Button 
+                  asChild 
+                  className={`font-heading h-11 rounded-lg transition-all ${
+                    isDarkMode || isScrolledMode
+                      ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
+                      : 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                  }`}
+                >
+                  <a href="tel:+1234567890">Call Now</a>
+                </Button>
+                <Button 
+                  asChild 
+                  className={`font-heading h-11 rounded-lg transition-all ${
+                    isDarkMode || isScrolledMode
+                      ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
+                      : 'bg-primary hover:bg-primary/90 text-primary-foreground'
+                  }`}
+                >
+                  <Link to="/contact">Request a Quote</Link>
+                </Button>
+              </div>
             </nav>
           </div>
         )}
