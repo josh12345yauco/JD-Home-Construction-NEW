@@ -170,7 +170,7 @@ export default function ServiceDetailPage() {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
                   <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-                  <span className="font-paragraph text-lg text-foreground">{benefit}</span>
+                  <span className="font-paragraph text-lg text-foreground flex-1">{benefit}</span>
                 </motion.div>
               ))}
             </div>
