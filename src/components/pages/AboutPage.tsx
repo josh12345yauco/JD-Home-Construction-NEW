@@ -188,62 +188,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      {/* Our Process */}
-      <section className="w-full py-24">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <motion.div className="text-center mb-16" {...fadeInUp}>
-            <h2 className="font-heading text-5xl text-secondary mb-4">Our Process</h2>
-            <p className="font-paragraph text-lg text-foreground">A clear, proven approach to every project</p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
-            {[
-              {
-                step: '01',
-                title: 'Initial Consultation',
-                description: 'We meet to discuss your vision, needs, and budget'
-              },
-              {
-                step: '02',
-                title: 'Detailed Estimate',
-                description: 'Comprehensive quote with material and labor breakdown'
-              },
-              {
-                step: '03',
-                title: 'Design & Planning',
-                description: 'Finalize plans, permits, and project timeline'
-              },
-              {
-                step: '04',
-                title: 'Construction',
-                description: 'Daily updates, clean worksite, quality craftsmanship'
-              },
-              {
-                step: '05',
-                title: 'Final Walkthrough',
-                description: 'Inspection, cleanup, and warranty documentation'
-              }
-            ].map((process, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="text-center">
-                  <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
-                    <span className="font-heading text-3xl text-primary">{process.step}</span>
-                  </div>
-                  <h3 className="font-heading text-xl text-secondary mb-3">{process.title}</h3>
-                  <p className="font-paragraph text-foreground">{process.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      {/* Meet the Team */}
 
       <Footer />
     </div>
