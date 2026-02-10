@@ -64,13 +64,11 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="https://static.wixstatic.com/media/dc69ab_baa3a4e8ed5d4fe79f2a58bfea9f0f4f~mv2.png"
+                src="https://static.wixstatic.com/media/nsplsh_99d07237c1974eeb8d9cb550339e7271~mv2.jpg"
                 width={600}
                 className="w-full h-full object-cover rounded-xl"
-                originWidth={1632}
-                originHeight={2592}
-                focalPointX={49.99999999999998}
-                focalPointY={61.44578313253012} />
+                originWidth={3649}
+                originHeight={2433} />
             </motion.div>
           </div>
         </div>
@@ -188,7 +186,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
