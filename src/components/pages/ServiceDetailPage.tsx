@@ -78,7 +78,6 @@ export default function ServiceDetailPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-
       {/* Hero Section */}
       <section className="w-full max-w-[120rem] mx-auto px-8 pt-32 pb-16">
         <motion.div {...fadeInUp}>
@@ -90,7 +89,6 @@ export default function ServiceDetailPage() {
           </p>
         </motion.div>
       </section>
-
       {/* Service Image */}
       {service.serviceImage && (
         <section className="w-full max-w-[100rem] mx-auto px-8 pb-24">
@@ -108,7 +106,6 @@ export default function ServiceDetailPage() {
           </motion.div>
         </section>
       )}
-
       {/* Detailed Description */}
       <section className="w-full bg-light-grey py-24">
         <div className="max-w-[100rem] mx-auto px-8">
@@ -151,39 +148,7 @@ export default function ServiceDetailPage() {
           </div>
         </div>
       </section>
-
       {/* Process Steps */}
-      {processSteps.length > 0 && (
-        <section className="w-full py-24">
-          <div className="max-w-[100rem] mx-auto px-8">
-            <motion.div className="text-center mb-16" {...fadeInUp}>
-              <h2 className="font-heading text-5xl text-secondary mb-4">Our Process</h2>
-              <p className="font-paragraph text-lg text-foreground">How we bring your vision to life</p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card className="h-full bg-background border border-medium-grey/30 rounded-xl">
-                    <CardContent className="p-8">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-                        <span className="font-heading text-xl text-primary">{index + 1}</span>
-                      </div>
-                      <p className="font-paragraph text-foreground">{step}</p>
-                    </CardContent>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Benefits */}
       {benefits.length > 0 && (
@@ -212,7 +177,6 @@ export default function ServiceDetailPage() {
           </div>
         </section>
       )}
-
       {/* Related Projects */}
       {relatedProjects.length > 0 && (
         <section className="w-full py-24">
@@ -259,7 +223,6 @@ export default function ServiceDetailPage() {
           </div>
         </section>
       )}
-
       {/* CTA Section */}
       <section className="w-full bg-primary py-20">
         <div className="max-w-[100rem] mx-auto px-8 text-center">
@@ -276,7 +239,6 @@ export default function ServiceDetailPage() {
           </motion.div>
         </div>
       </section>
-
       <Footer />
     </div>
   );
