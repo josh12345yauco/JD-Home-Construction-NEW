@@ -110,7 +110,7 @@ export default function ServicesPage() {
                 description: 'Detailed estimates with no hidden fees. You\'ll know exactly what you\'re paying for before we start.'
               },
               {
-                title: '5-Year Warranty',
+                title: 'Warranty',
                 description: 'All our work is backed by a comprehensive warranty. We stand behind our craftsmanship.'
               },
               {
