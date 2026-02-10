@@ -637,6 +637,15 @@ export default function HomePage() {
               <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#F7F7F7] to-transparent pointer-events-none z-10" />
             </motion.div>
           </div>
+
+          {/* View All Reviews Button */}
+          <div className="text-center mt-12">
+            <Button asChild className="bg-primary hover:bg-primary/90 text-white font-heading px-8 h-12 rounded-lg">
+              <a href="https://www.google.com/search?q=JD+Construction+reviews" target="_blank" rel="noopener noreferrer">
+                View All Reviews
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
       {/* --- SECTION 7: CURVED CAROUSEL GALLERY --- */}
