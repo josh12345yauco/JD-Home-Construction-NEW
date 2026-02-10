@@ -16,8 +16,7 @@ import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CurvedCarousel from '@/components/CurvedCarousel';
-import { BaseCrudService } from '@/integrations';
-import { Services, Projects } from '@/entities';
+// ... keep existing code (removed CMS imports) ...
 
 // --- Animation Variants ---
 const fadeInUp = {
@@ -109,10 +108,6 @@ function AnimatedCounterRating({ targetValue, label, delay }: { targetValue: num
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [services, setServices] = useState<Services[]>([]);
-  const [isLoadingServices, setIsLoadingServices] = useState(true);
-  const [projects, setProjects] = useState<Projects[]>([]);
-  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -122,36 +117,6 @@ export default function HomePage() {
   });
   
   const heroParallax = useTransform(scrollYProgress, [0, 0.2], [0, 100]);
-
-  // Fetch services from CMS
-  useEffect(() => {
-    const loadServices = async () => {
-      try {
-        const result = await BaseCrudService.getAll<Services>('services');
-        setServices(result.items);
-      } catch (error) {
-        console.error('Error loading services:', error);
-      } finally {
-        setIsLoadingServices(false);
-      }
-    };
-    loadServices();
-  }, []);
-
-  // Fetch projects from CMS
-  useEffect(() => {
-    const loadProjects = async () => {
-      try {
-        const result = await BaseCrudService.getAll<Projects>('projects');
-        setProjects(result.items);
-      } catch (error) {
-        console.error('Error loading projects:', error);
-      } finally {
-        setIsLoadingProjects(false);
-      }
-    };
-    loadProjects();
-  }, []);
 
   // Static data for services (fallback)
   const staticServices = [
@@ -450,7 +415,7 @@ export default function HomePage() {
           <div className="w-full">
             {/* Services grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px w-full">
-              {(services.length > 0 ? services : staticServices).slice(0, 5).map((service, index) => (
+              {staticServices.slice(0, 5).map((service, index) => (
                 <motion.div
                   key={service.id}
                   initial={{ opacity: 0, y: 30 }}
@@ -673,9 +638,7 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {projects.length > 0 ? (
-            <CurvedCarousel projects={projects} />
-          ) : staticProjects.length > 0 ? (
+          {staticProjects.length > 0 ? (
             <CurvedCarousel projects={staticProjects} />
           ) : (
             <div className="text-center py-20">
