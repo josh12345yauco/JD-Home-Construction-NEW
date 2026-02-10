@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useState } from 'react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -13,6 +14,44 @@ const fadeInUp = {
 };
 
 export default function AboutPage() {
+  const [certifications, setCertifications] = useState([
+    {
+      title: 'NJ Home Improvement Contractor License',
+      number: '#13VH12345600',
+      description: 'Fully licensed by the State of New Jersey'
+    },
+    {
+      title: 'General Liability Insurance',
+      number: '$2M Coverage',
+      description: 'Comprehensive protection for every project'
+    },
+    {
+      title: 'Workers Compensation',
+      number: 'Full Coverage',
+      description: 'All team members fully insured'
+    },
+    {
+      title: 'EPA Lead-Safe Certified',
+      number: 'Firm #NAT-F123456-1',
+      description: 'Certified for lead-safe renovation work'
+    },
+    {
+      title: 'OSHA Safety Trained',
+      number: '30-Hour Certification',
+      description: 'Committed to jobsite safety standards'
+    },
+    {
+      title: 'Better Business Bureau',
+      number: 'A+ Rating',
+      description: 'Accredited with excellent standing'
+    }
+  ]);
+
+  const handleCertChange = (index, field, value) => {
+    const updated = [...certifications];
+    updated[index][field] = value;
+    setCertifications(updated);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -136,38 +175,7 @@ export default function AboutPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'NJ Home Improvement Contractor License',
-                number: '#13VH12345600',
-                description: 'Fully licensed by the State of New Jersey'
-              },
-              {
-                title: 'General Liability Insurance',
-                number: '$2M Coverage',
-                description: 'Comprehensive protection for every project'
-              },
-              {
-                title: 'Workers Compensation',
-                number: 'Full Coverage',
-                description: 'All team members fully insured'
-              },
-              {
-                title: 'EPA Lead-Safe Certified',
-                number: 'Firm #NAT-F123456-1',
-                description: 'Certified for lead-safe renovation work'
-              },
-              {
-                title: 'OSHA Safety Trained',
-                number: '30-Hour Certification',
-                description: 'Committed to jobsite safety standards'
-              },
-              {
-                title: 'Better Business Bureau',
-                number: 'A+ Rating',
-                description: 'Accredited with excellent standing'
-              }
-            ].map((cert, index) => (
+            {certifications.map((cert, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
@@ -178,9 +186,27 @@ export default function AboutPage() {
                 <Card className="h-full bg-background border border-medium-grey/30 rounded-xl">
                   <CardContent className="p-8">
                     <Award className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="font-heading text-xl text-secondary mb-2">{cert.title}</h3>
-                    <div className="font-heading text-primary mb-3">{cert.number}</div>
-                    <p className="font-paragraph text-foreground">{cert.description}</p>
+                    <input
+                      type="text"
+                      value={cert.title}
+                      onChange={(e) => handleCertChange(index, 'title', e.target.value)}
+                      className="font-heading text-xl text-secondary mb-2 w-full bg-transparent border-b border-transparent hover:border-primary focus:border-primary focus:outline-none px-0 py-1"
+                      placeholder="Certification title"
+                    />
+                    <input
+                      type="text"
+                      value={cert.number}
+                      onChange={(e) => handleCertChange(index, 'number', e.target.value)}
+                      className="font-heading text-primary mb-3 w-full bg-transparent border-b border-transparent hover:border-primary focus:border-primary focus:outline-none px-0 py-1"
+                      placeholder="License/credential number"
+                    />
+                    <textarea
+                      value={cert.description}
+                      onChange={(e) => handleCertChange(index, 'description', e.target.value)}
+                      className="font-paragraph text-foreground w-full bg-transparent border-b border-transparent hover:border-primary focus:border-primary focus:outline-none px-0 py-1 resize-none"
+                      placeholder="Description"
+                      rows={2}
+                    />
                   </CardContent>
                 </Card>
               </motion.div>
