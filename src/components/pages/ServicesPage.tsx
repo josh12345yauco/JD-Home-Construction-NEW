@@ -42,10 +42,10 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="w-full max-w-[120rem] mx-auto px-8 pt-32 pb-24">
         <motion.div className="text-center max-w-4xl mx-auto" {...fadeInUp}>
-          <h1 className="font-heading text-6xl lg:text-7xl text-secondary mb-6">
+          <h1 className="font-heading text-6xl lg:text-7xl text-secondary mb-6 editable-heading">
             Our Services
           </h1>
-          <p className="font-paragraph text-xl text-foreground">
+          <p className="font-paragraph text-xl text-foreground editable-paragraph">
             From concept to completion, we handle every detail of your construction project with precision and care.
           </p>
         </motion.div>
