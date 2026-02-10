@@ -178,7 +178,6 @@ export default function AboutPage() {
                 <Card className="h-full bg-background border border-medium-grey/30 rounded-xl">
                   <CardContent className="p-8">
                     <Award className="w-12 h-12 text-primary mb-4" />
-                    <h3 className="font-heading text-xl text-secondary mb-2">{cert.title}</h3>
                     <div className="font-heading text-primary mb-3">{cert.number}</div>
                     <p className="font-paragraph text-foreground">{cert.description}</p>
                   </CardContent>
