@@ -16,6 +16,8 @@ import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CurvedCarousel from '@/components/CurvedCarousel';
+import { BaseCrudService } from '@/integrations';
+import { Projects } from '@/entities';
 // ... keep existing code (removed CMS imports) ...
 
 // --- Animation Variants ---
@@ -108,6 +110,8 @@ function AnimatedCounterRating({ targetValue, label, delay }: { targetValue: num
 
 export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [projects, setProjects] = useState<Projects[]>([]);
+  const [isLoadingProjects, setIsLoadingProjects] = useState(true);
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -117,6 +121,23 @@ export default function HomePage() {
   });
   
   const heroParallax = useTransform(scrollYProgress, [0, 0.2], [0, 100]);
+
+  // Fetch projects from CMS
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const result = await BaseCrudService.getAll<Projects>('projects', {}, { limit: 50 });
+        setProjects(result.items || []);
+      } catch (error) {
+        console.error('Error fetching projects:', error);
+        setProjects([]);
+      } finally {
+        setIsLoadingProjects(false);
+      }
+    };
+    
+    fetchProjects();
+  }, []);
 
   // Static data for services (fallback)
   const staticServices = [
@@ -638,13 +659,13 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {staticProjects.length > 0 ? (
-            <CurvedCarousel projects={staticProjects} />
-          ) : (
+          {!isLoadingProjects && projects.length > 0 ? (
+            <CurvedCarousel projects={projects} />
+          ) : !isLoadingProjects && projects.length === 0 ? (
             <div className="text-center py-20">
               <p className="font-paragraph text-xl text-foreground/60">No projects available.</p>
             </div>
-          )}
+          ) : null}
 
           {/* View All Link */}
           <div className="text-center mt-20">
