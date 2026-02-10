@@ -103,7 +103,7 @@ export default function ServicesPage() {
             {[
               {
                 title: 'Licensed & Insured',
-                description: 'Fully licensed NJ contractor with comprehensive insurance coverage for your protection and peace of mind.'
+                description: 'Fully licensed P.A. contractor with comprehensive insurance coverage for your protection and peace of mind.'
               },
               {
                 title: 'Transparent Pricing',
