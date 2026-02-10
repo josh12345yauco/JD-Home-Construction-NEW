@@ -244,14 +244,7 @@ export default function AboutPage() {
         </div>
       </section>
       {/* Meet the Team */}
-      <section id="team" className="w-full bg-light-grey py-24">
-        <div className="max-w-[100rem] mx-auto px-8">
-          <motion.div className="text-center mb-16" {...fadeInUp}>
-            <h2 className="font-heading text-5xl text-secondary mb-4">Meet Our Team</h2>
-            <p className="font-paragraph text-lg text-foreground">Experienced professionals dedicated to your project</p>
-          </motion.div>
-        </div>
-      </section>
+
       <Footer />
     </div>
   );
