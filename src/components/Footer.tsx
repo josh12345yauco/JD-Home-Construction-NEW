@@ -39,9 +39,7 @@ export default function Footer() {
                 alt="JD Construction Logo"
               />
             </Link>
-            <p className="font-paragraph text-secondary-foreground/80 mb-6">
-              Building quality homes and lasting relationships since 2008. Licensed, insured, and committed to excellence.
-            </p>
+            <p className="font-paragraph text-secondary-foreground/80 mb-6">Building quality homes and lasting relationships over a decade. Licensed, insured, and committed to excellence.</p>
             <div className="flex gap-4">
               <a 
                 href="https://facebook.com" 
@@ -61,15 +59,7 @@ export default function Footer() {
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a 
-                href="https://linkedin.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-secondary-foreground/10 hover:bg-primary flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+
             </div>
           </div>
           {/* Services */}

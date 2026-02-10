@@ -740,7 +740,7 @@ export default function HomePage() {
                 >
                   <Shield className="w-10 h-10 text-primary mb-6" />
                   <h3 className="font-heading text-xl text-secondary mb-3 font-bold">Warranty-Backed</h3>
-                  <p className="font-paragraph text-sm text-foreground/70">5-year warranty on all workmanship for your peace of mind.</p>
+                  <p className="font-paragraph text-sm text-foreground/70">1-year warranty on all workmanship for your peace of mind.</p>
                 </motion.div>
               </div>
             </div>
