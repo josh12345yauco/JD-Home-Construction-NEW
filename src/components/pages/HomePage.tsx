@@ -380,7 +380,7 @@ export default function HomePage() {
                   Licensed & Insured
                 </span>
                 <span className="px-4 py-2 bg-white border border-medium-grey/30 rounded-lg font-heading text-sm text-secondary shadow-sm">
-                  5-Year Warranty
+                  Warranty
                 </span>
                 <span className="px-4 py-2 bg-white border border-medium-grey/30 rounded-lg font-heading text-sm text-secondary shadow-sm">
                   Clean Jobsite Standards
