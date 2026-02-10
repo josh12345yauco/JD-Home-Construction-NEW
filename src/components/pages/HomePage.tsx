@@ -575,9 +575,9 @@ export default function HomePage() {
               className="lg:col-span-2 relative"
             >
               {/* Carousel Container */}
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden px-4 md:px-0">
                 <motion.div
-                  className="flex gap-6 pb-4"
+                  className="flex gap-4 md:gap-6 pb-4"
                   animate={{ x: [0, -100 * 4] }}
                   transition={{
                     duration: 20,
@@ -596,9 +596,9 @@ export default function HomePage() {
                     { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
                     { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' }
                   ].map((testimonial, index) => (
-                    <div key={index} className="flex-shrink-0 w-full sm:w-96">
+                    <div key={index} className="flex-shrink-0 w-80 sm:w-96">
                       {/* Premium Dark Card */}
-                      <div className="bg-[#1C1C1C] rounded-2xl p-8 h-full flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      <div className="bg-[#1C1C1C] rounded-2xl p-6 md:p-8 h-full flex flex-col justify-between shadow-lg hover:shadow-xl transition-shadow duration-300">
                         {/* Stars */}
                         <div className="flex gap-1 mb-6">
                           {[...Array(5)].map((_, i) => (
@@ -634,7 +634,7 @@ export default function HomePage() {
               </div>
 
               {/* Fade Gradient Overlay (Right) */}
-              <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#F7F7F7] to-transparent pointer-events-none z-10" />
+              <div className="absolute top-0 right-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#F7F7F7] to-transparent pointer-events-none z-10" />
             </motion.div>
           </div>
 
