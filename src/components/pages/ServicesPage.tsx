@@ -5,6 +5,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useEffect, useState } from 'react';
+import { BaseCrudService } from '@/integrations';
+import { Services } from '@/entities';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -13,46 +16,25 @@ const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
-const staticServices = [
-  {
-    _id: '1',
-    serviceName: 'Kitchen Remodeling',
-    shortDescription: 'Transform your kitchen with modern designs and quality materials.',
-    serviceImage: 'https://static.wixstatic.com/media/dc69ab_a59f20ff3c544dfdb52b09a4ca59d49a~mv2.png?originWidth=384&originHeight=192'
-  },
-  {
-    _id: '2',
-    serviceName: 'Bathroom Renovation',
-    shortDescription: 'Create your dream bathroom with expert craftsmanship.',
-    serviceImage: 'https://static.wixstatic.com/media/dc69ab_34ac5f50dbb746e59a12cfb9039f18eb~mv2.png?originWidth=384&originHeight=192'
-  },
-  {
-    _id: '3',
-    serviceName: 'Flooring Installation',
-    shortDescription: 'Premium flooring solutions for every room in your home.',
-    serviceImage: 'https://static.wixstatic.com/media/dc69ab_c789b1ea2acf49afb0435e1dbdae8b13~mv2.png?originWidth=384&originHeight=192'
-  },
-  {
-    _id: '4',
-    serviceName: 'Roofing Services',
-    shortDescription: 'Durable roofing solutions to protect your home.',
-    serviceImage: 'https://static.wixstatic.com/media/dc69ab_d150a969a5c14164bde976edec29a1ea~mv2.png?originWidth=384&originHeight=192'
-  },
-  {
-    _id: '5',
-    serviceName: 'Exterior Painting',
-    shortDescription: 'Professional painting to enhance your home\'s curb appeal.',
-    serviceImage: 'https://static.wixstatic.com/media/dc69ab_195692f112ea4e8a9f38e887a41ba9b0~mv2.png?originWidth=384&originHeight=192'
-  },
-  {
-    _id: '6',
-    serviceName: 'Deck Building',
-    shortDescription: 'Custom decks built to last with premium materials.',
-    serviceImage: 'https://static.wixstatic.com/media/dc69ab_1d23be966409489db851b517cf76cf5a~mv2.png?originWidth=384&originHeight=192'
-  }
-];
-
 export default function ServicesPage() {
+  const [services, setServices] = useState<Services[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadServices = async () => {
+      try {
+        const result = await BaseCrudService.getAll<Services>('services');
+        setServices(result.items);
+      } catch (error) {
+        console.error('Error loading services:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadServices();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -73,7 +55,7 @@ export default function ServicesPage() {
       <section className="w-full pb-24">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {staticServices.map((service, index) => (
+            {!isLoading && services.map((service, index) => (
               <motion.div
                 key={service._id}
                 initial={{ opacity: 0, y: 20 }}
