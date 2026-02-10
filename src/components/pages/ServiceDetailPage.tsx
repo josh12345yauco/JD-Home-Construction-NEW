@@ -159,7 +159,7 @@ export default function ServiceDetailPage() {
               <p className="font-paragraph text-lg text-foreground">Why choose this service</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-1 gap-6 max-w-6xl mx-auto">
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
