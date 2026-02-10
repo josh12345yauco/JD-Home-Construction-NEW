@@ -46,7 +46,7 @@ export default function ContactPage() {
                     <Phone className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl text-secondary mb-2">Phone</h3>
-                  <a href="tel:+19085551234" className="font-paragraph text-foreground hover:text-primary transition-colors">267804-4120</a>
+                  <a href="tel:+19085551234" className="font-paragraph text-foreground hover:text-primary transition-colors">267-804-4120</a>
                 </CardContent>
               </Card>
             </motion.div>
