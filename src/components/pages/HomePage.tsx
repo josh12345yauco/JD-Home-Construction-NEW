@@ -15,7 +15,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import CurvedCarousel from '@/components/CurvedCarousel';
+import InstagramFeed from '@/components/InstagramFeed';
 import { BaseCrudService } from '@/integrations';
 import { Projects } from '@/entities';
 // ... keep existing code (removed CMS imports) ...
@@ -668,13 +668,7 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {!isLoadingProjects && projects.length > 0 ? (
-            <CurvedCarousel projects={projects} />
-          ) : !isLoadingProjects && projects.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="font-paragraph text-xl text-foreground/60">No projects available.</p>
-            </div>
-          ) : null}
+          <InstagramFeed />
 
           {/* View All Link */}
           <div className="text-center mt-20">
