@@ -413,7 +413,7 @@ export default function HomePage() {
           transition={{ duration: 0.6 }}
         >
           {/* Centered content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 hidden">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
