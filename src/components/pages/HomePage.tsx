@@ -17,8 +17,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InstagramFeed from '@/components/InstagramFeed';
 import { BaseCrudService } from '@/integrations';
-import { Projects } from '@/entities';
-// ... keep existing code (removed CMS imports) ...
+import { Projects, Services } from '@/entities';
 
 // --- Animation Variants ---
 const fadeInUp = {
@@ -112,6 +111,8 @@ export default function HomePage() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [projects, setProjects] = useState<Projects[]>([]);
   const [isLoadingProjects, setIsLoadingProjects] = useState(true);
+  const [services, setServices] = useState<Services[]>([]);
+  const [isLoadingServices, setIsLoadingServices] = useState(true);
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -122,30 +123,36 @@ export default function HomePage() {
   
   const heroParallax = useTransform(scrollYProgress, [0, 0.2], [0, 100]);
 
-  // Fetch projects from CMS
+  // Fetch projects and services from CMS
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchData = async () => {
       try {
-        const result = await BaseCrudService.getAll<Projects>('projects', {}, { limit: 50 });
-        setProjects(result.items || []);
+        const [projectsResult, servicesResult] = await Promise.all([
+          BaseCrudService.getAll<Projects>('projects', {}, { limit: 50 }),
+          BaseCrudService.getAll<Services>('services', {}, { limit: 50 })
+        ]);
+        setProjects(projectsResult.items || []);
+        setServices(servicesResult.items || []);
       } catch (error) {
-        console.error('Error fetching projects:', error);
+        console.error('Error fetching data:', error);
         setProjects([]);
+        setServices([]);
       } finally {
         setIsLoadingProjects(false);
+        setIsLoadingServices(false);
       }
     };
     
-    fetchProjects();
+    fetchData();
   }, []);
 
   // Static data for services (fallback)
-  const staticServices = [
-    { id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
-    { id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
-    { id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
-    { id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
-    { id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' }
+  const staticServices = services.length > 0 ? services : [
+    { _id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { _id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { _id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
+    { _id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' }
   ];
 
   // Static data for projects (fallback)
@@ -438,7 +445,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px w-full">
               {staticServices.slice(0, 5).map((service, index) => (
                 <motion.div
-                  key={service.id}
+                  key={service._id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
