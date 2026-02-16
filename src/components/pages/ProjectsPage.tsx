@@ -57,7 +57,7 @@ export default function ProjectsPage() {
         </motion.div>
       </section>
       {/* Filter Tabs */}
-      <section className="w-full pb-12">
+      <section className="w-full pb-12 hidden">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
