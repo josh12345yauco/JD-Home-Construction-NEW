@@ -213,7 +213,7 @@ export default function HomePage() {
               <div className="lg:hidden rounded-3xl overflow-hidden w-full h-full aspect-video mb-8">
                 <motion.div style={{ y: heroParallax }} className="w-full h-full">
                   <video 
-                    src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
+                    src="https://video.wixstatic.com/video/dc69ab_57513eb7b01340659ce8d7dd858d96ed/720p/mp4/file.mp4"
                     autoPlay
                     muted
                     loop
@@ -248,7 +248,7 @@ export default function HomePage() {
               <div className="hidden lg:block rounded-3xl overflow-hidden w-full aspect-video">
                 <motion.div style={{ y: heroParallax }} className="w-full h-full">
                   <video 
-                    src="https://video.wixstatic.com/video/dc69ab_44c00543c0c544d7a67554fb7aa0d36f/720p/mp4/file.mp4"
+                    src="https://video.wixstatic.com/video/dc69ab_57513eb7b01340659ce8d7dd858d96ed/720p/mp4/file.mp4"
                     autoPlay
                     muted
                     loop
