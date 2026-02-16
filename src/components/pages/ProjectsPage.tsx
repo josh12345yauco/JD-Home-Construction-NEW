@@ -76,55 +76,16 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-      {/* Projects Grid */}
+      {/* Instagram Feed */}
       <section className="w-full pb-24">
         <div className="max-w-[100rem] mx-auto px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
-            {isLoading ? null : filteredProjects.length > 0 ? (
-              filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project._id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Link to={`/projects/${project._id}`}>
-                    <Card className="h-full bg-background rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group overflow-hidden border-0 border-solid border-[#e0e0e04d]">
-                      <div className="relative overflow-hidden">
-                        {project.beforeImage && (
-                          <Image
-                            src={project.beforeImage}
-                            alt={project.projectTitle || 'Project'}
-                            width={400}
-                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300 border-0 border-solid border-[#e0e0e04d]"
-                          />
-                        )}
-                        {project.beforeImage && project.afterImage && (
-                          <div className="absolute top-4 right-4 px-3 py-1 bg-primary text-primary-foreground font-heading text-sm rounded">
-                            Before/After
-                          </div>
-                        )}
-                      </div>
-                      <CardContent className="p-6">
-                        <h3 className="font-heading text-xl text-secondary mb-2">{project.projectTitle}</h3>
-                        <p className="font-paragraph text-sm text-foreground/70 mb-2">{project.location}</p>
-                        <p className="font-paragraph text-foreground mb-4">{project.scopeOfWork}</p>
-                        <div className="flex items-center gap-2 text-primary font-heading">
-                          <span>View Project</span>
-                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-12">
-                <p className="font-paragraph text-foreground">No projects found for this category.</p>
-              </div>
-            )}
-          </div>
+          <iframe 
+            src="https://widgets.sociablekit.com/instagram-feed/iframe/25655047" 
+            frameBorder="0" 
+            width="100%" 
+            height="1000px"
+            style={{ border: 'none' }}
+          />
         </div>
       </section>
       <Footer />
