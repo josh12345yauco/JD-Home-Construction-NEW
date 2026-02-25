@@ -472,13 +472,15 @@ export default function HomePage() {
                         </h3>
 
                       </div>
-                      <motion.div 
-                        className="relative z-10 flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300 mt-8"
-                        whileHover={{ x: 4 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        Learn More <ArrowRight className="w-3.5 h-3.5 ml-2 flex-shrink-0" />
-                      </motion.div>
+                      <Link to={`/services/${service._id}`} className="relative z-10">
+                        <motion.div 
+                          className="flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300 mt-8"
+                          whileHover={{ x: 4 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          Learn More <ArrowRight className="w-3.5 h-3.5 ml-2 flex-shrink-0" />
+                        </motion.div>
+                      </Link>
                     </motion.div>
                   </div>
                 </motion.div>
