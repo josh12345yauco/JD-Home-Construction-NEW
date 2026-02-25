@@ -465,7 +465,7 @@ export default function HomePage() {
                     >
                       {/* Dark overlay - disappears on hover */}
                       <motion.div 
-                        className="absolute inset-0 bg-black/50 z-0"
+                        className="absolute inset-0 z-0 opacity-[1] bg-[#000000B3]"
                         initial={{ opacity: 1 }}
                         whileHover={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
