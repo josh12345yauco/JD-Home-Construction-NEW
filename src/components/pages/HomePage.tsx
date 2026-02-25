@@ -146,7 +146,7 @@ export default function HomePage() {
     fetchData();
   }, []);
 
-  // Static data for services (fallback)
+  // Use CMS services data with fallback
   const staticServices = services.length > 0 ? services : [
     { _id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
     { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=400&originHeight=400' },
