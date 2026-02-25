@@ -454,7 +454,7 @@ export default function HomePage() {
                 >
                   <div className="group block h-full w-full">
                     <motion.div 
-                      className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col p-6 bg-cover bg-center text-center items-center justify-center"
+                      className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300"
                       style={{
                         backgroundImage: `url('${service.serviceImage}')`,
                         backgroundSize: 'cover',
@@ -462,31 +462,7 @@ export default function HomePage() {
                       }}
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
-                    >
-                      {/* Dark overlay - disappears on hover */}
-                      <motion.div 
-                        className="absolute inset-0 z-0 opacity-[1] bg-[#000000B3]"
-                        initial={{ opacity: 1 }}
-                        whileHover={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
-                      
-                      <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-4">
-                        <h3 className="font-heading text-3xl md:text-4xl text-white group-hover:text-primary transition-colors duration-300">
-                          {service.serviceName}
-                        </h3>
-
-                      </div>
-                      <Link to={`/services/${service._id}`} className="relative z-10">
-                        <motion.div 
-                          className="flex items-center justify-center text-white font-heading font-bold text-xs uppercase tracking-wider group-hover:text-primary transition-colors duration-300 mt-8"
-                          whileHover={{ x: 4 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          Learn More <ArrowRight className="w-3.5 h-3.5 ml-2 flex-shrink-0" />
-                        </motion.div>
-                      </Link>
-                    </motion.div>
+                    />
                   </div>
                 </motion.div>
               ))}
