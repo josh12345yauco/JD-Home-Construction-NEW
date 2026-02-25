@@ -463,11 +463,16 @@ export default function HomePage() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      {/* Dark overlay for text readability */}
-                      <div className="absolute inset-0 bg-black/40 z-0" />
+                      {/* Dark overlay - disappears on hover */}
+                      <motion.div 
+                        className="absolute inset-0 bg-black/50 z-0"
+                        initial={{ opacity: 1 }}
+                        whileHover={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
                       
                       <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-4">
-                        <h3 className="font-heading text-lg text-white group-hover:text-primary transition-colors duration-300">
+                        <h3 className="font-heading text-3xl md:text-4xl text-white group-hover:text-primary transition-colors duration-300">
                           {service.serviceName}
                         </h3>
 
