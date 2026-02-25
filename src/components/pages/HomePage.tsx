@@ -455,14 +455,16 @@ export default function HomePage() {
                   <div className="group block h-full w-full">
                     <motion.div 
                       className="h-full min-h-96 relative overflow-hidden hover:shadow-lg transition-all duration-300"
-                      style={{
-                        backgroundImage: `url('${service.serviceImage}')`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center'
-                      }}
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
-                    />
+                    >
+                      <Image
+                        src={service.serviceImage}
+                        alt={service.serviceName}
+                        className="w-full h-full object-cover"
+                        width={400}
+                      />
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
