@@ -148,11 +148,11 @@ export default function HomePage() {
 
   // Use CMS services data with fallback
   const staticServices = services.length > 0 ? services : [
-    { _id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_a525e7dedf6740f99edce5aa21ad1f39~mv2.png' },
-    { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_a525e7dedf6740f99edce5aa21ad1f39~mv2.png' },
-    { _id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: 'https://static.wixstatic.com/media/dc69ab_a525e7dedf6740f99edce5aa21ad1f39~mv2.png' },
-    { _id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: 'https://static.wixstatic.com/media/dc69ab_a525e7dedf6740f99edce5aa21ad1f39~mv2.png' },
-    { _id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_a525e7dedf6740f99edce5aa21ad1f39~mv2.png' }
+    { _id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png' },
+    { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png' },
+    { _id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: 'https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png' },
+    { _id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: 'https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png' },
+    { _id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png' }
   ];
 
   // Static data for projects (fallback)
