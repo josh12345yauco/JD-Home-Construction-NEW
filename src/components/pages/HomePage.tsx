@@ -309,7 +309,7 @@ export default function HomePage() {
                 {/* Top Left - Large */}
                 <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
+                    src="https://static.wixstatic.com/media/dc69ab_fc184b7505974fe2aa523668286df2bc~mv2.png"
                     alt="JD Construction Interior"
                     className="w-full h-full object-cover"
                     originWidth={400}
@@ -319,7 +319,7 @@ export default function HomePage() {
                 {/* Top Right */}
                 <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src="https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png"
+                    src="https://static.wixstatic.com/media/dc69ab_12b505c92baf4c8aa5bbcd4155633e72~mv2.png"
                     alt="JD Construction Kitchen"
                     className="w-full h-full object-cover"
                     originWidth={400}
@@ -329,7 +329,7 @@ export default function HomePage() {
                 {/* Bottom Right */}
                 <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg">
                   <Image
-                    src="https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png"
+                    src="https://static.wixstatic.com/media/dc69ab_12b505c92baf4c8aa5bbcd4155633e72~mv2.png"
                     alt="JD Construction Bathroom"
                     className="w-full h-full object-cover"
                     originWidth={400}
