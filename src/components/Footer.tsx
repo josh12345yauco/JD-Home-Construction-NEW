@@ -114,8 +114,8 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-paragraph text-sm text-secondary-foreground/70">Phone</p>
-                  <a href="tel:+1234567890" className="font-paragraph text-secondary-foreground hover:text-primary transition-colors">
-                    (123) 456-7890
+                  <a href="tel:+12678044120" className="font-paragraph text-secondary-foreground hover:text-primary transition-colors">
+                    267-804-4120
                   </a>
                 </div>
               </div>
@@ -123,8 +123,8 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-paragraph text-sm text-secondary-foreground/70">Email</p>
-                  <a href="mailto:info@jdconstruction.com" className="font-paragraph text-secondary-foreground hover:text-primary transition-colors">
-                    info@jdconstruction.com
+                  <a href="mailto:JDhomellc@yahoo.com" className="font-paragraph text-secondary-foreground hover:text-primary transition-colors">
+                    JDhomellc@yahoo.com
                   </a>
                 </div>
               </div>
@@ -133,8 +133,7 @@ export default function Footer() {
                 <div>
                   <p className="font-paragraph text-sm text-secondary-foreground/70">Address</p>
                   <p className="font-paragraph text-secondary-foreground">
-                    3338 Salmon St.<br />
-                    Philadelphia, P.A
+                    Philadelphia, PA
                   </p>
                 </div>
               </div>
@@ -153,7 +152,7 @@ export default function Footer() {
         <div className="border-t border-secondary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="font-paragraph text-sm text-secondary-foreground/70">
-              © {new Date().getFullYear()} JD Construction. All rights reserved. License #13VH12345600
+              © {new Date().getFullYear()} JD Construction. All rights reserved. License PA120312
             </p>
             <div className="flex gap-6">
               <Link to="/privacy" className="font-paragraph text-sm text-secondary-foreground/70 hover:text-primary transition-colors">
