@@ -297,7 +297,27 @@ export default function HomePage() {
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            {/* ... keep existing code (image collage removed) ... */}
+            {/* Left: Image Collage */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[600px] hidden lg:block"
+            >
+              {/* Background rotated box */}
+              <div className="absolute inset-0 bg-secondary rounded-3xl transform -rotate-3" />
+              {/* Image container */}
+              <div className="absolute inset-0 bg-white rounded-3xl transform rotate-3 overflow-hidden border-4 border-white shadow-2xl">
+                <Image
+                  src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
+                  alt="JD Construction Team"
+                  className="w-full h-full object-cover"
+                  originWidth={800}
+                  originHeight={600}
+                />
+              </div>
+            </motion.div>
 
             {/* Content */}
             <motion.div 
