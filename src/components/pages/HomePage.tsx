@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InstagramFeed from '@/components/InstagramFeed';
@@ -42,28 +43,7 @@ const staggerContainer = {
 
 // Parallax Image Component
 function ParallaxImage() {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"]
-  });
-  
-  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  
-  return (
-    <motion.div 
-      ref={ref}
-      style={{ y }}
-      className="absolute inset-0 z-0"
-    >
-      <Image 
-        src="https://static.wixstatic.com/media/dc69ab_3e61d8556a024fb9940ac26d95a1b880~mv2.png?originWidth=1600&originHeight=896"
-        alt="Home being built construction site"
-        className="w-full h-full object-cover"
-        width={1600}
-      />
-    </motion.div>
-  );
+  return null;
 }
 
 // Animated Counter Component
@@ -317,27 +297,7 @@ export default function HomePage() {
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            {/* Image Collage */}
-            <div className="relative h-[510px] w-full hidden lg:block">
-              <div className="absolute top-0 left-0 w-4/5 h-4/5 overflow-hidden shadow-2xl rounded-[10px]">
-                <Image
-                  src="https://static.wixstatic.com/media/nsplsh_af4b129555f14c7aaf6283c0cef33dbe~mv2.jpg"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  originWidth={4256}
-                  originHeight={2832}
-                  focalPointX={27.966101694915253}
-                  focalPointY={58.27827252705158} />
-              </div>
-              <div className="absolute bottom-0 right-0 w-3/5 h-3/5 overflow-hidden shadow-2xl rounded-[10px] border-0 border-solid border-[#f5f5f5]">
-                <Image
-                  src="https://static.wixstatic.com/media/nsplsh_0dbb56d3e66d483e8c459f49ad2957e2~mv2.jpg"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  originWidth={6240}
-                  originHeight={4160}
-                  focalPointX={36.86440677966102}
-                  focalPointY={54.44915254237286} />
-              </div>
-            </div>
+            {/* ... keep existing code (image collage removed) ... */}
 
             {/* Content */}
             <motion.div 
@@ -458,12 +418,7 @@ export default function HomePage() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <Image
-                        src={service.serviceImage}
-                        alt={service.serviceName}
-                        className="w-full h-full object-cover"
-                        width={400}
-                      />
+                      {/* ... keep existing code (image removed) ... */}
                       {/* 40% black overlay */}
                       <div className="absolute inset-0 bg-black/40" />
                       {/* Content overlay */}
@@ -616,11 +571,7 @@ export default function HomePage() {
                         <div className="flex items-center gap-4 pt-6 border-t border-white/10">
                           {/* Headshot */}
                           <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
-                            <Image
-                              src={testimonial.photo}
-                              alt={testimonial.name}
-                              className="w-full h-full object-cover"
-                            />
+                          {/* ... keep existing code (image removed) ... */}
                           </div>
                           {/* Name & Title */}
                           <div>
@@ -735,11 +686,7 @@ export default function HomePage() {
             <div className="order-1 lg:order-2 relative h-[600px]">
               <div className="absolute inset-0 bg-secondary rounded-3xl transform rotate-3" />
               <div className="absolute inset-0 bg-white rounded-3xl transform -rotate-3 overflow-hidden border-4 border-white shadow-2xl">
-                <Image
-                  src="https://static.wixstatic.com/media/nsplsh_e81a935e66e644939ee50fe3e2e9b96c~mv2.jpg"
-                  className="w-full h-full object-cover"
-                  originWidth={4240}
-                  originHeight={2832} />
+                {/* ... keep existing code (image removed) ... */}
               </div>
             </div>
           </div>
