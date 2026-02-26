@@ -418,7 +418,16 @@ export default function HomePage() {
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.3 }}
                     >
-                      {/* ... keep existing code (image removed) ... */}
+                      {/* Service Image */}
+                      {service.serviceImage && (
+                        <Image
+                          src={service.serviceImage}
+                          alt={service.serviceName || 'Service'}
+                          className="w-full h-full object-cover"
+                          originWidth={800}
+                          originHeight={600}
+                        />
+                      )}
                       {/* 40% black overlay */}
                       <div className="absolute inset-0 bg-black/40" />
                       {/* Content overlay */}
@@ -684,7 +693,13 @@ export default function HomePage() {
             <div className="order-1 lg:order-2 relative h-[600px]">
               <div className="absolute inset-0 bg-secondary rounded-3xl transform rotate-3" />
               <div className="absolute inset-0 bg-white rounded-3xl transform -rotate-3 overflow-hidden border-4 border-white shadow-2xl">
-                {/* ... keep existing code (image removed) ... */}
+                <Image
+                  src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
+                  alt="JD Construction Project"
+                  className="w-full h-full object-cover"
+                  originWidth={800}
+                  originHeight={600}
+                />
               </div>
             </div>
           </div>
