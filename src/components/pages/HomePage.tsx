@@ -297,9 +297,44 @@ export default function HomePage() {
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            {/* ... keep existing code (image collage removed) ... */}
+            {/* Images on Left - Two overlapping rounded images */}
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={staggerContainer}
+              className="relative h-96 lg:h-[500px] hidden lg:block"
+            >
+              {/* First Image */}
+              <motion.div 
+                variants={fadeInUp}
+                className="absolute top-0 left-0 w-64 h-72 rounded-2xl overflow-hidden shadow-lg"
+              >
+                <Image 
+                  src="https://static.wixstatic.com/media/dc69ab_c48be7dfe91d434a8de21470b529c46a~mv2.png?originWidth=256&originHeight=256"
+                  alt="Construction project before"
+                  width={256}
+                  height={288}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              
+              {/* Second Image - Overlapping */}
+              <motion.div 
+                variants={fadeInUp}
+                className="absolute bottom-0 right-0 w-64 h-72 rounded-2xl overflow-hidden shadow-lg"
+              >
+                <Image 
+                  src="https://static.wixstatic.com/media/dc69ab_3cc93ca57e6d481da79ef197fe89bd39~mv2.png?originWidth=256&originHeight=256"
+                  alt="Construction project after"
+                  width={256}
+                  height={288}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </motion.div>
 
-            {/* Content */}
+            {/* Content on Right */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
