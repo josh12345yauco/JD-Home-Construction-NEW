@@ -92,7 +92,7 @@ export default function Header() {
                   : 'bg-primary hover:bg-primary/90 text-primary-foreground'
               }`}
             >
-              <a href="tel:+1234567890">Call Now</a>
+              <a href="tel:+12678044120">Call Now</a>
             </Button>
             <Button 
               asChild 
@@ -152,7 +152,7 @@ export default function Header() {
                       : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                   }`}
                 >
-                  <a href="tel:+1234567890">Call Now</a>
+                  <a href="tel:+12678044120">Call Now</a>
                 </Button>
                 <Button 
                   asChild 
