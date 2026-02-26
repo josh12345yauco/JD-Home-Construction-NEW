@@ -310,13 +310,13 @@ export default function HomePage() {
                 variants={fadeInUp}
                 className="absolute top-0 left-0 w-64 h-72 rounded-2xl overflow-hidden shadow-lg"
               >
-                <Image 
-                  src="https://static.wixstatic.com/media/dc69ab_c48be7dfe91d434a8de21470b529c46a~mv2.png?originWidth=256&originHeight=256"
-                  alt="Construction project before"
+                <Image
+                  src="https://static.wixstatic.com/media/dc69ab_667e5087b9c148d28b78f28fba9d0c86~mv2.avif"
                   width={256}
                   height={288}
                   className="w-full h-full object-cover"
-                />
+                  originWidth={999}
+                  originHeight={816} />
               </motion.div>
               
               {/* Second Image - Overlapping */}
@@ -324,13 +324,13 @@ export default function HomePage() {
                 variants={fadeInUp}
                 className="absolute bottom-0 right-0 w-64 h-72 rounded-2xl overflow-hidden shadow-lg"
               >
-                <Image 
-                  src="https://static.wixstatic.com/media/dc69ab_3cc93ca57e6d481da79ef197fe89bd39~mv2.png?originWidth=256&originHeight=256"
-                  alt="Construction project after"
+                <Image
+                  src="https://static.wixstatic.com/media/dc69ab_872ff7d8d7484c9085b04660375cc73a~mv2.avif"
                   width={256}
                   height={288}
                   className="w-full h-full object-cover"
-                />
+                  originWidth={749}
+                  originHeight={612} />
               </motion.div>
             </motion.div>
 
