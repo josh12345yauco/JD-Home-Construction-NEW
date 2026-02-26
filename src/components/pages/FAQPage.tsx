@@ -26,7 +26,7 @@ export default function FAQPage() {
   const loadFAQs = async () => {
     try {
       const result = await BaseCrudService.getAll<FAQs>('faqs');
-      const sortedFaqs = result.items.sort((a, b) => {
+      const sortedFaqs = (result?.items || []).sort((a, b) => {
         if (a.displayOrder !== undefined && b.displayOrder !== undefined) {
           return a.displayOrder - b.displayOrder;
         }
@@ -35,6 +35,7 @@ export default function FAQPage() {
       setFaqs(sortedFaqs);
     } catch (error) {
       console.error('Error loading FAQs:', error);
+      setFaqs([]);
     } finally {
       setIsLoading(false);
     }

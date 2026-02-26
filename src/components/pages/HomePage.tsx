@@ -131,8 +131,8 @@ export default function HomePage() {
           BaseCrudService.getAll<Projects>('projects', {}, { limit: 50 }),
           BaseCrudService.getAll<Services>('services', {}, { limit: 50 })
         ]);
-        setProjects(projectsResult.items || []);
-        setServices(servicesResult.items || []);
+        setProjects(projectsResult?.items || []);
+        setServices(servicesResult?.items || []);
       } catch (error) {
         console.error('Error fetching data:', error);
         setProjects([]);

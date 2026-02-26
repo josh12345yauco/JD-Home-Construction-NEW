@@ -24,9 +24,10 @@ export default function ServicesPage() {
     const loadServices = async () => {
       try {
         const result = await BaseCrudService.getAll<Services>('services');
-        setServices(result.items);
+        setServices(result?.items || []);
       } catch (error) {
         console.error('Error loading services:', error);
+        setServices([]);
       } finally {
         setIsLoading(false);
       }

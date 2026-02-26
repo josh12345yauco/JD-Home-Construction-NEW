@@ -9,14 +9,19 @@ import { Services } from '@/entities';
 
 export default function Footer() {
   const [services, setServices] = useState<Services[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadServices = async () => {
+      setIsLoading(true);
       try {
         const result = await BaseCrudService.getAll<Services>('services');
-        setServices(result.items);
+        setServices(result.items || []);
       } catch (error) {
         console.error('Failed to load services:', error);
+        setServices([]);
+      } finally {
+        setIsLoading(false);
       }
     };
     loadServices();

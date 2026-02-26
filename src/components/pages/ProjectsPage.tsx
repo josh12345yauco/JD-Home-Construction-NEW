@@ -28,9 +28,10 @@ export default function ProjectsPage() {
   const loadProjects = async () => {
     try {
       const result = await BaseCrudService.getAll<Projects>('projects');
-      setProjects(result.items);
+      setProjects(result?.items || []);
     } catch (error) {
       console.error('Error loading projects:', error);
+      setProjects([]);
     } finally {
       setIsLoading(false);
     }

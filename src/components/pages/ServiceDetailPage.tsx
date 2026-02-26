@@ -36,9 +36,11 @@ export default function ServiceDetailPage() {
       setService(serviceData);
 
       const projectsData = await BaseCrudService.getAll<Projects>('projects', {}, { limit: 3 });
-      setRelatedProjects(projectsData.items);
+      setRelatedProjects(projectsData?.items || []);
     } catch (error) {
       console.error('Error loading service:', error);
+      setService(null);
+      setRelatedProjects([]);
     } finally {
       setIsLoading(false);
     }

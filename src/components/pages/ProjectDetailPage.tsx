@@ -36,12 +36,14 @@ export default function ProjectDetailPage() {
       setProject(projectData);
 
       const allProjects = await BaseCrudService.getAll<Projects>('projects', {}, { limit: 50 });
-      const related = allProjects.items
+      const related = (allProjects?.items || [])
         .filter(p => p._id !== id && p.category === projectData?.category)
         .slice(0, 3);
       setRelatedProjects(related);
     } catch (error) {
       console.error('Error loading project:', error);
+      setProject(null);
+      setRelatedProjects([]);
     } finally {
       setIsLoading(false);
     }
