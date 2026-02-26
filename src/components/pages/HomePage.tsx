@@ -570,9 +570,7 @@ export default function HomePage() {
                         {/* Author Info */}
                         <div className="flex items-center gap-4 pt-6 border-t border-white/10">
                           {/* Headshot */}
-                          <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
-                          {/* ... keep existing code (image removed) ... */}
-                          </div>
+
                           {/* Name & Title */}
                           <div>
                             <div className="font-heading text-base font-bold text-white">{testimonial.name}</div>
