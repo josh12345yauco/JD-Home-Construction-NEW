@@ -1,15 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function InstagramFeed() {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
   useEffect(() => {
+    // Set a timeout to prevent indefinite loading
+    const timeout = setTimeout(() => {
+      setScriptLoaded(true);
+    }, 3000);
+
     // Load the SociableKit widget script
     const script = document.createElement('script');
     script.src = 'https://widgets.sociablekit.com/instagram-feed/widget.js';
     script.defer = true;
+    script.onload = () => {
+      setScriptLoaded(true);
+      clearTimeout(timeout);
+    };
+    script.onerror = () => {
+      setScriptLoaded(true);
+      clearTimeout(timeout);
+    };
     document.body.appendChild(script);
 
     return () => {
-      // Cleanup script on unmount
+      clearTimeout(timeout);
       if (script.parentNode) {
         script.parentNode.removeChild(script);
       }
