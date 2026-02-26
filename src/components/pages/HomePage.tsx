@@ -296,26 +296,46 @@ export default function HomePage() {
       {/* --- SECTION 2: ABOUT PREVIEW --- */}
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
             {/* Left: Image Collage */}
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative h-[600px] hidden lg:block"
+              className="relative hidden lg:block"
             >
-              {/* Background rotated box */}
-              <div className="absolute inset-0 bg-secondary rounded-3xl transform -rotate-3" />
-              {/* Image container */}
-              <div className="absolute inset-0 bg-white rounded-3xl transform rotate-3 overflow-hidden border-4 border-white shadow-2xl">
-                <Image
-                  src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
-                  alt="JD Construction Team"
-                  className="w-full h-full object-cover"
-                  originWidth={800}
-                  originHeight={600}
-                />
+              <div className="grid grid-cols-2 gap-4 h-[550px]">
+                {/* Top Left - Large */}
+                <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
+                    alt="JD Construction Interior"
+                    className="w-full h-full object-cover"
+                    originWidth={400}
+                    originHeight={550}
+                  />
+                </div>
+                {/* Top Right */}
+                <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png"
+                    alt="JD Construction Kitchen"
+                    className="w-full h-full object-cover"
+                    originWidth={400}
+                    originHeight={260}
+                  />
+                </div>
+                {/* Bottom Right */}
+                <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg">
+                  <Image
+                    src="https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png"
+                    alt="JD Construction Bathroom"
+                    className="w-full h-full object-cover"
+                    originWidth={400}
+                    originHeight={260}
+                  />
+                </div>
               </div>
             </motion.div>
 
