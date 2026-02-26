@@ -44,11 +44,12 @@ export default function AboutPage() {
                   JD Home Construction proudly serves the following Philadelphia neighborhoods:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-2 overflow-hidden">
-                  <li className="break-words">Port Richmond</li>
+                  <li className="break-words">Queens Village</li>
                   <li className="break-words">Fishtown</li>
                   <li className="break-words">Fairmount</li>
                   <li className="break-words">Northern Liberties</li>
                   <li className="break-words">Center City</li>
+                  <li className="break-words">Washington Square West</li>
                 </ul>
                 <p className="mt-4 break-words">
                   Our local expertise and commitment to excellence make us the preferred choice for carpentry services in these neighborhoods.
