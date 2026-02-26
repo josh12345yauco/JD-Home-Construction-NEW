@@ -303,17 +303,17 @@ export default function HomePage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={staggerContainer}
-              className="relative h-96 lg:h-[500px] hidden lg:block"
+              className="relative h-96 lg:h-[600px] hidden lg:block"
             >
               {/* First Image */}
               <motion.div 
                 variants={fadeInUp}
-                className="absolute top-0 left-0 w-64 h-72 rounded-2xl overflow-hidden shadow-lg"
+                className="absolute top-0 left-0 w-80 h-96 rounded-2xl overflow-hidden shadow-lg"
               >
                 <Image
                   src="https://static.wixstatic.com/media/dc69ab_667e5087b9c148d28b78f28fba9d0c86~mv2.avif"
-                  width={256}
-                  height={288}
+                  width={320}
+                  height={384}
                   className="w-full h-full object-cover"
                   originWidth={999}
                   originHeight={816} />
@@ -322,12 +322,12 @@ export default function HomePage() {
               {/* Second Image - Overlapping */}
               <motion.div 
                 variants={fadeInUp}
-                className="absolute bottom-0 right-0 w-64 h-72 rounded-2xl overflow-hidden shadow-lg"
+                className="absolute bottom-12 right-0 w-80 h-96 rounded-2xl overflow-hidden shadow-lg"
               >
                 <Image
                   src="https://static.wixstatic.com/media/dc69ab_872ff7d8d7484c9085b04660375cc73a~mv2.avif"
-                  width={256}
-                  height={288}
+                  width={320}
+                  height={384}
                   className="w-full h-full object-cover"
                   originWidth={749}
                   originHeight={612} />
