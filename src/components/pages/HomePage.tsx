@@ -694,10 +694,12 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-secondary rounded-3xl transform rotate-3" />
               <div className="absolute inset-0 bg-white rounded-3xl transform -rotate-3 overflow-hidden border-4 border-white shadow-2xl">
                 <Image
-                  src="https://static.wixstatic.com/media/dc69ab_b4931c8b58cc4325964f9d5edb057a48~mv2.avif"
+                  src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
+                  alt="JD Construction Project"
                   className="w-full h-full object-cover"
-                  originWidth={1249}
-                  originHeight={1184} />
+                  originWidth={800}
+                  originHeight={600}
+                />
               </div>
             </div>
           </div>
