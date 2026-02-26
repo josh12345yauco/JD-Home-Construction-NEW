@@ -296,48 +296,8 @@ export default function HomePage() {
       {/* --- SECTION 2: ABOUT PREVIEW --- */}
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Left: Image Collage */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative hidden lg:block"
-            >
-              <div className="grid grid-cols-2 gap-4 h-[550px]">
-                {/* Top Left - Large */}
-                <div className="col-span-1 row-span-2 rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="https://static.wixstatic.com/media/dc69ab_fc184b7505974fe2aa523668286df2bc~mv2.png"
-                    alt="JD Construction Interior"
-                    className="w-full h-full object-cover"
-                    originWidth={400}
-                    originHeight={550}
-                  />
-                </div>
-                {/* Top Right */}
-                <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="https://static.wixstatic.com/media/dc69ab_12b505c92baf4c8aa5bbcd4155633e72~mv2.png"
-                    alt="JD Construction Kitchen"
-                    className="w-full h-full object-cover"
-                    originWidth={400}
-                    originHeight={260}
-                  />
-                </div>
-                {/* Bottom Right */}
-                <div className="col-span-1 row-span-1 rounded-2xl overflow-hidden shadow-lg">
-                  <Image
-                    src="https://static.wixstatic.com/media/dc69ab_12b505c92baf4c8aa5bbcd4155633e72~mv2.png"
-                    alt="JD Construction Bathroom"
-                    className="w-full h-full object-cover"
-                    originWidth={400}
-                    originHeight={260}
-                  />
-                </div>
-              </div>
-            </motion.div>
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* ... keep existing code (image collage removed) ... */}
 
             {/* Content */}
             <motion.div 
@@ -773,7 +733,11 @@ export default function HomePage() {
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2 className="font-heading text-5xl text-secondary mb-4">Project Types</h2>
+            <h2
+              className="font-heading text-5xl text-secondary mb-4"
+              src="https://static.wixstatic.com/media/dc69ab_b4931c8b58cc4325964f9d5edb057a48~mv2.avif"
+              originWidth={1249}
+              originHeight={1184}>Project Types</h2>
             <p className="font-paragraph text-lg text-foreground/70">Tailored approaches for every scale</p>
           </div>
 
