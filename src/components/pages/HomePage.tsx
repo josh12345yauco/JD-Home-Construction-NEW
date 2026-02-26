@@ -296,10 +296,51 @@ export default function HomePage() {
       {/* --- SECTION 2: ABOUT PREVIEW --- */}
       <section className="w-full py-32 bg-light-grey relative overflow-hidden">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            {/* ... keep existing code (image collage removed) ... */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Before/After Overlapping Images */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="relative h-[600px] lg:h-[700px] flex items-center justify-center"
+            >
+              {/* Background Image 1 (Taller, Top-Left) - Before */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="absolute top-0 left-0 w-80 h-96 lg:w-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-lg"
+              >
+                <Image
+                  src="https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png"
+                  alt="Before - Construction Phase"
+                  className="w-full h-full object-cover"
+                  originWidth={400}
+                  originHeight={500}
+                />
+              </motion.div>
 
-            {/* Content */}
+              {/* Foreground Image 2 (Landscape, Bottom-Right) - After */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="absolute bottom-0 right-0 w-96 h-56 lg:w-[480px] lg:h-72 rounded-2xl overflow-hidden shadow-2xl"
+              >
+                <Image
+                  src="https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png"
+                  alt="After - Finished Renovation"
+                  className="w-full h-full object-cover"
+                  originWidth={480}
+                  originHeight={300}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Right: Content */}
             <motion.div 
               initial="hidden"
               whileInView="visible"
