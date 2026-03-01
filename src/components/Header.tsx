@@ -55,12 +55,12 @@ export default function Header() {
       }`}>
         <div className="flex items-center justify-between h-16 sm:h-20 relative z-50">
           {/* Logo */}
-          <Link to="/" className="flex items-center justify-center flex-shrink-0 relative z-50 min-h-12 min-w-[80px]">
+          <Link to="/" className="flex items-center justify-center flex-shrink-0 relative z-50 min-h-16 min-w-[100px]">
             <Image
               src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
-              width={100}
-              height={40}
-              className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
+              width={140}
+              height={56}
+              className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
               originWidth={875}
               originHeight={602}
               alt="JD Construction Logo"
