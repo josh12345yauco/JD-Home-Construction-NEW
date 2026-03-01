@@ -44,7 +44,7 @@ export default function Header() {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300`}
     >
-      <div className={`max-w-[120rem] mx-auto px-8 transition-all duration-300 ${
+      <div className={`max-w-[120rem] mx-auto px-4 sm:px-8 transition-all duration-300 ${
         isDarkMode
           ? 'bg-secondary/95 backdrop-blur-md'
           : isScrolled 
@@ -53,17 +53,19 @@ export default function Header() {
               ? 'bg-background'
               : 'bg-transparent'
       }`}>
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20 relative z-50">
           {/* Logo */}
-          <Link to="/" className="flex items-center justify-center flex-shrink-0">
+          <Link to="/" className="flex items-center justify-center flex-shrink-0 relative z-50 min-h-12 min-w-[80px]">
             <Image
               src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
-              width={120}
+              width={100}
               height={40}
-              className="h-12 sm:h-14 lg:h-16 w-auto"
+              className="h-10 sm:h-12 lg:h-14 w-auto object-contain"
               originWidth={875}
               originHeight={602}
-              alt="JD Construction Logo" />
+              alt="JD Construction Logo"
+              loading="eager"
+              decoding="sync" />
           </Link>
 
           {/* Desktop Navigation */}
