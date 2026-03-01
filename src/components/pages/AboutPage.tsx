@@ -31,10 +31,10 @@ export default function AboutPage() {
         <div className="max-w-[100rem] mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
             <motion.div {...fadeInUp} className="min-w-0">
-              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-secondary mb-6 break-words">Our Story</h2>
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl text-secondary mb-6 break-words">About JD Home Construction: Your Trusted Philadelphia General Contractor</h1>
               <div className="space-y-4 font-paragraph text-sm sm:text-base md:text-lg text-foreground overflow-hidden">
                 <p className="break-words">
-                  Welcome to JD Home Construction, based in the Port Richmond section of Philadelphia. We offer top-quality building services tailored to meet the needs of homeowners, investors, and businesses.
+                  Welcome to JD Home Construction, a fully licensed and insured general contracting firm based in the Port Richmond neighborhood of Philadelphia. For over a decade, our expert builders and carpenters have delivered top-tier residential construction, full-gut remodeling, and custom carpentry services for homeowners, investors, and businesses across the city.
                 </p>
                 <p className="break-words">
                   While we excel in carpentry and related services, please note that we do not provide plumbing, electrical, roofing, or HVAC services. However, we have established partnerships with trusted professionals in these fields and are happy to give referrals to ensure your project is seamless from start to finish.
