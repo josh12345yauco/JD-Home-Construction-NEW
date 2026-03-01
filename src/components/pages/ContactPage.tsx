@@ -79,7 +79,7 @@ export default function ContactPage() {
                     <MapPin className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl text-secondary mb-2">Service Area</h3>
-                  <p className="font-paragraph text-foreground">Philadelphia | N.J</p>
+                  <p className="font-paragraph text-foreground">Philadelphia, P.A</p>
                 </CardContent>
               </Card>
             </motion.div>
