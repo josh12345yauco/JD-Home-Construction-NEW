@@ -39,10 +39,7 @@ export default function AboutPage() {
                 <p className="break-words">
                   While we excel in carpentry and related services, please note that we do not provide plumbing, electrical, roofing, or HVAC services. However, we have established partnerships with trusted professionals in these fields and are happy to give referrals to ensure your project is seamless from start to finish.
                 </p>
-                <p className="font-heading text-base sm:text-lg md:text-xl text-secondary mt-6 mb-3 break-words">Areas We Service</p>
-                <p className="break-words">
-                  JD Home Construction proudly serves the following Philadelphia neighborhoods:
-                </p>
+                <h2 className="font-heading text-base sm:text-lg md:text-xl text-secondary mt-6 mb-3 break-words">Philadelphia Neighborhoods We Serve as General Contractors</h2>
                 <ul className="list-disc list-inside space-y-2 ml-2 overflow-hidden">
                   <li className="break-words">Queens Village</li>
                   <li className="break-words">Fishtown</li>
@@ -52,7 +49,7 @@ export default function AboutPage() {
                   <li className="break-words">Washington Square West</li>
                 </ul>
                 <p className="mt-4 break-words">
-                  Our local expertise and commitment to excellence make us the preferred choice for carpentry services in these neighborhoods.
+                  As a leading local Philadelphia construction company, JD Home Construction provides premium general contracting, home additions, and remodeling services to neighborhoods including Queen Village, Fishtown, Fairmount, Northern Liberties, Center City, and Washington Square West.
                 </p>
               </div>
             </motion.div>
