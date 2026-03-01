@@ -140,7 +140,7 @@ export default function Header() {
                 ? 'border-medium-grey/30 bg-secondary text-white'
                 : 'border-medium-grey/30'
           }`}>
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-4 px-[15px]">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
