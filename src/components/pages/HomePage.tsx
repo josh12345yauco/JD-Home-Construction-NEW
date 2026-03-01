@@ -177,7 +177,7 @@ export default function HomePage() {
               initial="hidden"
               animate="visible"
               variants={staggerContainer}
-              className="max-w-3xl w-full"
+              className="max-w-3xl w-full pt-[15px]"
             >
               <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-6">
                 <span className="h-[2px] w-12 bg-accent-orange"></span>
