@@ -53,7 +53,7 @@ export default function Header() {
               ? 'bg-background'
               : 'bg-transparent'
       }`}>
-        <div className="flex items-center justify-between h-16 sm:h-20 relative z-50">
+        <div className="flex items-center justify-between relative z-50" style={{ height: 'calc(4rem + 15px) sm:calc(5rem + 15px)' }}>
           {/* Logo */}
           <Link to="/" className="flex items-center justify-center flex-shrink-0 relative z-50 min-h-16 min-w-[100px]">
             <Image
