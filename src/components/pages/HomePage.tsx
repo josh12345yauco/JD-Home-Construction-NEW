@@ -185,8 +185,7 @@ export default function HomePage() {
               </motion.div>
               
               <motion.h1 variants={fadeInUp} className="font-heading text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[0.95] mb-8">
-                Build It Right.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">Build It Once.</span>
+                JD Home Construction: Premier General Contractor & Custom Builder in Philadelphia
               </motion.h1>
               
               {/* Mobile Video - shown only on mobile, positioned under heading */}
@@ -203,9 +202,9 @@ export default function HomePage() {
                 </motion.div>
               </div>
               
-              <motion.p variants={fadeInUp} className="font-paragraph text-base sm:text-lg lg:text-xl text-white/80 mb-10 max-w-xl leading-relaxed">
-                Remodels, additions, and exterior upgrades done with craftsmanship, clear communication, and a clean jobsite—start to finish.
-              </motion.p>
+              <motion.h2 variants={fadeInUp} className="font-heading text-lg sm:text-xl lg:text-2xl text-white/80 mb-10 max-w-xl leading-relaxed">
+                Transforming your space with unparalleled home renovations, expert carpentry, and full-service general contracting throughout the Greater Philadelphia area.
+              </motion.h2>
               
               <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row flex-wrap gap-4">
                 <Button asChild size="lg" className="bg-accent-orange hover:bg-accent-orange/90 text-secondary font-heading text-base sm:text-lg px-8 sm:px-10 h-14 sm:h-16 rounded-full shadow-lg shadow-accent-orange/20 transition-all hover:scale-105">
