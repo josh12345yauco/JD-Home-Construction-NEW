@@ -63,7 +63,7 @@ export default function Header() {
               className="h-14 sm:h-16 lg:h-20 w-auto object-contain"
               originWidth={875}
               originHeight={602}
-              alt="JD Construction Logo"
+              alt="JD Home Construction - Licensed and Insured Philadelphia General Contractor and Builder"
               loading="eager"
               decoding="sync" />
           </Link>

@@ -67,7 +67,7 @@ export default function AboutPage() {
                 className="w-full h-full object-cover rounded-lg sm:rounded-xl"
                 originWidth={3649}
                 originHeight={2433}
-                alt="JD Home Construction project" />
+                alt="JD Home Construction - Licensed and Insured Philadelphia General Contractor and Builder" />
             </motion.div>
           </div>
         </div>
