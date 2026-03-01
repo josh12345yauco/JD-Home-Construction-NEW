@@ -166,9 +166,9 @@ export default function HomePage() {
       <Header />
       {/* --- SECTION 1: HERO (Havix Style Split) --- */}
       <section className="relative w-full min-h-auto lg:min-h-[95vh] flex items-center pt-20 lg:pt-32 pb-20 overflow-hidden bg-secondary">
-        {/* Background Elements */}
-        <ParallaxImage />
-        <div className="absolute inset-0 bg-black/90 z-10" />
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_5010fad45c2a4e18965251f844446b07~mv2.jpg')`}} />
+        <div className="absolute inset-0 bg-black/85 z-10" />
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
