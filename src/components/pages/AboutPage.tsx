@@ -136,8 +136,8 @@ export default function AboutPage() {
             {[
               {
                 title: 'P.A home improvement Contractor License',
-                number: '#13VH12345600',
-                description: 'Fully licensed by the State of New Jersey'
+                number: 'PA120312',
+                description: 'Fully licensed by the State of Pennsylvania'
               },
               {
                 title: 'General Liability Insurance',
