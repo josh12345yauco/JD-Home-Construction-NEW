@@ -184,7 +184,7 @@ export default function HomePage() {
                 <span className="font-heading text-sm tracking-widest uppercase text-accent-orange font-bold">PHILADELPHIA GENERAL Contracting Services</span>
               </motion.div>
               
-              <motion.h1 variants={fadeInUp} className="font-heading text-5xl sm:text-6xl lg:text-8xl font-bold text-white leading-[0.95] mb-8">
+              <motion.h1 variants={fadeInUp} className="font-heading text-5xl sm:text-6xl lg:text-6xl font-bold text-white leading-[0.95] mb-8">
                 JD Home Construction: Premier General Contractor & Custom Builder in Philadelphia
               </motion.h1>
               
