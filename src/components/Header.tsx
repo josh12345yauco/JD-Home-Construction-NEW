@@ -57,7 +57,7 @@ export default function Header() {
           {/* Logo */}
           <Link to="/" className="flex items-center justify-center flex-shrink-0">
             <Image
-              src={hasLightBackground ? "https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png" : "https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"}
+              src="https://static.wixstatic.com/media/dc69ab_a9786629032f458085881b5186a245cc~mv2.png"
               width={204}
               height={68}
               className="h-16 w-auto"
