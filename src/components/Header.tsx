@@ -36,6 +36,9 @@ export default function Header() {
   const isDarkMode = isHomePage && !isScrolled;
   // When scrolled, always show white text (dark background)
   const isScrolledMode = isScrolled;
+  // Determine if we're on an internal page with light background
+  const isInternalPage = !isHomePage;
+  const hasLightBackground = isInternalPage && !isScrolled;
 
   return (
     <header 
@@ -46,13 +49,15 @@ export default function Header() {
           ? 'bg-secondary/95 backdrop-blur-md'
           : isScrolled 
             ? 'bg-secondary/95 backdrop-blur-md shadow-lg' 
-            : 'bg-transparent'
+            : hasLightBackground
+              ? 'bg-background'
+              : 'bg-transparent'
       }`}>
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center justify-center">
+          <Link to="/" className="flex items-center justify-center flex-shrink-0">
             <Image
-              src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
+              src={hasLightBackground ? "https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png" : "https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"}
               width={204}
               height={68}
               className="h-16 w-auto"
@@ -109,7 +114,13 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 transition-colors ${isDarkMode || isScrolledMode ? 'text-white' : 'text-secondary'}`}
+            className={`lg:hidden p-2 transition-colors flex-shrink-0 ${
+              isDarkMode || isScrolledMode 
+                ? 'text-white' 
+                : hasLightBackground
+                  ? 'text-secondary'
+                  : 'text-secondary'
+            }`}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -123,7 +134,11 @@ export default function Header() {
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className={`lg:hidden py-6 border-t ${
-            isDarkMode || isScrolledMode ? 'border-white/10 bg-secondary/50' : 'border-medium-grey/30'
+            isDarkMode || isScrolledMode 
+              ? 'border-white/10 bg-secondary/50' 
+              : hasLightBackground
+                ? 'border-medium-grey/30 bg-secondary text-white'
+                : 'border-medium-grey/30'
           }`}>
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -135,9 +150,13 @@ export default function Header() {
                       ? location.pathname === link.path
                         ? 'text-accent-orange'
                         : 'text-white/80 hover:text-accent-orange'
-                      : location.pathname === link.path
-                        ? 'text-primary'
-                        : 'text-foreground hover:text-primary'
+                      : hasLightBackground
+                        ? location.pathname === link.path
+                          ? 'text-accent-orange'
+                          : 'text-white/80 hover:text-accent-orange'
+                        : location.pathname === link.path
+                          ? 'text-primary'
+                          : 'text-foreground hover:text-primary'
                   }`}
                 >
                   {link.name}
@@ -147,7 +166,7 @@ export default function Header() {
                 <Button 
                   asChild 
                   className={`font-heading h-11 rounded-lg transition-all ${
-                    isDarkMode || isScrolledMode
+                    isDarkMode || isScrolledMode || hasLightBackground
                       ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
                       : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                   }`}
@@ -157,7 +176,7 @@ export default function Header() {
                 <Button 
                   asChild 
                   className={`font-heading h-11 rounded-lg transition-all ${
-                    isDarkMode || isScrolledMode
+                    isDarkMode || isScrolledMode || hasLightBackground
                       ? 'bg-accent-orange hover:bg-accent-orange/90 text-secondary'
                       : 'bg-primary hover:bg-primary/90 text-primary-foreground'
                   }`}
