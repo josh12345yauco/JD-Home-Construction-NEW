@@ -23,11 +23,8 @@ export default function ContactPage() {
       <section className="w-full max-w-[120rem] mx-auto px-8 pt-32 pb-24">
         <motion.div className="text-center max-w-4xl mx-auto" {...fadeInUp}>
           <h1 className="font-heading text-6xl lg:text-7xl text-secondary mb-6">
-            Get In Touch
+            Contact a Top Philadelphia General Contractor Today
           </h1>
-          <p className="font-paragraph text-xl text-foreground">
-            Ready to start your project? Fill out the form below and we'll get back to you within 1 business day.
-          </p>
         </motion.div>
       </section>
       {/* Contact Info Cards */}
@@ -111,10 +108,9 @@ export default function ContactPage() {
       <section className="w-full bg-light-grey py-24">
         <div className="max-w-[56rem] mx-auto px-8">
           <motion.div className="text-center mb-12" {...fadeInUp}>
-            <h2 className="font-heading text-5xl text-secondary mb-4">Request Your Estimate</h2>
-            <p className="font-paragraph text-lg text-foreground">
-              Tell us about your project and we'll get back to you within 1 business day
-            </p>
+            <h2 className="font-heading text-2xl text-secondary mb-6">
+              Ready to start your next home renovation, deck build, or custom construction project? Contact JD Home Construction to schedule a consultation with Philadelphia's leading builders and carpenters.
+            </h2>
           </motion.div>
 
           <motion.div {...fadeInUp}>
