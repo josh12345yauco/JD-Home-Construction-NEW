@@ -60,8 +60,8 @@ export default function ContactPage() {
                     <Mail className="w-8 h-8 text-primary" />
                   </div>
                   <h3 className="font-heading text-xl text-secondary mb-2">Email</h3>
-                  <a href="mailto:info@jdconstruction.com" className="font-paragraph text-foreground hover:text-primary transition-colors">
-                    info@jdconstruction.com
+                  <a href="mailto:JDhomellc@yahoo.com" className="font-paragraph text-foreground hover:text-primary transition-colors">
+                    JDhomellc@yahoo.com
                   </a>
                 </CardContent>
               </Card>
