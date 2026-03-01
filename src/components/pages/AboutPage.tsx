@@ -135,7 +135,7 @@ export default function AboutPage() {
             <p className="font-paragraph text-lg text-foreground">Licensed, insured, and certified for your peace of mind</p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
                 title: 'P.A home improvement Contractor License',
@@ -153,19 +153,9 @@ export default function AboutPage() {
                 description: 'All team members fully insured'
               },
               {
-                title: 'EPA Lead-Safe Certified',
-                number: 'Firm #NAT-F123456-1',
-                description: 'Certified for lead-safe renovation work'
-              },
-              {
                 title: 'OSHA Safety Trained',
                 number: '30-Hour Certification',
                 description: 'Committed to jobsite safety standards'
-              },
-              {
-                title: 'Better Business Bureau',
-                number: 'A+ Rating',
-                description: 'Accredited with excellent standing'
               }
             ].map((cert, index) => (
               <motion.div
