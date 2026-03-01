@@ -203,7 +203,7 @@ export default function ServiceDetailPage() {
                         <div className="overflow-hidden">
                           <Image
                             src={project.beforeImage}
-                            alt={project.projectTitle || 'Project'}
+                            alt={`${project.projectTitle} - ${project.location || 'Philadelphia'} construction project`}
                             width={400}
                             className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                           />

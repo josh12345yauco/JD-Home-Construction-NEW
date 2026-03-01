@@ -314,6 +314,7 @@ export default function HomePage() {
                   width={320}
                   height={384}
                   className="w-full h-full object-cover"
+                  alt="Full gut bathroom renovation by Philadelphia general contractor"
                   originWidth={999}
                   originHeight={816} />
               </motion.div>
@@ -328,6 +329,7 @@ export default function HomePage() {
                   width={320}
                   height={384}
                   className="w-full h-full object-cover"
+                  alt="Custom deck building project in Center City Philadelphia"
                   originWidth={749}
                   originHeight={612} />
               </motion.div>
@@ -730,6 +732,7 @@ export default function HomePage() {
                 <Image
                   src="https://static.wixstatic.com/media/dc69ab_b4931c8b58cc4325964f9d5edb057a48~mv2.avif"
                   className="w-full h-full object-cover"
+                  alt="Basement remodeling and framing by local construction company"
                   originWidth={1249}
                   originHeight={1184} />
               </div>

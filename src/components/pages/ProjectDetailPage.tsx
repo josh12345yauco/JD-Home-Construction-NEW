@@ -131,7 +131,7 @@ export default function ProjectDetailPage() {
                 </div>
                 <Image
                   src={project.beforeImage}
-                  alt={`${project.projectTitle} - Before`}
+                  alt={`${project.projectTitle} before renovation - ${project.location || 'Philadelphia'} construction project`}
                   width={600}
                   className="w-full h-[500px] object-cover rounded-xl"
                 />
@@ -150,7 +150,7 @@ export default function ProjectDetailPage() {
                 </div>
                 <Image
                   src={project.afterImage}
-                  alt={`${project.projectTitle} - After`}
+                  alt={`${project.projectTitle} after renovation - ${project.location || 'Philadelphia'} construction project`}
                   width={600}
                   className="w-full h-[500px] object-cover rounded-xl"
                 />
@@ -253,7 +253,7 @@ export default function ProjectDetailPage() {
                         <div className="overflow-hidden">
                           <Image
                             src={relatedProject.beforeImage}
-                            alt={relatedProject.projectTitle || 'Project'}
+                            alt={`${relatedProject.projectTitle} - ${relatedProject.location || 'Philadelphia'} construction project`}
                             width={400}
                             className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
                           />
