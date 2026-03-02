@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useState } from 'react';
+import { Image } from '@/components/ui/image';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -27,6 +28,7 @@ export default function ContactPage() {
     budget: '',
     details: ''
   });
+  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
 
@@ -37,6 +39,17 @@ export default function ContactPage() {
 
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageUpload = (e: any) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setUploadedImage(event.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSubmit = async (e: any) => {
@@ -62,6 +75,7 @@ export default function ContactPage() {
             <p><strong>Timeline:</strong> ${formData.timeline}</p>
             <p><strong>Budget:</strong> ${formData.budget}</p>
             <p><strong>Project Details:</strong> ${formData.details}</p>
+            ${uploadedImage ? `<p><strong>Image:</strong> <img src="${uploadedImage}" style="max-width: 300px; margin-top: 10px;" /></p>` : ''}
           `
         })
       });
@@ -69,8 +83,11 @@ export default function ContactPage() {
       if (response.ok) {
         setSubmitMessage('Thank you! Your submission has been received. We\'ll be in touch within 1 business day.');
         setFormData({ name: '', email: '', phone: '', zipCode: '', projectType: '', timeline: '', budget: '', details: '' });
+        setUploadedImage(null);
       } else {
+        const errorData = await response.json();
         setSubmitMessage('There was an error submitting your form. Please try again or call us directly.');
+        console.error('Form submission error:', errorData);
       }
     } catch (error) {
       console.error('Form submission error:', error);
@@ -302,6 +319,24 @@ export default function ContactPage() {
                       className="rounded-lg border-medium-grey/30"
                       required
                     />
+                  </div>
+
+                  <div>
+                    <label className="block font-heading text-secondary mb-2">Upload Project Image (Optional)</label>
+                    <div className="relative">
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="block w-full text-sm text-foreground file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-heading file:bg-primary file:text-primary-foreground hover:file:bg-primary/90 cursor-pointer"
+                      />
+                    </div>
+                    {uploadedImage && (
+                      <div className="mt-4">
+                        <p className="font-heading text-secondary mb-2">Image Preview:</p>
+                        <Image src={uploadedImage} alt="Project preview" className="max-w-xs rounded-lg border border-medium-grey/30" />
+                      </div>
+                    )}
                   </div>
 
                   <Button
