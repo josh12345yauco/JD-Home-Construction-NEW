@@ -10,7 +10,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   try {
     const body = await request.json();
-    const { to, subject, html } = body;
+    const { to, subject, html, from } = body;
 
     // Validate required fields
     if (!to || !subject || !html) {
@@ -20,36 +20,26 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    // Use Wix's built-in email service via the backend
-    // For now, we'll use a simple approach with a third-party service
-    // You can replace this with your preferred email service (SendGrid, Mailgun, etc.)
-    
-    // Example using a simple fetch to a backend service
-    // In production, you should use environment variables for API keys
-    const emailServiceUrl = process.env.EMAIL_SERVICE_URL;
-    const emailServiceKey = process.env.EMAIL_SERVICE_KEY;
+    // Get Resend API key from environment variables
+    const resendApiKey = process.env.RESEND_API_KEY;
 
-    if (!emailServiceUrl || !emailServiceKey) {
-      // Fallback: Log the email (for development)
-      console.log('Email would be sent to:', to);
-      console.log('Subject:', subject);
-      console.log('HTML:', html);
-      
-      // Return success anyway for now
+    if (!resendApiKey) {
+      console.error('RESEND_API_KEY is not configured');
       return new Response(
-        JSON.stringify({ success: true, message: 'Email queued for sending' }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
+        JSON.stringify({ error: 'Email service is not configured' }),
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    // Send email via external service
-    const response = await fetch(emailServiceUrl, {
+    // Send email via Resend API
+    const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${emailServiceKey}`,
+        'Authorization': `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
+        from: from || 'noreply@jdhomeconstruction.com',
         to,
         subject,
         html,
@@ -57,11 +47,15 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Email service returned ${response.status}`);
+      const errorData = await response.json();
+      console.error('Resend API error:', errorData);
+      throw new Error(`Resend API returned ${response.status}: ${JSON.stringify(errorData)}`);
     }
 
+    const result = await response.json();
+
     return new Response(
-      JSON.stringify({ success: true, message: 'Email sent successfully' }),
+      JSON.stringify({ success: true, message: 'Email sent successfully', id: result.id }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );
   } catch (error) {
