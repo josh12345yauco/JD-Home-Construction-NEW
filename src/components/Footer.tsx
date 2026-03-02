@@ -138,12 +138,7 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <Button 
-              asChild 
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
-              <Link to="/contact">Send Message</Link>
-            </Button>
+
           </div>
 
         </div>
