@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Card, CardContent } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useState } from 'react';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -16,6 +17,69 @@ const fadeInUp = {
 };
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    zipCode: '',
+    projectType: '',
+    timeline: '',
+    budget: '',
+    details: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      // Send email notification to progresomarketingllc@gmail.com
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          to: 'progresomarketingllc@gmail.com',
+          subject: `New Contact Form Submission from ${formData.name}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${formData.name}</p>
+            <p><strong>Email:</strong> ${formData.email}</p>
+            <p><strong>Phone:</strong> ${formData.phone}</p>
+            <p><strong>Zip Code:</strong> ${formData.zipCode}</p>
+            <p><strong>Project Type:</strong> ${formData.projectType}</p>
+            <p><strong>Timeline:</strong> ${formData.timeline}</p>
+            <p><strong>Budget:</strong> ${formData.budget}</p>
+            <p><strong>Project Details:</strong> ${formData.details}</p>
+          `
+        })
+      });
+
+      if (response.ok) {
+        setSubmitMessage('Thank you! Your submission has been received. We\'ll be in touch within 1 business day.');
+        setFormData({ name: '', email: '', phone: '', zipCode: '', projectType: '', timeline: '', budget: '', details: '' });
+      } else {
+        setSubmitMessage('There was an error submitting your form. Please try again or call us directly.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitMessage('There was an error submitting your form. Please try again or call us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -116,11 +180,20 @@ export default function ContactPage() {
           <motion.div {...fadeInUp}>
             <Card className="bg-background border border-medium-grey/30 rounded-xl shadow-lg">
               <CardContent className="p-8">
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {submitMessage && (
+                    <div className={`p-4 rounded-lg text-center font-paragraph ${submitMessage.includes('error') ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`}>
+                      {submitMessage}
+                    </div>
+                  )}
+                  
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-heading text-secondary mb-2">Name *</label>
                       <Input
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
                         placeholder="Your full name"
                         className="h-12 rounded-lg border-medium-grey/30"
                         required
@@ -129,7 +202,10 @@ export default function ContactPage() {
                     <div>
                       <label className="block font-heading text-secondary mb-2">Email *</label>
                       <Input
+                        name="email"
                         type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder="your@email.com"
                         className="h-12 rounded-lg border-medium-grey/30"
                         required
@@ -141,7 +217,10 @@ export default function ContactPage() {
                     <div>
                       <label className="block font-heading text-secondary mb-2">Phone *</label>
                       <Input
+                        name="phone"
                         type="tel"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                         placeholder="(555) 123-4567"
                         className="h-12 rounded-lg border-medium-grey/30"
                         required
@@ -150,6 +229,9 @@ export default function ContactPage() {
                     <div>
                       <label className="block font-heading text-secondary mb-2">Zip Code *</label>
                       <Input
+                        name="zipCode"
+                        value={formData.zipCode}
+                        onChange={handleInputChange}
                         placeholder="07090"
                         className="h-12 rounded-lg border-medium-grey/30"
                         required
@@ -160,7 +242,7 @@ export default function ContactPage() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-heading text-secondary mb-2">Project Type *</label>
-                      <Select required>
+                      <Select value={formData.projectType} onValueChange={(value) => handleSelectChange('projectType', value)} required>
                         <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
                           <SelectValue placeholder="Select project type" />
                         </SelectTrigger>
@@ -177,7 +259,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <label className="block font-heading text-secondary mb-2">Timeline *</label>
-                      <Select required>
+                      <Select value={formData.timeline} onValueChange={(value) => handleSelectChange('timeline', value)} required>
                         <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
                           <SelectValue placeholder="When to start?" />
                         </SelectTrigger>
@@ -194,7 +276,7 @@ export default function ContactPage() {
 
                   <div>
                     <label className="block font-heading text-secondary mb-2">Budget Range *</label>
-                    <Select required>
+                    <Select value={formData.budget} onValueChange={(value) => handleSelectChange('budget', value)} required>
                       <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
                         <SelectValue placeholder="Select budget range" />
                       </SelectTrigger>
@@ -212,6 +294,9 @@ export default function ContactPage() {
                   <div>
                     <label className="block font-heading text-secondary mb-2">Project Details *</label>
                     <Textarea
+                      name="details"
+                      value={formData.details}
+                      onChange={handleInputChange}
                       placeholder="Tell us about your project, what you're looking to accomplish, any specific requirements..."
                       rows={6}
                       className="rounded-lg border-medium-grey/30"
@@ -219,20 +304,13 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Photos (Optional)</label>
-                    <div className="border-2 border-dashed border-medium-grey/30 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                      <p className="font-paragraph text-foreground mb-2">Drop photos here or click to upload</p>
-                      <p className="font-paragraph text-sm text-foreground/70">JPG, PNG up to 10MB each</p>
-                    </div>
-                  </div>
-
                   <Button
                     type="submit"
+                    disabled={isSubmitting}
                     size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading text-base h-14 rounded-lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading text-base h-14 rounded-lg disabled:opacity-50"
                   >
-                    Request My Quote
+                    {isSubmitting ? 'Submitting...' : 'Request My Quote'}
                   </Button>
 
                   <a href="tel:267-804-4120" className="md:hidden block">
