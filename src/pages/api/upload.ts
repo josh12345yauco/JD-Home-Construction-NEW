@@ -26,6 +26,14 @@ export const POST: APIRoute = async ({ request }) => {
     const { createClient } = await import('@supabase/supabase-js');
     const supabase = createClient(supabaseUrl, supabaseKey);
 
+    const { error: bucketError } = await supabase.storage.createBucket('media', {
+      public: true,
+      allowedMimeTypes: [...ALLOWED_TYPES],
+    });
+    if (bucketError && !bucketError.message.includes('already exists') && !bucketError.message.includes('Duplicate')) {
+      return new Response(JSON.stringify({ error: `Storage setup failed: ${bucketError.message}` }), { status: 503 });
+    }
+
     const urls: string[] = [];
 
     for (const file of files) {

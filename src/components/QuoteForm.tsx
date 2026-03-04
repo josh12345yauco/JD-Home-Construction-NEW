@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime';
-const MAX_FILE_SIZE = 50 * 1024 * 1024;
+const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4 MB — Vercel serverless body limit
 
 interface UploadedFile {
   file: File;
@@ -53,13 +53,16 @@ export default function QuoteForm() {
     const newFiles: UploadedFile[] = [];
     for (let i = 0; i < incoming.length; i++) {
       const file = incoming[i];
-      if (file.size > MAX_FILE_SIZE) continue;
       const preview = URL.createObjectURL(file);
+      if (file.size > MAX_FILE_SIZE) {
+        newFiles.push({ file, preview, uploading: false, error: 'File too large — max 4 MB per file on current plan.' });
+        continue;
+      }
       newFiles.push({ file, preview, uploading: true });
     }
     setFiles((prev) => {
       const startIdx = prev.length;
-      newFiles.forEach((f, i) => uploadFile(f.file, startIdx + i));
+      newFiles.forEach((f, i) => { if (!f.error) uploadFile(f.file, startIdx + i); });
       return [...prev, ...newFiles];
     });
   }, [uploadFile]);

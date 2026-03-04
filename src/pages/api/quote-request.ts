@@ -130,7 +130,7 @@ export const POST: APIRoute = async ({ request }) => {
           Authorization: `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: import.meta.env.RESEND_FROM || process.env.RESEND_FROM || 'noreply@jdhomeconstruction.com',
+          from: import.meta.env.RESEND_FROM || process.env.RESEND_FROM || 'noreply@jdhomeconstruction.org',
           to: toAddresses,
           reply_to: REPLY_TO_EMAIL,
           subject: `New Quote Request from ${lead.name} — ${lead.projectType}`,
