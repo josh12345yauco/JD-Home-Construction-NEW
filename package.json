@@ -2,6 +2,9 @@
   "name": "wixstro",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,7 +16,7 @@
     "@astrojs/check": "0.9.4",
     "@astrojs/react": "4.3.0",
     "@astrojs/tailwind": "6.0.2",
-    "@astrojs/vercel": "7.6.0",
+    "@astrojs/vercel": "^9.0.4",
     "@hello-pangea/dnd": "18.0.1",
     "@hookform/resolvers": "5.2.0",
     "@radix-ui/react-accordion": "1.2.11",
