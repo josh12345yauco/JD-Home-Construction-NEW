@@ -8,15 +8,14 @@ import {
   Users, Award, Ruler, ChevronRight, ChevronLeft
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+// Input, Textarea, Select moved to shared QuoteForm component
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import InstagramFeed from '@/components/InstagramFeed';
+import QuoteForm from '@/components/QuoteForm';
 import { BaseCrudService } from '@/integrations';
 import { Projects, Services } from '@/entities';
 
@@ -93,6 +92,7 @@ export default function HomePage() {
   const [isLoadingProjects, setIsLoadingProjects] = useState(true);
   const [services, setServices] = useState<Services[]>([]);
   const [isLoadingServices, setIsLoadingServices] = useState(true);
+  // Quote form state removed — now uses shared QuoteForm component
 
   // --- Scroll Hooks for Parallax ---
   const containerRef = useRef<HTMLDivElement>(null);
@@ -128,35 +128,35 @@ export default function HomePage() {
 
   // Use CMS services data with fallback
   const staticServices = services.length > 0 ? services : [
-    { _id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png' },
-    { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: 'https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png' },
-    { _id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: 'https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png' },
-    { _id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: 'https://static.wixstatic.com/media/dc69ab_1cfe66c1dbcb4cdb85008f53486f6406~mv2.png' },
-    { _id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: 'https://static.wixstatic.com/media/dc69ab_f8a9917780704b328eed0f883f294af6~mv2.png' }
+    { _id: '1', serviceName: 'Bathrooms', shortDescription: 'Renovations & full build-outs', serviceImage: '/images/service-bathrooms.jpg' },
+    { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: '/images/service-kitchens.jpg' },
+    { _id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: '/images/service-interiors.jpg' },
+    { _id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: '/images/service-exteriors.jpg' },
+    { _id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: '/images/service-snow-control.jpg' }
   ];
 
   // Static data for projects (fallback)
   const staticProjects = [
-    { _id: '1', projectTitle: 'Modern Kitchen Remodel', category: 'Kitchens', scopeOfWork: 'Complete kitchen renovation with new cabinets and appliances', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { _id: '2', projectTitle: 'Luxury Bathroom Suite', category: 'Baths', scopeOfWork: 'Spa-like bathroom with heated floors and custom tile', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { _id: '3', projectTitle: 'Home Addition', category: 'Additions', scopeOfWork: 'New master suite addition with custom finishes', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { _id: '4', projectTitle: 'Outdoor Deck', category: 'Decks', scopeOfWork: 'Large composite deck with built-in seating', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { _id: '5', projectTitle: 'Exterior Renovation', category: 'Exteriors', scopeOfWork: 'New siding and roofing for complete exterior refresh', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' },
-    { _id: '6', projectTitle: 'Full Home Remodel', category: 'Additions', scopeOfWork: 'Multi-room renovation with structural updates', beforeImage: 'https://static.wixstatic.com/media/dc69ab_b55142067b434d169fb2b39b40754ad4~mv2.png?originWidth=768&originHeight=448' }
+    { _id: '1', projectTitle: 'Modern Kitchen Remodel', category: 'Kitchens', scopeOfWork: 'Complete kitchen renovation with new cabinets and appliances', beforeImage: '/images/service-kitchens.jpg' },
+    { _id: '2', projectTitle: 'Luxury Bathroom Suite', category: 'Baths', scopeOfWork: 'Spa-like bathroom with heated floors and custom tile', beforeImage: '/images/service-bathrooms.jpg' },
+    { _id: '3', projectTitle: 'Home Addition', category: 'Additions', scopeOfWork: 'New master suite addition with custom finishes', beforeImage: '/images/service-residential.jpg' },
+    { _id: '4', projectTitle: 'Outdoor Deck', category: 'Decks', scopeOfWork: 'Large composite deck with built-in seating', beforeImage: '/images/service-exteriors.jpg' },
+    { _id: '5', projectTitle: 'Exterior Renovation', category: 'Exteriors', scopeOfWork: 'New siding and roofing for complete exterior refresh', beforeImage: '/images/service-renovation.jpg' },
+    { _id: '6', projectTitle: 'Full Home Remodel', category: 'Additions', scopeOfWork: 'Multi-room renovation with structural updates', beforeImage: '/images/service-interiors.jpg' }
   ];
 
   // Static data for team members
   const staticTeamMembers = [
-    { id: '1', name: 'John Davis', role: 'Owner & Lead Contractor', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384', bio: 'With 20+ years of experience, John leads every project with precision and care.' },
-    { id: '2', name: 'Sarah Mitchell', role: 'Project Manager', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384', bio: 'Sarah ensures every project stays on schedule and exceeds expectations.' },
-    { id: '3', name: 'Mike Thompson', role: 'Master Carpenter', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384', bio: 'Mike brings 15 years of carpentry expertise to every detail.' }
+    { id: '1', name: 'John Davis', role: 'Owner & Lead Contractor', photo: '/images/unsplash-m7JngCMSQvc.jpg', bio: 'With 20+ years of experience, John leads every project with precision and care.' },
+    { id: '2', name: 'Sarah Mitchell', role: 'Project Manager', photo: '/images/unsplash-m7JngCMSQvc.jpg', bio: 'Sarah ensures every project stays on schedule and exceeds expectations.' },
+    { id: '3', name: 'Mike Thompson', role: 'Master Carpenter', photo: '/images/unsplash-m7JngCMSQvc.jpg', bio: 'Mike brings 15 years of carpentry expertise to every detail.' }
   ];
 
   // Static data for blog posts
   const staticBlogPosts = [
-    { id: '1', title: 'Kitchen Design Trends for 2024', category: 'Design', excerpt: 'Discover the latest kitchen design trends that will transform your space.', mainImage: 'https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320' },
-    { id: '2', title: 'How to Plan Your Bathroom Remodel', category: 'Guide', excerpt: 'A comprehensive guide to planning your perfect bathroom renovation.', mainImage: 'https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320' },
-    { id: '3', title: 'Maximizing Your Home Addition Budget', category: 'Tips', excerpt: 'Smart strategies to get the most value from your home addition project.', mainImage: 'https://static.wixstatic.com/media/dc69ab_1ba6ba87cef043d4ad72cb73a877f758~mv2.png?originWidth=512&originHeight=320' }
+    { id: '1', title: 'Kitchen Design Trends for 2024', category: 'Design', excerpt: 'Discover the latest kitchen design trends that will transform your space.', mainImage: '/images/service-kitchens.jpg' },
+    { id: '2', title: 'How to Plan Your Bathroom Remodel', category: 'Guide', excerpt: 'A comprehensive guide to planning your perfect bathroom renovation.', mainImage: '/images/service-bathrooms.jpg' },
+    { id: '3', title: 'Maximizing Your Home Addition Budget', category: 'Tips', excerpt: 'Smart strategies to get the most value from your home addition project.', mainImage: '/images/service-renovation.jpg' }
   ];
 
   const categories = ['All', 'Kitchens', 'Baths', 'Exteriors', 'Additions', 'Decks'];
@@ -167,7 +167,7 @@ export default function HomePage() {
       {/* --- SECTION 1: HERO (Havix Style Split) --- */}
       <section className="relative w-full min-h-auto lg:min-h-[95vh] flex items-center pt-20 lg:pt-32 pb-20 overflow-hidden bg-secondary">
         {/* Background Image with Overlay */}
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_5010fad45c2a4e18965251f844446b07~mv2.jpg')`}} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('/images/philadelphia-remodeling%20(1).avif')`}} />
         <div className="absolute inset-0 bg-black/85 z-10" />
 
         <div className="relative z-20 w-full max-w-[120rem] mx-auto px-6 lg:px-12">
@@ -192,7 +192,7 @@ export default function HomePage() {
               <div className="lg:hidden rounded-3xl overflow-hidden w-full h-full aspect-video mb-8">
                 <motion.div style={{ y: heroParallax }} className="w-full h-full">
                   <video 
-                    src="https://video.wixstatic.com/video/dc69ab_57513eb7b01340659ce8d7dd858d96ed/720p/mp4/file.mp4"
+                    src="/images/Philadelphia_Home-Remodeling.mov"
                     autoPlay
                     muted
                     loop
@@ -227,7 +227,7 @@ export default function HomePage() {
               <div className="hidden lg:block rounded-3xl overflow-hidden w-full aspect-video">
                 <motion.div style={{ y: heroParallax }} className="w-full h-full">
                   <video 
-                    src="https://video.wixstatic.com/video/dc69ab_57513eb7b01340659ce8d7dd858d96ed/720p/mp4/file.mp4"
+                    src="/images/Philadelphia_Home-Remodeling.mov"
                     autoPlay
                     muted
                     loop
@@ -310,7 +310,7 @@ export default function HomePage() {
                 className="absolute top-0 left-0 w-80 h-96 rounded-2xl overflow-hidden shadow-lg"
               >
                 <Image
-                  src="https://static.wixstatic.com/media/dc69ab_667e5087b9c148d28b78f28fba9d0c86~mv2.avif"
+                  src="/images/service-bathrooms.jpg"
                   width={320}
                   height={384}
                   className="w-full h-full object-cover"
@@ -325,7 +325,7 @@ export default function HomePage() {
                 className="absolute bottom-12 right-0 w-80 h-96 rounded-2xl overflow-hidden shadow-lg"
               >
                 <Image
-                  src="https://static.wixstatic.com/media/dc69ab_872ff7d8d7484c9085b04660375cc73a~mv2.avif"
+                  src="/images/service-interiors.jpg"
                   width={320}
                   height={384}
                   className="w-full h-full object-cover"
@@ -508,7 +508,7 @@ export default function HomePage() {
       </section>
       {/* --- SECTION 5: MID-PAGE CTA --- */}
       <section className="w-full py-24 bg-primary relative overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('https://static.wixstatic.com/media/dc69ab_5010fad45c2a4e18965251f844446b07~mv2.jpg')`}} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url('/images/philadelphia-remodeling%20(1).avif')`}} />
         <div className="absolute inset-0 bg-black/70" />
         <div className="max-w-[100rem] mx-auto px-6 lg:px-12 text-center relative z-10">
           <motion.div
@@ -587,15 +587,14 @@ export default function HomePage() {
                   }}
                 >
                   {[
-                    { name: 'Sarah M.', title: 'Homeowner', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    { name: 'Mike R.', title: 'Business Owner', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    // Duplicate for seamless loop
-                    { name: 'Sarah M.', title: 'Homeowner', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    { name: 'Mike R.', title: 'Business Owner', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' },
-                    { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.', photo: 'https://static.wixstatic.com/media/dc69ab_9fb22f17307b45a0b4759bccf4981c5e~mv2.png?originWidth=384&originHeight=384' }
+                    { name: 'Sarah M.', title: 'Homeowner', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.' },
+                    { name: 'Mike R.', title: 'Business Owner', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.' },
+                    { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.' },
+                    { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.' },
+                    { name: 'Sarah M.', title: 'Homeowner', text: 'JD Construction transformed our outdated kitchen into a modern masterpiece. The attention to detail was incredible.' },
+                    { name: 'Mike R.', title: 'Business Owner', text: 'Professional from start to finish. They communicated every step of the way and the quality of work exceeded our expectations.' },
+                    { name: 'Jennifer L.', title: 'Designer', text: 'Our bathroom remodel was completed beautifully. The team was respectful, clean, and the craftsmanship is top-notch.' },
+                    { name: 'Tom B.', title: 'Architect', text: 'Added a deck and outdoor living space. The design suggestions were spot-on and the construction quality is excellent.' }
                   ].map((testimonial, index) => (
                     <div key={index} className="flex-shrink-0 w-80 sm:w-96">
                       {/* Premium Dark Card */}
@@ -730,7 +729,7 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-secondary rounded-3xl transform rotate-3" />
               <div className="absolute inset-0 bg-white rounded-3xl transform -rotate-3 overflow-hidden border-4 border-white shadow-2xl">
                 <Image
-                  src="https://static.wixstatic.com/media/dc69ab_b4931c8b58cc4325964f9d5edb057a48~mv2.avif"
+                  src="/images/service-renovation.jpg"
                   className="w-full h-full object-cover"
                   alt="Basement remodeling and framing by local construction company"
                   originWidth={1249}
@@ -768,11 +767,7 @@ export default function HomePage() {
       <section className="w-full py-32 bg-light-grey">
         <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
-            <h2
-              className="font-heading text-5xl text-secondary mb-4"
-              src="https://static.wixstatic.com/media/dc69ab_b4931c8b58cc4325964f9d5edb057a48~mv2.avif"
-              originWidth={1249}
-              originHeight={1184}>Project Types</h2>
+            <h2 className="font-heading text-5xl text-secondary mb-4">Project Types</h2>
             <p className="font-paragraph text-lg text-foreground/70">Tailored approaches for every scale</p>
           </div>
 
@@ -849,139 +844,7 @@ export default function HomePage() {
           <Card className="border border-medium-grey/20 shadow-2xl rounded-3xl overflow-hidden">
             <div className="h-2 bg-primary w-full" />
             <CardContent className="p-10 lg:p-16">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Name *</label>
-                    <Input
-                      placeholder="Your full name"
-                      className="h-12 rounded-lg border-medium-grey/30"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Email *</label>
-                    <Input
-                      type="email"
-                      placeholder="your@email.com"
-                      className="h-12 rounded-lg border-medium-grey/30"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Phone *</label>
-                    <Input
-                      type="tel"
-                      placeholder="(555) 123-4567"
-                      className="h-12 rounded-lg border-medium-grey/30"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Zip Code *</label>
-                    <Input
-                      placeholder="07090"
-                      className="h-12 rounded-lg border-medium-grey/30"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Project Type *</label>
-                    <Select required>
-                      <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
-                        <SelectValue placeholder="Select project type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="kitchen">Kitchen Remodel</SelectItem>
-                        <SelectItem value="bathroom">Bathroom Remodel</SelectItem>
-                        <SelectItem value="addition">Home Addition</SelectItem>
-                        <SelectItem value="deck">Deck/Outdoor Living</SelectItem>
-                        <SelectItem value="roofing">Roofing & Siding</SelectItem>
-                        <SelectItem value="flooring">Flooring & Carpentry</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div>
-                    <label className="block font-heading text-secondary mb-2">Timeline *</label>
-                    <Select required>
-                      <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
-                        <SelectValue placeholder="When to start?" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="asap">As soon as possible</SelectItem>
-                        <SelectItem value="1-3">1-3 months</SelectItem>
-                        <SelectItem value="3-6">3-6 months</SelectItem>
-                        <SelectItem value="6+">6+ months</SelectItem>
-                        <SelectItem value="planning">Just planning</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-heading text-secondary mb-2">Budget Range *</label>
-                  <Select required>
-                    <SelectTrigger className="h-12 rounded-lg border-medium-grey/30">
-                      <SelectValue placeholder="Select budget range" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="under-10k">Under $10,000</SelectItem>
-                      <SelectItem value="10-25k">$10,000 - $25,000</SelectItem>
-                      <SelectItem value="25-50k">$25,000 - $50,000</SelectItem>
-                      <SelectItem value="50-100k">$50,000 - $100,000</SelectItem>
-                      <SelectItem value="100k+">$100,000+</SelectItem>
-                      <SelectItem value="not-sure">Not sure yet</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <div>
-                  <label className="block font-heading text-secondary mb-2">Project Details *</label>
-                  <Textarea
-                    placeholder="Tell us about your project, what you're looking to accomplish, any specific requirements..."
-                    rows={6}
-                    className="rounded-lg border-medium-grey/30"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-heading text-secondary mb-2">Photos (Optional)</label>
-                  <div className="border-2 border-dashed border-medium-grey/30 rounded-lg p-8 text-center hover:border-primary/50 transition-colors cursor-pointer">
-                    <p className="font-paragraph text-foreground mb-2">Drop photos here or click to upload</p>
-                    <p className="font-paragraph text-sm text-foreground/70">JPG, PNG up to 10MB each</p>
-                  </div>
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-heading text-base h-14 rounded-lg"
-                >
-                  Request My Quote
-                </Button>
-
-                <a href="tel:267-804-4120" className="md:hidden block">
-                  <Button
-                    type="button"
-                    size="lg"
-                    className="w-full bg-secondary hover:bg-secondary/90 text-secondary-foreground font-heading text-base h-14 rounded-lg"
-                  >
-                    Call Now
-                  </Button>
-                </a>
-
-                <p className="text-center font-paragraph text-sm text-foreground/70">
-                  * Required fields. We reply within 1 business day.
-                </p>
-              </form>
+              <QuoteForm />
             </CardContent>
           </Card>
         </div>

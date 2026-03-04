@@ -61,115 +61,32 @@ export const MemberProvider: React.FC<MemberProviderProps> = ({ children }) => {
     loadCurrentMember: useCallback(async () => {
       try {
         updateState({ isLoading: true, error: null });
-
         const member = await getCurrentMember();
-
-        if (member) {
-          updateState({
-            member,
-            isAuthenticated: true,
-            isLoading: false,
-          });
-        } else {
-          updateState({
-            member: null,
-            isAuthenticated: false,
-            isLoading: false,
-          });
-        }
-      } catch (err) {
         updateState({
-          error: err instanceof Error ? err.message : 'Failed to load member',
-          member: null,
-          isAuthenticated: false,
+          member: member ?? null,
+          isAuthenticated: !!member,
           isLoading: false,
         });
+      } catch {
+        updateState({ member: null, isAuthenticated: false, isLoading: false });
       }
     }, [updateState]),
 
-    /**
-     * Login redirect
-     */
     login: useCallback(() => {
-      const returnUrl = encodeURIComponent(window.location.pathname);
-      const loginUrl = `/api/auth/login?returnToUrl=${returnUrl}`;
-
-      const insideIframe = window.self !== window.top;
-      if (!insideIframe) {
-        // dev machine url has been opened outside the picasso iframe
-        window.location.href = loginUrl;
-        return;
-      }
-
-      // we are on a different domain, we need to ask for storage access,
-      // otherwise we won't be able to access session cookie
-      document
-        .hasStorageAccess()
-        .catch(() => false)
-        .then(hasAccess => {
-          if (hasAccess) {
-            return true;
-          }
-
-          // in case access is not granted, we need to clear partitioned cookies
-          // otherwise after storage access is granted, we will be getting duplicated cookies.
-          document.cookie = "wixSession=; max-age=0; Secure; SameSite=None; Partitioned";
-          document.cookie = "XSRF-TOKEN=; max-age=0; Secure; SameSite=None; Partitioned";
-
-          return document.requestStorageAccess().then(() => true).catch(() => false);
-        })
-        .then(accessGranted => {
-          if (accessGranted) {
-            const loginWindow = window.open(loginUrl, '_blank');
-            reloadOnceLoggedIn(loginWindow);
-          }
-        });
+      // No-op on Vercel: no Wix auth
     }, []),
 
-    /**
-     * Logout action
-     */
     logout: useCallback(() => {
-      // Clear localStorage immediately
       if (typeof window !== 'undefined') {
         try {
           localStorage.removeItem(MEMBER_STORAGE_KEY);
-        } catch (error) {
-          console.error('Error clearing member state from localStorage:', error);
-        }
+        } catch {}
       }
-
-      // Create a form programmatically and submit it
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = '/api/auth/logout';
-      form.setAttribute('data-astro-reload', '');
-
-      // Hide the form
-      form.style.display = 'none';
-
-      // Add the form to the document
-      document.body.appendChild(form);
-
-      // Submit the form
-      form.submit();
-
-      // Clean up - remove the form after submission
-      setTimeout(() => {
-        document.body.removeChild(form);
-      }, 100);
+      updateState({ member: null, isAuthenticated: false, isLoading: false, error: null });
     }, [updateState]),
 
-    /**
-     * Clear member state
-     */
     clearMember: useCallback(() => {
-      updateState({
-        member: null,
-        isAuthenticated: false,
-        isLoading: false,
-        error: null,
-      });
+      updateState({ member: null, isAuthenticated: false, isLoading: false, error: null });
     }, [updateState]),
   };
 
@@ -190,22 +107,3 @@ export const MemberProvider: React.FC<MemberProviderProps> = ({ children }) => {
     </MemberContext.Provider>
   );
 };
-
-function reloadOnceLoggedIn(loginWindow: Window) {
-  const cookies = document.cookie.split('; ');
-  const cookie = cookies.find((row) => row.startsWith('wixSession='));
-
-  if (cookie) {
-    const jsonString = decodeURIComponent(cookie.split('=')[1] ?? '');
-    const parsed = JSON.parse(jsonString);
-
-    if (parsed?.tokens?.refreshToken?.role === "member") {
-      loginWindow.close();
-      window.location.reload();
-
-      return;
-    }
-  }
-
-  setTimeout(() => reloadOnceLoggedIn(loginWindow), 1_000);
-}

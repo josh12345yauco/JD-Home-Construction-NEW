@@ -1,0 +1,21 @@
+---
+import { Head } from "@/components/Head";
+import AppRouter from "@/components/Router";
+import "@/styles/global.css";
+---
+
+<html lang="en" class="w-full h-full">
+  <head>
+    <Head />
+    <meta name="description" content="JD Home Construction - Philadelphia's trusted contractor for kitchen remodels, bathroom renovations, decks, and home additions." />
+    <meta name="theme-color" content="#000" />
+    <title>JD Home Construction | Philadelphia Contractor</title>
+  </head>
+  <body class="w-full h-full">
+    <div id="root" class="w-full h-full">
+      <noscript>Enable JavaScript to view this site.</noscript>
+      <div id="app-loading" style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:system-ui,sans-serif;font-size:18px;color:#333;">Loading…</div>
+      <AppRouter client:only="react" />
+    </div>
+  </body>
+</html>

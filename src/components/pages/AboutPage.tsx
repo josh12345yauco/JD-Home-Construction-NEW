@@ -62,7 +62,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="https://static.wixstatic.com/media/nsplsh_99d07237c1974eeb8d9cb550339e7271~mv2.jpg"
+                src="/images/Philadelphia-Contractor%20(1).avif"
                 width={500}
                 className="w-full h-full object-cover rounded-lg sm:rounded-xl"
                 originWidth={3649}

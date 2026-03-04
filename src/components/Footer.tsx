@@ -35,7 +35,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="inline-block mb-6">
               <Image
-                src="https://static.wixstatic.com/media/dc69ab_ee8a367561b049528ed1bb3a1d9e7ec7~mv2.png"
+                src="/images/JD-Home-Construction.png"
                 width={240}
                 height={80}
                 className="h-16 w-auto"

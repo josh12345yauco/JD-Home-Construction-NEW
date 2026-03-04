@@ -1,0 +1,66 @@
+[
+  {
+    "_id": "0f52a365-2cce-4720-8b98-c6c0583d8742",
+    "question": "What is the typical timeline for a new home construction project?",
+    "answer": "The timeline for a new home construction project can vary significantly based on size, complexity, and local regulations. Generally, it ranges from 6 to 12 months from groundbreaking to completion. This includes phases like foundation, framing, roofing, interior finishes, and final inspections.",
+    "category": "Timelines",
+    "isFeatured": true,
+    "displayOrder": 1
+  },
+  {
+    "_id": "870c02e8-fb0f-43ff-b7da-0704be0280a9",
+    "question": "How do I get a quote for my construction project?",
+    "answer": "To get a detailed quote, please contact us via our website, phone, or email. We'll schedule an initial consultation to discuss your project requirements, scope, and budget. Following this, we'll provide a comprehensive proposal tailored to your needs.",
+    "category": "Process",
+    "isFeatured": true,
+    "displayOrder": 2
+  },
+  {
+    "_id": "1a1b3505-b36b-4458-9047-cae515d59f7a",
+    "question": "What permits are required for a renovation project?",
+    "answer": "The permits required depend on the scope and location of your renovation. Common permits include building permits, electrical permits, plumbing permits, and sometimes zoning permits. We handle all necessary permit applications as part of our service to ensure compliance.",
+    "category": "Policies",
+    "isFeatured": true,
+    "displayOrder": 3
+  },
+  {
+    "_id": "84e16ba2-98c4-4e16-be03-92dc50721b52",
+    "question": "Can I make changes to the design during construction?",
+    "answer": "While it's best to finalize designs before construction begins, we understand that changes may be necessary. Any changes requested during construction will be documented as a change order, which may affect the project timeline and cost. We'll discuss all implications with you beforehand.",
+    "category": "Process",
+    "isFeatured": true,
+    "displayOrder": 4
+  },
+  {
+    "_id": "12eaadad-dc7e-4afe-bbb3-8243ac032d57",
+    "question": "What kind of warranty do you offer on your construction work?",
+    "answer": "We offer a comprehensive warranty on all our construction work, typically covering structural elements for 10 years, mechanical systems for 2 years, and finishes for 1 year. Specific warranty details will be outlined in your contract for full transparency.",
+    "category": "Policies",
+    "isFeatured": true,
+    "displayOrder": 5
+  },
+  {
+    "_id": "86243124-8bb1-4416-b892-1452a931128a",
+    "question": "How do you ensure project quality and safety?",
+    "answer": "Quality and safety are our top priorities. We adhere to strict industry standards, employ experienced and certified professionals, conduct regular site inspections, and use high-quality materials. Our safety protocols comply with all local and national regulations.",
+    "category": "Process",
+    "isFeatured": true,
+    "displayOrder": 6
+  },
+  {
+    "_id": "f0a4c5b5-8dc3-4b72-b2c7-27263f8d45a5",
+    "question": "What is the payment schedule for a typical construction project?",
+    "answer": "Payment schedules are typically structured in phases, with an initial deposit followed by progress payments tied to key milestones (e.g., foundation completion, framing, rough-ins, substantial completion). The final payment is due upon project completion and client satisfaction.",
+    "category": "Timelines",
+    "isFeatured": true,
+    "displayOrder": 7
+  },
+  {
+    "_id": "ce062fb1-f37b-4bc9-bd53-1e5d6401e021",
+    "question": "Do you handle commercial as well as residential projects?",
+    "answer": "Yes, we have extensive experience in both residential and commercial construction projects. Our portfolio includes custom homes, multi-family dwellings, office buildings, retail spaces, and industrial facilities, demonstrating our versatility.",
+    "category": "Policies",
+    "isFeatured": true,
+    "displayOrder": 8
+  }
+]

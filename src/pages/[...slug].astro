@@ -1,27 +1,20 @@
 ---
-import { SEO } from '@wix/seo/components';
-import { loadSEOTagsServiceConfig } from '@wix/seo/services';
 import { Head } from "@/components/Head";
 import AppRouter from "@/components/Router";
-import "@wix/wix-vibe-plugins/plugins-vars.css";
-import "@wix/wix-vibe-plugins/plugins-theme.css";
 import "@/styles/global.css";
-
-const seoTagsServiceConfig = await loadSEOTagsServiceConfig({
-  pageUrl: Astro.url.href,
-  itemData: {
-    pageName: 'Home',
-  },
-});
 ---
 
 <html lang="en" class="w-full h-full">
   <head>
     <Head />
-    <SEO.Tags seoTagsServiceConfig={seoTagsServiceConfig} slot="seo-tags" />
+    <meta name="description" content="JD Home Construction - Philadelphia's trusted contractor for kitchen remodels, bathroom renovations, decks, and home additions." />
+    <meta name="theme-color" content="#000" />
+    <title>JD Home Construction | Philadelphia Contractor</title>
   </head>
   <body class="w-full h-full">
     <div id="root" class="w-full h-full">
+      <noscript>Enable JavaScript to view this site.</noscript>
+      <div id="app-loading" style="display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:system-ui,sans-serif;font-size:18px;color:#333;">Loading…</div>
       <AppRouter client:only="react" />
     </div>
   </body>

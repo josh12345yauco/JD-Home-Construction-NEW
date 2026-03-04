@@ -1,15 +1,6 @@
-import { members } from "@wix/members";
-import { Member } from ".";
+import type { Member } from '.';
 
+/** Stub: no Wix members on Vercel. Always returns null. */
 export const getCurrentMember = async (): Promise<Member | null> => {
-  try {
-    const member = await members.getCurrentMember({ fieldsets: ["FULL"] });
-    if (!member) {
-      console.log('==== No member found');
-    }
-    return member.member;
-  } catch (error) {
-    console.log(error);
-    return null;
-  }
+  return null;
 };

@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "1",
+    "projectTitle": "Modern Kitchen Remodel",
+    "category": "Kitchens",
+    "scopeOfWork": "Complete kitchen renovation with new cabinets and appliances",
+    "beforeImage": "/images/service-kitchens.jpg",
+    "afterImage": "/images/service-kitchens.jpg"
+  },
+  {
+    "_id": "2",
+    "projectTitle": "Luxury Bathroom Suite",
+    "category": "Baths",
+    "scopeOfWork": "Spa-like bathroom with heated floors and custom tile",
+    "beforeImage": "/images/service-bathrooms.jpg",
+    "afterImage": "/images/service-bathrooms.jpg"
+  },
+  {
+    "_id": "3",
+    "projectTitle": "Home Addition",
+    "category": "Additions",
+    "scopeOfWork": "New master suite addition with custom finishes",
+    "beforeImage": "/images/service-residential.jpg",
+    "afterImage": "/images/service-residential.jpg"
+  },
+  {
+    "_id": "4",
+    "projectTitle": "Outdoor Deck",
+    "category": "Decks",
+    "scopeOfWork": "Large composite deck with built-in seating",
+    "beforeImage": "/images/service-exteriors.jpg",
+    "afterImage": "/images/service-exteriors.jpg"
+  },
+  {
+    "_id": "5",
+    "projectTitle": "Exterior Renovation",
+    "category": "Exteriors",
+    "scopeOfWork": "New siding and roofing for complete exterior refresh",
+    "beforeImage": "/images/service-renovation.jpg",
+    "afterImage": "/images/service-renovation.jpg"
+  },
+  {
+    "_id": "6",
+    "projectTitle": "Full Home Remodel",
+    "category": "Additions",
+    "scopeOfWork": "Multi-room renovation with structural updates",
+    "beforeImage": "/images/service-interiors.jpg",
+    "afterImage": "/images/service-interiors.jpg"
+  }
+]

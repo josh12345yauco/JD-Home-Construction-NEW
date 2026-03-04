@@ -1,4 +1,6 @@
-import { items } from "@wix/data";
-
-export type WixDataItem = items.WixDataItem;
-export type WixDataQueryResult = items.WixDataResult;
+export interface WixDataItem {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  [key: string]: unknown;
+}
