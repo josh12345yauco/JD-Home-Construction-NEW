@@ -1,11 +1,24 @@
 import type { APIRoute } from 'astro';
+import { getSupabaseAdmin } from '../../lib/supabase-server';
 
 const ALLOWED_TYPES = new Set([
   'image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/svg+xml',
   'video/mp4', 'video/webm', 'video/quicktime',
 ]);
 
-const MAX_SIZE = 50 * 1024 * 1024; // 50 MB
+/** MIME by extension when browser sends empty file.type (e.g. some mobile) */
+const EXT_TO_MIME: Record<string, string> = {
+  jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp',
+  gif: 'image/gif', svg: 'image/svg+xml', mp4: 'video/mp4', webm: 'video/webm', mov: 'video/quicktime',
+};
+
+const MAX_SIZE = 50 * 1024 * 1024; // 50 MB (Supabase Storage default limit)
+
+function getFileMime(file: File): string {
+  if (file.type) return file.type;
+  const ext = file.name.split('.').pop()?.toLowerCase() || '';
+  return EXT_TO_MIME[ext] || '';
+}
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -16,15 +29,10 @@ export const POST: APIRoute = async ({ request }) => {
       return new Response(JSON.stringify({ error: 'No files provided' }), { status: 400 });
     }
 
-    const supabaseUrl = import.meta.env.SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseKey = import.meta.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-    if (!supabaseUrl || !supabaseKey) {
+    const supabase = getSupabaseAdmin();
+    if (!supabase) {
       return new Response(JSON.stringify({ error: 'Storage not configured' }), { status: 503 });
     }
-
-    const { createClient } = await import('@supabase/supabase-js');
-    const supabase = createClient(supabaseUrl, supabaseKey);
 
     const { error: bucketError } = await supabase.storage.createBucket('media', {
       public: true,
@@ -37,8 +45,9 @@ export const POST: APIRoute = async ({ request }) => {
     const urls: string[] = [];
 
     for (const file of files) {
-      if (!ALLOWED_TYPES.has(file.type)) {
-        return new Response(JSON.stringify({ error: `Unsupported file type: ${file.type}` }), { status: 400 });
+      const mime = getFileMime(file);
+      if (!mime || !ALLOWED_TYPES.has(mime)) {
+        return new Response(JSON.stringify({ error: `Unsupported file type: ${file.type || file.name}` }), { status: 400 });
       }
       if (file.size > MAX_SIZE) {
         return new Response(JSON.stringify({ error: `File too large (max 50MB): ${file.name}` }), { status: 400 });
@@ -53,9 +62,10 @@ export const POST: APIRoute = async ({ request }) => {
       const storagePath = `uploads/${uniqueName}`;
 
       const buffer = Buffer.from(await file.arrayBuffer());
+      const contentType = file.type || getFileMime(file);
       const { error } = await supabase.storage
         .from('media')
-        .upload(storagePath, buffer, { contentType: file.type, upsert: false });
+        .upload(storagePath, buffer, { contentType, upsert: false });
 
       if (error) {
         return new Response(JSON.stringify({ error: `Upload failed: ${error.message}` }), { status: 500 });

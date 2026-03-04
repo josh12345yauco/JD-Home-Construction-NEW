@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime';
-const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4 MB — Vercel serverless body limit
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB — matches Supabase Storage limit
 
 interface UploadedFile {
   file: File;
@@ -55,7 +55,7 @@ export default function QuoteForm() {
       const file = incoming[i];
       const preview = URL.createObjectURL(file);
       if (file.size > MAX_FILE_SIZE) {
-        newFiles.push({ file, preview, uploading: false, error: 'File too large — max 4 MB per file on current plan.' });
+        newFiles.push({ file, preview, uploading: false, error: 'File too large — max 50 MB per file.' });
         continue;
       }
       newFiles.push({ file, preview, uploading: true });
@@ -220,7 +220,7 @@ export default function QuoteForm() {
         >
           <Upload className="w-8 h-8 text-primary/60 mx-auto mb-2" />
           <p className="font-paragraph text-foreground mb-1">Drop photos or videos here, or click to browse</p>
-          <p className="font-paragraph text-sm text-foreground/50">JPG, PNG, WebP, MP4, MOV — up to 50MB each</p>
+          <p className="font-paragraph text-sm text-foreground/50">JPG, PNG, WebP, GIF, MP4, MOV — up to 50 MB each</p>
           <input ref={fileInputRef} type="file" accept={ACCEPT} multiple className="hidden"
             onChange={(e) => { if (e.target.files?.length) { addFiles(e.target.files); e.target.value = ''; } }} />
         </div>

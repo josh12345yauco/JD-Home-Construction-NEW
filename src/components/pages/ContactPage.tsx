@@ -24,8 +24,27 @@ export default function ContactPage() {
           </h1>
         </motion.div>
       </section>
+      {/* Contact Form */}
+      <section className="w-full bg-light-grey py-24">
+        <div className="max-w-4xl mx-auto px-8">
+          <motion.div className="text-center mb-12" {...fadeInUp}>
+            <h2 className="font-heading text-2xl text-secondary mb-6">
+              Ready to start your next home renovation, deck build, or custom construction project? Contact JD Home Construction to schedule a consultation with Philadelphia's leading builders and carpenters.
+            </h2>
+          </motion.div>
+
+          <motion.div {...fadeInUp}>
+            <Card className="border border-medium-grey/20 shadow-2xl rounded-3xl overflow-hidden">
+              <div className="h-2 bg-primary w-full" />
+              <CardContent className="p-10 lg:p-16">
+                <QuoteForm />
+              </CardContent>
+            </Card>
+          </motion.div>
+        </div>
+      </section>
       {/* Contact Info Cards */}
-      <section className="w-full pb-24">
+      <section className="w-full pt-16 pb-24">
         <div className="max-w-[100rem] mx-auto px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
@@ -77,25 +96,6 @@ export default function ContactPage() {
               </Card>
             </motion.div>
           </div>
-        </div>
-      </section>
-      {/* Contact Form */}
-      <section className="w-full bg-light-grey py-24">
-        <div className="max-w-4xl mx-auto px-8">
-          <motion.div className="text-center mb-12" {...fadeInUp}>
-            <h2 className="font-heading text-2xl text-secondary mb-6">
-              Ready to start your next home renovation, deck build, or custom construction project? Contact JD Home Construction to schedule a consultation with Philadelphia's leading builders and carpenters.
-            </h2>
-          </motion.div>
-
-          <motion.div {...fadeInUp}>
-            <Card className="border border-medium-grey/20 shadow-2xl rounded-3xl overflow-hidden">
-              <div className="h-2 bg-primary w-full" />
-              <CardContent className="p-10 lg:p-16">
-                <QuoteForm />
-              </CardContent>
-            </Card>
-          </motion.div>
         </div>
       </section>
       {/* Service Areas */}
