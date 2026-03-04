@@ -2,11 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "astro",
-  "functions": {
-    "api/upload.ts": {
-      "maxRequestBodyLength": 52428800
-    }
-  },
   "rewrites": [
     { "source": "/admin", "destination": "/admin" },
     { "source": "/admin/(.*)", "destination": "/admin" },

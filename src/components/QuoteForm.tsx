@@ -6,7 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime';
-const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB — matches Supabase Storage limit
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB — direct upload to Supabase (no Vercel limit)
 
 interface UploadedFile {
   file: File;
@@ -34,16 +34,29 @@ export default function QuoteForm() {
   const [dragOver, setDragOver] = useState(false);
 
   const uploadFile = useCallback(async (file: File, idx: number) => {
-    const fd = new FormData();
-    fd.append('file', file);
     try {
-      const res = await fetch('/api/upload', { method: 'POST', body: fd });
-      const json = await res.json();
-      if (res.ok && json.urls?.[0]) {
-        setFiles((prev) => prev.map((f, i) => i === idx ? { ...f, url: json.urls[0], uploading: false } : f));
-      } else {
-        setFiles((prev) => prev.map((f, i) => i === idx ? { ...f, error: json.error || 'Upload failed', uploading: false } : f));
+      // Get signed URL (no file in request — bypasses Vercel 4.5MB limit)
+      const urlRes = await fetch('/api/upload-url', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: file.name, contentType: file.type || undefined, size: file.size }),
+      });
+      const urlJson = await urlRes.json();
+      if (!urlRes.ok || !urlJson.signedUrl || !urlJson.publicUrl) {
+        setFiles((prev) => prev.map((f, i) => i === idx ? { ...f, error: urlJson.error || 'Could not get upload URL', uploading: false } : f));
+        return;
       }
+      // Upload file directly to Supabase (client → Supabase, not through Vercel)
+      const putRes = await fetch(urlJson.signedUrl, {
+        method: 'PUT',
+        body: file,
+        headers: { 'Content-Type': file.type || 'application/octet-stream' },
+      });
+      if (!putRes.ok) {
+        setFiles((prev) => prev.map((f, i) => i === idx ? { ...f, error: 'Upload failed', uploading: false } : f));
+        return;
+      }
+      setFiles((prev) => prev.map((f, i) => i === idx ? { ...f, url: urlJson.publicUrl, uploading: false } : f));
     } catch {
       setFiles((prev) => prev.map((f, i) => i === idx ? { ...f, error: 'Network error', uploading: false } : f));
     }
