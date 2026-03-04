@@ -66,6 +66,24 @@ export default function AdminLeadsPage() {
     if (stored) { setAuthToken(stored); fetchLeads(stored); } else { setLoading(false); }
   }, []);
 
+  // Open specific lead from email link: /admin?lead=123
+  useEffect(() => {
+    if (typeof window === 'undefined' || leads.length === 0) return;
+    const params = new URLSearchParams(window.location.search);
+    const leadIdParam = params.get('lead');
+    if (!leadIdParam) return;
+    const id = Number(leadIdParam);
+    if (!Number.isInteger(id)) return;
+    const exists = leads.some((l) => l.id === id);
+    if (exists) {
+      setExpandedLead(id);
+      // Clean URL so refresh doesn't re-expand
+      const url = new URL(window.location.href);
+      url.searchParams.delete('lead');
+      window.history.replaceState({}, '', url.pathname + url.search);
+    }
+  }, [leads]);
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!password) { setError('Enter your password'); return; }
