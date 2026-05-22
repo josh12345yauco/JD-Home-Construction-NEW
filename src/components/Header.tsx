@@ -26,8 +26,9 @@ export default function Header() {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
+    { name: 'Areas', path: '/areas' },
     { name: 'Projects', path: '/projects' },
-    { name: 'FAQ', path: '/faq' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' }
   ];
 

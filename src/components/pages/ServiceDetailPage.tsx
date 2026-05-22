@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CheckCircle, Clock, ArrowRight } from 'lucide-react';
+import { CheckCircle, Clock, ArrowRight, MapPin, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
@@ -10,6 +10,11 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Services, Projects } from '@/entities';
+
+import blogPostsData from '@/data/blog-posts.json';
+import serviceAreasData from '@/data/service-areas.json';
+const blogPosts: any[] = blogPostsData || [];
+const serviceAreas: any[] = serviceAreasData || [];
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -225,6 +230,63 @@ export default function ServiceDetailPage() {
           </div>
         </section>
       )}
+      {/* Related Blog Posts */}
+      {blogPosts.length > 0 && (() => {
+        const related = blogPosts.filter((p: any) => p.relatedServices?.includes(id)).slice(0, 3);
+        if (related.length === 0) return null;
+        return (
+          <section className="w-full py-24 bg-light-grey">
+            <div className="max-w-[100rem] mx-auto px-8">
+              <motion.div className="text-center mb-16" {...fadeInUp}>
+                <h2 className="font-heading text-4xl text-secondary mb-4">Related Guides & Articles</h2>
+                <p className="font-paragraph text-lg text-foreground/70">Expert insights for your project</p>
+              </motion.div>
+              <div className="grid md:grid-cols-3 gap-8">
+                {related.map((post: any) => (
+                  <Link key={post.slug} to={`/blog/${post.slug}`} className="group">
+                    <Card className="h-full border border-medium-grey/20 rounded-xl hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden">
+                      <div className="overflow-hidden">
+                        <Image src={post.heroImage} alt={post.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300" />
+                      </div>
+                      <CardContent className="p-6">
+                        <span className="text-xs font-heading text-primary uppercase tracking-wider">{post.category}</span>
+                        <h3 className="font-heading text-lg text-secondary mt-2 mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
+                        <div className="flex items-center gap-2 text-sm text-foreground/60">
+                          <BookOpen className="w-4 h-4" />
+                          <span>{post.readTime}</span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
+      {/* Service Areas */}
+      {serviceAreas.length > 0 && (() => {
+        const related = serviceAreas.filter((a: any) => a.relatedServices?.includes(id)).slice(0, 4);
+        if (related.length === 0) return null;
+        return (
+          <section className="w-full py-20">
+            <div className="max-w-[100rem] mx-auto px-8">
+              <motion.div className="text-center mb-12" {...fadeInUp}>
+                <h2 className="font-heading text-4xl text-secondary mb-4">Where We Offer This Service</h2>
+              </motion.div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {related.map((area: any) => (
+                  <Link key={area.slug} to={`/areas/${area.slug}`} className="group flex items-center gap-3 p-4 rounded-xl border border-medium-grey/20 hover:border-primary hover:shadow-md transition-all">
+                    <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="font-heading text-secondary group-hover:text-primary transition-colors">{area.name}</span>
+                    <ArrowRight className="w-4 h-4 text-foreground/40 ml-auto group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })()}
       {/* CTA Section */}
       <section className="w-full bg-primary py-20">
         <div className="max-w-[100rem] mx-auto px-8 text-center">

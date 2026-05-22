@@ -44,17 +44,6 @@
     "displayOrder": 4
   },
   {
-    "_id": "11aca1c2-7f43-453d-a7cd-5dabb4433064",
-    "serviceName": "Snow Control",
-    "serviceImage": "/images/service-snow-control.jpg",
-    "shortDescription": "Reliable and efficient snow control services, including pre-season preparation, salting, and professional plowing for commercial and residential properties.",
-    "detailedDescription": "Ensure your property remains safe and accessible throughout the winter with our comprehensive snow control services. We offer pre-season site assessments and planning to identify critical areas. Our salting services prevent ice formation and melt existing snow, while our professional plowing teams efficiently clear driveways, parking lots, and walkways. We are equipped to handle various snow events, providing timely and thorough service to minimize disruption and ensure safety.",
-    "processSteps": "1. Pre-season Site Assessment & Contract Agreement; 2. Monitoring Weather Forecasts; 3. Pre-treatment/Salting (as needed); 4. Snow Plowing Operations (during/after snowfall); 5. Post-Plow Salting & De-icing; 6. Follow-up & Site Inspection.",
-    "benefits": "Enhanced safety for residents/customers, uninterrupted access to property, reduced liability risks, professional and timely service, peace of mind during winter, customized service plans.",
-    "timelineEstimate": "Seasonal contract (October-April)",
-    "displayOrder": 5
-  },
-  {
     "_id": "3275831a-2334-49d3-883c-83c750839686",
     "serviceName": "Residential Construction",
     "serviceImage": "/images/service-residential.jpg",

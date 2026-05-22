@@ -132,7 +132,7 @@ export default function HomePage() {
     { _id: '2', serviceName: 'Kitchens', shortDescription: 'Renovations & full build-outs', serviceImage: '/images/service-kitchens.jpg' },
     { _id: '3', serviceName: 'Interiors', shortDescription: 'Framing, Drywall, Painting, Mill-Work', serviceImage: '/images/service-interiors.jpg' },
     { _id: '4', serviceName: 'Exteriors', shortDescription: 'Framing, Siding, Concrete', serviceImage: '/images/service-exteriors.jpg' },
-    { _id: '5', serviceName: 'Snow Control', shortDescription: 'Prep, Salting, Plowing', serviceImage: '/images/service-snow-control.jpg' }
+    { _id: '5', serviceName: 'Residential Construction', shortDescription: 'Building dream homes from concept to completion', serviceImage: '/images/service-residential.jpg' }
   ];
 
   // Static data for projects (fallback)

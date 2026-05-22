@@ -11,6 +11,10 @@ const ServiceDetailPage = lazy(() => import('@/components/pages/ServiceDetailPag
 const ProjectsPage = lazy(() => import('@/components/pages/ProjectsPage'));
 const ProjectDetailPage = lazy(() => import('@/components/pages/ProjectDetailPage'));
 const FAQPage = lazy(() => import('@/components/pages/FAQPage'));
+const BlogPage = lazy(() => import('@/components/pages/BlogPage'));
+const BlogPostPage = lazy(() => import('@/components/pages/BlogPostPage'));
+const ServiceAreasPage = lazy(() => import('@/components/pages/ServiceAreasPage'));
+const ServiceAreaDetailPage = lazy(() => import('@/components/pages/ServiceAreaDetailPage'));
 const ContactPage = lazy(() => import('@/components/pages/ContactPage'));
 const AdminLeadsPage = lazy(() => import('@/components/pages/AdminLeadsPage'));
 const NotFoundPage = lazy(() => import('@/components/pages/NotFoundPage'));
@@ -44,6 +48,10 @@ const router = createBrowserRouter([
       { path: "projects", element: <Suspense fallback={<PageLoader />}><ProjectsPage /></Suspense> },
       { path: "projects/:id", element: <Suspense fallback={<PageLoader />}><ProjectDetailPage /></Suspense> },
       { path: "faq", element: <Suspense fallback={<PageLoader />}><FAQPage /></Suspense> },
+      { path: "blog", element: <Suspense fallback={<PageLoader />}><BlogPage /></Suspense> },
+      { path: "blog/:slug", element: <Suspense fallback={<PageLoader />}><BlogPostPage /></Suspense> },
+      { path: "areas", element: <Suspense fallback={<PageLoader />}><ServiceAreasPage /></Suspense> },
+      { path: "areas/:slug", element: <Suspense fallback={<PageLoader />}><ServiceAreaDetailPage /></Suspense> },
       { path: "contact", element: <Suspense fallback={<PageLoader />}><ContactPage /></Suspense> },
       { path: "admin", element: <Suspense fallback={<PageLoader />}><AdminLeadsPage /></Suspense> },
       { path: "404", element: <Suspense fallback={<PageLoader />}><NotFoundPage /></Suspense> },

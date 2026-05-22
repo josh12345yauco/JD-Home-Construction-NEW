@@ -95,6 +95,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/blog" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
+                  Blog & Guides
+                </Link>
+              </li>
+              <li>
+                <Link to="/areas" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
+                  Service Areas
+                </Link>
+              </li>
+              <li>
                 <Link to="/faq" className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
                   FAQ
                 </Link>

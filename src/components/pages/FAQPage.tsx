@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
@@ -177,6 +179,26 @@ export default function FAQPage() {
         </div>
       </section>
 
+      {/* Blog Cross-Link */}
+      <section className="w-full py-16 bg-light-grey">
+        <div className="max-w-[100rem] mx-auto px-8 text-center">
+          <motion.div {...fadeInUp}>
+            <h2 className="font-heading text-3xl text-secondary mb-4">Want More Detail?</h2>
+            <p className="font-paragraph text-lg text-foreground/70 mb-8 max-w-2xl mx-auto">
+              Our blog covers in-depth guides on renovation costs, Philadelphia permits, choosing a contractor, and more.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button asChild variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white font-heading px-6 h-11 rounded-lg">
+                <Link to="/blog">Read Our Blog <ArrowRight className="ml-2 w-4 h-4" /></Link>
+              </Button>
+              <Button asChild variant="outline" className="border-2 border-primary text-primary hover:bg-primary hover:text-white font-heading px-6 h-11 rounded-lg">
+                <Link to="/areas">View Service Areas</Link>
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="w-full bg-primary py-20">
         <div className="max-w-[100rem] mx-auto px-8 text-center">
@@ -187,6 +209,9 @@ export default function FAQPage() {
             <p className="font-paragraph text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
               We're here to help. Contact us and we'll answer any questions you have about your project.
             </p>
+            <Button asChild size="lg" className="bg-white text-secondary hover:bg-white/90 font-heading text-lg px-10 h-14 rounded-lg">
+              <Link to="/contact">Contact Us</Link>
+            </Button>
           </motion.div>
         </div>
       </section>
