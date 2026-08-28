@@ -60,6 +60,8 @@ const businessNode = {
   },
   areaServed: [
     { "@type": "City", name: "Philadelphia" },
+    { "@type": "AdministrativeArea", name: "Lower Merion Township" },
+    { "@type": "AdministrativeArea", name: "Montgomery County" },
     { "@type": "AdministrativeArea", name: "Bucks County" },
   ],
   priceRange: "$$",
@@ -188,7 +190,7 @@ const jsonLd = {
           <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <p class="font-heading text-accent-orange text-sm uppercase tracking-widest mb-4">
-                JD Home Construction · Philadelphia, PA
+                {page.eyebrow ?? "JD Home Construction · Philadelphia, PA"}
               </p>
               <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl mb-6">{page.h1}</h1>
               <p class="font-paragraph text-lg sm:text-xl text-white/80 mb-8 max-w-2xl">{page.subhead}</p>
@@ -281,7 +283,7 @@ const jsonLd = {
       <section class="w-full py-16 lg:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-8">
           <h2 class="font-heading text-3xl sm:text-4xl text-secondary mb-8">
-            {page.name === "Snow Removal" ? "Snow Removal That Actually Shows Up" : `${page.name} Done Right in Philadelphia`}
+            {page.introHeading ?? `${page.name} Done Right in Philadelphia`}
           </h2>
           {page.intro.map((paragraph: string) => (
             <p class="font-paragraph text-lg text-foreground/90 mb-6 leading-relaxed">{paragraph}</p>
@@ -337,7 +339,7 @@ const jsonLd = {
       <!-- Why us -->
       <section class="w-full bg-secondary text-white py-16 lg:py-24">
         <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
-          <h2 class="font-heading text-3xl sm:text-4xl text-center mb-12">Why Philadelphia Homeowners Choose JD Home</h2>
+          <h2 class="font-heading text-3xl sm:text-4xl text-center mb-12">{page.whyUsHeading ?? "Why Philadelphia Homeowners Choose JD Home"}</h2>
           <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {page.whyUs.map((item: any) => (
               <div class="bg-white/5 rounded-xl p-6 border border-white/10">
@@ -348,6 +350,35 @@ const jsonLd = {
           </div>
         </div>
       </section>
+
+      <!-- Photo gallery -->
+      {page.gallery && page.gallery.length > 0 && (
+        <section class="w-full py-16 lg:py-24">
+          <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+            <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-4">{page.galleryHeading ?? "Our Work"}</h2>
+            <p class="font-paragraph text-lg text-foreground/70 text-center mb-12 max-w-2xl mx-auto">These are our actual trucks and crews — not stock photos.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {page.gallery.map((photo: any) => (
+                <figure class="group">
+                  <div class="overflow-hidden rounded-xl">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      width="800"
+                      height="800"
+                      class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  {photo.caption && (
+                    <figcaption class="font-paragraph text-sm text-foreground/70 mt-3 text-center">{photo.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <!-- Process -->
       <section class="w-full py-16 lg:py-24">

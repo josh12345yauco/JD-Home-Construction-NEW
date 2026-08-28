@@ -3,12 +3,15 @@
     "slug": "snow-removal",
     "serviceId": "3b2fc79b-6a3d-4a93-9681-7cae2be6aa34",
     "name": "Snow Removal",
-    "metaTitle": "Snow Removal Philadelphia | Residential Driveway Plowing | JD Home",
-    "metaDescription": "Residential snow removal in Philadelphia & Bucks County. Private driveways, walkways & salting — seasonal contracts or per-storm. PA Contractor #214497. Call 267-804-4120.",
-    "h1": "Residential Snow Removal in Philadelphia",
-    "subhead": "Private driveways, walkways, and steps — cleared within 12 hours of snowfall ending, every storm, all winter. Seasonal contracts and per-storm plans across Philadelphia and Bucks County.",
-    "heroImage": "/images/service-snow-control.jpg",
-    "heroImageAlt": "Snow plow clearing and salting a residential driveway in Philadelphia PA",
+    "metaTitle": "Snow Removal Lower Merion PA | Driveway Plowing | JD Home",
+    "metaDescription": "Residential snow removal in Lower Merion & the Main Line — Ardmore, Bryn Mawr, Wynnewood, Bala Cynwyd, Gladwyne. Driveway plowing, walkways & salting. PA #214497. Call 267-804-4120.",
+    "h1": "Residential Snow Removal in Lower Merion & the Main Line",
+    "subhead": "Private driveways, walkways, and steps — cleared within 12 hours of snowfall ending, every storm, all winter. Seasonal contracts and per-storm plans across Lower Merion Township, the Main Line, and Greater Philadelphia.",
+    "eyebrow": "JD Home Construction · Serving Lower Merion & the Main Line",
+    "introHeading": "Snow Removal That Actually Shows Up",
+    "whyUsHeading": "Why Main Line Homeowners Choose JD Home",
+    "heroImage": "/images/snow-plow-truck-jd-home.jpg",
+    "heroImageAlt": "JD Home Construction plow truck with SnowDogg plow, ready for residential driveway snow removal in Lower Merion PA",
     "badges": ["PA Contractor #214497", "Fully Insured", "Automatic Storm Dispatch", "12-Hour Clear Guarantee"],
     "formHeading": "Reserve Your Spot Before the First Storm",
     "formSub": "Routes fill up every year. Get a flat-rate driveway quote in 24 hours — no site visit needed for most homes.",
@@ -24,10 +27,10 @@
     "detailsLabel": "Your address + driveway size",
     "detailsPlaceholder": "Street address, roughly how many cars fit in the driveway, and any walkways/steps to clear.",
     "intro": [
-      "When a nor'easter dumps eight inches on Philadelphia overnight, the difference between a normal morning and a missed workday is whether someone showed up to clear your driveway. That's the entire job we've built this service around: you sign up once, and every time it snows, our crew shows up automatically — no phone call, no waiting on a guy with a plow who may or may not answer.",
-      "We focus on residential private driveways — the single-car and double-car driveways of Northeast Philadelphia, the longer suburban driveways of Bucks County, and the steep, tricky driveways of Manayunk and Roxborough that most plow operators won't touch. Every visit includes your driveway plowed or snow-blown, walkways and steps hand-cleared with shovels (never scraped by a machine), and optional salt or ice-melt so nothing refreezes overnight.",
-      "One more reason Philadelphia homeowners choose us: the city's sidewalk ordinance. Philadelphia Code requires property owners to clear a path on their sidewalk within 6 hours after snow stops falling — and the city does issue fines. Our residential plans include your sidewalk, so you're compliant without ever picking up a shovel.",
-      "JD Home Construction is a licensed Pennsylvania contractor (PA #214497), fully insured, based in Port Richmond. We build, pour, and repair driveways in the off-season — which means we clear yours with equipment and technique that protect the surface, whether it's concrete, asphalt, pavers, or gravel."
+      "When a nor'easter dumps eight inches on the Main Line overnight, the difference between a normal morning and a missed workday is whether someone showed up to clear your driveway. That's the entire job we've built this service around: you sign up once, and every time it snows, our crew shows up automatically — no phone call, no waiting on a guy with a plow who may or may not answer.",
+      "We focus on the residential driveways of Lower Merion Township and the Main Line — the long, tree-lined driveways of Gladwyne and Penn Valley, the sloped approaches of Bryn Mawr and Villanova, and the paver, cobblestone, and gravel drives of Ardmore, Wynnewood, and Bala Cynwyd that most plow operators either skip or scar. Every visit includes your driveway plowed or snow-blown, walkways and steps hand-cleared with shovels (never scraped by a machine), and optional salt or ice-melt so nothing refreezes overnight.",
+      "One more reason Lower Merion homeowners choose us: the township's sidewalk ordinance. Lower Merion Township code requires a pathway at least 36 inches wide cleared on your sidewalk within 24 hours after snow stops falling (Philadelphia gives you just 6 hours). Our residential plans include your sidewalk, so you're compliant without ever picking up a shovel.",
+      "JD Home Construction is a licensed Pennsylvania contractor (PA #214497), fully insured. We build, pour, and repair driveways in the off-season — which means we clear yours with equipment and technique that protect the surface, whether it's concrete, asphalt, pavers, cobblestone, or gravel."
     ],
     "offeringsHeading": "What Every Visit Includes",
     "offerings": [
@@ -88,21 +91,30 @@
       { "title": "We build driveways for a living", "text": "Our off-season work is pouring concrete and installing driveways. We know exactly how to clear pavers, stamped concrete, asphalt, and gravel without gouging or scarring the surface." },
       { "title": "Automatic — you never have to call", "text": "We track every storm on radar. When accumulation hits your trigger depth, your address is already on a route. Wake up to a cleared driveway." },
       { "title": "Licensed & insured PA contractor", "text": "PA Contractor #214497 with full liability coverage. If something on your property is damaged, you're dealing with an established, insured company — not a guy with a plow and a cell phone." },
-      { "title": "Ordinance compliance built in", "text": "Philadelphia requires sidewalks cleared within 6 hours of snowfall ending. Every plan includes your sidewalk, so fines are never your problem." }
+      { "title": "Ordinance compliance built in", "text": "Lower Merion requires sidewalks cleared within 24 hours of snowfall ending — Philadelphia gives you 6. Every plan includes your sidewalk, so fines are never your problem." }
     ],
-    "areasHeading": "Driveways We Plow — Philadelphia & Bucks County",
+    "gallery": [
+      { "src": "/images/snow-plowing-during-storm.jpg", "alt": "JD Home Construction SnowDogg plow truck clearing a residential street during an active snowstorm", "caption": "Working mid-storm — we don't wait for the snow to stop" },
+      { "src": "/images/overnight-snow-clearing.jpg", "alt": "Freshly plowed lot at night during heavy snowfall, cleared by JD Home Construction", "caption": "Overnight clearing so you're out by morning" },
+      { "src": "/images/snow-plow-truck-jd-home.jpg", "alt": "JD Home Construction Chevy 2500HD plow truck with SnowDogg EX blade", "caption": "Our 2500HD rig with commercial SnowDogg plow" },
+      { "src": "/images/snow-plow-rig-ready.jpg", "alt": "JD Home Construction plow truck serviced and ready before the winter season", "caption": "Serviced and ready before the first flake falls" }
+    ],
+    "galleryHeading": "Real Storms. Real Driveways. Our Crew at Work.",
+    "areasHeading": "Driveways We Plow — Lower Merion, the Main Line & Beyond",
     "areasDetail": [
-      { "name": "Northeast Philadelphia", "note": "Bustleton, Somerton, Fox Chase, Rhawnhurst, Mayfair, Torresdale — the heart of our residential routes.", "zips": "19111, 19114, 19115, 19116, 19136, 19152, 19154" },
-      { "name": "Bucks County", "note": "Bensalem, Levittown, Langhorne, Warminster, Southampton — longer suburban driveways, corner lots, and cul-de-sacs.", "zips": "19020, 19047, 19053, 19054, 19055, 19056, 19057, 18966, 18974" },
-      { "name": "Manayunk & Roxborough", "note": "Steep and sloped driveways are our specialty — we clear the hills other plows skip.", "zips": "19127, 19128, 19129" },
-      { "name": "Port Richmond & River Wards", "note": "Our home base. Driveways, shared drives, and sidewalk service for rowhomes.", "zips": "19125, 19134, 19137" },
-      { "name": "South Philadelphia", "note": "Rear driveways, shared alleys, and city sidewalk compliance service.", "zips": "19145, 19146, 19147, 19148" }
+      { "name": "Ardmore, Wynnewood & Narberth", "note": "The core of our Lower Merion routes — driveways, walkways, and township sidewalk compliance.", "zips": "19003, 19096, 19072" },
+      { "name": "Bryn Mawr, Haverford & Rosemont", "note": "Sloped approaches and longer drives cleared edge to edge, with salt to stop overnight refreeze.", "zips": "19010, 19041" },
+      { "name": "Bala Cynwyd & Merion Station", "note": "Minutes from our crews — among the first stops on every storm route.", "zips": "19004, 19066" },
+      { "name": "Gladwyne, Penn Valley & Villanova", "note": "Long, steep, tree-lined driveways are our specialty — including paver, cobblestone, and gravel surfaces.", "zips": "19035, 19072, 19085" },
+      { "name": "Manayunk & Roxborough", "note": "Right across the river — we clear the hills other plows skip.", "zips": "19127, 19128, 19129" },
+      { "name": "Greater Philadelphia & Bucks County", "note": "Northeast Philly, the River Wards, and Lower Bucks — ask about routes in your neighborhood.", "zips": "19111, 19114, 19115, 19116, 19136, 19125, 19134, 19137, 19020, 19047, 19054–19057" }
     ],
     "faqs": [
-      { "q": "How much does residential snow removal cost in Philadelphia?", "a": "Per-storm driveway service for a typical 1–2 car driveway generally runs a flat rate per visit based on driveway size, walkway length, and whether salting is included. Seasonal contracts bundle unlimited storms into one price and work out cheaper in a normal Philadelphia winter (roughly 4–8 plowable events). Send us your address through the form and we'll return an exact flat-rate quote within 24 hours — no obligation, and for most homes no site visit is needed." },
+      { "q": "How much does residential snow removal cost in Lower Merion?", "a": "Pricing is a flat rate per visit based on driveway size and length, walkway footage, slope, and whether salting is included — a long Gladwyne driveway prices differently than a two-car drive in Ardmore. Seasonal contracts bundle unlimited storms into one price and work out cheaper in a normal winter (roughly 4–8 plowable events). Send us your address through the form and we'll return an exact flat-rate quote within 24 hours — no obligation, and for most homes no site visit is needed." },
+      { "q": "Do you handle long or steep Main Line driveways?", "a": "Yes — they're our specialty. Long, tree-lined drives in Gladwyne and Penn Valley, sloped approaches in Bryn Mawr and Villanova, and shared private lanes are exactly what our truck-mounted plow and crew are set up for. If your current plow operator skips your driveway when the storm gets heavy, that's precisely the client we built our priority routes for." },
       { "q": "When do you come after it snows?", "a": "Crews dispatch automatically once accumulation reaches your trigger depth (2 inches standard). For longer storms we clear once during the storm and return after it ends. Every property is cleared within 12 hours of snowfall ending — seasonal contract clients are routed first and are typically cleared before the morning commute." },
       { "q": "Do I have to call you each time it snows?", "a": "No — that's the point. We monitor every storm all winter. If your plan's trigger depth is met, your address is automatically on a route. You'll get a photo confirmation text when your driveway, walkways, and sidewalk are clear." },
-      { "q": "What is Philadelphia's sidewalk snow law?", "a": "Philadelphia Code requires property owners and tenants to clear a path at least 36 inches wide on their sidewalk within 6 hours after snow stops falling (12 inches where the sidewalk is under 3 feet wide). Violations carry fines. Sidewalk clearing is included in all of our residential plans, so you stay compliant automatically." },
+      { "q": "What are the sidewalk snow removal laws in Lower Merion and Philadelphia?", "a": "Lower Merion Township code requires a pathway at least 36 inches wide cleared on your sidewalk within 24 hours after snow or sleet stops falling — and if ice is frozen too hard to remove safely, the sidewalk must be treated with salt or abrasives. Philadelphia is stricter: a 36-inch path within just 6 hours. Both issue fines for violations. Sidewalk clearing is included in all of our residential plans, so you stay compliant automatically." },
       { "q": "Will plowing damage my paver, stamped concrete, or gravel driveway?", "a": "Not the way we do it. We install and pour driveways in the off-season, so we match the method to the surface: rubber-edged blades and adjusted skid shoes on pavers and stamped concrete, snow-blowers or raised blades over gravel, and hand tools around edges, aprons, and drains. Tell us your surface in the quote form and we assign the right equipment." },
       { "q": "Do you apply salt, and is it safe for pets and concrete?", "a": "Yes — salting is included in seasonal contracts and available as an add-on for per-storm service. We use standard rock salt on asphalt and offer calcium/magnesium-based, pet-safer ice melt for concrete, pavers, and homes with dogs. Just tell us your preference when you sign up." },
       { "q": "Do you clear the pile the city plow leaves at the end of my driveway?", "a": "Yes. The end-of-driveway berm — the heavy, compacted ridge municipal plows push back across your apron — is included in every visit. If the city plow comes through after we've cleared, seasonal clients can request a berm-only return visit." },
