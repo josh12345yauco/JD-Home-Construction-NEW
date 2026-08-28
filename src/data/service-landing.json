@@ -6,14 +6,14 @@
     "metaTitle": "Snow Removal Lower Merion PA | Driveway Plowing | JD Home",
     "metaDescription": "Residential snow removal in Lower Merion & the Main Line — Ardmore, Bryn Mawr, Wynnewood, Bala Cynwyd, Gladwyne. Driveway plowing, walkways & salting. PA #214497. Call 267-804-4120.",
     "h1": "Residential Snow Removal in Lower Merion & the Main Line",
-    "subhead": "Private driveways, walkways, and steps — cleared within 12 hours of snowfall ending, every storm, all winter. Seasonal contracts and per-storm plans across Lower Merion Township, the Main Line, and Greater Philadelphia.",
+    "subhead": "Private driveways, walkways, and steps — cleared within 2 hours of snowfall ending, every storm, all winter. Seasonal contracts and per-storm plans across Lower Merion Township, the Main Line, and Greater Philadelphia.",
     "eyebrow": "JD Home Construction · Serving Lower Merion & the Main Line",
     "introHeading": "Snow Removal That Actually Shows Up",
     "whyUsHeading": "Why Main Line Homeowners Choose JD Home",
     "heroImage": "/images/snow-plow-truck-jd-home.jpg",
     "heroImageAlt": "JD Home Construction plow truck with SnowDogg plow, ready for residential driveway snow removal in Lower Merion PA",
     "heroBackground": "/images/snow-storm-night-hero.jpg",
-    "badges": ["PA Contractor #214497", "Fully Insured", "Automatic Storm Dispatch", "12-Hour Clear Guarantee"],
+    "badges": ["PA Contractor #214497", "Fully Insured", "Automatic Storm Dispatch", "2-Hour Clear Guarantee"],
     "formHeading": "Reserve Your Spot Before the First Storm",
     "formSub": "Routes fill up every year. Get a flat-rate driveway quote in 24 hours — no site visit needed for most homes.",
     "projectType": "Snow Removal",
@@ -33,7 +33,7 @@
       "JD Home Construction is a licensed Pennsylvania contractor (PA #214497), fully insured. We build, pour, and repair driveways in the off-season — which means we clear yours with equipment and technique that protect the surface, whether it's concrete, asphalt, pavers, cobblestone, or gravel."
     ],
     "introStats": [
-      { "value": "12 hrs", "label": "Max time until you're fully cleared after snowfall ends" },
+      { "value": "2 hrs", "label": "Max time until you're fully cleared after snowfall ends" },
       { "value": "2\"", "label": "Snow depth that automatically dispatches your crew" },
       { "value": "#214497", "label": "Licensed & fully insured PA contractor" }
     ],
@@ -134,7 +134,7 @@
     "faqs": [
       { "q": "How much does residential snow removal cost in Lower Merion?", "a": "Pricing is a flat rate per visit based on driveway size and length, walkway footage, slope, and whether salting is included — a long Gladwyne driveway prices differently than a two-car drive in Ardmore. Seasonal contracts bundle unlimited storms into one price and work out cheaper in a normal winter (roughly 4–8 plowable events). Send us your address through the form and we'll return an exact flat-rate quote within 24 hours — no obligation, and for most homes no site visit is needed." },
       { "q": "Do you handle long or steep Main Line driveways?", "a": "Yes — they're our specialty. Long, tree-lined drives in Gladwyne and Penn Valley, sloped approaches in Bryn Mawr and Villanova, and shared private lanes are exactly what our truck-mounted plow and crew are set up for. If your current plow operator skips your driveway when the storm gets heavy, that's precisely the client we built our priority routes for." },
-      { "q": "When do you come after it snows?", "a": "Crews dispatch automatically once accumulation reaches your trigger depth (2 inches standard). For longer storms we clear once during the storm and return after it ends. Every property is cleared within 12 hours of snowfall ending — seasonal contract clients are routed first and are typically cleared before the morning commute." },
+      { "q": "When do you come after it snows?", "a": "Crews dispatch automatically once accumulation reaches your trigger depth (2 inches standard). For longer storms we clear once during the storm and return after it ends. Every property is cleared within 2 hours of snowfall ending — seasonal contract clients are routed first and are typically cleared before the morning commute." },
       { "q": "Do I have to call you each time it snows?", "a": "No — that's the point. We monitor every storm all winter. If your plan's trigger depth is met, your address is automatically on a route. You'll get a photo confirmation text when your driveway, walkways, and sidewalk are clear." },
       { "q": "What are the sidewalk snow removal laws in Lower Merion and Philadelphia?", "a": "Lower Merion Township code requires a pathway at least 36 inches wide cleared on your sidewalk within 24 hours after snow or sleet stops falling — and if ice is frozen too hard to remove safely, the sidewalk must be treated with salt or abrasives. Philadelphia is stricter: a 36-inch path within just 6 hours. Both issue fines for violations. Sidewalk clearing is included in all of our residential plans, so you stay compliant automatically." },
       { "q": "Will plowing damage my paver, stamped concrete, or gravel driveway?", "a": "Not the way we do it. We install and pour driveways in the off-season, so we match the method to the surface: rubber-edged blades and adjusted skid shoes on pavers and stamped concrete, snow-blowers or raised blades over gravel, and hand tools around edges, aprons, and drains. Tell us your surface in the quote form and we assign the right equipment." },
@@ -144,7 +144,7 @@
       { "q": "Can I set this up for an elderly parent's house?", "a": "Absolutely — a large share of our seasonal clients are set up by adult children for a parent's home. We handle billing with you, clear their property automatically every storm, and send you the photo confirmation so you know it's done without having to check in." }
     ],
     "ctaHeading": "Winter Routes Fill Up Fast",
-    "ctaText": "Every year we cap each route so we can honor the 12-hour guarantee. Lock in your driveway now — get a flat-rate quote in 24 hours.",
+    "ctaText": "Every year we cap each route so we can honor the 2-hour guarantee. Lock in your driveway now — get a flat-rate quote in 24 hours.",
     "ctaLabel": "Get My Snow Removal Quote"
   },
   {
