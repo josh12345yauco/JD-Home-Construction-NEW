@@ -30,14 +30,35 @@
     "intro": [
       "When a nor'easter dumps eight inches on the Main Line overnight, the difference between a normal morning and a missed workday is whether someone showed up to clear your driveway. That's the entire job we've built this service around: you sign up once, and every time it snows, our crew shows up automatically — no phone call, no waiting on a guy with a plow who may or may not answer.",
       "We focus on the residential driveways of Lower Merion Township and the Main Line — the long, tree-lined driveways of Gladwyne and Penn Valley, the sloped approaches of Bryn Mawr and Villanova, and the paver, cobblestone, and gravel drives of Ardmore, Wynnewood, and Bala Cynwyd that most plow operators either skip or scar. Every visit includes your driveway plowed or snow-blown, walkways and steps hand-cleared with shovels (never scraped by a machine), and optional salt or ice-melt so nothing refreezes overnight.",
-      "One more reason Lower Merion homeowners choose us: the township's sidewalk ordinance. Lower Merion Township code requires a pathway at least 36 inches wide cleared on your sidewalk within 24 hours after snow stops falling (Philadelphia gives you just 6 hours). Our residential plans include your sidewalk, so you're compliant without ever picking up a shovel.",
       "JD Home Construction is a licensed Pennsylvania contractor (PA #214497), fully insured. We build, pour, and repair driveways in the off-season — which means we clear yours with equipment and technique that protect the surface, whether it's concrete, asphalt, pavers, cobblestone, or gravel."
     ],
+    "introStats": [
+      { "value": "12 hrs", "label": "Max time until you're fully cleared after snowfall ends" },
+      { "value": "2\"", "label": "Snow depth that automatically dispatches your crew" },
+      { "value": "#214497", "label": "Licensed & fully insured PA contractor" }
+    ],
+    "introCallout": {
+      "title": "Know Your Sidewalk Ordinance",
+      "rows": [
+        { "place": "Lower Merion Township", "rule": "36-inch path cleared within 24 hours of snowfall ending" },
+        { "place": "Philadelphia", "rule": "36-inch path cleared within just 6 hours" }
+      ],
+      "text": "Both issue fines for violations. Every JD Home plan includes your sidewalk — so compliance is automatic and you never pick up a shovel."
+    },
+    "introImages": [
+      { "src": "/images/snow-plow-truck-jd-home.jpg", "alt": "JD Home Construction plow truck with SnowDogg blade ready for a Lower Merion driveway route" },
+      { "src": "/images/stock-snowflake-macro.jpg", "alt": "Close-up of a snowflake on fresh snow" }
+    ],
+    "processHeading": "Set It Once. Cleared All Winter.",
+    "processBlurb": "No calling around at 6am. No wondering if he's coming. From the first flake to the photo confirmation on your phone, every storm runs on the same automatic system.",
+    "processImage": "/images/stock-snowfall.jpg",
+    "processImageAlt": "Heavy snow falling against a winter sky",
+    "processClosing": "You never think about snow again. That's the whole point.",
     "offeringsHeading": "What Every Visit Includes",
     "offerings": [
       "Driveway plowing or snow-blowing (single-car to multi-car)",
       "Walkways, steps, and porches hand-cleared — never machine-scraped",
-      "Sidewalk clearing to meet Philadelphia's 6-hour ordinance",
+      "Sidewalk clearing to meet Lower Merion & Philadelphia ordinances",
       "Rock salt / pet-safe ice-melt application (optional add-on)",
       "End-of-driveway berm cleared after municipal plows pass",
       "Photo confirmation sent to your phone when your property is done"

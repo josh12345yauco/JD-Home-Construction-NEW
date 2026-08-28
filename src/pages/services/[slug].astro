@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css";
+import ProcessTimeline from "@/components/landing/ProcessTimeline.astro";
 import landingData from "@/data/service-landing.json";
 import serviceAreasData from "@/data/service-areas.json";
 
@@ -41,6 +42,7 @@ const navLinks = [
 ];
 
 const otherServices = pages.filter((p) => p.slug !== page.slug);
+const galleryFirst = !!(page.gallery && page.gallery.length > 0);
 
 // ---------- Structured data ----------
 const businessNode = {
@@ -288,17 +290,129 @@ const jsonLd = {
         </div>
       </section>
 
-      <!-- Intro copy -->
-      <section class="w-full py-16 lg:py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-8">
-          <h2 class="font-heading text-3xl sm:text-4xl text-secondary mb-8">
-            {page.introHeading ?? `${page.name} Done Right in Philadelphia`}
-          </h2>
-          {page.intro.map((paragraph: string) => (
-            <p class="font-paragraph text-lg text-foreground/90 mb-6 leading-relaxed">{paragraph}</p>
-          ))}
-        </div>
-      </section>
+      <!-- Photo gallery (real work photos, directly after hero) -->
+      {galleryFirst && (
+        <section class="w-full py-16 lg:py-20 bg-light-grey">
+          <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+            <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-4">{page.galleryHeading ?? "Our Work"}</h2>
+            <p class="font-paragraph text-lg text-foreground/70 text-center mb-12 max-w-2xl mx-auto">These are our actual trucks and crews — not stock photos.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              {page.gallery.map((photo: any) => (
+                <figure class="group">
+                  <div class="overflow-hidden rounded-xl">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      width="800"
+                      height="800"
+                      class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  {photo.caption && (
+                    <figcaption class="font-paragraph text-sm text-foreground/70 mt-3 text-center">{photo.caption}</figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- How it works (directly after gallery when gallery leads) -->
+      {galleryFirst && (
+        <ProcessTimeline
+          heading={page.processHeading ?? "How It Works"}
+          blurb={page.processBlurb ?? "One call starts it. One team handles all of it — from first assessment to final walkthrough."}
+          steps={page.process}
+          image={page.processImage ?? page.heroImage}
+          imageAlt={page.processImageAlt ?? page.heroImageAlt}
+          ctaLabel={page.ctaLabel}
+          phoneTel={PHONE_TEL}
+          phoneDisplay={PHONE_DISPLAY}
+          closingLine={page.processClosing}
+        />
+      )}
+
+      <!-- Intro: editorial split layout when stats/images provided, simple otherwise -->
+      {page.introStats && page.introImages ? (
+        <section class="w-full py-16 lg:py-24 overflow-hidden">
+          <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+              <div>
+                <p class="font-heading text-primary text-sm uppercase tracking-widest mb-4">Built Different</p>
+                <h2 class="font-heading text-3xl sm:text-5xl text-secondary mb-8">
+                  {page.introHeading ?? `${page.name} Done Right in Philadelphia`}
+                </h2>
+                <p class="font-paragraph text-xl text-foreground leading-relaxed mb-6">{page.intro[0]}</p>
+                {page.intro.slice(1).map((paragraph: string) => (
+                  <p class="font-paragraph text-lg text-foreground/85 leading-relaxed mb-6">{paragraph}</p>
+                ))}
+                {page.introCallout && (
+                  <div class="bg-secondary text-white rounded-2xl p-6 sm:p-8 mt-8">
+                    <p class="font-heading text-accent-orange text-sm uppercase tracking-widest mb-4">{page.introCallout.title}</p>
+                    <div class="space-y-4 mb-5">
+                      {page.introCallout.rows.map((row: any) => (
+                        <div class="flex items-start gap-4">
+                          <svg class="w-5 h-5 text-accent-orange flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                          <p class="font-paragraph text-base text-white/90"><span class="font-heading text-white">{row.place}:</span> {row.rule}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <p class="font-paragraph text-sm text-white/70">{page.introCallout.text}</p>
+                  </div>
+                )}
+              </div>
+
+              <div class="lg:sticky lg:top-32 self-start">
+                <div class="relative mb-16 sm:mb-20">
+                  <img
+                    src={page.introImages[0].src}
+                    alt={page.introImages[0].alt}
+                    width="1000"
+                    height="750"
+                    class="w-full h-80 sm:h-[26rem] object-cover rounded-2xl shadow-xl"
+                    loading="lazy"
+                  />
+                  {page.introImages[1] && (
+                    <img
+                      src={page.introImages[1].src}
+                      alt={page.introImages[1].alt}
+                      width="400"
+                      height="400"
+                      class="hidden sm:block absolute -bottom-12 -left-6 w-44 h-44 object-cover rounded-2xl border-4 border-white shadow-2xl"
+                      loading="lazy"
+                    />
+                  )}
+                  <div class="absolute -bottom-8 right-4 sm:right-8 bg-primary text-primary-foreground rounded-xl px-5 py-4 shadow-2xl">
+                    <p class="font-heading text-2xl leading-none">{page.introStats[0].value}</p>
+                    <p class="font-paragraph text-xs mt-1 max-w-[10rem]">{page.introStats[0].label}</p>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                  {page.introStats.slice(1).map((stat: any) => (
+                    <div class="bg-light-grey rounded-xl p-5 border border-medium-grey/30">
+                      <p class="font-heading text-3xl text-primary leading-none mb-2">{stat.value}</p>
+                      <p class="font-paragraph text-sm text-foreground/75">{stat.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section class="w-full py-16 lg:py-24">
+          <div class="max-w-4xl mx-auto px-4 sm:px-8">
+            <h2 class="font-heading text-3xl sm:text-4xl text-secondary mb-8">
+              {page.introHeading ?? `${page.name} Done Right in Philadelphia`}
+            </h2>
+            {page.intro.map((paragraph: string) => (
+              <p class="font-paragraph text-lg text-foreground/90 mb-6 leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+        </section>
+      )}
 
       <!-- Offerings -->
       <section class="w-full bg-light-grey py-16 lg:py-24">
@@ -360,49 +474,20 @@ const jsonLd = {
         </div>
       </section>
 
-      <!-- Photo gallery -->
-      {page.gallery && page.gallery.length > 0 && (
-        <section class="w-full py-16 lg:py-24">
-          <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
-            <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-4">{page.galleryHeading ?? "Our Work"}</h2>
-            <p class="font-paragraph text-lg text-foreground/70 text-center mb-12 max-w-2xl mx-auto">These are our actual trucks and crews — not stock photos.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-              {page.gallery.map((photo: any) => (
-                <figure class="group">
-                  <div class="overflow-hidden rounded-xl">
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      width="800"
-                      height="800"
-                      class="w-full h-72 sm:h-80 object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                  </div>
-                  {photo.caption && (
-                    <figcaption class="font-paragraph text-sm text-foreground/70 mt-3 text-center">{photo.caption}</figcaption>
-                  )}
-                </figure>
-              ))}
-            </div>
-          </div>
-        </section>
+      <!-- How it works (standard position for pages without a gallery) -->
+      {!galleryFirst && (
+        <ProcessTimeline
+          heading={page.processHeading ?? "How It Works"}
+          blurb={page.processBlurb ?? "One call starts it. One team handles all of it — from first assessment to final walkthrough."}
+          steps={page.process}
+          image={page.processImage ?? page.heroImage}
+          imageAlt={page.processImageAlt ?? page.heroImageAlt}
+          ctaLabel={page.ctaLabel}
+          phoneTel={PHONE_TEL}
+          phoneDisplay={PHONE_DISPLAY}
+          closingLine={page.processClosing}
+        />
       )}
-
-      <!-- Process -->
-      <section class="w-full py-16 lg:py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-8">
-          <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-12">How It Works</h2>
-          <ol class="space-y-6">
-            {page.process.map((step: string, i: number) => (
-              <li class="flex items-start gap-4">
-                <span class="font-heading text-lg bg-primary text-primary-foreground w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">{i + 1}</span>
-                <p class="font-paragraph text-lg text-foreground pt-1.5">{step}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
 
       <!-- Areas served -->
       <section class="w-full bg-light-grey py-16 lg:py-24">

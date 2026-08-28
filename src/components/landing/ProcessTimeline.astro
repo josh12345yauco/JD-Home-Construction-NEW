@@ -1,0 +1,60 @@
+---
+interface Props {
+  heading: string;
+  blurb: string;
+  steps: string[];
+  image: string;
+  imageAlt: string;
+  ctaLabel: string;
+  phoneTel: string;
+  phoneDisplay: string;
+  closingLine?: string;
+}
+const { heading, blurb, steps, image, imageAlt, ctaLabel, phoneTel, phoneDisplay, closingLine } = Astro.props;
+---
+
+<section class="w-full bg-secondary text-white py-16 lg:py-24 overflow-hidden">
+  <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+      <div class="lg:sticky lg:top-32 self-start">
+        <p class="font-heading text-accent-orange text-sm uppercase tracking-widest mb-4">How It Works</p>
+        <h2 class="font-heading text-3xl sm:text-5xl mb-6">{heading}</h2>
+        <p class="font-paragraph text-lg text-white/75 mb-8">{blurb}</p>
+        <div class="relative mb-10 hidden lg:block">
+          <img
+            src={image}
+            alt={imageAlt}
+            width="1000"
+            height="700"
+            class="w-full h-72 object-cover rounded-2xl"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-secondary/60 to-transparent" aria-hidden="true"></div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href={`tel:${phoneTel}`} class="font-heading text-base bg-accent-orange hover:bg-accent-orange/90 text-secondary px-6 h-12 rounded-lg inline-flex items-center justify-center transition-all">📞 Call {phoneDisplay}</a>
+          <a href="#quote-form" class="font-heading text-base bg-white hover:bg-white/90 text-secondary px-6 h-12 rounded-lg inline-flex items-center justify-center transition-all">{ctaLabel}</a>
+        </div>
+      </div>
+
+      <ol class="relative ml-5 sm:ml-6 border-l-2 border-accent-orange/40 space-y-6 py-2">
+        {steps.map((step, i) => (
+          <li class="relative pl-10 sm:pl-12">
+            <span class="absolute -left-[1.4rem] top-1 w-11 h-11 rounded-full bg-accent-orange text-secondary font-heading text-lg flex items-center justify-center shadow-lg shadow-accent-orange/30">{i + 1}</span>
+            <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl p-5 transition-colors">
+              <p class="font-paragraph text-base sm:text-lg text-white/90">{step}</p>
+            </div>
+          </li>
+        ))}
+        {closingLine && (
+          <li class="relative pl-10 sm:pl-12">
+            <span class="absolute -left-[1.4rem] top-1 w-11 h-11 rounded-full bg-white text-secondary font-heading text-lg flex items-center justify-center">✓</span>
+            <div class="bg-accent-orange rounded-xl p-5">
+              <p class="font-heading text-base sm:text-lg text-secondary">{closingLine}</p>
+            </div>
+          </li>
+        )}
+      </ol>
+    </div>
+  </div>
+</section>
