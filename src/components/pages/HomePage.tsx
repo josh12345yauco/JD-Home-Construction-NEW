@@ -18,6 +18,7 @@ import InstagramFeed from '@/components/InstagramFeed';
 import QuoteForm from '@/components/QuoteForm';
 import { BaseCrudService } from '@/integrations';
 import { Projects, Services } from '@/entities';
+import { serviceUrl } from '@/lib/service-links';
 
 // --- Animation Variants ---
 const fadeInUp = {
@@ -469,9 +470,9 @@ export default function HomePage() {
                       {/* Content overlay */}
                       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
                         <h3 className="font-heading text-2xl md:text-xl text-white mb-4">{service.serviceName}</h3>
-                        <Link to={`/services/${service._id}`} className="text-white hover:text-primary transition-colors font-paragraph text-sm underline">
+                        <a href={serviceUrl(service._id)} className="text-white hover:text-primary transition-colors font-paragraph text-sm underline">
                           Learn More
-                        </Link>
+                        </a>
                       </div>
                     </motion.div>
                   </div>

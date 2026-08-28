@@ -8,6 +8,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import serviceAreas from '@/data/service-areas.json';
 import servicesData from '@/data/services.json';
+import { serviceUrl } from '@/lib/service-links';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -378,7 +379,7 @@ export default function ServiceAreaDetailPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Link to={`/services/${service._id}`}>
+                  <a href={serviceUrl(service._id)}>
                     <Card className="h-full bg-background border border-medium-grey/30 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
                       <CardContent className="p-6 text-center">
                         <h3 className="font-heading text-lg text-secondary mb-2">
@@ -390,7 +391,7 @@ export default function ServiceAreaDetailPage() {
                         </div>
                       </CardContent>
                     </Card>
-                  </Link>
+                  </a>
                 </motion.div>
               ))}
             </div>

@@ -6,6 +6,7 @@ import { Image } from '@/components/ui/image';
 import { useEffect, useState } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { Services } from '@/entities';
+import { serviceUrl } from '@/lib/service-links';
 
 export default function Footer() {
   const [services, setServices] = useState<Services[]>([]);
@@ -73,9 +74,9 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service._id}>
-                  <Link to={`/services/${service._id}`} className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
+                  <a href={serviceUrl(service._id)} className="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">
                     {service.serviceName}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>

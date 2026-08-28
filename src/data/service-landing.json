@@ -1,0 +1,525 @@
+[
+  {
+    "slug": "snow-removal",
+    "serviceId": "3b2fc79b-6a3d-4a93-9681-7cae2be6aa34",
+    "name": "Snow Removal",
+    "metaTitle": "Snow Removal Philadelphia | Residential Driveway Plowing | JD Home",
+    "metaDescription": "Residential snow removal in Philadelphia & Bucks County. Private driveways, walkways & salting — seasonal contracts or per-storm. PA Contractor #214497. Call 267-804-4120.",
+    "h1": "Residential Snow Removal in Philadelphia",
+    "subhead": "Private driveways, walkways, and steps — cleared within 12 hours of snowfall ending, every storm, all winter. Seasonal contracts and per-storm plans across Philadelphia and Bucks County.",
+    "heroImage": "/images/service-snow-control.jpg",
+    "heroImageAlt": "Snow plow clearing and salting a residential driveway in Philadelphia PA",
+    "badges": ["PA Contractor #214497", "Fully Insured", "Automatic Storm Dispatch", "12-Hour Clear Guarantee"],
+    "formHeading": "Reserve Your Spot Before the First Storm",
+    "formSub": "Routes fill up every year. Get a flat-rate driveway quote in 24 hours — no site visit needed for most homes.",
+    "projectType": "Snow Removal",
+    "budgetDefault": "Snow Removal Quote",
+    "timelineLabel": "What do you need?",
+    "timelineOptions": [
+      "Seasonal Contract (whole winter)",
+      "Per-Storm Service (automatic dispatch)",
+      "One-Time Clearing (ASAP)",
+      "Not sure yet — send me pricing"
+    ],
+    "detailsLabel": "Your address + driveway size",
+    "detailsPlaceholder": "Street address, roughly how many cars fit in the driveway, and any walkways/steps to clear.",
+    "intro": [
+      "When a nor'easter dumps eight inches on Philadelphia overnight, the difference between a normal morning and a missed workday is whether someone showed up to clear your driveway. That's the entire job we've built this service around: you sign up once, and every time it snows, our crew shows up automatically — no phone call, no waiting on a guy with a plow who may or may not answer.",
+      "We focus on residential private driveways — the single-car and double-car driveways of Northeast Philadelphia, the longer suburban driveways of Bucks County, and the steep, tricky driveways of Manayunk and Roxborough that most plow operators won't touch. Every visit includes your driveway plowed or snow-blown, walkways and steps hand-cleared with shovels (never scraped by a machine), and optional salt or ice-melt so nothing refreezes overnight.",
+      "One more reason Philadelphia homeowners choose us: the city's sidewalk ordinance. Philadelphia Code requires property owners to clear a path on their sidewalk within 6 hours after snow stops falling — and the city does issue fines. Our residential plans include your sidewalk, so you're compliant without ever picking up a shovel.",
+      "JD Home Construction is a licensed Pennsylvania contractor (PA #214497), fully insured, based in Port Richmond. We build, pour, and repair driveways in the off-season — which means we clear yours with equipment and technique that protect the surface, whether it's concrete, asphalt, pavers, or gravel."
+    ],
+    "offeringsHeading": "What Every Visit Includes",
+    "offerings": [
+      "Driveway plowing or snow-blowing (single-car to multi-car)",
+      "Walkways, steps, and porches hand-cleared — never machine-scraped",
+      "Sidewalk clearing to meet Philadelphia's 6-hour ordinance",
+      "Rock salt / pet-safe ice-melt application (optional add-on)",
+      "End-of-driveway berm cleared after municipal plows pass",
+      "Photo confirmation sent to your phone when your property is done"
+    ],
+    "plans": [
+      {
+        "name": "Seasonal Contract",
+        "badge": "Best Value — Limited Route Spots",
+        "description": "One flat rate covers the entire winter, unlimited storms. Seasonal clients are first on every route, every storm.",
+        "features": [
+          "Unlimited snow events, November through March",
+          "Priority routing — cleared first, every storm",
+          "Automatic dispatch at your trigger depth (2\" standard)",
+          "Salt/ice-melt included on every visit",
+          "Locked-in price — no per-storm surprises"
+        ]
+      },
+      {
+        "name": "Per-Storm Service",
+        "badge": "Most Flexible",
+        "description": "A flat rate per snowfall. We monitor the weather and dispatch automatically once accumulation hits 2 inches — you only pay when it actually snows.",
+        "features": [
+          "Flat per-visit rate quoted up front",
+          "Automatic dispatch — no need to call",
+          "Driveway, walkways, steps, and sidewalk included",
+          "Salt/ice-melt available as an add-on",
+          "Cancel anytime — no seasonal commitment"
+        ]
+      },
+      {
+        "name": "One-Time Clearing",
+        "badge": "On-Demand",
+        "description": "Snowed in right now, or expecting guests? Book a single visit and we'll get you on the next available route.",
+        "features": [
+          "Single-visit flat rate",
+          "Next-available scheduling after contract clients",
+          "Full property clearing — driveway to front door",
+          "Great for elderly parents' homes and rental properties"
+        ]
+      }
+    ],
+    "process": [
+      "Request a free driveway assessment (form below or call 267-804-4120)",
+      "Get a flat-rate quote within 24 hours — most homes need no site visit",
+      "Pick your plan: seasonal, per-storm, or one-time",
+      "We monitor every storm for you all winter",
+      "Crew dispatches automatically at your trigger depth",
+      "Driveway plowed, walkways hand-cleared, salt applied",
+      "Photo confirmation texted when your property is clear"
+    ],
+    "whyUs": [
+      { "title": "We build driveways for a living", "text": "Our off-season work is pouring concrete and installing driveways. We know exactly how to clear pavers, stamped concrete, asphalt, and gravel without gouging or scarring the surface." },
+      { "title": "Automatic — you never have to call", "text": "We track every storm on radar. When accumulation hits your trigger depth, your address is already on a route. Wake up to a cleared driveway." },
+      { "title": "Licensed & insured PA contractor", "text": "PA Contractor #214497 with full liability coverage. If something on your property is damaged, you're dealing with an established, insured company — not a guy with a plow and a cell phone." },
+      { "title": "Ordinance compliance built in", "text": "Philadelphia requires sidewalks cleared within 6 hours of snowfall ending. Every plan includes your sidewalk, so fines are never your problem." }
+    ],
+    "areasHeading": "Driveways We Plow — Philadelphia & Bucks County",
+    "areasDetail": [
+      { "name": "Northeast Philadelphia", "note": "Bustleton, Somerton, Fox Chase, Rhawnhurst, Mayfair, Torresdale — the heart of our residential routes.", "zips": "19111, 19114, 19115, 19116, 19136, 19152, 19154" },
+      { "name": "Bucks County", "note": "Bensalem, Levittown, Langhorne, Warminster, Southampton — longer suburban driveways, corner lots, and cul-de-sacs.", "zips": "19020, 19047, 19053, 19054, 19055, 19056, 19057, 18966, 18974" },
+      { "name": "Manayunk & Roxborough", "note": "Steep and sloped driveways are our specialty — we clear the hills other plows skip.", "zips": "19127, 19128, 19129" },
+      { "name": "Port Richmond & River Wards", "note": "Our home base. Driveways, shared drives, and sidewalk service for rowhomes.", "zips": "19125, 19134, 19137" },
+      { "name": "South Philadelphia", "note": "Rear driveways, shared alleys, and city sidewalk compliance service.", "zips": "19145, 19146, 19147, 19148" }
+    ],
+    "faqs": [
+      { "q": "How much does residential snow removal cost in Philadelphia?", "a": "Per-storm driveway service for a typical 1–2 car driveway generally runs a flat rate per visit based on driveway size, walkway length, and whether salting is included. Seasonal contracts bundle unlimited storms into one price and work out cheaper in a normal Philadelphia winter (roughly 4–8 plowable events). Send us your address through the form and we'll return an exact flat-rate quote within 24 hours — no obligation, and for most homes no site visit is needed." },
+      { "q": "When do you come after it snows?", "a": "Crews dispatch automatically once accumulation reaches your trigger depth (2 inches standard). For longer storms we clear once during the storm and return after it ends. Every property is cleared within 12 hours of snowfall ending — seasonal contract clients are routed first and are typically cleared before the morning commute." },
+      { "q": "Do I have to call you each time it snows?", "a": "No — that's the point. We monitor every storm all winter. If your plan's trigger depth is met, your address is automatically on a route. You'll get a photo confirmation text when your driveway, walkways, and sidewalk are clear." },
+      { "q": "What is Philadelphia's sidewalk snow law?", "a": "Philadelphia Code requires property owners and tenants to clear a path at least 36 inches wide on their sidewalk within 6 hours after snow stops falling (12 inches where the sidewalk is under 3 feet wide). Violations carry fines. Sidewalk clearing is included in all of our residential plans, so you stay compliant automatically." },
+      { "q": "Will plowing damage my paver, stamped concrete, or gravel driveway?", "a": "Not the way we do it. We install and pour driveways in the off-season, so we match the method to the surface: rubber-edged blades and adjusted skid shoes on pavers and stamped concrete, snow-blowers or raised blades over gravel, and hand tools around edges, aprons, and drains. Tell us your surface in the quote form and we assign the right equipment." },
+      { "q": "Do you apply salt, and is it safe for pets and concrete?", "a": "Yes — salting is included in seasonal contracts and available as an add-on for per-storm service. We use standard rock salt on asphalt and offer calcium/magnesium-based, pet-safer ice melt for concrete, pavers, and homes with dogs. Just tell us your preference when you sign up." },
+      { "q": "Do you clear the pile the city plow leaves at the end of my driveway?", "a": "Yes. The end-of-driveway berm — the heavy, compacted ridge municipal plows push back across your apron — is included in every visit. If the city plow comes through after we've cleared, seasonal clients can request a berm-only return visit." },
+      { "q": "Are you licensed and insured?", "a": "Yes. JD Home Construction operates under Pennsylvania Contractor #214497 and carries full general liability insurance. You're hiring an established Philadelphia construction company, not an unmarked truck — and that matters the day something goes wrong on your property." },
+      { "q": "Can I set this up for an elderly parent's house?", "a": "Absolutely — a large share of our seasonal clients are set up by adult children for a parent's home. We handle billing with you, clear their property automatically every storm, and send you the photo confirmation so you know it's done without having to check in." }
+    ],
+    "ctaHeading": "Winter Routes Fill Up Fast",
+    "ctaText": "Every year we cap each route so we can honor the 12-hour guarantee. Lock in your driveway now — get a flat-rate quote in 24 hours.",
+    "ctaLabel": "Get My Snow Removal Quote"
+  },
+  {
+    "slug": "bathroom-remodeling",
+    "serviceId": "4ac9e78b-4988-4973-a2e3-8bb307df0c49",
+    "name": "Bathrooms",
+    "metaTitle": "Bathroom Remodeling Philadelphia | JD Home Construction",
+    "metaDescription": "Bathroom remodeling in Philadelphia — full renovations, tile, custom vanities & fixtures for rowhomes, condos & suburban homes. Licensed & insured. Call 267-804-4120.",
+    "h1": "Bathroom Remodeling in Philadelphia",
+    "subhead": "From powder rooms in South Philly rowhomes to master ensuites in Bucks County — design, demolition, plumbing, tile, and finish work handled by one licensed crew.",
+    "heroImage": "/images/service-bathrooms.jpg",
+    "heroImageAlt": "Renovated modern bathroom by JD Home Construction in Philadelphia",
+    "badges": ["Licensed & Insured", "Free In-Home Estimates", "3–6 Week Typical Timeline"],
+    "formHeading": "Get Your Free Bathroom Remodel Estimate",
+    "formSub": "Tell us about your bathroom and we'll follow up within one business day.",
+    "projectType": "Bathroom Remodel",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "When do you want to start?",
+    "timelineOptions": ["As soon as possible", "Within 1–3 months", "3–6 months out", "Just planning / budgeting"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "What kind of bathroom, what you want changed, and anything you already know you want (tile, walk-in shower, double vanity...).",
+    "intro": [
+      "Philadelphia bathrooms come with Philadelphia problems: cast iron stacks from 1910, floors out of level by two inches, plaster walls hiding galvanized supply lines, and footprints so tight that every inch matters. We remodel bathrooms across the city and suburbs every month, and we plan for what's behind the walls — so your quote holds up after demolition day.",
+      "We handle the entire scope in-house: design consultation, demolition, plumbing and electrical rough-in, waterproofing, tile, custom vanities and millwork, fixtures, and paint. One crew, one project manager, one timeline — typically 3 to 6 weeks from demo to final walkthrough."
+    ],
+    "offeringsHeading": "What We Handle",
+    "offerings": [
+      "Full gut bathroom renovations",
+      "Walk-in showers & tub-to-shower conversions",
+      "Tile installation — floors, walls, custom niches",
+      "Custom vanities, cabinetry & millwork",
+      "Plumbing & electrical brought up to code",
+      "Powder room additions & basement bathrooms"
+    ],
+    "plans": [],
+    "process": [
+      "Initial consultation & design",
+      "Material selection & fixed budget",
+      "Demolition & preparation",
+      "Plumbing & electrical rough-in",
+      "Waterproofing, tile & flooring",
+      "Fixture installation & finish work",
+      "Final inspection & handover"
+    ],
+    "whyUs": [
+      { "title": "We know old Philly plumbing", "text": "Cast iron stacks, galvanized lines, and out-of-level rowhouse floors are our daily work — we quote for reality, not best-case." },
+      { "title": "One licensed crew, start to finish", "text": "No juggling a plumber, tiler, and electrician. We manage the whole job under one contract and one timeline." },
+      { "title": "Permits handled for you", "text": "We pull L&I permits in Philadelphia and township permits in the suburbs, and schedule every required inspection." }
+    ],
+    "areasHeading": "Where We Remodel Bathrooms",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "How much does a bathroom remodel cost in Philadelphia?", "a": "A full remodel of a standard-size Philadelphia bathroom typically ranges from the mid five figures down to more modest budgets depending on scope — tile selection, whether plumbing moves, and fixture grade drive most of the difference. We provide a detailed line-item estimate after a free in-home visit, so you see exactly where every dollar goes." },
+      { "q": "How long does a bathroom renovation take?", "a": "Most full bathroom remodels take 3–6 weeks from demolition to final walkthrough. Tub-to-shower conversions and cosmetic refreshes can be faster. We give you a written schedule before work starts." },
+      { "q": "Do I need permits for a bathroom remodel in Philadelphia?", "a": "If plumbing or electrical work is involved — which is nearly always — yes. We handle the full permit process with Philadelphia L&I (or your township's building department in the suburbs) and coordinate all inspections." },
+      { "q": "Can you make a small rowhouse bathroom feel bigger?", "a": "Yes — it's one of our most common requests. Curbless walk-in showers, wall-hung vanities, pocket doors, large-format tile, and smart lighting can transform a 5x7 rowhouse bathroom without moving walls. Where the footprint truly is the limit, we can often borrow space from an adjacent closet." }
+    ],
+    "ctaHeading": "Ready to Love Your Bathroom Again?",
+    "ctaText": "Free in-home estimates across Philadelphia and Bucks County. Most estimates delivered within 48 hours of the visit.",
+    "ctaLabel": "Request My Free Estimate"
+  },
+  {
+    "slug": "kitchen-remodeling",
+    "serviceId": "1823312c-339b-43ef-9662-1277b00b7a2c",
+    "name": "Kitchens",
+    "metaTitle": "Kitchen Remodeling Philadelphia | JD Home Construction",
+    "metaDescription": "Kitchen remodeling contractors in Philadelphia. Custom cabinetry, countertops, open-concept conversions & full renovations. Licensed & insured. Call 267-804-4120.",
+    "h1": "Kitchen Remodeling in Philadelphia",
+    "subhead": "Custom cabinetry, countertops, and open-concept conversions — from galley kitchens in Fishtown rowhomes to full suburban kitchen builds in Bucks County.",
+    "heroImage": "/images/service-kitchens.jpg",
+    "heroImageAlt": "Custom remodeled kitchen with island by JD Home Construction in Philadelphia",
+    "badges": ["Licensed & Insured", "Free In-Home Estimates", "4–8 Week Typical Timeline"],
+    "formHeading": "Get Your Free Kitchen Remodel Estimate",
+    "formSub": "Tell us about your kitchen and we'll follow up within one business day.",
+    "projectType": "Kitchen Remodel",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "When do you want to start?",
+    "timelineOptions": ["As soon as possible", "Within 1–3 months", "3–6 months out", "Just planning / budgeting"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "Current kitchen, what you want changed, and any must-haves (island, open concept, new layout...).",
+    "intro": [
+      "The number-one kitchen request in Philadelphia is the same in every neighborhood: open it up. Whether that means removing the load-bearing wall between a Fishtown rowhome's kitchen and living room (with a properly engineered steel beam — we never guess on structure) or reconfiguring a 1960s Northeast Philly galley layout, we design and build kitchens people actually cook and live in.",
+      "We manage the full scope: space planning, custom cabinetry, countertops in granite, quartz, and marble, appliance integration, lighting, flooring, backsplash, and paint. Typical full remodels run 4–8 weeks, with a written schedule and a single project manager from demo to walkthrough."
+    ],
+    "offeringsHeading": "What We Handle",
+    "offerings": [
+      "Full kitchen renovations & layout changes",
+      "Open-concept conversions with engineered structural beams",
+      "Custom cabinetry & islands",
+      "Granite, quartz & marble countertops",
+      "Lighting design, flooring & backsplash",
+      "Appliance integration & electrical upgrades"
+    ],
+    "plans": [],
+    "process": [
+      "Design consultation & layout planning",
+      "Material & appliance selection",
+      "Demolition & site preparation",
+      "Plumbing & electrical updates",
+      "Cabinet & countertop installation",
+      "Backsplash, flooring & finish work",
+      "Final walkthrough"
+    ],
+    "whyUs": [
+      { "title": "Structure done right", "text": "Open-concept conversions involve load-bearing walls. We work with licensed structural engineers to size every beam — no shortcuts." },
+      { "title": "Rowhouse layout specialists", "text": "14-foot-wide footprints demand creative planning. We've reconfigured hundreds of narrow Philly kitchens to feel twice their size." },
+      { "title": "One contract, one timeline", "text": "Cabinets, counters, plumbing, electric, and finishes coordinated by one project manager — not five subcontractors you have to chase." }
+    ],
+    "areasHeading": "Where We Remodel Kitchens",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "How much does a kitchen remodel cost in Philadelphia?", "a": "Cost depends mostly on cabinetry grade, countertop material, whether the layout changes, and whether structural work is involved. An open-concept conversion requiring a steel beam adds engineering and steel costs to the project. We provide a detailed line-item estimate after a free in-home consultation so you can adjust scope against budget with real numbers." },
+      { "q": "How long does a kitchen renovation take?", "a": "Most full kitchen remodels take 4–8 weeks depending on complexity and cabinet lead times. We order long-lead items before demolition starts so your kitchen isn't torn up while waiting on cabinets." },
+      { "q": "Can you remove the wall between my kitchen and living room?", "a": "In most Philadelphia rowhomes, yes — that wall is usually load-bearing, so it's replaced with a properly engineered beam. We handle the structural engineering, L&I permits, and the finish work that makes the opening look like the house was always built that way." },
+      { "q": "Do you handle permits and inspections?", "a": "Yes. Kitchen remodels involving plumbing, electrical, or structural changes require permits through Philadelphia L&I (or your township in the suburbs). We manage all applications and inspections as part of the job." }
+    ],
+    "ctaHeading": "Start With a Real Plan and a Real Number",
+    "ctaText": "Free in-home kitchen consultations across Philadelphia and Bucks County.",
+    "ctaLabel": "Request My Free Estimate"
+  },
+  {
+    "slug": "interior-remodeling",
+    "serviceId": "1e4ace39-d84a-4d91-a9e8-709876055ceb",
+    "name": "Interiors",
+    "metaTitle": "Interior Remodeling Philadelphia | Drywall, Painting & Millwork",
+    "metaDescription": "Interior contractors in Philadelphia — framing, drywall, painting & custom millwork for rowhomes, condos & suburban houses. Licensed & insured. Call 267-804-4120.",
+    "h1": "Interior Remodeling, Drywall & Millwork in Philadelphia",
+    "subhead": "Framing, drywall, professional painting, and custom millwork — trim, wainscoting, and built-ins crafted for Philadelphia homes old and new.",
+    "heroImage": "/images/service-interiors.jpg",
+    "heroImageAlt": "Finished interior with custom millwork and trim by JD Home Construction",
+    "badges": ["Licensed & Insured", "Free In-Home Estimates", "Plaster & Lath Experienced"],
+    "formHeading": "Get Your Free Interior Work Estimate",
+    "formSub": "Tell us about your project and we'll follow up within one business day.",
+    "projectType": "Interior Remodeling",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "When do you want to start?",
+    "timelineOptions": ["As soon as possible", "Within 1–3 months", "3–6 months out", "Just planning / budgeting"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "Rooms involved and the work you need (framing, drywall, paint, trim, built-ins...).",
+    "intro": [
+      "Half of Philadelphia's housing stock has plaster-and-lath walls, and the other half has drywall installed over framing that's seen a century of settling. Interior work here isn't just hanging board — it's knowing when to skim-coat original plaster, when to replace it, how to frame level walls in an out-of-level rowhouse, and how to match 100-year-old trim profiles so a repair disappears.",
+      "We provide precise framing, seamless drywall installation and finishing, professional painting, and custom millwork — trim, crown molding, wainscoting, and built-ins that add the architectural detail Philadelphia homes deserve."
+    ],
+    "offeringsHeading": "What We Handle",
+    "offerings": [
+      "Framing & structural interior work",
+      "Drywall installation, taping & finishing",
+      "Plaster repair & skim coating",
+      "Professional interior painting",
+      "Custom trim, crown molding & wainscoting",
+      "Built-ins, shelving & custom millwork"
+    ],
+    "plans": [],
+    "process": [
+      "Site preparation & protection",
+      "Framing & structural work",
+      "Drywall installation & taping",
+      "Priming & painting",
+      "Millwork fabrication & installation",
+      "Final touches & clean-up"
+    ],
+    "whyUs": [
+      { "title": "Old-house fluent", "text": "Plaster walls, true-dimension lumber, and settled floors don't surprise us — they're the standard Philadelphia condition we build around." },
+      { "title": "Millwork that matches", "text": "We replicate historic trim profiles and build custom pieces, so new work blends seamlessly with a home's original character." },
+      { "title": "Clean, protected job sites", "text": "Dust containment, floor protection, and daily clean-up — because you're living in the house while we work." }
+    ],
+    "areasHeading": "Where We Work",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "Should I repair my plaster walls or replace them with drywall?", "a": "It depends on condition. Plaster in decent shape is often worth saving with a skim coat — it's denser and quieter than drywall. Plaster that's delaminating from the lath, badly cracked, or hiding wiring work that needs to happen is usually better replaced. We assess wall by wall and give you an honest recommendation either way." },
+      { "q": "Can you match the original trim in my old rowhouse?", "a": "Yes. We can replicate historic casing, baseboard, and crown profiles so repairs and additions blend with the original woodwork — critical in Society Hill, Queen Village, and other historic neighborhoods." },
+      { "q": "Do you do painting on its own, or only as part of bigger jobs?", "a": "Both. We take on standalone interior painting projects as well as paint as the finishing stage of framing, drywall, and millwork work." },
+      { "q": "How do you keep dust under control?", "a": "Plastic containment on doorways, floor protection throughout, HEPA vacuums on sanders, and daily clean-up. Drywall and plaster work is dusty by nature, but it should stay inside the work zone — not on your furniture." }
+    ],
+    "ctaHeading": "Get the Finish Work Done Right",
+    "ctaText": "Free estimates for framing, drywall, painting, and millwork across Philadelphia and the suburbs.",
+    "ctaLabel": "Request My Free Estimate"
+  },
+  {
+    "slug": "exterior-construction",
+    "serviceId": "624af629-0956-4d7c-be69-8558f5e5479a",
+    "name": "Exteriors",
+    "metaTitle": "Exterior Contractors Philadelphia | Siding, Framing & Concrete",
+    "metaDescription": "Exterior construction in Philadelphia — siding installation, exterior framing, concrete work & structural repairs. Licensed & insured contractor. Call 267-804-4120.",
+    "h1": "Exterior Construction & Siding in Philadelphia",
+    "subhead": "Siding, exterior framing, structural repairs, and concrete — built to survive Philadelphia freeze-thaw winters and look sharp doing it.",
+    "heroImage": "/images/service-exteriors.jpg",
+    "heroImageAlt": "Home exterior with new siding installed by JD Home Construction in Philadelphia",
+    "badges": ["Licensed & Insured", "Free Estimates", "Vinyl, Fiber Cement & Wood"],
+    "formHeading": "Get Your Free Exterior Estimate",
+    "formSub": "Tell us about your project and we'll follow up within one business day.",
+    "projectType": "Exterior Construction",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "When do you want to start?",
+    "timelineOptions": ["As soon as possible", "Within 1–3 months", "3–6 months out", "Just planning / budgeting"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "What exterior work you need (siding, framing, concrete, repairs) and the approximate size of the job.",
+    "intro": [
+      "Philadelphia's freeze-thaw cycles are brutal on exteriors: water gets into siding seams, mortar joints, and concrete cracks in November, freezes in January, and by spring the damage is visible. We build and repair exteriors with that cycle in mind — proper housewrap and flashing behind every siding job, correct expansion control in every pour, and materials matched to how this climate actually behaves.",
+      "Our exterior services cover new-construction and replacement framing, siding in vinyl, fiber cement, wood, and metal, structural repairs, and concrete work for foundations, driveways, patios, and walkways."
+    ],
+    "offeringsHeading": "What We Handle",
+    "offerings": [
+      "Siding installation — vinyl, fiber cement (James Hardie), wood & metal",
+      "Exterior framing & structural repairs",
+      "Housewrap, flashing & weather barrier systems",
+      "Concrete driveways, patios & walkways",
+      "Exterior window & door installation",
+      "Stoops, steps & porch rebuilds"
+    ],
+    "plans": [],
+    "process": [
+      "Site assessment & planning",
+      "Foundation & concrete work",
+      "Exterior framing",
+      "Sheathing & weather barrier installation",
+      "Siding installation",
+      "Windows, doors & final finishing"
+    ],
+    "whyUs": [
+      { "title": "Weather-first construction", "text": "Flashing, housewrap, and drainage details are where exteriors fail. We treat the parts you'll never see as the most important parts of the job." },
+      { "title": "Full-scope exterior crew", "text": "Framing, siding, and concrete under one contract — no coordination gaps between trades for water to sneak through." },
+      { "title": "Material honesty", "text": "We'll tell you when vinyl is the smart money and when fiber cement is worth it — based on your block, your budget, and how long you're staying." }
+    ],
+    "areasHeading": "Where We Work",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "Which siding is best for Philadelphia weather?", "a": "Fiber cement (like James Hardie) handles freeze-thaw, humidity, and sun exceptionally well and holds paint for years — it's our usual recommendation for owners staying long-term. Quality vinyl remains the value pick and has improved dramatically. We'll walk you through cost versus lifespan for your specific house." },
+      { "q": "Can you replace just a damaged section of siding?", "a": "Often yes, especially with vinyl. The honest caveat: sun-faded existing siding rarely matches new panels perfectly. We'll tell you up front whether a repair will blend or whether the elevation is better re-sided." },
+      { "q": "Do you handle the concrete work too, like stoops and walkways?", "a": "Yes — concrete is one of our core trades. Stoop rebuilds, sidewalks, aprons, patios, and foundations are all in-house, which is why exterior packages with us don't require a second contractor." },
+      { "q": "Do exterior projects need permits in Philadelphia?", "a": "Structural work, most concrete in the public right-of-way (sidewalks), and some siding jobs require L&I permits. Historic districts add Historical Commission review for facade changes. We handle all of it as part of the project." }
+    ],
+    "ctaHeading": "Protect the Outside, Protect the Whole House",
+    "ctaText": "Free exterior assessments and estimates across Philadelphia and Bucks County.",
+    "ctaLabel": "Request My Free Estimate"
+  },
+  {
+    "slug": "residential-construction",
+    "serviceId": "3275831a-2334-49d3-883c-83c750839686",
+    "name": "Residential Construction",
+    "metaTitle": "Home Builders Philadelphia | Residential Construction | JD Home",
+    "metaDescription": "Residential construction in Philadelphia & Bucks County — custom homes, additions & multi-unit builds from concept to completion. Licensed & insured. 267-804-4120.",
+    "h1": "Residential Construction in Philadelphia",
+    "subhead": "Custom homes, ground-up builds, and multi-unit dwellings — managed from architectural plans through final inspection by one licensed team.",
+    "heroImage": "/images/service-residential.jpg",
+    "heroImageAlt": "New residential home construction by JD Home Construction in Philadelphia",
+    "badges": ["Licensed & Insured", "Design-Build Capable", "Philadelphia & Bucks County"],
+    "formHeading": "Start Your Build Conversation",
+    "formSub": "Tell us about your project and we'll follow up within one business day.",
+    "projectType": "Residential Construction",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "Where are you in the process?",
+    "timelineOptions": ["Have plans, ready to build", "Have land, need plans", "Exploring feasibility & budget", "Just researching"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "Location, type of build (custom home, addition, multi-unit), and where you are in the process.",
+    "intro": [
+      "Building new in Philadelphia means navigating zoning overlays, L&I permitting, tight urban lots, and party-wall agreements — while building in Bucks County means a different building department in every township. We've done both, repeatedly, and we manage the entire path: feasibility, budgeting, permits, site work, and construction through certificate of occupancy.",
+      "We work directly with your architect — or bring design partners to the table — and stay involved from the first budget conversation so the home that gets designed is a home that can actually be built for your number."
+    ],
+    "offeringsHeading": "What We Build",
+    "offerings": [
+      "Custom single-family homes",
+      "Multi-unit residential buildings",
+      "Full home additions & second stories",
+      "Teardown & rebuild projects",
+      "Structural shell & core construction",
+      "Owner & investor projects"
+    ],
+    "plans": [],
+    "process": [
+      "Initial consultation & feasibility",
+      "Design & budget development",
+      "Permits & approvals",
+      "Site preparation & foundation",
+      "Framing & structural work",
+      "Mechanical systems & interior finishes",
+      "Final inspection & handover"
+    ],
+    "whyUs": [
+      { "title": "Budget-first design partnership", "text": "We price the build while it's being designed — so you're never holding beautiful plans you can't afford to construct." },
+      { "title": "Permitting fluency, city and suburbs", "text": "Philadelphia L&I and a dozen township building departments — we know each process and keep approvals off your critical path." },
+      { "title": "One accountable builder", "text": "From excavation to the final coat of paint, one contract and one project manager own the schedule and the quality." }
+    ],
+    "areasHeading": "Where We Build",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "How long does it take to build a house in Philadelphia?", "a": "Plan on 6–18 months of construction depending on size and complexity, plus design and permitting time before ground-breaking. Urban infill lots in Philadelphia often carry longer approval timelines than suburban township builds; we map the full schedule during feasibility." },
+      { "q": "Do you work with my architect or provide design?", "a": "Either. We regularly build from clients' architectural drawings, and we can also bring trusted design partners into the project early so design and budget develop together." },
+      { "q": "Can you build on a narrow Philadelphia infill lot?", "a": "Yes — tight-access urban builds are a specialty. Party-wall agreements, underpinning adjacent foundations, crane and delivery logistics on narrow streets, and L&I coordination are all standard parts of our city projects." },
+      { "q": "Do you take on investor and multi-unit projects?", "a": "Yes. We build duplexes, triplexes, and small multi-unit buildings for investors and owner-occupants, and we understand the schedule and cost discipline those projects demand." }
+    ],
+    "ctaHeading": "Let's Talk About Your Build",
+    "ctaText": "Feasibility conversations are free — bring your lot, your plans, or just your idea.",
+    "ctaLabel": "Start the Conversation"
+  },
+  {
+    "slug": "concrete-contractor",
+    "serviceId": "3352477f-2461-402a-8038-8a1b55297782",
+    "name": "Concrete",
+    "metaTitle": "Concrete Contractor Philadelphia | Driveways, Sidewalks & More",
+    "metaDescription": "Concrete contractor in Philadelphia — driveways, sidewalks, stoops, foundations & flatwork. Code-compliant, weather-proof pours. Licensed & insured. 267-804-4120.",
+    "h1": "Concrete Contractor in Philadelphia",
+    "subhead": "Driveways, sidewalks, stoops, foundations, and structural flatwork — properly graded, reinforced, and finished to survive Philadelphia winters.",
+    "heroImage": "/images/service-concrete.jpg",
+    "heroImageAlt": "Freshly poured and finished concrete driveway by JD Home Construction in Philadelphia",
+    "badges": ["Licensed & Insured", "Free Estimates", "Residential & Commercial"],
+    "formHeading": "Get Your Free Concrete Estimate",
+    "formSub": "Tell us about your project and we'll follow up within one business day.",
+    "projectType": "Concrete Work",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "When do you want to start?",
+    "timelineOptions": ["As soon as possible", "Within 1–3 months", "3–6 months out", "Just planning / budgeting"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "What needs to be poured or replaced (driveway, sidewalk, stoop, patio, foundation) and approximate size.",
+    "intro": [
+      "Concrete in Philadelphia lives a hard life: freeze-thaw cycles, road salt, tree roots, and century-old sub-bases that were never compacted properly. The difference between a driveway that lasts 30 years and one that cracks in 3 is everything you can't see — excavation depth, base preparation, reinforcement, expansion control, and cure time. That's where we don't cut corners.",
+      "We pour and finish driveways, sidewalks, stoops, patios, aprons, foundations, and structural slabs for homes and businesses across Philadelphia and Bucks County — properly formed, reinforced, and finished, with L&I permits handled when the work touches the public right-of-way."
+    ],
+    "offeringsHeading": "What We Pour",
+    "offerings": [
+      "Concrete driveways — new & replacement",
+      "Sidewalks & curbs (L&I right-of-way compliant)",
+      "Stoops, steps & porch slabs",
+      "Patios & decorative finishes",
+      "Foundations & structural slabs",
+      "Garage floors & basement slabs"
+    ],
+    "plans": [],
+    "process": [
+      "Project scoping & site evaluation",
+      "Permitting (if required)",
+      "Excavation & base preparation",
+      "Forming & reinforcement",
+      "Pour & finishing",
+      "Curing & final inspection"
+    ],
+    "whyUs": [
+      { "title": "Built for freeze-thaw", "text": "Air-entrained mixes, correct depth, proper joints, and real cure time — the details that decide whether concrete survives Philadelphia winters." },
+      { "title": "Right-of-way experts", "text": "Sidewalk and curb work in Philadelphia requires city permits and spec compliance. We handle the paperwork and pour to city standard." },
+      { "title": "Repair honesty", "text": "If a slab can be saved, we'll say so. If it's beyond saving, we'll show you why — and quote replacement with no games." }
+    ],
+    "areasHeading": "Where We Pour",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "How much does a concrete driveway cost in Philadelphia?", "a": "Driveway cost is driven by square footage, demolition of the existing surface, base condition, and finish. Replacement projects cost more than fresh pours because of removal and disposal. We measure on-site and give a firm written quote — and we're often asked to fix driveways poured cheap two years earlier, so we'll show you exactly what's in our spec." },
+      { "q": "How long before I can drive on new concrete?", "a": "Foot traffic after 24–48 hours; vehicles after 7 days; full design strength at 28 days. We'll give you exact guidance based on the mix and weather during your pour." },
+      { "q": "Do I need a permit to replace my sidewalk in Philadelphia?", "a": "Yes — sidewalks are in the public right-of-way, and the city requires permits and specific construction standards. Homeowners are responsible for keeping their sidewalks safe and can be cited for defects. We handle the permits and pour to city spec." },
+      { "q": "Cracked concrete — repair or replace?", "a": "Hairline surface cracks can often be sealed or resurfaced. Cracks with vertical displacement, wide gaps, or multiple broken sections usually mean the base underneath has failed, and patching is throwing money away. We assess honestly and only recommend replacement when repair won't hold." }
+    ],
+    "ctaHeading": "Get a Pour That Outlasts the Mortgage",
+    "ctaText": "Free on-site measurements and firm written quotes across Philadelphia and Bucks County.",
+    "ctaLabel": "Request My Free Estimate"
+  },
+  {
+    "slug": "home-renovation",
+    "serviceId": "83ac1998-f3f9-452c-9807-502085b3017f",
+    "name": "Renovation & Remodeling",
+    "metaTitle": "Home Renovation Contractor Philadelphia | JD Home Construction",
+    "metaDescription": "Home renovation & remodeling in Philadelphia — full gut renovations, whole-home updates & space transformations. Licensed & insured contractor. Call 267-804-4120.",
+    "h1": "Home Renovation & Remodeling in Philadelphia",
+    "subhead": "Full gut renovations, whole-home modernizations, and space transformations — for rowhomes, twins, and suburban houses across Philadelphia and Bucks County.",
+    "heroImage": "/images/service-renovation.jpg",
+    "heroImageAlt": "Whole-home renovation in progress by JD Home Construction in Philadelphia",
+    "badges": ["Licensed & Insured", "Free In-Home Estimates", "Gut Renovation Specialists"],
+    "formHeading": "Get Your Free Renovation Estimate",
+    "formSub": "Tell us about your home and we'll follow up within one business day.",
+    "projectType": "Home Renovation",
+    "budgetDefault": "Not sure yet",
+    "timelineLabel": "When do you want to start?",
+    "timelineOptions": ["As soon as possible", "Within 1–3 months", "3–6 months out", "Just planning / budgeting"],
+    "detailsLabel": "Tell us about your project",
+    "detailsPlaceholder": "The house (rowhome, twin, single), what you want renovated, and your rough timeline.",
+    "intro": [
+      "A Philadelphia gut renovation is really two projects: the one you can see — kitchens, baths, floors, finishes — and the one behind the walls, where a century of knob-and-tube wiring, galvanized plumbing, and settled framing waits. We've opened up enough Philly rowhomes to quote both halves realistically, which is why our projects finish near the number they started at.",
+      "From single-room remodels to full-house transformations, we handle demolition, structural changes, all mechanical systems, and every finish trade under one contract — minimizing the time your life is disrupted and maximizing the value added to your home."
+    ],
+    "offeringsHeading": "What We Handle",
+    "offerings": [
+      "Full gut renovations",
+      "Whole-home modernization",
+      "Open-concept structural conversions",
+      "Kitchen & bathroom remodels",
+      "Basement finishing",
+      "Electrical, plumbing & HVAC updates"
+    ],
+    "plans": [],
+    "process": [
+      "Design consultation & scope definition",
+      "Demolition & site preparation",
+      "Structural modifications",
+      "New plumbing, electrical & HVAC",
+      "Finishing — cabinetry, flooring, paint",
+      "Final cleaning & inspection"
+    ],
+    "whyUs": [
+      { "title": "We quote for what's behind the walls", "text": "Knob-and-tube, cast iron stacks, and hidden framing issues are priced into our process — not discovered as change orders." },
+      { "title": "Whole-house, one contract", "text": "Every trade — demo through paint — managed by one team with one schedule, so the project actually moves." },
+      { "title": "Value-focused decisions", "text": "We'll tell you which upgrades pay back at resale and which are purely for love, so you spend intentionally." }
+    ],
+    "areasHeading": "Where We Renovate",
+    "areasDetail": [],
+    "faqs": [
+      { "q": "How much does a gut renovation cost in Philadelphia?", "a": "A full gut of a typical 1,200–1,600 sq ft rowhouse — new electrical, plumbing, HVAC, kitchen, baths, and finishes — generally lands in the low-to-mid six figures depending on finish level and structural changes. We provide detailed line-item estimates after an in-home assessment so you can tune scope to budget." },
+      { "q": "Can I live in my house during the renovation?", "a": "For single-room and phased projects, usually yes. For full gut renovations, no — there's no water, power, or dust-free space for weeks at a time. We'll tell you honestly which category your project falls into before you commit." },
+      { "q": "How long does a whole-home renovation take?", "a": "Anywhere from 2 weeks for a single-space remodel to 6 months for a full gut renovation. Permits, structural work, and material lead times drive the schedule; we map it in writing before demolition starts." },
+      { "q": "Do you handle all the permits?", "a": "Yes — Philadelphia L&I permits for structural, electrical, plumbing, and mechanical work, plus township permits in the suburbs and Historical Commission coordination where applicable." }
+    ],
+    "ctaHeading": "Transform the House You Already Own",
+    "ctaText": "Free in-home renovation consultations across Philadelphia and Bucks County.",
+    "ctaLabel": "Request My Free Estimate"
+  }
+]

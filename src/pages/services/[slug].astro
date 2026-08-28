@@ -1,0 +1,525 @@
+---
+import "@/styles/global.css";
+import landingData from "@/data/service-landing.json";
+import serviceAreasData from "@/data/service-areas.json";
+
+const SITE = "https://www.jdhomeconstruction.org";
+const PHONE_DISPLAY = "267-804-4120";
+const PHONE_TEL = "+12678044120";
+const EMAIL = "JDhomellc@yahoo.com";
+
+const { slug } = Astro.params;
+const pages: any[] = landingData as any[];
+
+// 301 old UUID URLs (/services/<uuid>) to the new slug URLs
+const byId = pages.find((p) => p.serviceId === slug);
+if (byId) {
+  return Astro.redirect(`/services/${byId.slug}`, 301);
+}
+
+const page = pages.find((p) => p.slug === slug);
+if (!page) {
+  return Astro.redirect("/services", 302);
+}
+
+const canonical = `${SITE}/services/${page.slug}`;
+
+// Geo areas: explicit areasDetail wins; otherwise derive from service-areas.json
+const derivedAreas = (serviceAreasData as any[]).filter((a) =>
+  a.relatedServices?.includes(page.serviceId)
+);
+const hasAreasDetail = page.areasDetail && page.areasDetail.length > 0;
+
+const navLinks = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Areas", path: "/areas" },
+  { name: "Projects", path: "/projects" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact", path: "/contact" },
+];
+
+const otherServices = pages.filter((p) => p.slug !== page.slug);
+
+// ---------- Structured data ----------
+const businessNode = {
+  "@type": "HomeAndConstructionBusiness",
+  "@id": `${SITE}/#business`,
+  name: "JD Home Construction",
+  url: SITE,
+  telephone: PHONE_TEL,
+  email: EMAIL,
+  image: `${SITE}/images/JD-Home-Construction.png`,
+  logo: `${SITE}/images/JD-Home-Construction.png`,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Philadelphia",
+    addressRegion: "PA",
+    addressCountry: "US",
+  },
+  areaServed: [
+    { "@type": "City", name: "Philadelphia" },
+    { "@type": "AdministrativeArea", name: "Bucks County" },
+  ],
+  priceRange: "$$",
+};
+
+const serviceNode: Record<string, any> = {
+  "@type": "Service",
+  "@id": `${canonical}/#service`,
+  name: page.h1,
+  serviceType: page.name,
+  description: page.metaDescription,
+  url: canonical,
+  provider: { "@id": `${SITE}/#business` },
+  areaServed: hasAreasDetail
+    ? page.areasDetail.map((a: any) => ({ "@type": "Place", name: a.name }))
+    : [
+        { "@type": "City", name: "Philadelphia" },
+        { "@type": "AdministrativeArea", name: "Bucks County" },
+      ],
+  image: `${SITE}${page.heroImage}`,
+};
+if (page.plans && page.plans.length > 0) {
+  serviceNode.hasOfferCatalog = {
+    "@type": "OfferCatalog",
+    name: `${page.name} Plans`,
+    itemListElement: page.plans.map((plan: any) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: plan.name, description: plan.description },
+    })),
+  };
+}
+
+const faqNode = {
+  "@type": "FAQPage",
+  "@id": `${canonical}/#faq`,
+  mainEntity: page.faqs.map((f: any) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
+const breadcrumbNode = {
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+    { "@type": "ListItem", position: 2, name: "Services", item: `${SITE}/services` },
+    { "@type": "ListItem", position: 3, name: page.name, item: canonical },
+  ],
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [businessNode, serviceNode, faqNode, breadcrumbNode],
+};
+---
+
+<html lang="en" class="w-full scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{page.metaTitle}</title>
+    <meta name="description" content={page.metaDescription} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#1A1A1A" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="JD Home Construction" />
+    <meta property="og:title" content={page.metaTitle} />
+    <meta property="og:description" content={page.metaDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${SITE}${page.heroImage}`} />
+    <meta property="og:locale" content="en_US" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={page.metaTitle} />
+    <meta name="twitter:description" content={page.metaDescription} />
+    <meta name="twitter:image" content={`${SITE}${page.heroImage}`} />
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="w-full bg-background text-foreground font-paragraph antialiased">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-md shadow-lg">
+      <div class="max-w-[120rem] mx-auto px-4 sm:px-8">
+        <div class="flex items-center justify-between" style="height: calc(4rem + 15px);">
+          <a href="/" class="flex items-center flex-shrink-0 min-h-16" aria-label="JD Home Construction home">
+            <img
+              src="/images/JD-Home-Construction.png"
+              width="133"
+              height="53"
+              class="h-14 sm:h-16 w-auto object-contain"
+              alt="JD Home Construction - Licensed and Insured Philadelphia General Contractor"
+              loading="eager"
+            />
+          </a>
+          <nav class="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+            {navLinks.map((link) => (
+              <a href={link.path} class="font-heading text-base text-white/80 hover:text-accent-orange transition-colors">{link.name}</a>
+            ))}
+          </nav>
+          <div class="flex items-center gap-3">
+            <a
+              href={`tel:${PHONE_TEL}`}
+              class="font-heading bg-accent-orange hover:bg-accent-orange/90 text-secondary px-4 sm:px-6 h-11 rounded-lg inline-flex items-center justify-center transition-all"
+            >
+              <span class="hidden sm:inline">Call {PHONE_DISPLAY}</span>
+              <span class="sm:hidden">Call Now</span>
+            </a>
+            <a
+              href="#quote-form"
+              class="hidden md:inline-flex font-heading bg-white/10 hover:bg-white/20 text-white px-6 h-11 rounded-lg items-center justify-center transition-all"
+            >Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="w-full bg-secondary text-white pt-32 pb-16 lg:pb-24">
+        <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+          <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div>
+              <p class="font-heading text-accent-orange text-sm uppercase tracking-widest mb-4">
+                JD Home Construction · Philadelphia, PA
+              </p>
+              <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl mb-6">{page.h1}</h1>
+              <p class="font-paragraph text-lg sm:text-xl text-white/80 mb-8 max-w-2xl">{page.subhead}</p>
+              <ul class="flex flex-wrap gap-3 mb-10">
+                {page.badges.map((badge: string) => (
+                  <li class="flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 text-sm font-heading">
+                    <svg class="w-4 h-4 text-accent-orange flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                    {badge}
+                  </li>
+                ))}
+              </ul>
+              <div class="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  class="font-heading text-lg bg-accent-orange hover:bg-accent-orange/90 text-secondary px-8 h-14 rounded-lg inline-flex items-center justify-center transition-all"
+                >📞 Call {PHONE_DISPLAY}</a>
+                <a
+                  href="#quote-form"
+                  class="font-heading text-lg bg-white hover:bg-white/90 text-secondary px-8 h-14 rounded-lg inline-flex items-center justify-center transition-all"
+                >{page.ctaLabel}</a>
+              </div>
+              <img
+                src={page.heroImage}
+                alt={page.heroImageAlt}
+                width="1200"
+                height="675"
+                class="w-full h-64 sm:h-80 object-cover rounded-xl mt-10"
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+
+            <!-- Lead form -->
+            <div id="quote-form" class="bg-white text-foreground rounded-xl shadow-2xl p-6 sm:p-8 lg:sticky lg:top-28 scroll-mt-28">
+              <h2 class="font-heading text-2xl text-secondary mb-2">{page.formHeading}</h2>
+              <p class="font-paragraph text-sm text-foreground/70 mb-6">{page.formSub}</p>
+              <form id="lead-form" class="space-y-4" novalidate>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="lead-name" class="block font-heading text-sm text-secondary mb-1">Full Name *</label>
+                    <input id="lead-name" name="name" type="text" required autocomplete="name" class="w-full h-11 rounded-lg border border-medium-grey px-3 font-paragraph text-base focus:outline-none focus:ring-2 focus:ring-primary" />
+                  </div>
+                  <div>
+                    <label for="lead-phone" class="block font-heading text-sm text-secondary mb-1">Phone *</label>
+                    <input id="lead-phone" name="phone" type="tel" required autocomplete="tel" class="w-full h-11 rounded-lg border border-medium-grey px-3 font-paragraph text-base focus:outline-none focus:ring-2 focus:ring-primary" />
+                  </div>
+                </div>
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="lead-email" class="block font-heading text-sm text-secondary mb-1">Email *</label>
+                    <input id="lead-email" name="email" type="email" required autocomplete="email" class="w-full h-11 rounded-lg border border-medium-grey px-3 font-paragraph text-base focus:outline-none focus:ring-2 focus:ring-primary" />
+                  </div>
+                  <div>
+                    <label for="lead-zip" class="block font-heading text-sm text-secondary mb-1">ZIP Code *</label>
+                    <input id="lead-zip" name="zipCode" type="text" required inputmode="numeric" pattern="[0-9]{5}" autocomplete="postal-code" class="w-full h-11 rounded-lg border border-medium-grey px-3 font-paragraph text-base focus:outline-none focus:ring-2 focus:ring-primary" />
+                  </div>
+                </div>
+                <div>
+                  <label for="lead-timeline" class="block font-heading text-sm text-secondary mb-1">{page.timelineLabel} *</label>
+                  <select id="lead-timeline" name="timeline" required class="w-full h-11 rounded-lg border border-medium-grey px-3 font-paragraph text-base bg-white focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="" disabled selected>Select one…</option>
+                    {page.timelineOptions.map((opt: string) => <option value={opt}>{opt}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label for="lead-details" class="block font-heading text-sm text-secondary mb-1">{page.detailsLabel} *</label>
+                  <textarea id="lead-details" name="projectDetails" required rows="3" placeholder={page.detailsPlaceholder} class="w-full rounded-lg border border-medium-grey px-3 py-2 font-paragraph text-base focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                </div>
+                <input type="hidden" name="projectType" value={page.projectType} />
+                <input type="hidden" name="budgetRange" value={page.budgetDefault} />
+                <button type="submit" class="w-full font-heading text-lg bg-primary hover:bg-primary/90 text-primary-foreground h-13 py-3.5 rounded-lg transition-all">
+                  {page.ctaLabel}
+                </button>
+                <p id="form-error" class="hidden text-sm text-primary font-paragraph"></p>
+                <p class="text-xs text-foreground/50 font-paragraph text-center">
+                  No spam, ever. Prefer to talk? Call <a href={`tel:${PHONE_TEL}`} class="underline">{PHONE_DISPLAY}</a>.
+                </p>
+              </form>
+              <div id="form-success" class="hidden text-center py-8">
+                <div class="text-5xl mb-4">✅</div>
+                <h3 class="font-heading text-2xl text-secondary mb-2">Request Received!</h3>
+                <p class="font-paragraph text-foreground/80">We'll get back to you within one business day. Need us sooner? Call <a href={`tel:${PHONE_TEL}`} class="text-primary font-heading">{PHONE_DISPLAY}</a>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Intro copy -->
+      <section class="w-full py-16 lg:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-3xl sm:text-4xl text-secondary mb-8">
+            {page.name === "Snow Removal" ? "Snow Removal That Actually Shows Up" : `${page.name} Done Right in Philadelphia`}
+          </h2>
+          {page.intro.map((paragraph: string) => (
+            <p class="font-paragraph text-lg text-foreground/90 mb-6 leading-relaxed">{paragraph}</p>
+          ))}
+        </div>
+      </section>
+
+      <!-- Offerings -->
+      <section class="w-full bg-light-grey py-16 lg:py-24">
+        <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-12">{page.offeringsHeading}</h2>
+          <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {page.offerings.map((item: string) => (
+              <li class="flex items-start gap-3 bg-white rounded-xl border border-medium-grey/30 p-5">
+                <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span class="font-paragraph text-base text-foreground">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <!-- Plans (snow removal) -->
+      {page.plans && page.plans.length > 0 && (
+        <section class="w-full py-16 lg:py-24">
+          <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+            <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-4">Pick Your Winter Plan</h2>
+            <p class="font-paragraph text-lg text-foreground/70 text-center mb-12 max-w-2xl mx-auto">Every plan is a flat rate quoted for your specific driveway — no hourly billing, no surprises.</p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+              {page.plans.map((plan: any, i: number) => (
+                <div class={`flex flex-col rounded-xl border p-8 ${i === 0 ? "border-primary border-2 shadow-xl relative" : "border-medium-grey/40"}`}>
+                  {plan.badge && (
+                    <span class={`font-heading text-xs uppercase tracking-wider rounded-full px-3 py-1 self-start mb-4 ${i === 0 ? "bg-primary text-primary-foreground" : "bg-light-grey text-secondary"}`}>{plan.badge}</span>
+                  )}
+                  <h3 class="font-heading text-2xl text-secondary mb-3">{plan.name}</h3>
+                  <p class="font-paragraph text-foreground/80 mb-6">{plan.description}</p>
+                  <ul class="space-y-3 mb-8">
+                    {plan.features.map((feature: string) => (
+                      <li class="flex items-start gap-2">
+                        <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span class="font-paragraph text-sm text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="#quote-form" class={`mt-auto font-heading text-center px-6 py-3 rounded-lg transition-all ${i === 0 ? "bg-primary hover:bg-primary/90 text-primary-foreground" : "bg-secondary hover:bg-secondary/90 text-white"}`}>Get My Flat-Rate Quote</a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Why us -->
+      <section class="w-full bg-secondary text-white py-16 lg:py-24">
+        <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-3xl sm:text-4xl text-center mb-12">Why Philadelphia Homeowners Choose JD Home</h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {page.whyUs.map((item: any) => (
+              <div class="bg-white/5 rounded-xl p-6 border border-white/10">
+                <h3 class="font-heading text-xl text-accent-orange mb-3">{item.title}</h3>
+                <p class="font-paragraph text-sm text-white/80 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section class="w-full py-16 lg:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-12">How It Works</h2>
+          <ol class="space-y-6">
+            {page.process.map((step: string, i: number) => (
+              <li class="flex items-start gap-4">
+                <span class="font-heading text-lg bg-primary text-primary-foreground w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">{i + 1}</span>
+                <p class="font-paragraph text-lg text-foreground pt-1.5">{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <!-- Areas served -->
+      <section class="w-full bg-light-grey py-16 lg:py-24">
+        <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-4">{page.areasHeading}</h2>
+          <p class="font-paragraph text-lg text-foreground/70 text-center mb-12 max-w-2xl mx-auto">
+            Serving homeowners across Philadelphia and Bucks County. Don't see your neighborhood? <a href={`tel:${PHONE_TEL}`} class="text-primary underline">Call us</a> — we likely cover it.
+          </p>
+          {hasAreasDetail ? (
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {page.areasDetail.map((area: any) => (
+                <div class="bg-white rounded-xl border border-medium-grey/30 p-6">
+                  <h3 class="font-heading text-xl text-secondary mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {area.name}
+                  </h3>
+                  <p class="font-paragraph text-sm text-foreground/80 mb-3">{area.note}</p>
+                  <p class="font-paragraph text-xs text-foreground/50">ZIP codes: {area.zips}</p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {derivedAreas.map((area: any) => (
+                <a href={`/areas/${area.slug}`} class="group bg-white rounded-xl border border-medium-grey/30 hover:border-primary hover:shadow-md transition-all p-6 block">
+                  <h3 class="font-heading text-xl text-secondary group-hover:text-primary transition-colors mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {area.name}
+                  </h3>
+                  <p class="font-paragraph text-sm text-foreground/70">{area.neighborhoodsServed.slice(0, 4).join(" · ")}</p>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <!-- FAQs -->
+      <section class="w-full py-16 lg:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-3xl sm:text-4xl text-secondary text-center mb-12">Frequently Asked Questions</h2>
+          <div class="space-y-4">
+            {page.faqs.map((faq: any) => (
+              <details class="group bg-light-grey rounded-xl border border-medium-grey/30 overflow-hidden">
+                <summary class="font-heading text-lg text-secondary cursor-pointer list-none flex items-center justify-between gap-4 p-6">
+                  {faq.q}
+                  <svg class="w-5 h-5 text-primary flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                </summary>
+                <p class="font-paragraph text-base text-foreground/90 leading-relaxed px-6 pb-6">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section class="w-full bg-primary py-16 lg:py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-8 text-center">
+          <h2 class="font-heading text-3xl sm:text-5xl text-primary-foreground mb-6">{page.ctaHeading}</h2>
+          <p class="font-paragraph text-xl text-primary-foreground/90 mb-8">{page.ctaText}</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href={`tel:${PHONE_TEL}`} class="font-heading text-lg bg-secondary hover:bg-secondary/90 text-white px-8 h-14 rounded-lg inline-flex items-center justify-center transition-all">📞 Call {PHONE_DISPLAY}</a>
+            <a href="#quote-form" class="font-heading text-lg bg-white hover:bg-white/90 text-secondary px-8 h-14 rounded-lg inline-flex items-center justify-center transition-all">{page.ctaLabel}</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other services -->
+      <section class="w-full py-16">
+        <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+          <h2 class="font-heading text-2xl text-secondary text-center mb-8">More From JD Home Construction</h2>
+          <div class="flex flex-wrap justify-center gap-3">
+            {otherServices.map((s: any) => (
+              <a href={`/services/${s.slug}`} class="font-heading text-sm bg-light-grey hover:bg-medium-grey text-secondary px-5 py-2.5 rounded-full transition-colors">{s.name}</a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full bg-secondary text-secondary-foreground">
+      <div class="max-w-[100rem] mx-auto px-4 sm:px-8 py-16">
+        <div class="grid md:grid-cols-3 gap-12 mb-12">
+          <div>
+            <a href="/" class="inline-block mb-6">
+              <img src="/images/JD-Home-Construction.png" width="240" height="80" class="h-16 w-auto" alt="JD Home Construction logo" loading="lazy" />
+            </a>
+            <p class="font-paragraph text-secondary-foreground/80">Building quality homes and lasting relationships for over a decade. Licensed, insured, and committed to excellence.</p>
+          </div>
+          <div>
+            <h3 class="font-heading text-xl mb-6">Our Services</h3>
+            <ul class="space-y-3">
+              {pages.map((s: any) => (
+                <li><a href={`/services/${s.slug}`} class="font-paragraph text-secondary-foreground/80 hover:text-primary transition-colors">{s.name}</a></li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-heading text-xl mb-6">Get in Touch</h3>
+            <ul class="space-y-3 font-paragraph text-secondary-foreground/80">
+              <li>Phone: <a href={`tel:${PHONE_TEL}`} class="text-secondary-foreground hover:text-primary transition-colors">{PHONE_DISPLAY}</a></li>
+              <li>Email: <a href={`mailto:${EMAIL}`} class="text-secondary-foreground hover:text-primary transition-colors">{EMAIL}</a></li>
+              <li>Philadelphia, PA</li>
+              <li class="pt-2"><a href="/contact" class="text-secondary-foreground hover:text-primary transition-colors underline">Contact Page</a> · <a href="/areas" class="text-secondary-foreground hover:text-primary transition-colors underline">Service Areas</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-secondary-foreground/20 pt-8">
+          <p class="font-paragraph text-sm text-secondary-foreground/70 text-center">
+            © {new Date().getFullYear()} JD Home Construction. All rights reserved. PA Contractor #214497.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Sticky mobile call bar -->
+    <div class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-secondary border-t border-white/10 p-3 flex gap-3">
+      <a href={`tel:${PHONE_TEL}`} class="flex-1 font-heading bg-accent-orange text-secondary h-12 rounded-lg inline-flex items-center justify-center">📞 Call Now</a>
+      <a href="#quote-form" class="flex-1 font-heading bg-white text-secondary h-12 rounded-lg inline-flex items-center justify-center">Free Quote</a>
+    </div>
+    <div class="lg:hidden h-20"></div>
+
+    <script>
+      const form = document.getElementById("lead-form") as HTMLFormElement | null;
+      const successEl = document.getElementById("form-success");
+      const errorEl = document.getElementById("form-error");
+
+      form?.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        if (!form.reportValidity()) return;
+        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+        errorEl?.classList.add("hidden");
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        try {
+          const res = await fetch("/api/quote-request", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!res.ok) throw new Error(`Request failed (${res.status})`);
+          form.classList.add("hidden");
+          successEl?.classList.remove("hidden");
+          successEl?.scrollIntoView({ behavior: "smooth", block: "center" });
+        } catch {
+          if (errorEl) {
+            errorEl.textContent = "Something went wrong sending your request. Please call us at 267-804-4120 or try again.";
+            errorEl.classList.remove("hidden");
+          }
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+    </script>
+  </body>
+</html>

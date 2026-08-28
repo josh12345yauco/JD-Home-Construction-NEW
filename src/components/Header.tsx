@@ -26,6 +26,8 @@ export default function Header() {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
+    // Snow Removal is a server-rendered landing page, so it needs a full navigation (hard: true)
+    { name: 'Snow Removal', path: '/services/snow-removal', hard: true },
     { name: 'Areas', path: '/areas' },
     { name: 'Projects', path: '/projects' },
     { name: 'Blog', path: '/blog' },
@@ -71,23 +73,26 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`font-heading text-base transition-colors ${
-                  isDarkMode || isScrolledMode
-                    ? location.pathname === link.path
-                      ? 'text-accent-orange'
-                      : 'text-white/80 hover:text-accent-orange'
-                    : location.pathname === link.path
-                      ? 'text-primary'
-                      : 'text-foreground hover:text-primary'
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const linkClassName = `font-heading text-base transition-colors ${
+                isDarkMode || isScrolledMode
+                  ? location.pathname === link.path
+                    ? 'text-accent-orange'
+                    : 'text-white/80 hover:text-accent-orange'
+                  : location.pathname === link.path
+                    ? 'text-primary'
+                    : 'text-foreground hover:text-primary'
+              }`;
+              return link.hard ? (
+                <a key={link.path} href={link.path} className={linkClassName}>
+                  {link.name}
+                </a>
+              ) : (
+                <Link key={link.path} to={link.path} className={linkClassName}>
+                  {link.name}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* CTA Buttons */}
@@ -144,27 +149,30 @@ export default function Header() {
                 : 'border-medium-grey/30'
           }`}>
             <nav className="flex flex-col gap-4 px-[15px]">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`font-heading text-lg transition-colors ${
-                    isDarkMode || isScrolledMode
+              {navLinks.map((link) => {
+                const linkClassName = `font-heading text-lg transition-colors ${
+                  isDarkMode || isScrolledMode
+                    ? location.pathname === link.path
+                      ? 'text-accent-orange'
+                      : 'text-white/80 hover:text-accent-orange'
+                    : hasLightBackground
                       ? location.pathname === link.path
                         ? 'text-accent-orange'
                         : 'text-white/80 hover:text-accent-orange'
-                      : hasLightBackground
-                        ? location.pathname === link.path
-                          ? 'text-accent-orange'
-                          : 'text-white/80 hover:text-accent-orange'
-                        : location.pathname === link.path
-                          ? 'text-primary'
-                          : 'text-foreground hover:text-primary'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+                      : location.pathname === link.path
+                        ? 'text-primary'
+                        : 'text-foreground hover:text-primary'
+                }`;
+                return link.hard ? (
+                  <a key={link.path} href={link.path} className={linkClassName}>
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link key={link.path} to={link.path} className={linkClassName}>
+                    {link.name}
+                  </Link>
+                );
+              })}
               <div className="flex flex-col gap-3 mt-4">
                 <Button 
                   asChild 

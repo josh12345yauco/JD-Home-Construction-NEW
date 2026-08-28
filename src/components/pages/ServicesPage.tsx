@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -8,6 +7,7 @@ import Footer from '@/components/Footer';
 import { useEffect, useState } from 'react';
 import { BaseCrudService } from '@/integrations';
 import { Services } from '@/entities';
+import { serviceUrl } from '@/lib/service-links';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -64,7 +64,7 @@ export default function ServicesPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <Link to={`/services/${service._id}`}>
+                <a href={serviceUrl(service._id)}>
                   <Card className="h-full bg-background border border-medium-grey/30 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
                     <CardContent className="p-8">
                       {service.serviceImage && (
@@ -85,7 +85,7 @@ export default function ServicesPage() {
                       </div>
                     </CardContent>
                   </Card>
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>
