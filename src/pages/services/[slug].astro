@@ -478,7 +478,7 @@ const jsonLd = {
                       </li>
                     ))}
                   </ul>
-                  <a href="#quote-form" class={`mt-auto font-heading text-center px-6 py-3 rounded-lg transition-all ${i === 0 ? "bg-primary hover:bg-primary/90 text-primary-foreground" : "bg-secondary hover:bg-secondary/90 text-white"}`}>Get My Flat-Rate Quote</a>
+                  <a href="#quote-form" data-plan-option={plan.formOption} class={`mt-auto font-heading text-center px-6 py-3 rounded-lg transition-all ${i === 0 ? "bg-primary hover:bg-primary/90 text-primary-foreground" : "bg-secondary hover:bg-secondary/90 text-white"}`}>Get My Flat-Rate Quote</a>
                 </div>
               ))}
             </div>
@@ -639,6 +639,22 @@ const jsonLd = {
     <div class="lg:hidden h-20"></div>
 
     <script>
+      // Plan cards auto-populate the service selection in the quote form
+      document.querySelectorAll<HTMLAnchorElement>("[data-plan-option]").forEach((planLink) => {
+        planLink.addEventListener("click", () => {
+          const option = planLink.dataset.planOption;
+          const select = document.getElementById("lead-timeline") as HTMLSelectElement | null;
+          if (!option || !select) return;
+          select.value = option;
+          select.dispatchEvent(new Event("change", { bubbles: true }));
+          const card = document.getElementById("quote-form");
+          if (card) {
+            card.classList.add("ring-4", "ring-primary", "ring-offset-2");
+            setTimeout(() => card.classList.remove("ring-4", "ring-primary", "ring-offset-2"), 1600);
+          }
+        });
+      });
+
       // Mobile hamburger menu
       const menuBtn = document.getElementById("mobile-menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");

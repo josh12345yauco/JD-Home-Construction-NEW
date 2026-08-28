@@ -67,6 +67,7 @@
     "plans": [
       {
         "name": "Seasonal Contract",
+        "formOption": "Seasonal Contract (whole winter)",
         "badge": "Best Value — Limited Route Spots",
         "description": "One flat rate covers the entire winter, unlimited storms. Seasonal clients are first on every route, every storm.",
         "features": [
@@ -79,6 +80,7 @@
       },
       {
         "name": "Per-Storm Service",
+        "formOption": "Per-Storm Service (automatic dispatch)",
         "badge": "Most Flexible",
         "description": "A flat rate per snowfall. We monitor the weather and dispatch automatically once accumulation hits 2 inches — you only pay when it actually snows.",
         "features": [
@@ -91,6 +93,7 @@
       },
       {
         "name": "One-Time Clearing",
+        "formOption": "One-Time Clearing (ASAP)",
         "badge": "On-Demand",
         "description": "Snowed in right now, or expecting guests? Book a single visit and we'll get you on the next available route.",
         "features": [
