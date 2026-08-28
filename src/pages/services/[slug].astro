@@ -130,6 +130,7 @@ const jsonLd = {
     <meta name="theme-color" content="#1A1A1A" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    {page.heroBackground && <link rel="preload" as="image" href={page.heroBackground} fetchpriority="high" />}
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="JD Home Construction" />
@@ -185,8 +186,14 @@ const jsonLd = {
 
     <main>
       <!-- Hero -->
-      <section class="w-full bg-secondary text-white pt-32 pb-16 lg:pb-24">
-        <div class="max-w-[100rem] mx-auto px-4 sm:px-8">
+      <section
+        class="relative w-full bg-secondary text-white pt-32 pb-16 lg:pb-24 bg-cover"
+        style={page.heroBackground ? `background-image: url('${page.heroBackground}'); background-position: center 65%;` : undefined}
+      >
+        {page.heroBackground && (
+          <div class="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-secondary/90" aria-hidden="true"></div>
+        )}
+        <div class="relative max-w-[100rem] mx-auto px-4 sm:px-8">
           <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div>
               <p class="font-heading text-accent-orange text-sm uppercase tracking-widest mb-4">
@@ -212,15 +219,17 @@ const jsonLd = {
                   class="font-heading text-lg bg-white hover:bg-white/90 text-secondary px-8 h-14 rounded-lg inline-flex items-center justify-center transition-all"
                 >{page.ctaLabel}</a>
               </div>
-              <img
-                src={page.heroImage}
-                alt={page.heroImageAlt}
-                width="1200"
-                height="675"
-                class="w-full h-64 sm:h-80 object-cover rounded-xl mt-10"
-                loading="eager"
-                fetchpriority="high"
-              />
+              {!page.heroBackground && (
+                <img
+                  src={page.heroImage}
+                  alt={page.heroImageAlt}
+                  width="1200"
+                  height="675"
+                  class="w-full h-64 sm:h-80 object-cover rounded-xl mt-10"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+              )}
             </div>
 
             <!-- Lead form -->
